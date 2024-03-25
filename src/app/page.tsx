@@ -1,8 +1,21 @@
-export default async function Home() {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+import Hero from "./homeSections/Hero";
+import Carrusel from "./homeSections/Carrusel";
+import Membresia from "./homeSections/Membresia";
+import Categoria from "./homeSections/Categoria";
+import Nosotros from "./homeSections/Nosotros";
+import Eventos from "./homeSections/Eventos";
+import Marca from "./homeSections/Marca";
+
+export default function Home() {
   return (
-    <div className="min-h-screen flex justify-center items-center">
-      <h1 className="text-5xl">pagina principal</h1>
+    <div className="min-h-screen flex justify-center items-center flex-col">
+      <Hero />
+      <Carrusel />
+      <Membresia />
+      <Categoria />
+      <Nosotros />
+      <Eventos />
+      <Marca />
     </div>
   );
 }
