@@ -1,16 +1,25 @@
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 
 type Props = {
   text: string;
   bgColor: string;
   textColor: string;
   icon?: StaticImageData;
+  link: string;
 };
 
-export default function BotonXS({ text, bgColor, textColor, icon }: Props) {
+export default function BotonXS({
+  text,
+  bgColor,
+  textColor,
+  icon,
+  link,
+}: Props) {
   return (
-    <div
-      className={`${bgColor} px-[13px] py-[5px] rounded-full justify-center items-center flex`}
+    <Link
+      href={link}
+      className={`${bgColor} px-[13px] py-[5px] rounded-full justify-center items-center flex w-max`}
     >
       {icon && (
         <Image
@@ -24,6 +33,6 @@ export default function BotonXS({ text, bgColor, textColor, icon }: Props) {
       <p className={`${textColor} text-[10px] font-semibold leading-[12px]`}>
         {text}
       </p>
-    </div>
+    </Link>
   );
 }

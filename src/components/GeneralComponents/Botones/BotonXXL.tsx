@@ -19,7 +19,7 @@ export default function BotonXXL({
   return (
     <Link
       href={link}
-      className={`${bgColor} px-[28px] py-[10px] rounded-full justify-center items-center flex`}
+      className={`${bgColor} px-[28px] py-[10px] rounded-full justify-center items-center flex w-max`}
     >
       {icon && (
         <Image
@@ -27,7 +27,7 @@ export default function BotonXXL({
           alt="icon"
           width={32}
           height={32}
-          className={`mr-[10px]`}
+          className="mr-[10px]"
         />
       )}
       <p className={`${textColor} text-[30px] font-semibold leading-[32px]`}>
