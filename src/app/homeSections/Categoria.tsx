@@ -15,7 +15,7 @@ export default function Categoria() {
           Todo esto <br />
           solo para vos
         </h2>
-        <div className="">
+        <div className="w-[248px]">
           <Image src={arrow} alt="arrow" />
           <Image src={arrow} alt="arrow" className="-translate-y-[70px]" />
         </div>

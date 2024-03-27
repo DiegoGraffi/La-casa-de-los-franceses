@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="w-[100%] lg:h-[842px] relative ">
+    <div className="w-[100%] lg:h-[842px] relative">
       <div className="z-10 container mx-auto flex">
-        <div className="">
+        <div>
           <Image
             src="/images/logoportada.png"
             alt="logo"
@@ -14,8 +14,10 @@ export default function Hero() {
             decoding="async"
             className="mt-[41px]"
           />
-          <h1 className="absolute w-[1260px] h-[348px] mt-[200px] font-vangeda text-[150px]/[117px] text-white">
-            Elegí el vino, nosotros te lo llevamos
+          <h1 className="absolute h-[348px] mt-[200px] font-vangeda text-[150px]/[117px] text-white">
+            Elegí el vino,
+            <br /> nosotros te lo
+            <br /> llevamos
           </h1>
         </div>
       </div>
@@ -37,7 +39,7 @@ export default function Hero() {
           quality={100}
           loading="eager"
           decoding="async"
-          className="object-cover -z-10"
+          className="object-cover -z-10 border-border-red-500"
           fill
         />
       </div>

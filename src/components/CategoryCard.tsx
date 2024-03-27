@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from "next/image";
-import vinoTinto from "../../public/images/vinoTintoCategory.png";
 import BotonXL from "./GeneralComponents/Botones/BotonXL";
+import catalogoIcon from "../../public/images/catalogoIcon.svg";
 
 type CategoryCardProps = {
   image: StaticImageData;
@@ -39,6 +39,7 @@ export default function CategoryCard({
           textColor="text-primarioClaro"
           bgColor="bg-secundarioPrincipal"
           link={link}
+          icon={catalogoIcon}
         />
       </div>
     </div>
