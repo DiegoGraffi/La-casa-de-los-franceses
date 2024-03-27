@@ -30,7 +30,7 @@ export default function BotonXS({
           className="mr-[5px]"
         />
       )}
-      <p className={`${textColor} text-[10px] font-semibold leading-[12px]`}>
+      <p className={`text-${textColor} text-[10px] font-semibold leading-[12px]`}>
         {text}
       </p>
     </Link>

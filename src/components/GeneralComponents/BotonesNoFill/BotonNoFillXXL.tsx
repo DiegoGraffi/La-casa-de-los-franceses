@@ -3,34 +3,34 @@ import Link from "next/link";
 
 type Props = {
   text: string;
-  bgColor: string;
   textColor: string;
+  borderColor: string;
   icon?: StaticImageData;
   link: string;
 };
 
-export default function BotonMD({
+export default function BotonNoFillXXL({
   text,
-  bgColor,
   textColor,
+  borderColor,
   icon,
   link,
 }: Props) {
   return (
     <Link
       href={link}
-      className={`${bgColor} px-[21px] py-[6px] rounded-full justify-center items-center flex w-max`}
+      className={`border border-solid border-${borderColor} px-[28px] py-[10px] rounded-full justify-center items-center flex w-max`}
     >
       {icon && (
         <Image
           src={icon}
           alt="icon"
-          width={22}
-          height={22}
+          width={32}
+          height={32}
           className="mr-[10px]"
         />
       )}
-      <p className={`text-${textColor} text-[14px] font-semibold leading-[22px]`}>
+      <p className={`text-${textColor} text-[30px] font-semibold leading-[32px]`}>
         {text}
       </p>
     </Link>

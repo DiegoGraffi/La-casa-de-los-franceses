@@ -30,7 +30,7 @@ export default function BotonSM({
           className="mr-[6px]"
         />
       )}
-      <p className={`${textColor} text-[12px] font-semibold leading-[16px]`}>
+      <p className={`text-${textColor} text-[12px] font-semibold leading-[16px]`}>
         {text}
       </p>
     </Link>

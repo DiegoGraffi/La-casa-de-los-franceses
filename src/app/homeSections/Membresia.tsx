@@ -1,4 +1,4 @@
-import BotonXL from "@/components/GeneralComponents/Botones/BotonXL";
+import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
 import Image from "next/image";
 import verifiedBadge from "../../../public/images/verifiedbadge.png"
 
@@ -30,7 +30,7 @@ export default function Membresia() {
           <br/>
           delicados, cada botella es un viaje en sí misma.
         </p>
-        <BotonXL text="Mirá nuestros planes" bgColor="bg-black" textColor="text-white" icon={verifiedBadge} link="/"/>
+        <BotonNoFillXL text="Mirá nuestros planes" textColor="primarioOscuro" borderColor="primarioOscuro" icon={verifiedBadge} link="/"/>
       </div>
     </div>
   );
