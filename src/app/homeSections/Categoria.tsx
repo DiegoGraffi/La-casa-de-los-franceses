@@ -9,7 +9,7 @@ import estrella from "../../../public/images/estrellaCategoria.svg";
 
 export default function Categoria() {
   return (
-    <div className="min-h-screen container mx-auto flex flex-col">
+    <div className="px-[40px] mx-auto flex flex-col pt-[140px] justify-center w-full max-w-[1530px]">
       <div className="flex justify-between">
         <h2 className="text-[150px] font-vangeda text-secundarioOscuro leading-[116px]">
           Todo esto <br />
@@ -20,7 +20,7 @@ export default function Categoria() {
           <Image src={arrow} alt="arrow" className="-translate-y-[70px]" />
         </div>
       </div>
-      <div className=" flex gap-x-[60px] mt-[136px] relative">
+      <div className=" flex gap-x-[60px] mt-[136px] relative self-center ">
         <div className="flex flex-col gap-[60px]">
           <CategoryCard
             title="Vinos Tintos"

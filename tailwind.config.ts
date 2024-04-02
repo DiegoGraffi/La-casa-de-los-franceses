@@ -16,6 +16,12 @@ const colors = {
     terciarioOscuro: "#511018",
     terciarioPrincipal: "#7D0A0A",
     terciarioClaro: "#BF3131",
+    gris1: "#36312F",
+    gris2: "#6C635D",
+    gris3: "#9E958F",
+    gris4: "#CDC8C5",
+    gris5: "#E6E4E2",
+    gris6: "#F3F1F0",
   },
 };
 
@@ -34,6 +40,7 @@ const config: Config = {
       },
       fontFamily: {
         vangeda: ["var(--font-vangeda)"],
+        bricolage: ["var(--font-bricolage)"],
       },
       colors: colors,
     },

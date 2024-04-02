@@ -30,7 +30,9 @@ export default function BotonXL({
           className="mr-[10px]"
         />
       )}
-      <p className={`text-${textColor} text-[18px] font-semibold leading-[24px]`}>
+      <p
+        className={`${textColor} text-[18px] font-semibold leading-[24px] font-bricolage`}
+      >
         {text}
       </p>
     </Link>

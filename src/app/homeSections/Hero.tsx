@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <div className="w-[100%] lg:h-[842px] relative">
-      <div className="z-10 container mx-auto flex">
+      <div className="z-10 max-w-[1530px] px-[40px] mx-auto flex">
         <div>
           <Image
             src="/images/logoportada.png"

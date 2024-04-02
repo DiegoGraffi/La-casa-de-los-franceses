@@ -31,12 +31,14 @@ export default function CategoryCard({
         <h3 className="text-[75px] font-vangeda text-secundarioOscuro">
           {title}
         </h3>
-        <p className="text-[28px] text-secundarioPrincipal">{description}</p>
+        <p className="text-[28px] text-secundarioPrincipal font-light font-bricolage">
+          {description}
+        </p>
       </div>
       <div className="py-[50px]">
         <BotonXL
           text={textButton}
-          textColor="text-primarioClaro"
+          textColor="text-primarioMuyClaro"
           bgColor="bg-secundarioPrincipal"
           link={link}
           icon={catalogoIcon}
