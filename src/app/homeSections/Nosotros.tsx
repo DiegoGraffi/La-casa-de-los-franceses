@@ -13,7 +13,7 @@ import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoF
 
 export default function Nosotros() {
   return (
-    <div className="w-full mx-auto flex justify-center items-center mt-[130px] relative group overflow-hidden">
+    <div className="w-full mx-auto flex justify-center items-center mt-[130px] relative group overflow-x-hidden">
       <div className="w-full h-full absolute z-50 flex gap-[130px] justify-center items-center">
         <div className="flex flex-col gap-[17px] flex-1 h-full w-full justify-center items-center -translate-x-[100%] opacity-0 group-hover:translate-x-[0%] group-hover:opacity-100 z-[1000] transition-all ease-in-out duration-[800ms] delay-700 ">
           <p className="font-vangeda text-[75px] leading-[80px] text-primarioMuyClaro z-20 text-left">

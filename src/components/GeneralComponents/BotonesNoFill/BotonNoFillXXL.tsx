@@ -3,23 +3,15 @@ import Link from "next/link";
 
 type Props = {
   text: string;
-  textColor: string;
-  borderColor: string;
   icon?: StaticImageData;
   link: string;
 };
 
-export default function BotonNoFillXXL({
-  text,
-  textColor,
-  borderColor,
-  icon,
-  link,
-}: Props) {
+export default function BotonNoFillXXL({ text, icon, link }: Props) {
   return (
     <Link
       href={link}
-      className={`border border-solid border-${borderColor} px-[28px] py-[10px] rounded-full justify-center items-center flex w-max`}
+      className={`border border-solid border-primarioOscuro px-[28px] py-[10px] rounded-full justify-center items-center flex w-max bg-transparent hover:bg-gradient-to-t from-primarioClaro to-transparent transition-all ease-out duration-300`}
     >
       {icon && (
         <Image
@@ -30,7 +22,9 @@ export default function BotonNoFillXXL({
           className="mr-[10px]"
         />
       )}
-      <p className={`text-${textColor} text-[30px] font-semibold leading-[32px]`}>
+      <p
+        className={`text-primarioOscuro text-[30px] font-semibold leading-[32px]`}
+      >
         {text}
       </p>
     </Link>

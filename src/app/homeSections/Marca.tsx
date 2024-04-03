@@ -4,6 +4,7 @@ import logo02 from "../../../public/images/marcas/Salentein.svg";
 import logo03 from "../../../public/images/marcas/Zuccardi.svg";
 import logo04 from "../../../public/images/marcas/Trapiche.svg";
 import Image from "next/image";
+import BotonNoFillXXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXXL";
 
 export default function Marca() {
   return (

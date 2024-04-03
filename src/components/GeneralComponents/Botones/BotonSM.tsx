@@ -3,23 +3,15 @@ import Link from "next/link";
 
 type Props = {
   text: string;
-  bgColor: string;
-  textColor: string;
   icon?: StaticImageData;
   link: string;
 };
 
-export default function BotonSM({
-  text,
-  bgColor,
-  textColor,
-  icon,
-  link,
-}: Props) {
+export default function BotonSM({ text, icon, link }: Props) {
   return (
     <Link
       href={link}
-      className={`${bgColor} px-[13px] py-[5px] rounded-full justify-center items-center flex w-max`}
+      className={`bg-primarioSemiOscuro hover:bg-primarioOscuro active:bg-primarioMuyOscuro disabled:bg-primarioClaro focus:border-2 focus:border-[#CB9A60] px-[13px] py-[5px] rounded-full justify-center items-center flex w-max transition-all ease-out duration-100`}
     >
       {icon && (
         <Image
@@ -30,7 +22,9 @@ export default function BotonSM({
           className="mr-[6px]"
         />
       )}
-      <p className={`text-${textColor} text-[12px] font-semibold leading-[16px]`}>
+      <p
+        className={`text-primarioMuyClaro disabled:bg-primarioPrincipal text-[12px] font-semibold leading-[16px]`}
+      >
         {text}
       </p>
     </Link>

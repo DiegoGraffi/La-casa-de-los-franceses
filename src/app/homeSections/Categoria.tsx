@@ -6,6 +6,9 @@ import carnes from "../../../public/images/carnesCategory.png";
 import arrow from "../../../public/images/arrow.svg";
 import Image from "next/image";
 import estrella from "../../../public/images/estrellaCategoria.svg";
+import BotonXS from "@/components/GeneralComponents/Botones/BotonXS";
+import Link from "next/link";
+import BotonSM from "@/components/GeneralComponents/Botones/BotonSM";
 
 export default function Categoria() {
   return (
