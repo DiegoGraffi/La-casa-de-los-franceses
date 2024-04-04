@@ -5,6 +5,7 @@ import logo03 from "../../../public/images/marcas/Zuccardi.svg";
 import logo04 from "../../../public/images/marcas/Trapiche.svg";
 import Image from "next/image";
 import BotonNoFillXXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXXL";
+import AnimatedArrows from "@/components/AnimatedArrows";
 
 export default function Marca() {
   return (
@@ -36,6 +37,7 @@ export default function Marca() {
           width={270}
         />
       </div>
+      <AnimatedArrows />
     </div>
   );
 }

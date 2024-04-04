@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.animate-out {
+  transition-delay: 0ms;
+  opacity: 0;
+}
+
+.animate-in {
+  transition-delay: 700ms;
+  opacity: 1;
+}
