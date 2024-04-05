@@ -17,7 +17,7 @@ export default function Nosotros() {
 
   return (
     <div
-      className="w-full mx-auto flex justify-center items-center mt-[130px] relative group overflow-x-hidden overflow-y-visible"
+      className="w-full mx-auto flex justify-center items-center mt-[130px] relative group"
       onMouseEnter={() => setGroupHover(true)}
       onMouseLeave={() => setGroupHover(false)}
     >
