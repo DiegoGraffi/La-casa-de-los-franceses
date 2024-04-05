@@ -33,6 +33,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        maxScreen: "1920px",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

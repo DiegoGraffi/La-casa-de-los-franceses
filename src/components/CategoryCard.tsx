@@ -36,11 +36,7 @@ export default function CategoryCard({
         </p>
       </div>
       <div className="py-[50px]">
-        <BotonXL
-          text={textButton}
-          link={link}
-          icon={catalogoIcon}
-        />
+        <BotonXL text={textButton} link={link} icon={catalogoIcon} />
       </div>
     </div>
   );
