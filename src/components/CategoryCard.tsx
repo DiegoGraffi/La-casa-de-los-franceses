@@ -38,8 +38,6 @@ export default function CategoryCard({
       <div className="py-[50px]">
         <BotonXL
           text={textButton}
-          textColor="text-primarioMuyClaro"
-          bgColor="bg-secundarioPrincipal"
           link={link}
           icon={catalogoIcon}
         />

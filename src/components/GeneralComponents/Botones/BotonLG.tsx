@@ -3,23 +3,19 @@ import Link from "next/link";
 
 type Props = {
   text: string;
-  bgColor: string;
-  textColor: string;
   icon?: StaticImageData;
   link: string;
 };
 
 export default function BotonLG({
   text,
-  bgColor,
-  textColor,
   icon,
   link,
 }: Props) {
   return (
     <Link
       href={link}
-      className={`${bgColor} px-[21px] py-[8px] rounded-full justify-center items-center flex w-max`}
+      className={`bg-primarioSemiOscuro hover:bg-primarioOscuro active:bg-primarioMuyOscuro disabled:bg-primarioClaro focus:border-2 focus:border-[#CB9A60] px-[21px] py-[8px] rounded-full justify-center items-center flex w-max transition-all ease-out duration-100`}
     >
       {icon && (
         <Image
@@ -30,7 +26,7 @@ export default function BotonLG({
           className="mr-[10px]"
         />
       )}
-      <p className={`text-${textColor} text-[16px] font-semibold leading-[25px]`}>
+      <p className={`text-primarioMuyClaro disabled:bg-primarioPrincipal text-[16px] font-semibold leading-[25px]`}>
         {text}
       </p>
     </Link>

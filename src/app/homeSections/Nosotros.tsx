@@ -34,17 +34,14 @@ export default function Nosotros() {
             </p>
             <div className="flex gap-[33px] w-full justify-center items-center">
               <BotonXL
-                bgColor="bg-primarioSemiOscuro"
                 link="#"
                 text="Ver carta"
-                textColor="text-primarioMuyClaro"
                 icon={wineIcon}
               />
 
               <BotonNoFillXL
                 link="#"
                 text="Ubicacion y mas..."
-                textColor="primarioMuyClaro"
                 icon={locationIcon}
               />
             </div>

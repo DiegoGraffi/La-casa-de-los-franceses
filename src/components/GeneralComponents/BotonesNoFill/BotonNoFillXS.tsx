@@ -3,34 +3,21 @@ import Link from "next/link";
 
 type Props = {
   text: string;
-  textColor: string;
-  borderColor: string;
   icon?: StaticImageData;
   link: string;
 };
 
-export default function BotonNoFillXS({
+export default function BotonNoFillLG({
   text,
-  textColor,
-  borderColor,
   icon,
   link,
 }: Props) {
   return (
-    <Link
-      href={link}
-      className={`bg-transparent border border-solid border-${borderColor} px-[13px] py-[5px] rounded-full justify-center items-center flex w-max`}
-    >
+    <Link href={link} className={`border border-solid border-primarioOscuro px-[13px] py-[5px] rounded-full justify-center items-center flex w-max bg-transparent hover:bg-gradient-to-t from-primarioClaro to-transparent active:bg-primarioClaro disabled:border-primarioMuyClaro transition-all ease-out duration-300`}>
       {icon && (
-        <Image
-          src={icon}
-          alt="icon"
-          width={12}
-          height={12}
-          className="mr-[5px]"
-        />
+        <Image src={icon} alt="icon" width={12} height={12} className="mr-[5px]" />
       )}
-      <p className={`text-${textColor} text-[10px] font-semibold leading-[12px]`}>
+      <p className={`text-primarioOscuro disabled:text-primarioClaro text-[10px] font-semibold leading-[12px]`}>
         {text}
       </p>
     </Link>

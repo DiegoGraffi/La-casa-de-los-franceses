@@ -3,23 +3,19 @@ import Link from "next/link";
 
 type Props = {
   text: string;
-  bgColor: string;
-  textColor: string;
   icon?: StaticImageData;
   link: string;
 };
 
 export default function BotonMD({
   text,
-  bgColor,
-  textColor,
   icon,
   link,
 }: Props) {
   return (
     <Link
       href={link}
-      className={`${bgColor} px-[21px] py-[6px] rounded-full justify-center items-center flex w-max`}
+      className={`bg-primarioSemiOscuro hover:bg-primarioOscuro active:bg-primarioMuyOscuro disabled:bg-primarioClaro focus:border-2 focus:border-[#CB9A60] px-[21px] py-[6px] rounded-full justify-center items-center flex w-max transition-all ease-out duration-100`}
     >
       {icon && (
         <Image
@@ -30,7 +26,7 @@ export default function BotonMD({
           className="mr-[10px]"
         />
       )}
-      <p className={`text-${textColor} text-[14px] font-semibold leading-[22px]`}>
+      <p className={`text-primarioMuyClaro disabled:bg-primarioPrincipal text-[14px] font-semibold leading-[22px]`}>
         {text}
       </p>
     </Link>

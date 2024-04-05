@@ -3,23 +3,19 @@ import Link from "next/link";
 
 type Props = {
   text: string;
-  bgColor: string;
-  textColor: string;
   icon?: StaticImageData;
   link: string;
 };
 
 export default function BotonXS({
   text,
-  bgColor,
-  textColor,
   icon,
   link,
 }: Props) {
   return (
     <Link
       href={link}
-      className={`${bgColor} px-[13px] py-[5px] rounded-full justify-center items-center flex w-max`}
+      className={`bg-primarioSemiOscuro hover:bg-primarioOscuro active:bg-primarioMuyOscuro disabled:bg-primarioClaro focus:border-2 focus:border-[#CB9A60]} px-[13px] py-[5px] rounded-full justify-center items-center flex w-max transition-all ease-out duration-100`}
     >
       {icon && (
         <Image
@@ -30,7 +26,7 @@ export default function BotonXS({
           className="mr-[5px]"
         />
       )}
-      <p className={`text-${textColor} text-[10px] font-semibold leading-[12px]`}>
+      <p className={`text-primarioMuyClaro disabled:bg-primarioPrincipal text-[10px] font-semibold leading-[12px]`}>
         {text}
       </p>
     </Link>

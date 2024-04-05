@@ -24,9 +24,7 @@ export default function ProductCard() {
       </div>
       <BotonNoFillLG
         text="Agregar al carrito"
-        borderColor="primarioOscuro"
         link="#"
-        textColor="primarioOscuro"
         icon={cartIcon}
       />
     </div>
