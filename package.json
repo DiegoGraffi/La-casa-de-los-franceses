@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "gql.tada": "^1.4.3",
-    "graphql": "^16.8.1",
     "lucide-react": "^0.360.0",
     "next": "14.1.4",
     "options": "^0.0.6",
