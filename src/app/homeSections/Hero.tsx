@@ -2,35 +2,22 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="w-[100%] lg:h-[842px] relative">
-      <div className="z-10 max-w-[1530px] px-[40px] mx-auto flex">
-        <div>
-          <Image
-            src="/images/logoportada.png"
-            alt="logo"
-            width={182}
-            height={148}
-            loading="eager"
-            decoding="async"
-            className="mt-[41px]"
-          />
-          <h1 className="absolute h-[348px] mt-[200px] font-vangeda text-[150px]/[117px] text-white">
-            Elegí el vino,
-            <br /> nosotros te lo
-            <br /> llevamos
-          </h1>
-        </div>
+    <div className="w-[100%] h-[750px] relative">
+      <div className="z-10 max-w-[1530px] px-[40px] mx-auto flex justify-center">
+        <h1 className="absolute mt-[200px] font-vangeda text-[55px]/[62px] text-primarioClaro text-center bottom-[75px]">
+          Elegí el vino, nosotros te lo llevamos
+        </h1>
       </div>
       <div className="h-full">
-        <div className="w-full h-full container mx-auto">
+        <div className="w-full h-full flex justify-center">
           <Image
             src="/images/estrella.png"
             alt="logo"
-            width={280}
-            height={280}
+            width={112}
+            height={112}
             loading="eager"
             decoding="async"
-            className="bottom-0 right-[20%] absolute translate-y-[50%]"
+            className="bottom-0 absolute translate-y-[50%]"
           />
         </div>
         <Image
@@ -39,7 +26,7 @@ export default function Hero() {
           quality={100}
           loading="eager"
           decoding="async"
-          className="object-cover -z-10 border-border-red-500"
+          className="object-cover -z-10"
           fill
         />
       </div>

@@ -17,7 +17,7 @@ export default function Nosotros() {
 
   return (
     <div
-      className="w-full mx-auto flex justify-center items-center mt-[130px] relative group"
+      className="w-full mx-auto flex justify-center items-center mt-[130px] relative group overflow-hidden"
       onMouseEnter={() => setGroupHover(true)}
       onMouseLeave={() => setGroupHover(false)}
     >
@@ -51,11 +51,7 @@ export default function Nosotros() {
               del vino con nosotros! ¡Te garantizamos momentos inolvidables!
             </p>
             <div className="flex gap-[33px] w-full justify-center items-center">
-              <BotonXL
-                link="#"
-                text="Ver carta"
-                icon={wineIcon}
-              />
+              <BotonXL link="#" text="Ver carta" icon={wineIcon} />
 
               <BotonNoFillXL
                 link="#"

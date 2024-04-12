@@ -5,6 +5,7 @@ import Categoria from "./homeSections/Categoria";
 import Nosotros from "./homeSections/Nosotros";
 import Eventos from "./homeSections/Eventos";
 import Marca from "./homeSections/Marca";
+import Productos from "./homeSections/Productos";
 
 export default function Home() {
   return (
@@ -14,8 +15,9 @@ export default function Home() {
       <Membresia />
       <Categoria />
       <Nosotros />
-      <Eventos />
-      <Marca />
+      {/* <Eventos /> */}
+      {/* <Marca /> */}
+      <Productos />
     </div>
   );
 }
