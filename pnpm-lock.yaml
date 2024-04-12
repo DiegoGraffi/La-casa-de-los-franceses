@@ -8,9 +8,6 @@ dependencies:
   gql.tada:
     specifier: ^1.4.3
     version: 1.4.3(graphql@16.8.1)(typescript@5.4.3)
-  graphql:
-    specifier: ^16.8.1
-    version: 16.8.1
   lucide-react:
     specifier: ^0.360.0
     version: 0.360.0(react@18.2.0)
