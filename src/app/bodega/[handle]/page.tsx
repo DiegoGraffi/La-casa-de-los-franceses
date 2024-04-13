@@ -1,8 +1,13 @@
 import { fetchGraphql, graphql } from "@/lib/graphql";
+import { notFound } from "next/navigation";
 
-export default function Bodega({ params }: { params: { handle: string } }) {
-  const query = graphql(
-    `
+export default async function Bodega({
+  params,
+}: {
+  params: { handle: string };
+}) {
+  const data = await fetchGraphql(
+    graphql(`
       query BodegaQuery($handle: String!) {
         collection(handle: $handle) {
           description
@@ -32,15 +37,21 @@ export default function Bodega({ params }: { params: { handle: string } }) {
           }
         }
       }
-    `,
+    `),
     {
       handle: params.handle,
     }
   );
 
+  const collection = data.collection;
+
+  if (!collection) {
+    notFound();
+  }
+
   return (
     <div className="min-h-screen flex justify-center items-center">
-      <h1 className="text-5xl">pagina Bodega {params.handle}</h1>
+      <h1 className="text-5xl">pagina Bodega {collection.title}</h1>
     </div>
   );
 }

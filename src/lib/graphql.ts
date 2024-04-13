@@ -4,7 +4,14 @@ import type { introspection } from "../../graphql-env";
 
 const SHOPIFY_GRAPHQL_API_ENDPOINT = "/api/2023-01/graphql.json";
 
-const domain = process.env.SHOPIFY_STORE_DOMAIN;
+const ensureStartsWith = (stringToCheck: string, startsWith: string) =>
+  stringToCheck.startsWith(startsWith)
+    ? stringToCheck
+    : `${startsWith}${stringToCheck}`;
+
+const domain = process.env.SHOPIFY_STORE_DOMAIN
+  ? ensureStartsWith(process.env.SHOPIFY_STORE_DOMAIN, "https://")
+  : "";
 const endpoint = `${domain}${SHOPIFY_GRAPHQL_API_ENDPOINT}`;
 const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 
