@@ -5,28 +5,25 @@ import vino from "../../public/images/vinoImagenProducto.png";
 
 export default function ProductCard() {
   return (
-    <div className="p-[30px] flex flex-col justify-center items-center hover:bg-gris6 rounded-tl-[5px] rounded-tr-[25px] rounded-bl-[25px] rounded-br-[5px] w-[358px] h-[534px] transition-all ease-out duration-300">
-      <div className="p-2 h-[252px] w-[252px] flex justify-center items-center relative">
+    <div className="p-[30px] flex flex-col justify-center items-center hover:bg-gris6 rounded-tl-[5px] rounded-tr-[25px] rounded-bl-[25px] rounded-br-[5px] w-full  transition-all ease-out duration-300">
+      <div className="p-2 flex justify-center items-center relative">
         <Image
           src={vino}
           alt="imagen producto"
-          fill
+          width={150}
+          height={150}
           className="object-contain"
         />
       </div>
       <div className="flex flex-col gap-[20px] justify-center items-center mt-[20px] mb-[12px]">
-        <p className="uppercase font-light text-[24px] text-gris2 leading-[24px] text-center">
+        <p className="uppercase font-light text-[20px] text-gris2 leading-[24px] text-center">
           Achaval ferrer cabernet franc
         </p>
-        <p className="font-bricolage font-semibold text-[32px] leading-[38px] text-center">
+        <p className="font-bricolage font-semibold text-[28px] leading-[34px] text-center text-gris2">
           $18.500
         </p>
       </div>
-      <BotonNoFillLG
-        text="Agregar al carrito"
-        link="#"
-        icon={cartIcon}
-      />
+      <BotonNoFillLG text="Agregar al carrito" link="#" icon={cartIcon} />
     </div>
   );
 }

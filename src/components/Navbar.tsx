@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <div className="bg-white w-full p-4 absolute">
+    <div className="bg-white w-full p-4 absolute border">
       <div className="container mx-auto flex justify-between items-center py-[5px]">
         <Image
           src={logo}
