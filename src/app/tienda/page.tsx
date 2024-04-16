@@ -2,8 +2,30 @@ import Image from "next/image";
 import arrow from "../../../public/images/tiendaPage/accordionArrow.svg";
 import divider from "../../../public/images/tiendaPage/divider.svg";
 import ProductCard from "@/components/ProductCard";
+import { fetchGraphql, graphql } from "@/lib/graphql";
 
-export default function Tienda() {
+export default async function Tienda() {
+  const query = graphql(`
+    query Productos {
+      products(first: 20) {
+        nodes {
+          title
+          priceRange {
+            maxVariantPrice {
+              amount
+            }
+          }
+          featuredImage {
+            url
+          }
+        }
+      }
+    }
+  `);
+
+  const data = await fetchGraphql(query, {});
+  const products = data.products.nodes;
+
   return (
     <div className="min-h-screen flex flex-col pt-[122px]">
       <div className="w-full h-[250px] flex justify-center items-center bg-terciarioPrincipal">
@@ -12,18 +34,18 @@ export default function Tienda() {
         </p>
       </div>
       <div className="mt-[100px] w-full container mx-auto flex flex-col gap-[30px]">
-        <div className="flex justify-between items-center">
-          <div className="flex gap-[50px] items-center">
+        <div className="flex justify-between items-center gap-[50px]">
+          <div className="flex gap-[50px] items-center w-[60%] ">
             <p className="uppercase text-gris2 font-semibold text-[24px]/[38px] font-bricolage">
               Buscar
             </p>
             <input
               type="text"
               placeholder="Ingrese nombre producto"
-              className="rounded-[10px] border w-[500px] h-[50px] px-3"
+              className="rounded-[10px] border w-full max-w-[500px] h-[50px] px-3"
             />
           </div>
-          <div className="flex gap-[40px] items-center">
+          <div className="flex gap-[40px] justify-end items-center w-[40%]">
             <p className="uppercase text-gris4 font-semibold text-[18px]/[28px] font-bricolage">
               Mostrando 17 resultados
             </p>
@@ -118,14 +140,16 @@ export default function Tienda() {
           </div>
           <div className="w-[80%] flex flex-col">
             <div className="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-[25px] gap-[10px]">
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
+              {products.map((product, index) => {
+                return (
+                  <ProductCard
+                    image={product.featuredImage?.url}
+                    price={product.priceRange.maxVariantPrice.amount}
+                    title={product.title}
+                    key={index}
+                  />
+                );
+              })}
             </div>
 
             <div className="flex flex-col gap-[25px] justify-center items-center my-[25px]">

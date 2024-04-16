@@ -1,4 +1,3 @@
-import { UserRound, Search, Store } from "lucide-react";
 import Image from "next/image";
 import logo from "../../public/images/logo.svg";
 import Link from "next/link";
@@ -13,10 +12,11 @@ export default function Navbar() {
           className="h-[80px] object-contain"
         />
         <ul className="flex gap-5 font-light">
-          <Link href={"#"} className="group px-[25px] py-[10px]">
+          <Link href="/tienda" className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro">Tienda</p>
             <hr className="w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
+
           <Link href={"#"} className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro">Nosotros</p>
             <hr className="w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />

@@ -12,15 +12,11 @@ export default async function Productos() {
   `);
 
   const data = await fetchGraphql(query, {});
-  console.log(data.products);
+  console.log("ESTO VIENE DE LA PAGINA DE PRUEBA ", data.products);
 
   return (
     <div className="container mx-auto p-5 grid grid-cols-4">
       <p>dfuhgdgdfj</p>
     </div>
   );
-}
-
-export function ProductoCard() {
-  return <div>Este es un producto</div>;
 }
