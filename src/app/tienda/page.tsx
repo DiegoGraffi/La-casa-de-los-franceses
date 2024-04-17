@@ -3,6 +3,7 @@ import arrow from "../../../public/images/tiendaPage/accordionArrow.svg";
 import divider from "../../../public/images/tiendaPage/divider.svg";
 import ProductCard from "@/components/ProductCard";
 import { fetchGraphql, graphql } from "@/lib/graphql";
+import AccordionComponent from "@/components/TiendaComponents/AccordionComponent";
 
 export default async function Tienda() {
   const query = graphql(`
@@ -25,6 +26,7 @@ export default async function Tienda() {
 
   const data = await fetchGraphql(query, {});
   const products = data.products.nodes;
+  const items = data.products.nodes.length;
 
   return (
     <div className="min-h-screen flex flex-col pt-[122px]">
@@ -33,7 +35,7 @@ export default async function Tienda() {
           ¿Estas listo?
         </p>
       </div>
-      <div className="mt-[100px] w-full container mx-auto flex flex-col gap-[30px]">
+      <div className="mt-[100px] w-full container mx-auto flex flex-col gap-[30px] border border-red-500">
         <div className="flex justify-between items-center gap-[50px]">
           <div className="flex gap-[50px] items-center w-[60%] ">
             <p className="uppercase text-gris2 font-semibold text-[24px]/[38px] font-bricolage">
@@ -47,7 +49,7 @@ export default async function Tienda() {
           </div>
           <div className="flex gap-[40px] justify-end items-center w-[40%]">
             <p className="uppercase text-gris4 font-semibold text-[18px]/[28px] font-bricolage">
-              Mostrando 17 resultados
+              Mostrando {items} resultados
             </p>
             <p className="uppercase text-gris3 font-semibold text-[18px]/[28px] font-bricolage">
               ordenar por
@@ -55,7 +57,8 @@ export default async function Tienda() {
           </div>
         </div>
         <div className="flex">
-          <div className="w-[20%] h-max border-r-primarioMuyOscuro border-r p-[25px]">
+          <div className="w-[20%] h-max border border-r-primarioMuyOscuro border-r py-[25px] ">
+            <AccordionComponent />
             <ul className="flex flex-col ">
               <li className="flex flex-col gap-[18px] pt-[18px]">
                 <div className="flex justify-between">
