@@ -2,10 +2,32 @@ import Image from "next/image";
 import arrow from "../../../public/images/tiendaPage/accordionArrow.svg";
 import divider from "../../../public/images/tiendaPage/divider.svg";
 import ProductCard from "@/components/ProductCard";
-import { fetchGraphql, graphql } from "@/lib/graphql";
+import { fetchGraphql, graphql } from "../../../lib/graphql";
 import AccordionComponent from "@/components/TiendaComponents/AccordionComponent";
+import Search from "@/components/GeneralComponents/search";
+import { sorting } from "../../../lib/constants";
+import { getCollectionProducts } from "../../../lib/shopify";
 
-export default async function Tienda() {
+export const runtime = "edge";
+
+export const metadata = {
+  title: "Tienda",
+  description: "Search for products in the store.",
+};
+
+export default async function Tienda({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}) {
+  const { sort, q: searchValue } = searchParams as { [key: string]: string };
+  const { sortKey, reverse } =
+    sorting.find((item) => item.slug === sort) || defaultSort;
+  const products = await getCollectionProducts({
+    collection: params.collection,
+    sortKey,
+    reverse,
+  });
   const query = graphql(`
     query Productos {
       products(first: 20) {
@@ -25,7 +47,6 @@ export default async function Tienda() {
   `);
 
   const data = await fetchGraphql(query, {});
-  const products = data.products.nodes;
   const items = data.products.nodes.length;
 
   return (
@@ -41,11 +62,7 @@ export default async function Tienda() {
             <p className="uppercase text-gris2 font-semibold text-[24px]/[38px] font-bricolage">
               Buscar
             </p>
-            <input
-              type="text"
-              placeholder="Ingrese nombre producto"
-              className="rounded-[10px] border w-full max-w-[500px] h-[50px] px-3"
-            />
+            <Search />
           </div>
           <div className="flex gap-[40px] justify-end items-center w-[40%]">
             <p className="uppercase text-gris4 font-semibold text-[18px]/[28px] font-bricolage">
