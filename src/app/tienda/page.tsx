@@ -1,12 +1,8 @@
-import Image from "next/image";
-import arrow from "../../../public/images/tiendaPage/accordionArrow.svg";
-import divider from "../../../public/images/tiendaPage/divider.svg";
 import ProductCard from "@/components/ProductCard";
-import { fetchGraphql, graphql } from "../../../lib/graphql";
-import AccordionComponent from "@/components/TiendaComponents/AccordionComponent";
+import { fetchGraphql, graphql } from "@/lib/graphql";
 import Search from "@/components/GeneralComponents/search";
-import { sorting } from "../../../lib/constants";
-import { getCollectionProducts } from "../../../lib/shopify";
+import { Suspense } from "react";
+import { Sidebar } from "./Sidebar";
 
 export const runtime = "edge";
 
@@ -20,17 +16,20 @@ export default async function Tienda({
 }: {
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  const { sort, q: searchValue } = searchParams as { [key: string]: string };
-  const { sortKey, reverse } =
-    sorting.find((item) => item.slug === sort) || defaultSort;
-  const products = await getCollectionProducts({
-    collection: params.collection,
-    sortKey,
-    reverse,
-  });
+  const { q: searchValue } = searchParams as { [key: string]: string };
+
   const query = graphql(`
-    query Productos {
-      products(first: 20) {
+    query ProductosTienda(
+      $sortKey: ProductSortKeys
+      $reverse: Boolean
+      $query: String
+    ) {
+      products(
+        sortKey: $sortKey
+        reverse: $reverse
+        query: $query
+        first: 100
+      ) {
         nodes {
           title
           priceRange {
@@ -46,8 +45,11 @@ export default async function Tienda({
     }
   `);
 
-  const data = await fetchGraphql(query, {});
-  const items = data.products.nodes.length;
+  const data = await fetchGraphql(query, {
+    query: searchValue,
+  });
+
+  const products = data.products.nodes;
 
   return (
     <div className="min-h-screen flex flex-col pt-[122px]">
@@ -62,11 +64,13 @@ export default async function Tienda({
             <p className="uppercase text-gris2 font-semibold text-[24px]/[38px] font-bricolage">
               Buscar
             </p>
-            <Search />
+            <Suspense fallback={null}>
+              <Search />
+            </Suspense>
           </div>
           <div className="flex gap-[40px] justify-end items-center w-[40%]">
             <p className="uppercase text-gris4 font-semibold text-[18px]/[28px] font-bricolage">
-              Mostrando {items} resultados
+              Mostrando 5 resultados
             </p>
             <p className="uppercase text-gris3 font-semibold text-[18px]/[28px] font-bricolage">
               ordenar por
@@ -74,90 +78,9 @@ export default async function Tienda({
           </div>
         </div>
         <div className="flex">
-          <div className="w-[20%] h-max border border-r-primarioMuyOscuro border-r py-[25px] ">
-            <AccordionComponent />
-            <ul className="flex flex-col ">
-              <li className="flex flex-col gap-[18px] pt-[18px]">
-                <div className="flex justify-between">
-                  <p className="uppercase text-primarioMuyOscuro font-light text-[20px]/[38px]">
-                    Categoria
-                  </p>
-                  <Image
-                    src={arrow}
-                    alt="arrow"
-                    height={20}
-                    className="object-contain"
-                  />
-                </div>
-                <Image
-                  src={divider}
-                  alt="divider"
-                  className="w-full"
-                  height={2}
-                />
-              </li>
-
-              <li className="flex flex-col gap-[18px] pt-[18px]">
-                <div className="flex justify-between">
-                  <p className="uppercase text-primarioMuyOscuro font-light text-[20px]/[38px]">
-                    Categoria
-                  </p>
-                  <Image
-                    src={arrow}
-                    alt="arrow"
-                    height={20}
-                    className="object-contain"
-                  />
-                </div>
-                <Image
-                  src={divider}
-                  alt="divider"
-                  className="w-full"
-                  height={2}
-                />
-              </li>
-
-              <li className="flex flex-col gap-[18px] pt-[18px]">
-                <div className="flex justify-between">
-                  <p className="uppercase text-primarioMuyOscuro font-light text-[20px]/[38px]">
-                    Categoria
-                  </p>
-                  <Image
-                    src={arrow}
-                    alt="arrow"
-                    height={20}
-                    className="object-contain"
-                  />
-                </div>
-                <Image
-                  src={divider}
-                  alt="divider"
-                  className="w-full"
-                  height={2}
-                />
-              </li>
-
-              <li className="flex flex-col gap-[18px] pt-[18px]">
-                <div className="flex justify-between">
-                  <p className="uppercase text-primarioMuyOscuro font-light text-[20px]/[38px]">
-                    Categoria
-                  </p>
-                  <Image
-                    src={arrow}
-                    alt="arrow"
-                    height={20}
-                    className="object-contain"
-                  />
-                </div>
-                <Image
-                  src={divider}
-                  alt="divider"
-                  className="w-full"
-                  height={2}
-                />
-              </li>
-            </ul>
-          </div>
+          <Suspense fallback={null}>
+            <Sidebar />
+          </Suspense>
           <div className="w-[80%] flex flex-col">
             <div className="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-[25px] gap-[10px]">
               {products.map((product, index) => {
