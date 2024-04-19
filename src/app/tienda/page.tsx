@@ -58,7 +58,7 @@ export default async function Tienda({
           ¿Estas listo?
         </p>
       </div>
-      <div className="mt-[100px] w-full container mx-auto flex flex-col gap-[30px] border border-red-500">
+      <div className="mt-[100px] w-full container mx-auto flex flex-col gap-[30px] ">
         <div className="flex justify-between items-center gap-[50px]">
           <div className="flex gap-[50px] items-center w-[60%] ">
             <p className="uppercase text-gris2 font-semibold text-[24px]/[38px] font-bricolage">
