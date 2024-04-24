@@ -81,3 +81,15 @@
 .AccordionTrigger[data-state="open"] > .AccordionChevron {
   transform: rotate(-90deg);
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+.touch-disabled {
+  pointer-events: none;
+}

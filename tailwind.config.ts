@@ -52,6 +52,10 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        mouseSlider: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(170%)" },
+        },
       },
       fontFamily: {
         vangeda: ["var(--font-vangeda)"],
@@ -60,6 +64,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "mouse-slider": "mouseSlider 5s ease-in-out infinite",
       },
       colors: {
         border: "hsl(var(--border))",
