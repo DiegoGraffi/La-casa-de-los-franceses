@@ -23,9 +23,6 @@ dependencies:
   graphql:
     specifier: ^16.8.1
     version: 16.8.1
-  isotope-masonry-horizontal:
-    specifier: ^2.0.1
-    version: 2.0.1
   lucide-react:
     specifier: ^0.360.0
     version: 0.360.0(react@18.2.0)
@@ -44,15 +41,9 @@ dependencies:
   react-dom:
     specifier: ^18
     version: 18.2.0(react@18.2.0)
-  react-draggable:
-    specifier: ^4.4.6
-    version: 4.4.6(react-dom@18.2.0)(react@18.2.0)
-  react-masonry-css:
-    specifier: ^1.0.16
-    version: 1.0.16(react@18.2.0)
-  react-responsive-masonry:
-    specifier: ^2.2.0
-    version: 2.2.0
+  react-indiana-drag-scroll:
+    specifier: 3.0.3-alpha
+    version: 3.0.3-alpha(react-dom@18.2.0)(react@18.2.0)
   tailwind-merge:
     specifier: ^2.3.0
     version: 2.3.0
@@ -703,11 +694,6 @@ packages:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
     dev: false
 
-  /clsx@1.2.1:
-    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
-    engines: {node: '>=6'}
-    dev: false
-
   /clsx@2.0.0:
     resolution: {integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==}
     engines: {node: '>=6'}
@@ -747,10 +733,6 @@ packages:
   /csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
-  /desandro-matches-selector@2.0.2:
-    resolution: {integrity: sha512-+1q0nXhdzg1IpIJdMKalUwvvskeKnYyEe3shPRwedNcWtnhEKT3ZxvFjzywHDeGcKViIxTCAoOYQWP1qD7VNyg==}
-    dev: false
-
   /didyoumean@1.2.2:
     resolution: {integrity: sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==}
 
@@ -775,10 +757,6 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /ev-emitter@1.1.1:
-    resolution: {integrity: sha512-ipiDYhdQSCZ4hSbX4rMW+XzNKMD1prg/sTvoVmSLkuQ1MVlwjJQQA+sW8tMYR3BLUr9KjodFV4pvzunvRhd33Q==}
-    dev: false
-
   /fast-glob@3.3.2:
     resolution: {integrity: sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==}
     engines: {node: '>=8.6.0'}
@@ -800,12 +778,6 @@ packages:
     dependencies:
       to-regex-range: 5.0.1
 
-  /fizzy-ui-utils@2.0.7:
-    resolution: {integrity: sha512-CZXDVXQ1If3/r8s0T+v+qVeMshhfcuq0rqIFgJnrtd+Bu8GmDmqMjntjUePypVtjHXKJ6V4sw9zeyox34n9aCg==}
-    dependencies:
-      desandro-matches-selector: 2.0.2
-    dev: false
-
   /foreground-child@3.1.1:
     resolution: {integrity: sha512-TMKDUnIte6bfb5nWv7V/caI169OHgvwjb7V4WkeUvbQQdjr5rWKqHFiKWb/fcOwB+CzBT+qbWjvj+DVwRskpIg==}
     engines: {node: '>=14'}
@@ -826,10 +798,6 @@ packages:
 
   /function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
-
-  /get-size@2.0.3:
-    resolution: {integrity: sha512-lXNzT/h/dTjTxRbm9BXb+SGxxzkm97h/PCIKtlN/CBCxxmkkIVV21udumMS93MuVTDX583gqc94v3RjuHmI+2Q==}
-    dev: false
 
   /glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
@@ -914,23 +882,6 @@ packages:
   /isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
 
-  /isotope-layout@3.0.6:
-    resolution: {integrity: sha512-z2ZKablhocXhoNyWwzJPFd7u7FWbYbVJA51Nvsqsod8jH2ExGc1SwDsSWKE54e3PhXzqf2yZPhFSq/c2MR1arw==}
-    dependencies:
-      desandro-matches-selector: 2.0.2
-      fizzy-ui-utils: 2.0.7
-      get-size: 2.0.3
-      masonry-layout: 4.2.2
-      outlayer: 2.1.1
-    dev: false
-
-  /isotope-masonry-horizontal@2.0.1:
-    resolution: {integrity: sha512-H0sDZQ2D5VZ37ALb04hII0JAoDqVZ3ewbgiHbGBqrVMwBrEeJ0ZldB9hzbeeRQhHeEPWNV3p5xuLVd2pOEnMMA==}
-    dependencies:
-      get-size: 2.0.3
-      isotope-layout: 3.0.6
-    dev: false
-
   /jackspeak@2.3.6:
     resolution: {integrity: sha512-N3yCS/NegsOBokc8GAdM8UcmfsKiSS8cipheD/nivzr700H+nsMOxJjQnvwOcRYVuFkdH0wGUvW2WbXGmrZGbQ==}
     engines: {node: '>=14'}
@@ -975,13 +926,6 @@ packages:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
-    dev: false
-
-  /masonry-layout@4.2.2:
-    resolution: {integrity: sha512-iGtAlrpHNyxaR19CvKC3npnEcAwszXoyJiI8ARV2ePi7fmYhIud25MHK8Zx4P0LCC4d3TNO9+rFa1KoK1OEOaA==}
-    dependencies:
-      get-size: 2.0.3
-      outlayer: 2.1.1
     dev: false
 
   /merge2@1.4.1:
@@ -1097,14 +1041,6 @@ packages:
     engines: {node: '>=0.4.0'}
     dev: false
 
-  /outlayer@2.1.1:
-    resolution: {integrity: sha512-+GplXsCQ3VrbGujAeHEzP9SXsBmJxzn/YdDSQZL0xqBmAWBmortu2Y9Gwdp9J0bgDQ8/YNIPMoBM13nTwZfAhw==}
-    dependencies:
-      ev-emitter: 1.1.1
-      fizzy-ui-utils: 2.0.7
-      get-size: 2.0.3
-    dev: false
-
   /path-key@3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}
     engines: {node: '>=8'}
@@ -1206,14 +1142,6 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.2.0
 
-  /prop-types@15.8.1:
-    resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
-    dependencies:
-      loose-envify: 1.4.0
-      object-assign: 4.1.1
-      react-is: 16.13.1
-    dev: false
-
   /queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
@@ -1236,32 +1164,15 @@ packages:
       scheduler: 0.23.0
     dev: false
 
-  /react-draggable@4.4.6(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-LtY5Xw1zTPqHkVmtM3X8MUOxNDOUhv/khTgBgrUvwaS064bwVvxT+q5El0uUFNx5IEPKXuRejr7UqLwBIg5pdw==}
+  /react-indiana-drag-scroll@3.0.3-alpha(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Bo8Ium/CGs0oIYzk4wVDphuhrf2QRvLKTLO/+21M+czF1EQEII4w1UqoFs4lIGd84YpVL8UDXIcy2m9yzsFuRQ==}
+    engines: {node: '>=8', npm: '>=5'}
     peerDependencies:
-      react: '>= 16.3.0'
-      react-dom: '>= 16.3.0'
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      clsx: 1.2.1
-      prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /react-is@16.13.1:
-    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
-    dev: false
-
-  /react-masonry-css@1.0.16(react@18.2.0):
-    resolution: {integrity: sha512-KSW0hR2VQmltt/qAa3eXOctQDyOu7+ZBevtKgpNDSzT7k5LA/0XntNa9z9HKCdz3QlxmJHglTZ18e4sX4V8zZQ==}
-    peerDependencies:
-      react: '>=16.0.0'
-    dependencies:
-      react: 18.2.0
-    dev: false
-
-  /react-responsive-masonry@2.2.0:
-    resolution: {integrity: sha512-IYbnfe2tWCZ3pvyTLyBWPj7uv5ZmNOULYMcAZi5a47ZLhSotOck1vkkISq6gP2qiyWdMvPfeMhjvYzUYGw9BOQ==}
     dev: false
 
   /react@18.2.0:

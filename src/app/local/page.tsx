@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Draggable from "react-draggable";
 import heroImg from "../../../public/images/local/heroImg.png";
 import estrella from "../../../public/images/local/estrella.svg";
 import menu from "../../../public/images/local/menu.png";
@@ -21,6 +20,9 @@ import foto08 from "../../../public/images/local/foto08.png";
 import foto09 from "../../../public/images/local/foto09.png";
 import foto10 from "../../../public/images/local/foto10.png";
 import foto11 from "../../../public/images/local/foto11.png";
+import { ScrollContainer } from "react-indiana-drag-scroll";
+import "react-indiana-drag-scroll/dist/style.css";
+import { useScrollContainer } from "react-indiana-drag-scroll";
 
 const eventos = [
   {
@@ -143,6 +145,10 @@ const photos = [
 ];
 
 export default function Local() {
+  const firstRow = photos.slice(0, Math.ceil(photos.length / 2));
+  const secondRow = photos.slice(Math.ceil(photos.length / 2));
+  const scrollContainer = useScrollContainer();
+
   return (
     <div className="min-h-screen flex flex-col items-center">
       <section className="w-full h-[620px] relative flex justify-center">
@@ -197,20 +203,11 @@ export default function Local() {
           </h4>
 
           <div className="w-screen h-auto">
-            <div className="flex max-w-[1600px] mx-auto space-x-3 overflow-x-scroll scrollbar-hide px-[10%] md:px-[45%] cursor-grab relative h-auto">
+            <div className="flex max-w-[1600px] mx-auto space-x-3 overflow-x-scroll scrollbar-hide   cursor-grab relative h-auto">
               <div className="h-full hidden md:flex w-[300px] bg-gradient-to-r from-terciarioClaro to-transparent absolute z-50 touch-disabled left-0"></div>
               <div className="h-full hidden md:flex w-[300px] bg-gradient-to-l from-terciarioClaro to-transparent absolute top-0 right-0 z-50 touch-disabled"></div>
-              <Draggable
-                axis="x"
-                grid={[5, 5]}
-                scale={0.8}
-                handle=".handle"
-                defaultPosition={{ x: 0, y: 0 }}
-                onStart={(e, data) => console.log("Start", e, data)}
-                onDrag={(e, data) => console.log("Drag", e, data)}
-                onStop={(e, data) => console.log("Stop", e, data)}
-              >
-                <div className="w-full relative flex space-x-5 md:space-x-10 items-center handle py-2">
+              <ScrollContainer>
+                <div className="w-max relative flex space-x-5 md:space-x-10 items-center py-4 md:px-[45%]">
                   {eventos.map((evento, index) => {
                     return (
                       <EventoCard
@@ -222,7 +219,7 @@ export default function Local() {
                     );
                   })}
                 </div>
-              </Draggable>
+              </ScrollContainer>
             </div>
           </div>
 
@@ -251,7 +248,7 @@ export default function Local() {
         </p>
       </section>
 
-      <section className="py-[70px] w-full flex flex-col gap-[60px] items-center">
+      <section className="py-[70px] w-full flex flex-col gap-[60px] items-center overflow-hidden">
         <div className="max-w-[1600px] px-[100px] w-full flex justify-between items-center mx-auto">
           <p className="text-terciarioPrincipal font-vangeda text-[55px]/[62px]">
             Fotos de la casa
@@ -261,20 +258,51 @@ export default function Local() {
           </p>
         </div>
 
-        <div className="h-[500px] w-max border grid grid-rows-2 grid-cols-10 overflow-hidden">
-          {photos.map((photo, index) => {
-            return (
-              <div className="w-[100px] h-[250px] relative" key={index}>
-                <Image
-                  src={photo.src}
-                  alt="Foto"
-                  fill
-                  className="object-cover w-[100%]"
-                />
+        <div className="w-screen h-auto">
+          <div className="flex max-w-[1600px] mx-auto space-x-3 overflow-x-scroll scrollbar-hide cursor-grab relative h-auto">
+            <div className="h-full hidden md:flex w-[300px] bg-gradient-to-r from-white to-transparent absolute z-50 touch-disabled left-0"></div>
+            <div className="h-full hidden md:flex w-[300px] bg-gradient-to-l from-white to-transparent absolute top-0 right-0 z-50 touch-disabled"></div>
+            <ScrollContainer>
+              <div className="w-max flex flex-col gap-[10px] left-0 px-[15%]">
+                <div className="flex gap-[10px] w-full">
+                  {firstRow.map((photo, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="w-[200px] h-[200px] relative grid grid-rows-2 overflow-hidden"
+                      >
+                        <Image
+                          src={photo.src}
+                          alt="photo"
+                          fill
+                          className="object-cover hover:scale-110 transition-all ease-in-out duration-200"
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="flex gap-[10px]">
+                  {secondRow.map((photo, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="w-[200px] h-[200px] relative grid grid-rows-2 overflow-hidden"
+                      >
+                        <Image
+                          src={photo.src}
+                          alt="photo"
+                          fill
+                          className="object-cover hover:scale-110 transition-all ease-in-out duration-200"
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            );
-          })}
+            </ScrollContainer>
+          </div>
         </div>
+
         <div className="flex flex-col gap-[10px] justify-center">
           <div className="flex items-center w-[80px]">
             <Image
@@ -289,7 +317,7 @@ export default function Local() {
         </div>
       </section>
 
-      <section className="w-full py-[60px]">
+      <section className="w-full py-[60px] px-[100px]">
         <div className="group h-[420px] max-w-[1600px] w-full px-[100px] rounded-tr-[45px] rounded-bl-[75px] relative mx-auto overflow-hidden">
           <div className="w-full h-full px-[100] flex flex-col justify-center absolute z-[100] group-hover:hidden">
             <p className="font-vangeda text-[55px]/[62px] text-terciarioPrincipal">
@@ -300,12 +328,12 @@ export default function Local() {
               Te lo llevamos a tu casa.
             </p>
           </div>
-          <div className="w-full h-full hidden justify-center items-center absolute z-[100] group-hover:flex left-0">
+          <div className="w-full h-full hidden justify-center items-center absolute z-[100] group-hover:flex left-0 transition-all ease-in-out duration-200">
             <p className="font-vangeda text-[55px]/[62px] text-terciarioPrincipal">
               Ver tienda online
             </p>
           </div>
-          <div className="group-hover:bg-[#96AC60] absolute w-full h-full bg-gradient-to-r from-[#96AC60] from-[27%] to-transparent z-30 left-0"></div>
+          <div className="group-hover:bg-[#96AC60] absolute w-full h-full bg-gradient-to-r from-[#96AC60] from-[27%] to-transparent z-30 left-0 transition-all ease-in-out duration-200"></div>
           <Image src={wines} alt="wines" fill className="object-cover" />
         </div>
       </section>

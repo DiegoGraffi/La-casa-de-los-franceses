@@ -10,7 +10,7 @@ export default function EventoCard({
   description,
 }: EventoCardProps) {
   return (
-    <div className="flex flex-none flex-col py-[50px] px-[15px] bg-white shadow-md rounded-[23px] w-[250px] h-max hover:bg-gris5 transition-all ease-in-out duration-200 hover:scale-105">
+    <div className="flex flex-none flex-col py-[50px] px-[15px] bg-white shadow-md shadow-terciarioOscuro shadow- rounded-[23px] w-[250px] h-max hover:bg-gris5 transition-all ease-in-out duration-200 hover:scale-105">
       <p className="text-secundarioPrincipal font-bricolage text-[28px]/[34px] font-semibold text-center">
         {date}
       </p>
