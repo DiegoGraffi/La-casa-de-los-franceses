@@ -50,6 +50,7 @@ export default async function Tienda({
   });
 
   const products = data.products.nodes;
+  console.log(products);
 
   return (
     <div className="min-h-screen flex flex-col pt-[122px]">

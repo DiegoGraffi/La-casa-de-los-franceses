@@ -6,11 +6,13 @@ export default function Navbar() {
   return (
     <div className="bg-white w-full px-4 h-[120px] flex absolute border z-50">
       <div className="container mx-auto flex justify-between items-center py-[5px]">
-        <Image
-          src={logo}
-          alt="Logo La Casa de los Franceses"
-          className="h-[80px] object-contain"
-        />
+        <Link href="/">
+          <Image
+            src={logo}
+            alt="Logo La Casa de los Franceses"
+            className="h-[80px] object-contain"
+          />
+        </Link>
         <ul className="flex gap-5 font-light">
           <Link href="/tienda" className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro">Tienda</p>
@@ -25,7 +27,7 @@ export default function Navbar() {
             <p className="uppercase text-secundarioOscuro">Membresia</p>
             <hr className="w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
-          <Link href={"#"} className="group px-[25px] py-[10px]">
+          <Link href={"/local"} className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro">Local</p>
             <hr className="w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
