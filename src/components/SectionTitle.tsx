@@ -8,10 +8,10 @@ type TitleProps = {
 export default function SectionTitle({ title }: TitleProps) {
   return (
     <div className="flex flex-col justify-center items-center gap-[17px]">
-      <p className="font-bricolage uppercase text-primarioOscuro font-light text-[40px]">
+      <p className="font-bricolage uppercase text-primarioOscuro font-light text-[32px]/[38px]">
         {title}
       </p>
-      <Image src={sectionLine} alt="line" width={860} />
+      <Image src={sectionLine} alt="line" width={650} />
     </div>
   );
 }
