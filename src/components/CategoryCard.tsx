@@ -8,6 +8,8 @@ type CategoryCardProps = {
   description: string;
   textButton: string;
   link: string;
+  color?: string;
+  reverse: boolean;
 };
 
 export default function CategoryCard({
@@ -16,10 +18,16 @@ export default function CategoryCard({
   description,
   textButton,
   link,
+  reverse,
+  color,
 }: CategoryCardProps) {
   return (
-    <div className="max-w-[735px] ">
-      <div className="max-h-[735px] max-w-[735px] aspect-square relative">
+    <div
+      className={`group w-full flex h-[425px] ${
+        reverse ? "flex-row-reverse" : "flex-row"
+      } `}
+    >
+      <div className="max-h-[425px] flex-1 relative basis-1/2">
         <Image
           src={image}
           alt="imagen categoria"
@@ -27,16 +35,30 @@ export default function CategoryCard({
           className="object-cover"
         />
       </div>
-      <div className="mt-[70px]">
-        <h3 className="text-[75px] font-vangeda text-secundarioOscuro">
+      <div className="flex-1 flex flex-col px-[60px] gap-[4px] basis-1/2 justify-center group-hover:bg-gris6 transition-all ease-in-out duration-200">
+        <h3
+          className={`text-[55px]/[62px] font-vangeda ${
+            reverse ? "text-terciarioPrincipal" : "text-secundarioOscuro"
+          }`}
+        >
           {title}
         </h3>
-        <p className="text-[28px] text-secundarioPrincipal font-light font-bricolage">
+        <p
+          className={`text-[20px]/[25px] ${
+            reverse ? "text-terciarioClaro" : "text-secundarioPrincipal"
+          }  font-light font-bricolage`}
+        >
           {description}
         </p>
-      </div>
-      <div className="py-[50px]">
-        <BotonXL text={textButton} link={link} icon={catalogoIcon} />
+
+        <div className="py-[25px]">
+          <BotonXL
+            text={textButton}
+            link={link}
+            icon={catalogoIcon}
+            color={color}
+          />
+        </div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <div className="w-[100%] h-[750px] relative">
-      <div className="z-10 max-w-[1530px] px-[40px] mx-auto flex justify-center">
+      <div className="z-10 max-w-[1600px] px-[40px] mx-auto flex justify-center">
         <h1 className="absolute mt-[200px] font-vangeda text-[55px]/[62px] text-primarioClaro text-center bottom-[75px]">
           Elegí el vino, nosotros te lo llevamos
         </h1>

@@ -7,17 +7,24 @@ type Props = {
   link: string;
 };
 
-export default function BotonNoFillLG({
-  text,
-  icon,
-  link,
-}: Props) {
+export default function BotonNoFillMD({ text, icon, link }: Props) {
   return (
-    <Link href={link} className={`border border-solid border-primarioOscuro px-[21px] py-[6px] rounded-full justify-center items-center flex w-max bg-transparent hover:bg-gradient-to-t from-primarioClaro to-transparent active:bg-primarioClaro disabled:border-primarioMuyClaro transition-all ease-out duration-300`}>
+    <Link
+      href={link}
+      className={`group border border-solid border-primarioOscuro px-[21px] py-[6px] rounded-full justify-center items-center flex w-max bg-transparent hover:bg-primarioOscuro active:bg-primarioClaro disabled:border-primarioMuyClaro disabled:bg-transparent transition-all ease-out duration-300 focus:bg-primarioClaro `}
+    >
       {icon && (
-        <Image src={icon} alt="icon" width={22} height={22} className="mr-[10px]" />
+        <Image
+          src={icon}
+          alt="icon"
+          width={22}
+          height={22}
+          className="mr-[10px]"
+        />
       )}
-      <p className={`text-primarioOscuro disabled:text-primarioClaro text-[14px] font-semibold leading-[25px]`}>
+      <p
+        className={`text-primarioOscuro group-hover:text-primarioClaro group-disabled:text-primarioClaro group-active:text-primarioOscuro group-focus:text-primarioOscuro text-[14px] font-bricolage font-semibold leading-[22px] transition-all ease-out duration-300`}
+      >
         {text}
       </p>
     </Link>

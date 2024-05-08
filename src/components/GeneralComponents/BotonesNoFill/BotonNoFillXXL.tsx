@@ -7,7 +7,7 @@ type Props = {
   link: string;
 };
 
-export default function BotonNoFillLG({ text, icon, link }: Props) {
+export default function BotonNoFillXXL({ text, icon, link }: Props) {
   return (
     <Link
       href={link}

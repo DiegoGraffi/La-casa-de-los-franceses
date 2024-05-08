@@ -23,7 +23,7 @@ export default function Navbar() {
             <p className="uppercase text-secundarioOscuro">Nosotros</p>
             <hr className="w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
-          <Link href={"#"} className="group px-[25px] py-[10px]">
+          <Link href={"/membresia"} className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro">Membresia</p>
             <hr className="w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>

@@ -16,8 +16,6 @@ export default function ProductCard({ image, title, price }: ProductCardProps) {
         <Image
           src={image!}
           alt="imagen producto"
-          width={150}
-          height={150}
           className="object-contain h-[150px] w-[150px] p-2"
         />
       </div>

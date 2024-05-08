@@ -3,14 +3,29 @@ import SectionTitle from "@/components/SectionTitle";
 
 export default function Carrusel() {
   return (
-    <div className="min-h-screen container mx-auto flex flex-col gap-[100px] justify-center items-center overflow-hidden">
+    <div className="max-h-[1600px] py-[90px] mx-auto flex flex-col gap-[40px] justify-center items-center overflow-hidden">
       <SectionTitle title="Selección del mes" />
       <div className="flex gap-[30px]">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        <ProductCard
+          price="300"
+          title="Un vinito"
+          image={require("../../../public/images/vinoImagenProducto.png")}
+        />
+        <ProductCard
+          price="300"
+          title="Un vinito"
+          image={require("../../../public/images/vinoImagenProducto.png")}
+        />
+        <ProductCard
+          price="300"
+          title="Un vinito"
+          image={require("../../../public/images/vinoImagenProducto.png")}
+        />
+        <ProductCard
+          price="300"
+          title="Un vinito"
+          image={require("../../../public/images/vinoImagenProducto.png")}
+        />
       </div>
     </div>
   );

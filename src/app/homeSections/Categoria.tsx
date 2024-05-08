@@ -1,65 +1,53 @@
 import CategoryCard from "@/components/CategoryCard";
-import vinosTintos from "../../../public/images/vinoTintoCategory.png";
-import vinosBlancos from "../../../public/images/vinoBlancoCategory.png";
-import vinosEspumantes from "../../../public/images/vinoEspumanteCategory.png";
-import carnes from "../../../public/images/carnesCategory.png";
-import arrow from "../../../public/images/arrow.svg";
-import Image from "next/image";
-import estrella from "../../../public/images/estrellaCategoria.svg";
-import BotonXS from "@/components/GeneralComponents/Botones/BotonXS";
-import Link from "next/link";
-import BotonSM from "@/components/GeneralComponents/Botones/BotonSM";
+import vinos from "../../../public/images/inicio/vinos.png";
+import carnes from "../../../public/images/inicio/carnes.png";
+import champagnes from "../../../public/images/inicio/champagnes.png";
+import especiales from "../../../public/images/inicio/especiales.png";
+import SectionTitle from "@/components/SectionTitle";
 
 export default function Categoria() {
   return (
-    <div className="px-[40px] mx-auto flex flex-col pt-[140px] justify-center w-full max-w-[1530px]">
-      <div className="flex justify-between">
-        <h2 className="text-[150px] font-vangeda text-secundarioOscuro leading-[116px]">
-          Todo esto <br />
-          solo para vos
-        </h2>
-        <div className="w-[248px]">
-          <Image src={arrow} alt="arrow" />
-          <Image src={arrow} alt="arrow" className="-translate-y-[70px]" />
-        </div>
-      </div>
-      <div className=" flex gap-x-[60px] mt-[136px] relative self-center ">
-        <div className="flex flex-col gap-[60px]">
+    <div className="px-[100px] mx-auto flex flex-col justify-center w-full max-w-[1600px] gap-[90px]">
+      <SectionTitle title="Todo lo que tenemos para vos" />
+      <div className="flex gap-x-[60px] relative self-center ">
+        <div className="flex flex-col">
           <CategoryCard
-            title="Vinos Tintos"
-            textButton="Catálogo de tintos"
-            description="¡Che, date una vuelta por nuestro catálogo de tintos y descubrí lo que te estás perdiendo! ¡No te lo podés perder!"
-            image={vinosTintos}
+            title="Vinos"
+            textButton="Catálogo de vinos"
+            description="¡¡Che, date una vuelta por nuestro catálogo de tintos y descubrí lo que te estás perdiendo! ¡No te lo podés perder!"
+            image={vinos}
             link="#"
-          />
-
-          <CategoryCard
-            title="Vinos Espumantes"
-            textButton="Catálogo de espumantes"
-            description="¡Ey, no te pierdas nuestra selección de espumantes que te va a dejar sin aliento! ¡Son puro sabor y burbujas de felicidad! ¡Animate a descubrir la magia de nuestros espumantes y brindá con estilo!"
-            image={vinosEspumantes}
-            link="#"
-          />
-        </div>
-        <div className="absolute w-full flex flex-col items-center gap-[970px] mt-[335px] z-[60]">
-          <Image src={estrella} alt="estrella" width={254} height={254} />
-          <Image src={estrella} alt="estrella" width={254} height={254} />
-        </div>
-        <div className="flex flex-col gap-[60px] mt-[270px]">
-          <CategoryCard
-            title="Vinos Blancos"
-            textButton="Catálogo de blancos"
-            description="¡Ey, no te olvides de echarle un vistazo a nuestra selección de blancos! Vas a alucinar con lo que tenemos para ofrecerte. ¡Animate a descubrir la frescura y la sofisticación de nuestros blancos!"
-            image={vinosBlancos}
-            link="#"
+            reverse={false}
+            color="verde"
           />
 
           <CategoryCard
             title="Carnes"
             textButton="Catálogo de carnes"
-            description="¡Conoce nuestras carnes argentinas y preparate para un festín inolvidable! Tenemos cortes que te van a hacer agua la boca, directo del corazón de Argentina. ¡No te podés perder el sabor auténtico de nuestras carnes! ¡Animate a disfrutar de un asado como nunca antes!"
+            description="¡Ey, no te pierdas nuestra selección de espumantes que te va a dejar sin aliento! ¡Son puro sabor y burbujas de felicidad! ¡Animate a descubrir la magia de nuestros espumantes y brindá con estilo!"
             image={carnes}
             link="#"
+            reverse={true}
+            color="rojo"
+          />
+          <CategoryCard
+            title="Champagne y espirituosos"
+            textButton="Catálogo completo"
+            description="¡Che, date una vuelta por nuestro catálogo de tintos y descubrí lo que te estás perdiendo! ¡No te lo podés perder!"
+            image={champagnes}
+            link="#"
+            reverse={false}
+            color="verde"
+          />
+
+          <CategoryCard
+            title="Especiales"
+            textButton="Catálogo de especiales"
+            description="¡Ey, no te pierdas nuestra selección de espumantes que te va a dejar sin aliento! ¡Son puro sabor y burbujas de felicidad! ¡Animate a descubrir la magia de nuestros espumantes y brindá con estilo!"
+            image={especiales}
+            link="#"
+            reverse={true}
+            color="rojo"
           />
         </div>
       </div>

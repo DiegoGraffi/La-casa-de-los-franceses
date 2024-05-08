@@ -12,11 +12,11 @@ export default function Home() {
     <div className="min-h-screen flex justify-center items-center flex-col ">
       <Hero />
       <Carrusel />
-      <Membresia />
       <Categoria />
+      <Membresia />
       <Nosotros />
-      {/* <Eventos /> */}
-      {/* <Marca /> */}
+      <Eventos />
+      <Marca />
     </div>
   );
 }
