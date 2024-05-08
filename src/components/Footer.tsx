@@ -18,10 +18,10 @@ import FooterItem from "./FooterItem";
 export default function Footer() {
   return (
     <div className="bg-terciarioClaro w-full py-[70px]">
-      <div className="container mx-auto flex gap-[100px]">
-        <div className="flex flex-col gap-[60px]">
+      <div className="container mx-auto flex flex-col lg:flex-row gap-[50px] lg:gap-[100px]">
+        <div className="flex items-center flex-col gap-[60px]">
           <Image src={logo} alt="logo" width={150} className="object-contain" />
-          <div>
+          <div className="w-[90%] md:w-full">
             <ul>
               <li>
                 <FooterItem icon={pinIcon} label="Ubicación" />
@@ -41,16 +41,16 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-[100px]">
-          <div className="col-span-1 flex flex-col gap-[25px]">
-            <div className="flex justify-between">
-              <p className="text-primarioMuyClaro font-bricolage font-semibold text-[28px]/[34px]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-[50px] lg:gap-[100px]">
+          <div className="col-span-1 flex flex-col gap-[25px] justify-center lg:justify-start">
+            <div className="flex justify-center md:justify-between w-full">
+              <p className="text-primarioMuyClaro font-bricolage font-semibold text-[28px]/[34px] text-center md:text-start">
                 Contacto
               </p>
-              <Image src={arrow} alt="arrow" />
+              <Image src={arrow} alt="arrow" className="hidden lg:flex"/>
             </div>
 
-            <ul>
+            <ul className="w-[90%] md:w-full mx-auto">
               <li>
                 <FooterItem icon={phoneIcon} label="+54 9 2645 13-9725" />
               </li>
@@ -64,11 +64,11 @@ export default function Footer() {
           </div>
 
           <div className="col-span-2 flex flex-col gap-[25px]">
-            <p className="text-primarioMuyClaro font-bricolage font-semibold text-[28px]/[34px]">
+            <p className="text-primarioMuyClaro font-bricolage font-semibold text-[28px]/[34px] text-center md:text-start">
               Varios
             </p>
-            <div className="grid grid-cols-2">
-              <ul>
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              <ul className="w-[90%] md:w-full mx-auto">
                 <li>
                   <FooterItem
                     icon={questionIcon}
@@ -89,7 +89,7 @@ export default function Footer() {
                 </li>
               </ul>
 
-              <ul>
+              <ul className="w-[90%] md:w-full mx-auto">
                 <li>
                   <FooterItem
                     icon={shopIcon}
