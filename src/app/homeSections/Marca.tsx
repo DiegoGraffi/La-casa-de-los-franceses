@@ -16,7 +16,7 @@ const slides = [
 
 export default function Marca() {
   return (
-    <div className="max-w-[1920px] mx-auto flex justify-center items-center flex-col pb-[160px]">
+    <div className="max-w-[1600px] w-full overflow-hidden mx-auto flex justify-center items-center flex-col pb-[50] lg:pb-[110px] mt-[25px] md:mt-[50px] lg:mt-[110px]">
       <SectionTitle title="nuestra familia" />
       <div className="h-[300px]">
         <Marquee gradient pauseOnHover={false} className="overflow-hidden grid">
