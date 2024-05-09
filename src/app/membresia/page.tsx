@@ -155,9 +155,6 @@ function Membresia() {
         </div>
       </section>
       <section>
-        <div>
-          <CartComponent/>
-        </div>
       </section>
         {/* <div className="w-full flex align-center justify-center mt-[50px]">
           <div className="relative h-[418px] w-[1551px] rounded-tr-[55px] rounded-bl-[55px] overflow-hidden flex items-center justify-center"
