@@ -8,15 +8,18 @@ import estrella from "../../../public/images/estrellaNosotros.svg";
 import nosotrosLine from "../../../public/images/nosotrosLine.svg";
 import wineIcon from "../../../public/images/wineIcon.svg";
 import locationIcon from "../../../public/images/locationIcon.svg";
+import bookIcon from "../../../public/images/inicio/bookIcon.svg";
 import BotonXL from "@/components/GeneralComponents/Botones/BotonXL";
 import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
 import Lottie from "lottie-react";
 import FlechaIzq from "../../../public/animations/inicio/FlechaIzq.json";
+import BotonMD from "@/components/GeneralComponents/Botones/BotonMD";
+import BotonLG from "@/components/GeneralComponents/Botones/BotonLG";
 
 export default function Nosotros() {
   return (
-    <div className="group w-full mt-[110px] max-h-[580px] h-full relative flex justify-center">
-      <div className="w-full container mx-auto absolute z-[100]">
+    <div className="group w-full mt-[25px] md:mt-[50px] lg:mt-[110px] max-h-[580px] h-full relative flex flex-col lg:flex-row justify-center">
+      <div className="w-full container mx-auto absolute z-[100] hidden lg:flex">
         <div className="h-[130px] -translate-y-[50%] w-[130px] relative left-[80%] origin-center">
           <Image
             src={estrella}
@@ -26,7 +29,7 @@ export default function Nosotros() {
           />
         </div>
       </div>
-      <div className="w-full h-full absolute z-50 overflow-x-hidden flex justify-center">
+      <div className="w-full h-full absolute z-50 overflow-x-hidden hidden lg:flex justify-center">
         <div className="w-full h-full absolute container overflow-hidden">
           <div className="w-[50%] flex flex-col justify-center gap-[15px] h-full z-[150] absolute left-0 px-[60px] -translate-x-[100%] opacity-0 group-hover:-translate-x-0 group-hover:opacity-100 transition-all ease-[cubic-bezier(0,0.96,1,1)] duration-700">
             <p className="text-[55px]/[62px] font-vangeda text-primarioClaro">
@@ -60,7 +63,7 @@ export default function Nosotros() {
         </div>
         <div className="bg-secundarioOscuro w-full h-full absolute z-50 translate-x-[100%] group-hover:translate-x-[0%] transition-all ease-[cubic-bezier(0.76, 0.01, 1, 1.02)] duration-500"></div>
       </div>
-      <div className="absolute z-20 flex flex-row justify-center items-center gap-[50px] w-full h-full">
+      <div className="absolute z-20 hidden lg:flex flex-row justify-center items-center gap-[50px] w-full h-full">
         <div className="relative w-[77px]">
           <Lottie animationData={FlechaIzq} />
         </div>
@@ -72,14 +75,39 @@ export default function Nosotros() {
           <Lottie animationData={FlechaIzq} />
         </div>
       </div>
-      <div className="bg-[#492415] opacity-50 absolute w-full h-full z-10"></div>
-      <div className="w-full h-[580px] relative">
+      <div className="bg-[#492415] hidden lg:flex opacity-50 absolute w-full h-full z-10"></div>
+      <div className="w-full h-[270px] md:h-[450px] lg:h-[580px] relative">
         <Image
           src={portada}
           alt="Portada Nuestra Casa"
           fill
           className="object-cover"
         />
+      </div>
+      <div className="lg:hidden flex flex-col gap-[30px] py-[60px]">
+        <p className="text-[40px]/[39px] md:text-[55px]/[62px] font-vangeda text-terciarioPrincipal text-center">
+          Conocé
+          <br />
+          nuestra casa
+        </p>
+        <div className="w-full flex gap-[30px] justify-center md:hidden">
+          <BotonLG link="#" color="verde" text="Ver carta" icon={bookIcon} />
+          <BotonLG
+            link="#"
+            color="verde"
+            text="Ubicación"
+            icon={locationIcon}
+          />
+        </div>
+        <div className="w-full md:flex gap-[30px] justify-center hidden">
+          <BotonXL link="#" color="verde" text="Ver carta" icon={bookIcon} />
+          <BotonXL
+            link="#"
+            color="verde"
+            text="Ubicación"
+            icon={locationIcon}
+          />
+        </div>
       </div>
     </div>
   );

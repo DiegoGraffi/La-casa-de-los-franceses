@@ -7,9 +7,14 @@ import SectionTitle from "@/components/SectionTitle";
 
 export default function Categoria() {
   return (
-    <div className="px-[15px] lg:px-[100px] mx-auto flex flex-col justify-center w-full max-w-[1600px] gap-[90px]">
-      <SectionTitle title="Todo lo que tenemos para vos" />
-      <div className="flex gap-x-[60px] relative self-center ">
+    <div className="px-[15px] lg:px-[100px] mx-auto flex flex-col justify-center w-full max-w-[1600px] gap-[50px]mt-[25px] md:mt-[50px] lg:mt-[110px]">
+      <div className="hidden lg:flex justify-center">
+        <SectionTitle title="Todo lo que tenemos para vos" />
+      </div>
+      <div className="lg:hidden flex justify-center">
+        <SectionTitle title="Todo lo que" title2="tenemos para vos" />
+      </div>
+      <div className="flex gap-x-[60px] relative self-center mt-[50px]">
         <div className="flex flex-col gap-[25px] lg:gap-0">
           <CategoryCard
             title="Vinos"

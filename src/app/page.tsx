@@ -9,14 +9,14 @@ import Productos from "./homeSections/Productos";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex justify-center items-center flex-col ">
+    <div className="min-h-screen flex justify-center items-center flex-col overflow-x-hidden">
       <Hero />
-      {/* <Carrusel /> */}
+      <Carrusel />
       <Categoria />
-      {/* <Membresia /> */}
-      {/* <Nosotros /> */}
-      {/* <Eventos /> */}
-      {/* <Marca /> */}
+      <Membresia />
+      <Nosotros />
+      <Eventos />
+      <Marca />
     </div>
   );
 }

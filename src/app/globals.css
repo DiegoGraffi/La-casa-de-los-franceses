@@ -93,3 +93,29 @@
 .touch-disabled {
   pointer-events: none;
 }
+
+.menuDesktopAnimationOpen {
+  animation: slideDown 0.5s ease-in-out;
+}
+
+.menuDesktopAnimationClose {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
