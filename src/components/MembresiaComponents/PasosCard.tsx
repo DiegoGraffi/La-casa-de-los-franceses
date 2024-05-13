@@ -16,14 +16,14 @@ function PasosCard({
 }: PasosCardProps) {
     return (
         <div className='w-[250px] text-center p-2 h-min flex flex-col gap-4'>
-            <h3 className='font-bricolage text-[28px] leading-[34px] text-secundarioClaro'>{title}</h3>
+            <h3 className='font-bricolage text-[28px]/[34px] text-secundarioClaro'>{title}</h3>
             <div className='relative flex justify-center items-center h-[52px]'>
                 <Image src={image} alt={title} width={52} height={52} className="z-0" />
-                <div className='font-bold font-bricolage text-secundarioClaro text-[28px] leading-[34px] absolute z-10'>
+                <div className='font-bold font-bricolage text-secundarioClaro text-[28px]/[34px] absolute z-10'>
                     {number}
                 </div>
             </div>
-            <p className='font-bricolage text-[14px] leading-[20px] text-secundarioClaro text-justify'>{description}</p>
+            <p className='font-bricolage text-[14px]/[20px] text-secundarioClaro text-justify'>{description}</p>
         </div>
     );
 }

@@ -1,22 +1,27 @@
+"use client";
+
 import Image from "next/image";
 import ProductoImg from "../../../../public/images/vinoImagenProducto.png";
 import BotonNoFillMD from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillMD";
 import CartIcon from "../../../../public/images/productDetail/cartIcon.svg";
 import ProductCard from "@/components/ProductCard";
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  ButtonBack,
-  ButtonNext,
-} from "pure-react-carousel";
+
 import "pure-react-carousel/dist/react-carousel.es.css";
+import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
+import InnerImageZoom from "react-inner-image-zoom";
+import Imagen from "../../../../public/images/nosotros/profile1.jpg";
+import BotonXL from "@/components/GeneralComponents/Botones/BotonXL";
+import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
 
 export default function Producto({ params }: { params: { slug: string } }) {
   return (
     <div className="pt-[220px] py-[100px] flex flex-col gap-[150px] justify-center items-center">
-      <section className="flex max-w-[1600px] px-[200px] gap-[80px]">
-        <div className="w-[500px] aspect-square relative">
+      <section className="flex max-w-[1600px] px-[200px] gap-[80px] w-screen">
+        <div className="w-[500px] h-[500px] aspect-square relative">
+          {/* <InnerImageZoom
+            src="../../../../public/images/nosotros/profile1.jpg"
+            zoomSrc={require("../../../../public/images/nosotros/profile1.jpg")}
+          /> */}
           <Image src={ProductoImg} alt="vino" fill className="object-contain" />
         </div>
         <div className="flex flex-col gap-[20px]">
@@ -64,10 +69,13 @@ export default function Producto({ params }: { params: { slug: string } }) {
                 </p>
               </button>
             </div>
-            <button className="border rounded-full bg-terciarioPrincipal">
-              Añadir al carrito
-            </button>
-            <BotonNoFillMD text="Ver mas" link="#" />
+            <BotonXL
+              link="#"
+              color="rojo"
+              text="Añadir al carrito"
+              icon={CartIcon}
+            />
+            <BotonNoFillXL text="Ver mas" link="#" />
           </div>
         </div>
       </section>

@@ -203,11 +203,11 @@ export default function Local() {
           </h4>
 
           <div className="w-screen h-auto">
-            <div className="flex max-w-[1600px] mx-auto space-x-3 overflow-x-scroll scrollbar-hide   cursor-grab relative h-auto">
-              <div className="h-full hidden md:flex w-[300px] bg-gradient-to-r from-terciarioClaro to-transparent absolute z-50 touch-disabled left-0"></div>
-              <div className="h-full hidden md:flex w-[300px] bg-gradient-to-l from-terciarioClaro to-transparent absolute top-0 right-0 z-50 touch-disabled"></div>
-              <ScrollContainer>
-                <div className="w-max relative flex space-x-5 md:space-x-10 items-center py-4 md:px-[45%]">
+            <div className="flex max-w-[1600px] mx-auto space-x-3 overflow-x-scroll scrollbar-hide cursor-grab relative h-auto left-0">
+              <div className="h-full hidden md:flex w-[300px] bg-gradient-to-r from-terciarioClaro to-transparent absolute z-50 touch-disabled left-0 border"></div>
+              <div className="h-full hidden md:flex w-[300px] bg-gradient-to-l from-terciarioClaro to-transparent absolute top-0 right-0 z-50 border touch-disabled"></div>
+              <ScrollContainer className="w-[100%] border-4 left-0 border-yellow-300">
+                <div className="w-max relative flex space-x-5 md:space-x-10 items-center py-4 md:px-[45%] border border-blue-500">
                   {eventos.map((evento, index) => {
                     return (
                       <EventoCard

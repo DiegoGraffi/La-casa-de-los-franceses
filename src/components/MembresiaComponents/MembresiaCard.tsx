@@ -16,14 +16,13 @@ function MembresiaCard({
   precio,
 }: MembresiaCardProps) {
   return (
-    <div className="flex flex-col justify-center items-center hover:bg-gris6 rounded-tl-3xl rounded-br-3xl w-[384px]">
-      <div className="mt-[21px] flex justify-center items-center relative w-[304px] h-[150px] rounded-tl-3xl rounded-br-3xl overflow-hidden mb-[21px]">
+    <div className="flex flex-col items-center hover:bg-gris6 rounded-tl-3xl rounded-br-3xl flex-1 p-[25px] max-w-[350px] h-auto">
+      <div className="flex justify-center items-center relative w-full h-[150px] rounded-tl-3xl rounded-br-3xl overflow-hidden mb-[21px]">
         {image && (
           <Image
             src={image}
             alt="imagen producto"
-            width={304}
-            height={150}
+            fill
             className="object-cover w-full h-full rounded-tl-2xl rounded-br-2xl"
           />
         )}
@@ -37,17 +36,19 @@ function MembresiaCard({
         width={316}
         height={0}
       />
-      <div className="flex flex-col gap-5 justify-center items-center mb-[29px] mt-[10px]">
-        <div className="mb-[15px]">
-          <p className="font-bricolage font-light text-[16px] text-gris3 text-center leading-[24px]">
+      <div className="flex flex-col justify-between items-center mt-[10px]h-max grow">
+        <div>
+          <p className="font-bricolage font-light text-[16px]/[24px] text-gris3 text-center">
             {description}
           </p>
         </div>
-        <p className="font-bricolage font-semibold text-[48px] text-gris2 text-center leading-[28px] mb-[25px]">
-          ${precio}
-          <span className="font-light text-[24px] text-gris3">/mes</span>
-        </p>
-        <BotonLG text="Comprar ahora" link="#" />
+        <div className="flex flex-col gap-[25px] mt-[20px]">
+          <p className="font-bricolage font-semibold text-[48px] text-gris2 text-center leading-[28px]">
+            ${precio}
+            <span className="font-light text-[24px] text-gris3">/mes</span>
+          </p>
+          <BotonLG text="Comprar ahora" link="#" />
+        </div>
       </div>
     </div>
   );

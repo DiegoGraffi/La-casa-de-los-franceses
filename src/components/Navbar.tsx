@@ -19,7 +19,7 @@ export default function Navbar() {
     : "menuDesktopAnimationClose";
 
   return (
-    <div className="bg-white w-full px-4 h-[86px] lg:h-[120px] flex absolute z-[1000]">
+    <div className="bg-white w-full px-4 h-[86px] lg:h-[120px] flex absolute z-[1000] mx-auto">
       <div className="w-full lg:px-[100px] mx-auto flex justify-between items-center lg:py-[5px]">
         <Link href={"/"} className="lg:hidden">
           <Image
@@ -54,7 +54,7 @@ export default function Navbar() {
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
 
-          <Link href={"#"} className="group px-[25px] py-[10px]">
+          <Link href={"/nosotros"} className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro">Nosotros</p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
