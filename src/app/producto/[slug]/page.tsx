@@ -12,8 +12,15 @@ import InnerImageZoom from "react-inner-image-zoom";
 import Imagen from "../../../../public/images/nosotros/profile1.jpg";
 import BotonXL from "@/components/GeneralComponents/Botones/BotonXL";
 import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
+import CarouselComponent from "@/components/CarouselComponent";
 
 export default function Producto({ params }: { params: { slug: string } }) {
+  const slides = [
+    <ProductCard price="300" title="Vinito 1" image="/images/vinoImagenProducto.png" />,
+    <ProductCard price="300" title="Vinito 2" image="/images/vinoImagenProducto.png" />,
+    <ProductCard price="300" title="Vinito 3" image="/images/vinoImagenProducto.png" />,
+    <ProductCard price="300" title="Vinito 4" image="/images/vinoImagenProducto.png" />
+  ];
   return (
     <div className="pt-[220px] py-[100px] flex flex-col gap-[150px] justify-center items-center">
       <section className="flex max-w-[1600px] px-[200px] gap-[80px] w-screen">
@@ -51,8 +58,8 @@ export default function Producto({ params }: { params: { slug: string } }) {
 
           <div className="flex items-center gap-[25px]">
             <div className="flex">
-              <button className="px-[15px] py-[2px] bg-gris4 flex justify-center items-center rounded-l-full">
-                <p className="text-[24px] text-gris6 font-bricolage font-semibold">
+              <button className="px-[15px] py-[2px] text-gris6 bg-gris4 flex justify-center items-center rounded-l-full hover:bg-gris2 hover:text-gris4">
+                <p className="text-[24px] font-bricolage font-semibold">
                   -
                 </p>
               </button>
@@ -63,8 +70,8 @@ export default function Producto({ params }: { params: { slug: string } }) {
                 </p>
               </div>
 
-              <button className="px-[15px] py-[2px] bg-gris4 flex justify-center items-center rounded-r-full">
-                <p className="text-[24px] text-gris6 font-bricolage font-semibold">
+              <button className="px-[15px] py-[2px] text-gris6 bg-gris4 flex justify-center items-center rounded-r-full hover:bg-gris2 hover:text-gris4">
+                <p className="text-[24px] font-bricolage font-semibold">
                   +
                 </p>
               </button>
@@ -84,28 +91,11 @@ export default function Producto({ params }: { params: { slug: string } }) {
         <h3 className="text-[48px]/[58px] text-terciarioPrincipal font-vangeda">
           Productos similares
         </h3>
-        <div className="flex">
-          <ProductCard
-            price="200"
-            title="un vinito"
-            image={require("../../../../public/images/vinoImagenProducto.png")}
-          />
-          <ProductCard
-            price="200"
-            title="un vinito"
-            image={require("../../../../public/images/vinoImagenProducto.png")}
-          />
-          <ProductCard
-            price="200"
-            title="un vinito"
-            image={require("../../../../public/images/vinoImagenProducto.png")}
-          />
-          <ProductCard
-            price="200"
-            title="un vinito"
-            image={require("../../../../public/images/vinoImagenProducto.png")}
-          />
-        </div>
+        <div className="max-h-[2000px] max-w-full gap-[56px] pt-[90px] mx-auto flex flex-col justify-center items-center overflow-hidden">
+      <CarouselComponent
+      slides={slides}
+    />
+    </div>
       </section>
 
       <section className="flex flex-col max-w-[1600px] w-full px-[100px] lg:px-[200px] gap-[70px] justify-center items-center">
