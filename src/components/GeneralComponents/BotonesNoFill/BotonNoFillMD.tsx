@@ -11,7 +11,7 @@ export default function BotonNoFillMD({ text, icon, link }: Props) {
   return (
     <Link
       href={link}
-      className={`group border border-solid border-primarioOscuro px-[21px] py-[6px] rounded-full justify-center items-center flex w-max bg-transparent hover:bg-primarioOscuro active:bg-primarioClaro disabled:border-primarioMuyClaro disabled:bg-transparent transition-all ease-out duration-300 focus:bg-primarioClaro `}
+      className={`group border border-solid border-primarioOscuro px-[21px] py-[6px] rounded-full justify-center items-center flex w-max bg-transparent hover:bg-primarioOscuro active:bg-primarioClaro disabled:border-primarioMuyClaro disabled:bg-transparent focus:bg-primarioClaro transition-all ease-out duration-300`}
     >
       {icon && (
         <Image

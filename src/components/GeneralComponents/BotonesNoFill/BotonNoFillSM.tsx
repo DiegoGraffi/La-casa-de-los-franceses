@@ -11,7 +11,7 @@ export default function BotonNoFillSM({ text, icon, link }: Props) {
   return (
     <Link
       href={link}
-      className={`border border-solid border-primarioOscuro px-[13px] py-[5px] rounded-full justify-center items-center flex w-max bg-transparent hover:bg-gradient-to-t from-primarioClaro to-transparent active:bg-primarioClaro disabled:border-primarioMuyClaro transition-all ease-out duration-300`}
+      className={`group border border-solid border-primarioOscuro px-[13px] py-[5px] rounded-full justify-center items-center flex w-max bg-transparen hover:bg-primarioOscuro hover:border-primarioMuyOscuro active:bg-primarioClaro disabled:border-primarioMuyClaro disabled:text-primarioClaro transition-all ease-out duration-300`}
     >
       {icon && (
         <Image
@@ -23,7 +23,7 @@ export default function BotonNoFillSM({ text, icon, link }: Props) {
         />
       )}
       <p
-        className={`text-primarioOscuro disabled:text-primarioClaro text-[12px] font-semibold leading-[16px]`}
+        className={`text-primarioOscuro group-hover:text-primarioClaro group-disabled:text-primarioClaro group-active:text-primarioOscuro group-focus:text-primarioOscuro text-[12px] font-semibold leading-[16px]`}
       >
         {text}
       </p>
