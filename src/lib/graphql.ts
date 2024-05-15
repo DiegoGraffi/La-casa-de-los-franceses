@@ -24,7 +24,13 @@ export async function fetchGraphql<Result = any, Variables = any>(
     }),
     cache: "no-store",
   });
-  return (await response.json()).data;
+  console.log(response);
+  const body = await response.json();
+  if (body.errors) {
+    throw body.errors[0];
+  }
+
+  return body.data;
 }
 
 export const graphql = initGraphQLTada<{

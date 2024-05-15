@@ -1,110 +1,24 @@
-import ScrollContainer from "react-indiana-drag-scroll";
+import { ScrollContainer } from "../../components/ScrollContainerClient";
 import EventoCard from "../EventoCard";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import Image from "next/image";
 import mouse from "../../../public/images/local/mouse.svg";
 
-export const runtime = "edge";
-
-const eventos = [
-  {
-    date: "18 may",
-    title: "Inaguruación local",
-    description: "Te invitamos a nuestro evento de apertura a laas 21:00 pm",
-  },
-  {
-    date: "25 may",
-    title: "Degustación",
-    description:
-      "Aprende a degustar vinos con nosotros. Horario de inicio: 20:00 pm",
-  },
-  {
-    date: "18 may",
-    title: "Inaguruación local",
-    description: "Te invitamos a nuestro evento de apertura a laas 21:00 pm",
-  },
-  {
-    date: "02 jun",
-    title: "Noche Argentina",
-    description:
-      "Disfruta con nosotros un dia totalmente argentino, con un menú especial de comidas traidas del otro lado del atlantico",
-  },
-  {
-    date: "03 jun",
-    title: "Veamos futbol",
-    description: "Hoy juega la selección Argentina",
-  },
-  {
-    date: "18 may",
-    title: "Inaguruación local",
-    description: "Te invitamos a nuestro evento de apertura a laas 21:00 pm",
-  },
-  {
-    date: "25 may",
-    title: "Degustación",
-    description:
-      "Aprende a degustar vinos con nosotros. Horario de inicio: 20:00 pm",
-  },
-  {
-    date: "18 may",
-    title: "Inaguruación local",
-    description: "Te invitamos a nuestro evento de apertura a laas 21:00 pm",
-  },
-  {
-    date: "02 jun",
-    title: "Noche Argentina",
-    description:
-      "Disfruta con nosotros un dia totalmente argentino, con un menú especial de comidas traidas del otro lado del atlantico",
-  },
-  {
-    date: "03 jun",
-    title: "Veamos futbol",
-    description: "Hoy juega la selección Argentina",
-  },
-  {
-    date: "18 may",
-    title: "Inaguruación local",
-    description: "Te invitamos a nuestro evento de apertura a laas 21:00 pm",
-  },
-  {
-    date: "25 may",
-    title: "Degustación",
-    description:
-      "Aprende a degustar vinos con nosotros. Horario de inicio: 20:00 pm",
-  },
-  {
-    date: "18 may",
-    title: "Inaguruación local",
-    description: "Te invitamos a nuestro evento de apertura a laas 21:00 pm",
-  },
-  {
-    date: "02 jun",
-    title: "Noche Argentina",
-    description:
-      "Disfruta con nosotros un dia totalmente argentino, con un menú especial de comidas traidas del otro lado del atlantico",
-  },
-  {
-    date: "03 jun",
-    title: "Veamos futbol",
-    description: "Hoy juega la selección Argentina",
-  },
-];
-
 export default async function EventsSection() {
-  // const query = graphql(`
-  //   query EventosQuery {
-  //     metaobjects(first: 100, type: "eventos") {
-  //       nodes {
-  //         fields {
-  //           value
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
+  const query = graphql(`
+    query EventosQuery {
+      metaobjects(first: 100, type: "eventos") {
+        nodes {
+          fields {
+            value
+          }
+        }
+      }
+    }
+  `);
 
-  // const data = await fetchGraphql(query, {});
-  // console.log(data);
+  const data = await fetchGraphql(query, {});
+  const eventos = data.metaobjects.nodes;
 
   return (
     <div className="flex max-w-[1600px] mx-auto overflow-x-scroll scrollbar-hide cursor-grab relative h-auto left-0 w-full flex-col">
@@ -115,9 +29,9 @@ export default async function EventsSection() {
           {eventos.map((evento, index) => {
             return (
               <EventoCard
-                date={evento.date}
-                description={evento.description}
-                title={evento.title}
+                date={evento.fields[0].value}
+                description={evento.fields[1].value}
+                title={evento.fields[2].value}
                 key={index}
               />
             );

@@ -1,71 +1,14 @@
-"use client";
-
 import Image from "next/image";
 import heroImg from "../../../public/images/local/heroImg.png";
 import estrella from "../../../public/images/local/estrella.svg";
 import menu from "../../../public/images/local/menu.png";
 import ubicacion from "../../../public/images/local/ubicacion.png";
-import EventoCard from "@/components/EventoCard";
 import wines from "../../../public/images/local/wines.png";
-import mouse from "../../../public/images/local/mouse.svg";
-import mouseRojo from "../../../public/images/local/mouseOscuro.svg";
-import foto01 from "../../../public/images/local/foto01.png";
-import foto02 from "../../../public/images/local/foto02.png";
-import foto03 from "../../../public/images/local/foto03.png";
-import foto04 from "../../../public/images/local/foto04.png";
-import foto05 from "../../../public/images/local/foto05.png";
-import foto06 from "../../../public/images/local/foto06.png";
-import foto07 from "../../../public/images/local/foto07.png";
-import foto08 from "../../../public/images/local/foto08.png";
-import foto09 from "../../../public/images/local/foto09.png";
-import foto10 from "../../../public/images/local/foto10.png";
-import foto11 from "../../../public/images/local/foto11.png";
-import { ScrollContainer } from "react-indiana-drag-scroll";
 import "react-indiana-drag-scroll/dist/style.css";
 import EventsSection from "@/components/LocalComponents/EventsSection";
-import Lottie from "lottie-react";
-import FlechaAbajo from "../../../public/animations/local/FlechaLocal.json";
-
-const photos = [
-  { src: foto01 },
-  { src: foto02 },
-  { src: foto03 },
-  { src: foto04 },
-  { src: foto05 },
-  { src: foto06 },
-  { src: foto07 },
-  { src: foto08 },
-  { src: foto09 },
-  { src: foto10 },
-  { src: foto11 },
-  { src: foto01 },
-  { src: foto02 },
-  { src: foto03 },
-  { src: foto04 },
-  { src: foto05 },
-  { src: foto06 },
-  { src: foto07 },
-  { src: foto08 },
-  { src: foto09 },
-  { src: foto10 },
-  { src: foto11 },
-  { src: foto01 },
-  { src: foto02 },
-  { src: foto03 },
-  { src: foto04 },
-  { src: foto05 },
-  { src: foto06 },
-  { src: foto07 },
-  { src: foto08 },
-  { src: foto09 },
-  { src: foto10 },
-  { src: foto11 },
-];
+import GallerySection from "@/components/LocalComponents/GallerySection";
 
 export default function Local() {
-  const firstRow = photos.slice(0, Math.ceil(photos.length / 2));
-  const secondRow = photos.slice(Math.ceil(photos.length / 2));
-
   return (
     <div className="min-h-screen flex flex-col items-center">
       <section className="w-full h-[70vh] lg:h-[750px] relative flex justify-center">
@@ -135,74 +78,7 @@ export default function Local() {
         </p>
       </section>
 
-      <section className="py-[70px] w-full flex flex-col gap-[60px] justify-center lg:justify-start items-center overflow-hidden">
-        <div className="max-w-[1600px] px-[100px] w-full flex justify-between items-center mx-auto">
-          <p className="text-terciarioPrincipal font-vangeda text-[40px]/[39px] lg:text-[55px]/[62px] text-center lg:text-start">
-            Fotos de la casa
-          </p>
-          <div className="w-[62px] h-[52px] hidden lg:flex">
-            <Lottie animationData={FlechaAbajo} />
-          </div>
-        </div>
-
-        <div className="w-screen h-auto border">
-          <div className="flex max-w-[1600px] mx-auto space-x-3 overflow-x-scroll scrollbar-hide cursor-grab relative h-auto">
-            <div className="h-full hidden lg:flex w-[300px] bg-gradient-to-r from-white to-transparent absolute z-50 touch-disabled left-0"></div>
-            <div className="h-full hidden lg:flex w-[300px] bg-gradient-to-l from-white to-transparent absolute top-0 right-0 z-50 touch-disabled"></div>
-            <ScrollContainer>
-              <div className="w-max flex flex-col gap-[10px] left-0 px-[15px] lg:px-[100px]">
-                <div className="flex gap-[10px] w-full">
-                  {firstRow.map((photo, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className="w-[200px] h-[200px] relative grid grid-rows-2 overflow-hidden"
-                      >
-                        <Image
-                          src={photo.src}
-                          alt="photo"
-                          fill
-                          className="object-cover hover:scale-110 transition-all ease-in-out duration-200"
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="flex gap-[10px]">
-                  {secondRow.map((photo, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className="w-[200px] h-[200px] relative grid grid-rows-2 overflow-hidden"
-                      >
-                        <Image
-                          src={photo.src}
-                          alt="photo"
-                          fill
-                          className="object-cover hover:scale-110 transition-all ease-in-out duration-200"
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </ScrollContainer>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-[10px] justify-center">
-          <div className="flex items-center w-[80px]">
-            <Image
-              src={mouseRojo}
-              alt="mouse icon"
-              className="animate-mouse-slider"
-            />
-          </div>
-          <p className="font-bricolage text-terciarioPrincipal text-[14px]/[20px] text-center">
-            deslizar
-          </p>
-        </div>
-      </section>
+      {/* <GallerySection /> */}
 
       <section className="w-full py-[60px] px-[15px] lg:px-[100px]">
         <div className="group h-[420px] max-w-[1600px] w-full xl:px-[100px] rounded-tr-[10px] lg:rounded-tr-[45px] rounded-bl-[10px] lg:rounded-bl-[45px] relative mx-auto overflow-hidden">

@@ -1,7 +1,7 @@
 type EventoCardProps = {
-  date: string;
-  title: string;
-  description: string;
+  date: string | null;
+  title: string | null;
+  description: string | null;
 };
 
 export default function EventoCard({
