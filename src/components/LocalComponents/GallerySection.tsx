@@ -7,7 +7,7 @@ import { fetchGraphql, graphql } from "@/lib/graphql";
 export default async function GallerySection() {
   const query = graphql(`
     query GalleryQuery {
-      metaobjects(first: 100, type: "gallery") {
+      metaobjects(type: "gallery", first: 100) {
         nodes {
           fields {
             value
@@ -19,10 +19,10 @@ export default async function GallerySection() {
 
   const data = await fetchGraphql(query, {});
   console.log("esta es la data de las fotos", data.metaobjects.nodes[0].fields);
-  const photos = data.metaobjects.nodes;
+  // const photos = data.metaobjects.nodes;
 
-  const firstRow = photos.slice(0, Math.ceil(photos.length / 2));
-  const secondRow = photos.slice(Math.ceil(photos.length / 2));
+  // const firstRow = photos.slice(0, Math.ceil(photos.length / 2));
+  // const secondRow = photos.slice(Math.ceil(photos.length / 2));
 
   return (
     <section className="py-[70px] w-full flex flex-col gap-[60px] justify-center lg:justify-start items-center overflow-hidden">
@@ -32,7 +32,7 @@ export default async function GallerySection() {
         </p>
         <FlechaAbajo />
       </div>
-      <div className="w-screen h-auto">
+      {/* <div className="w-screen h-auto">
         <div className="flex max-w-[1600px] mx-auto space-x-3 overflow-x-scroll scrollbar-hide cursor-grab relative h-auto">
           <div className="h-full hidden lg:flex w-[300px] bg-gradient-to-r from-white to-transparent absolute z-50 touch-disabled left-0"></div>
           <div className="h-full hidden lg:flex w-[300px] bg-gradient-to-l from-white to-transparent absolute top-0 right-0 z-50 touch-disabled"></div>
@@ -75,7 +75,7 @@ export default async function GallerySection() {
             </div>
           </ScrollContainer>
         </div>
-      </div>
+      </div> */}
       <div className="flex flex-col gap-[10px] justify-center">
         <div className="flex items-center w-[80px] mx-auto">
           <Image

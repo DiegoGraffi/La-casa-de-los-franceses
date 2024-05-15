@@ -24,7 +24,7 @@ export async function fetchGraphql<Result = any, Variables = any>(
     }),
     cache: "no-store",
   });
-  console.log(response);
+
   const body = await response.json();
   if (body.errors) {
     throw body.errors[0];

@@ -78,7 +78,7 @@ export default function Local() {
         </p>
       </section>
 
-      {/* <GallerySection /> */}
+      <GallerySection />
 
       <section className="w-full py-[60px] px-[15px] lg:px-[100px]">
         <div className="group h-[420px] max-w-[1600px] w-full xl:px-[100px] rounded-tr-[10px] lg:rounded-tr-[45px] rounded-bl-[10px] lg:rounded-bl-[45px] relative mx-auto overflow-hidden">
