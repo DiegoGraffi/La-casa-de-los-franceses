@@ -42,9 +42,11 @@ export default function NosotrosCarousel() {
     );
   };
 
+  const currentTextColor = items[selectedItem].textColor;
+
   return (
     <div className="w-full max-w-[1600px] mx-auto flex overflow-hidden h-[430px] rounded-bl-[30px] rounded-tr-[30px]">
-      <div className="h-full aspect-[575/430] relative overflow-hidden border">
+      <div className="h-full aspect-[575/430] relative overflow-hidden">
         <Image
           src={items[selectedItem].foto}
           alt="mapa san juan"
@@ -53,9 +55,14 @@ export default function NosotrosCarousel() {
         />
       </div>
 
-      <div className="bg-[#E1E8C6] flex flex-col justify-center items-start flex-1 h-auto p-[40px]">
+      <div
+        style={{ backgroundColor: items[selectedItem].bgColor }}
+        className={`bg-[${items[selectedItem].bgColor}] flex flex-col justify-center items-start flex-1 h-auto p-[40px]`}
+      >
         <div className="h-[80%] top-0 flex justify-center items-center">
-          <p className="font-bricolage text-[18px]/[23px] font-light text-secundarioOscuro">
+          <p
+            className={`font-bricolage text-[18px]/[23px] font-light text-[${items[selectedItem].textColor}]`}
+          >
             {items[selectedItem].text}
           </p>
         </div>
@@ -63,12 +70,61 @@ export default function NosotrosCarousel() {
           <div className="flex items-center gap-[50px]">
             <Image src={deslizarIzq} alt="deslizarIzq" onClick={handlePrev} />
             <div className="flex items-center">
-              <div className="w-[10px] h-[10px] rounded-full bg-transparent border-black border"></div>
-              <hr className="w-[100px] border-black" />
-              <div className="w-[10px] h-[10px] rounded-full bg-black"></div>
-              <hr className="w-[100px] border-black" />
-              <div className="w-[10px] h-[10px] rounded-full bg-black"></div>
+              <div
+                style={
+                  selectedItem === 0
+                    ? {
+                        backgroundColor: items[selectedItem].textColor,
+                        border: "2px solid " + items[selectedItem].textColor,
+                      }
+                    : {
+                        backgroundColor:
+                          selectedItem === 0
+                            ? items[0].textColor
+                            : "transparent",
+                        border: "2px solid " + items[selectedItem].textColor,
+                      }
+                }
+                className={`w-[10px] h-[10px] rounded-full`}
+              ></div>
+              <hr className={`w-[100px] border-[${currentTextColor}]`} />
+              <div
+                style={
+                  selectedItem === 1
+                    ? {
+                        backgroundColor: items[selectedItem].textColor,
+                        border: "2px solid " + items[selectedItem].textColor,
+                      }
+                    : {
+                        backgroundColor:
+                          selectedItem === 1
+                            ? items[1].textColor
+                            : "transparent",
+                        border: "2px solid " + items[selectedItem].textColor,
+                      }
+                }
+                className={`w-[10px] h-[10px] rounded-full`}
+              ></div>
+              <hr className={`w-[100px] border-[${currentTextColor}]`} />
+              <div
+                style={
+                  selectedItem === 2
+                    ? {
+                        backgroundColor: items[selectedItem].textColor,
+                        border: "1px solid " + items[selectedItem].textColor,
+                      }
+                    : {
+                        backgroundColor:
+                          selectedItem === 2
+                            ? items[2].textColor
+                            : "transparent",
+                        border: "2px solid " + items[selectedItem].textColor,
+                      }
+                }
+                className={`w-[10px] h-[10px] rounded-full`}
+              ></div>
             </div>
+
             <Image src={deslizarDer} alt="deslizarDer" onClick={handleNext} />
           </div>
         </div>
