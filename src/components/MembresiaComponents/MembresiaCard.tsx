@@ -16,8 +16,8 @@ function MembresiaCard({
   precio,
 }: MembresiaCardProps) {
   return (
-    <div className="flex flex-col items-center hover:bg-gris6 rounded-tl-3xl rounded-br-3xl flex-1 p-[25px] max-w-[350px] h-auto">
-      <div className="flex justify-center items-center relative w-full h-[150px] rounded-tl-3xl rounded-br-3xl overflow-hidden mb-[21px]">
+    <div className="flex flex-col items-center hover:bg-gris6 rounded-tl-3xl rounded-br-3xl flex-1 p-[15px] lg:p-[25px] w-full max-w-[350px] h-auto">
+      <div className="flex justify-center items-center relative w-full h-[110px] lg:h-[150px] rounded-tl-[10px] rounded-br-[10px] lg:rounded-tl-[25px] lg:rounded-br-[25px] overflow-hidden mb-[21px]">
         {image && (
           <Image
             src={image}
@@ -27,7 +27,7 @@ function MembresiaCard({
           />
         )}
       </div>
-      <h3 className="text-primarioMuyOscuro font-bricolage font-light text-[32px] mb-[10px]">
+      <h3 className="text-primarioMuyOscuro font-bricolage font-light text-[32px] mb-[10px] text-center">
         {name}
       </h3>
       <Image
@@ -36,7 +36,7 @@ function MembresiaCard({
         width={316}
         height={0}
       />
-      <div className="flex flex-col justify-between items-center mt-[10px]h-max grow">
+      <div className="flex flex-col justify-between items-center mt-[10px] h-max grow">
         <div>
           <p className="font-bricolage font-light text-[16px]/[24px] text-gris3 text-center">
             {description}

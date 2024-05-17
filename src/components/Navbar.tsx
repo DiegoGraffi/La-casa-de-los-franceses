@@ -54,21 +54,17 @@ export default function Navbar() {
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
 
-          <Link href={"/nosotros"} className="group px-[25px] py-[10px]">
+          <Link href="/nosotros" className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro">Nosotros</p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
-          <Link href={"/membresia"} className="group px-[25px] py-[10px]">
+          <Link href="/membresia" className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro">Membresia</p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
-          <Link href={"/local"} className="group px-[25px] py-[10px]">
+          <Link href="/local" className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro">Local</p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
-          </Link>
-          <Link href={"#"} className="group px-[25px] py-[10px]">
-            <p className="uppercase text-secundarioOscuro">Blog</p>
-            <hr className="w-0 group-hover:w-8 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
         </ul>
 
@@ -81,7 +77,7 @@ export default function Navbar() {
           </Link>
 
           <Link
-            href={"#"}
+            href="#"
             className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
           >
             <Image src={CarritoIcon} alt="carrito icon" />
@@ -125,7 +121,14 @@ export default function Navbar() {
               <div>
                 <ul className="flex flex-col gap-[25px] items-center">
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href={"/tienda"} className="">
+                    <Link href="/" className="">
+                      <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
+                        Inicio
+                      </p>
+                    </Link>
+                  </li>
+                  <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
+                    <Link href="/tienda" className="">
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Tienda
                       </p>
@@ -133,7 +136,7 @@ export default function Navbar() {
                   </li>
 
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href={"/tienda"} className="">
+                    <Link href="/nosotros" className="">
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Nosotros
                       </p>
@@ -141,7 +144,7 @@ export default function Navbar() {
                   </li>
 
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href={"/tienda"} className="">
+                    <Link href="/membresia" className="">
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Membresia
                       </p>
@@ -149,17 +152,9 @@ export default function Navbar() {
                   </li>
 
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href={"/tienda"} className="">
+                    <Link href="/local" className="">
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Local
-                      </p>
-                    </Link>
-                  </li>
-
-                  <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href={"/tienda"} className="">
-                      <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
-                        Blog
                       </p>
                     </Link>
                   </li>

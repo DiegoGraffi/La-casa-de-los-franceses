@@ -10,7 +10,7 @@ import GallerySection from "@/components/LocalComponents/GallerySection";
 
 export default function Local() {
   return (
-    <div className="min-h-screen flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <section className="w-full h-[70vh] lg:h-[750px] relative flex justify-center">
         <Image
           src={estrella}

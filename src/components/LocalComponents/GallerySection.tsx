@@ -18,7 +18,7 @@ export default async function GallerySection() {
   `);
 
   const data = await fetchGraphql(query, {});
-  console.log("esta es la data de las fotos", data.metaobjects.nodes[0].fields);
+  console.log("esta es la data de las fotos");
   // const photos = data.metaobjects.nodes;
 
   // const firstRow = photos.slice(0, Math.ceil(photos.length / 2));
