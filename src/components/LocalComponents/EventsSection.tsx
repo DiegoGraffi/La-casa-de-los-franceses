@@ -9,16 +9,17 @@ function formatDate(dateStr: string | null): string {
 
   try {
     const date = new Date(dateStr);
-    if (isNaN(date.getTime())) throw new Error('Fecha inválida');
+    if (isNaN(date.getTime())) throw new Error("Fecha inválida");
     const day = date.getDate();
-    const month = date.toLocaleString('es-ES', { month: 'short' }).toUpperCase();
+    const month = date
+      .toLocaleString("es-ES", { month: "short" })
+      .toUpperCase();
     return `${day} ${month.charAt(0).toUpperCase() + month.slice(1)}`;
   } catch (error) {
     console.error(error);
     return "Fecha inválida";
   }
 }
-
 
 export default async function EventsSection() {
   const query = graphql(`
@@ -35,6 +36,15 @@ export default async function EventsSection() {
 
   const data = await fetchGraphql(query, {});
   const eventos = data.metaobjects.nodes;
+  const validEventos = eventos.filter(
+    (evento) => evento.fields[0].value !== null
+  );
+
+  validEventos.sort((a, b) => {
+    const dateA = new Date(a.fields[0].value!);
+    const dateB = new Date(b.fields[0].value!);
+    return dateA.getTime() - dateB.getTime();
+  });
 
   return (
     <div className="flex max-w-[1600px] mx-auto overflow-x-scroll scrollbar-hide cursor-grab relative h-auto left-0 w-full flex-col">
@@ -42,10 +52,10 @@ export default async function EventsSection() {
       <div className="h-full hidden md:flex w-[300px] bg-gradient-to-l from-terciarioClaro to-transparent absolute top-0 right-0 z-50 touch-disabled"></div>
       <ScrollContainer className="w-[100%] ">
         <div className="w-max relative flex space-x-5 md:space-x-10 items-center py-4 px-[30%] md:px-[40%]">
-        {eventos.map((evento, index) => {
+          {validEventos.map((evento, index) => {
             return (
               <EventoCard
-              date={formatDate(evento.fields[0].value)}
+                date={formatDate(evento.fields[0].value)}
                 description={evento.fields[1].value}
                 title={evento.fields[2].value}
                 key={index}
