@@ -13,6 +13,7 @@
     "@radix-ui/react-icons": "^1.3.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "fslightbox-react": "^1.7.6",
     "gql.tada": "^1.4.3",
     "graphql": "^16.8.1",
     "keen-slider": "^6.8.6",
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "@0no-co/graphqlsp": "^1.9.1",
+    "@types/fslightbox-react": "^1.7.7",
     "@types/node": "^20",
     "@types/react": "^18.2.70",
     "@types/react-dom": "^18.2.22",

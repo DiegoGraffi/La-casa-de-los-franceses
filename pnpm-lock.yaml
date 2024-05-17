@@ -17,6 +17,9 @@ dependencies:
   clsx:
     specifier: ^2.1.0
     version: 2.1.0
+  fslightbox-react:
+    specifier: ^1.7.6
+    version: 1.7.6(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   gql.tada:
     specifier: ^1.4.3
     version: 1.4.3(graphql@16.8.1)(typescript@5.4.3)
@@ -70,6 +73,9 @@ devDependencies:
   '@0no-co/graphqlsp':
     specifier: ^1.9.1
     version: 1.9.1(typescript@5.4.3)
+  '@types/fslightbox-react':
+    specifier: ^1.7.7
+    version: 1.7.7
   '@types/node':
     specifier: ^20
     version: 20.11.30
@@ -563,6 +569,12 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /@types/fslightbox-react@1.7.7:
+    resolution: {integrity: sha512-pp9Y7/+L4NFlMp+PdESx66EG0/m70aqg81FNlLP08dGWvRRSvNJFv08Jc91IEQkbh/C1PpokCekNCWZqpWxiyQ==}
+    dependencies:
+      '@types/react': 18.2.70
+    dev: true
+
   /@types/node@20.11.30:
     resolution: {integrity: sha512-dHM6ZxwlmuZaRmUPfv1p+KrdD1Dci04FbdEm/9wEMouFqxYoFl5aMkt0VMAUtYRQDyYvD41WJLukhq/ha3YuTw==}
     dependencies:
@@ -834,6 +846,18 @@ packages:
     os: [darwin]
     requiresBuild: true
     optional: true
+
+  /fslightbox-react@1.7.6(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-7LN2GZRLHo2vZGKdH+BZDJUoUDkCRCLlZ5hOwtLtZplmGZQ9nqzpG54cTax7XNjbYGTWLT6BHdMiL5zOEhiRlA==}
+    peerDependencies:
+      prop-types: '>=15.6.2'
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}

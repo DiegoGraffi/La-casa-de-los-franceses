@@ -1,8 +1,8 @@
-import { ScrollContainer } from "../../components/ScrollContainerClient";
 import Image from "next/image";
 import mouseRojo from "../../../public/images/local/mouseOscuro.svg";
 import FlechaAbajo from "../FlechaAbajo";
 import { fetchGraphql, graphql } from "@/lib/graphql";
+import LightBox from "./Lightbox";
 
 export default async function GallerySection() {
   const query = graphql(`
@@ -10,7 +10,14 @@ export default async function GallerySection() {
       metaobjects(type: "gallery", first: 100) {
         nodes {
           fields {
-            value
+            reference {
+              __typename
+              ... on MediaImage {
+                previewImage {
+                  url
+                }
+              }
+            }
           }
         }
       }
@@ -19,10 +26,17 @@ export default async function GallerySection() {
 
   const data = await fetchGraphql(query, {});
   console.log("esta es la data de las fotos");
-  // const photos = data.metaobjects.nodes;
 
-  // const firstRow = photos.slice(0, Math.ceil(photos.length / 2));
-  // const secondRow = photos.slice(Math.ceil(photos.length / 2));
+  let photos: string[] = [];
+  for (const node of data.metaobjects.nodes) {
+    for (const field of node.fields) {
+      if (field.reference?.__typename === "MediaImage") {
+        if (field.reference.previewImage != null) {
+          photos.push(field.reference.previewImage?.url);
+        }
+      }
+    }
+  }
 
   return (
     <section className="py-[70px] w-full flex flex-col gap-[60px] justify-center lg:justify-start items-center overflow-hidden">
@@ -32,50 +46,8 @@ export default async function GallerySection() {
         </p>
         <FlechaAbajo />
       </div>
-      {/* <div className="w-screen h-auto">
-        <div className="flex max-w-[1600px] mx-auto space-x-3 overflow-x-scroll scrollbar-hide cursor-grab relative h-auto">
-          <div className="h-full hidden lg:flex w-[300px] bg-gradient-to-r from-white to-transparent absolute z-50 touch-disabled left-0"></div>
-          <div className="h-full hidden lg:flex w-[300px] bg-gradient-to-l from-white to-transparent absolute top-0 right-0 z-50 touch-disabled"></div>
-          <ScrollContainer>
-            <div className="w-max flex flex-col gap-[10px] left-0 px-[15px] lg:px-[100px]">
-              <div className="flex gap-[10px] w-full">
-                {firstRow.map((photo, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="w-[200px] h-[200px] relative grid grid-rows-2 overflow-hidden"
-                    >
-                      <Image
-                        src={photo.fields[0].value}
-                        alt="photo"
-                        fill
-                        className="object-cover hover:scale-110 transition-all ease-in-out duration-200"
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="flex gap-[10px]">
-                {secondRow.map((photo, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="w-[200px] h-[200px] relative grid grid-rows-2 overflow-hidden"
-                    >
-                      <Image
-                        src={photo.fields}
-                        alt="photo"
-                        fill
-                        className="object-cover hover:scale-110 transition-all ease-in-out duration-200"
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </ScrollContainer>
-        </div>
-      </div> */}
+
+      <LightBox photos={photos} />
       <div className="flex flex-col gap-[10px] justify-center">
         <div className="flex items-center w-[80px] mx-auto">
           <Image
