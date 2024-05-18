@@ -14,13 +14,17 @@ import closeIcon from "../../public/images/navbar/close.svg";
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
 
+  const handleNavigate = () => {
+    setMenuAbierto(!menuAbierto);
+  };
+
   const menuDesktopAnimationClass = menuAbierto
     ? "menuDesktopAnimationOpen"
     : "menuDesktopAnimationClose";
 
   return (
     <div className="bg-white w-full px-4 h-[86px] lg:h-[120px] flex absolute z-[1000] mx-auto">
-      <div className="w-full lg:px-[100px] mx-auto flex justify-between items-center lg:py-[5px]">
+      <div className="w-full md:px-[50px] xl:px-[100px] mx-auto flex justify-between items-center lg:py-[5px] max-w-[1600px]">
         <Link href={"/"} className="lg:hidden">
           <Image
             src={logo}
@@ -29,7 +33,7 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="flex gap-[15px]">
+        <div className="flex gap-[15px] lg:hidden">
           <Image src={CarritoIcon} alt="menu" className="lg:hidden scale-110" />
           <Image
             src={menu}
@@ -68,33 +72,35 @@ export default function Navbar() {
           </Link>
         </ul>
 
-        <div className="hidden lg:flex gap-[10px]">
-          <Link
-            href={"#"}
-            className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
-          >
-            <Image src={LenguajeIcon} alt="lenguaje icon" />
-          </Link>
+        <div className="lg:flex justify-center items-center gap-[25px] hidden">
+          <div className="hidden lg:flex gap-[10px]">
+            <Link
+              href={"#"}
+              className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
+            >
+              <Image src={LenguajeIcon} alt="lenguaje icon" />
+            </Link>
 
-          <Link
-            href="#"
-            className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
-          >
-            <Image src={CarritoIcon} alt="carrito icon" />
-          </Link>
+            <Link
+              href="#"
+              className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
+            >
+              <Image src={CarritoIcon} alt="carrito icon" />
+            </Link>
 
-          <Link
-            href={"#"}
-            className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
-          >
-            <Image src={UserIcon} alt="contacto icon" />
-          </Link>
-        </div>
+            <Link
+              href={"#"}
+              className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
+            >
+              <Image src={UserIcon} alt="contacto icon" />
+            </Link>
+          </div>
 
-        <div className="hidden lg:flex">
-          <Link href={"#"}>
-            <Image src={FlagsIcon} alt="flag icon" />
-          </Link>
+          <div className="hidden lg:flex">
+            <Link href={"#"}>
+              <Image src={FlagsIcon} alt="flag icon" />
+            </Link>
+          </div>
         </div>
 
         {menuAbierto ? (
@@ -121,14 +127,14 @@ export default function Navbar() {
               <div>
                 <ul className="flex flex-col gap-[25px] items-center">
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href="/" className="">
+                    <Link href="/" onClick={handleNavigate}>
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Inicio
                       </p>
                     </Link>
                   </li>
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href="/tienda" className="">
+                    <Link href="/tienda" onClick={handleNavigate}>
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Tienda
                       </p>
@@ -136,7 +142,7 @@ export default function Navbar() {
                   </li>
 
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href="/nosotros" className="">
+                    <Link href="/nosotros" onClick={handleNavigate}>
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Nosotros
                       </p>
@@ -144,7 +150,7 @@ export default function Navbar() {
                   </li>
 
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href="/membresia" className="">
+                    <Link href="/membresia" onClick={handleNavigate}>
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Membresia
                       </p>
@@ -152,7 +158,7 @@ export default function Navbar() {
                   </li>
 
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href="/local" className="">
+                    <Link href="/local" onClick={handleNavigate}>
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Local
                       </p>

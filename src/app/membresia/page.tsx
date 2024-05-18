@@ -6,6 +6,7 @@ import MembresiaCard from "@/components/MembresiaComponents/MembresiaCard";
 import PasosCard from "@/components/MembresiaComponents/PasosCard";
 import SectionTitle from "@/components/SectionTitle";
 import portada from "../../../public/images/membresiaPage/sillas.jpg";
+import Link from "next/link";
 
 function Membresia() {
   return (
@@ -101,7 +102,7 @@ function Membresia() {
       <div className="flex flex-col mt-[53px] justify-center align-center max-w-[1600px] mx-auto px-[15px] lg:px-[100px]">
         <SectionTitle title="Elegí tu membresía" />
 
-        <div className="grid grid-cols-2 lg:flex lg:flex-row justify-center items-stretch mt-[37px] gap-[10px]">
+        <div className="grid grid-cols-2 mx-auto lg:flex lg:flex-row justify-center items-stretch mt-[37px] gap-[10px]">
           <MembresiaCard
             image="/images/membresiaPage/membresia1.avif"
             name="SIMPLE BOX"
@@ -129,29 +130,35 @@ function Membresia() {
         </div>
         <div className="flex flex-col gap-[15px] lg:gap-[30px] mt-[120px]">
           <section className="flex align-center justify-center">
-            <div className="py-[22px] lg:py-[55px] w-full max-w-[1600px] bg-secundarioOscuro rounded-tr-[10px] rounded-bl-[10px] lg:rounded-tr-[55px] lg:rounded-bl-[55px] flex items-center justify-center relative">
-              <div className="w-[84px] h-[84px] absolute right-[10%] border origin-center -translate-y-[50%]">
+            <Link
+              href="/preguntasFrecuentes"
+              className="py-[22px] lg:py-[55px] w-full max-w-[1600px] bg-secundarioOscuro rounded-tr-[10px] rounded-bl-[10px] lg:rounded-tr-[55px] lg:rounded-bl-[55px] flex items-center justify-center relative hover:bg-secundarioPrincipal transition-all ease-in-out duration-300"
+            >
+              <div className="absolute right-[10%] h-[84px] w-[84px] origin-center top-0 -translate-y-[50%]">
                 <Image
                   src="/images/membresiaPage/estrellaMembresia.svg"
                   alt="estrella"
                   fill
-                  className="object-contain"
+                  className="object-contain "
                 />
               </div>
               <h3 className="text-[28px]/[34px] lg:text-[55px]/[62px] font-vangeda font-regular text-secundarioClaro text-center">
                 PREGUNTAS
                 <br className="lg:hidden" /> FRECUENTES
               </h3>
-            </div>
+            </Link>
           </section>
           <section className="flex align-center justify-center">
-            <div className="py-[22px] lg:py-[55px] w-full bg-secundarioClaro max-w-[1600px] border rounded-tr-[10px] rounded-bl-[10px] lg:rounded-tr-[55px] lg:rounded-bl-[55px] flex items-center justify-center">
+            <Link
+              href="/"
+              className="py-[22px] lg:py-[55px] w-full bg-secundarioClaro max-w-[1600px] border rounded-tr-[10px] rounded-bl-[10px] lg:rounded-tr-[55px] lg:rounded-bl-[55px] flex items-center justify-center hover:bg-secundarioPrincipal transition-all ease-in-out duration-300"
+            >
               <h3 className="text-[28px]/[34px] lg:text-[55px]/[62px] font-vangeda font-regular text-secundarioOscuro text-center">
                 Bases y condiciones de
                 <br className="lg:hidden" />
                 nuestra membresía
               </h3>
-            </div>
+            </Link>
           </section>
 
           <section className="w-full mb-[15px] lg:mb-[30px]">

@@ -27,7 +27,7 @@ export default function Local() {
         </div>
       </section>
 
-      <section className="flex my-[80px] w-[100%] px-[15px] lg:px-0 justify-center">
+      <section className="flex my-[80px] w-[100%] px-[15px] justify-center">
         <div className="group relative flex justify-center items-center w-[50%] lg:w-[600px] h-[150px] lg:h-[250px] rounded-tl-[50px] rounded-br-[50px] overflow-hidden ">
           <div className="bg-[#7D0A0A] w-full h-full absolute opacity-70 z-10  group-hover:opacity-100 transition-all ease-in-out duration-200"></div>
           <Image src={menu} alt="Menu Image" fill className="object-cover" />
@@ -80,7 +80,7 @@ export default function Local() {
 
       <GallerySection />
 
-      <section className="w-full py-[60px] px-[15px] lg:px-[100px]">
+      <section className="w-full pb-[60px] px-[15px] lg:px-[100px]">
         <div className="group h-[420px] max-w-[1600px] w-full xl:px-[100px] rounded-tr-[10px] lg:rounded-tr-[45px] rounded-bl-[10px] lg:rounded-bl-[45px] relative mx-auto overflow-hidden">
           <div className="w-full h-full p-[50px] lg:px-[100] flex flex-col justify-end lg:justify-center absolute z-[100] group-hover:hidden">
             <p className="font-vangeda text-[55px]/[62px] text-terciarioPrincipal hidden lg:flex">

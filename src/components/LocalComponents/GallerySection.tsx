@@ -25,7 +25,6 @@ export default async function GallerySection() {
   `);
 
   const data = await fetchGraphql(query, {});
-  console.log("esta es la data de las fotos");
 
   let photos: string[] = [];
   for (const node of data.metaobjects.nodes) {
@@ -40,7 +39,7 @@ export default async function GallerySection() {
 
   return (
     <section className="py-[70px] w-full flex flex-col gap-[60px] justify-center lg:justify-start items-center overflow-hidden">
-      <div className="max-w-[1600px] px-[100px] w-full flex justify-between items-center mx-auto">
+      <div className="max-w-[1600px] px-[15px] w-full flex justify-between items-center mx-auto">
         <p className="text-terciarioPrincipal font-vangeda text-[40px]/[39px] lg:text-[55px]/[62px] text-center lg:text-start">
           Fotos de la casa
         </p>
