@@ -54,13 +54,13 @@ export default async function Tienda({
   return (
     <div className="min-h-screen flex flex-col pt-[122px]">
       <div className="w-full h-[250px] flex justify-center items-center bg-terciarioPrincipal">
-        <p className="text-[100px]/[173px] font-vangeda text-secundarioClaro">
+        <p className="text-[40px]/[39px] lg:text-[100px]/[173px] mt-12 lg:mt-0 lg:mb-0 font-vangeda text-secundarioClaro">
           ¿Estas listo?
         </p>
       </div>
-      <div className="mt-[100px] w-full container mx-auto flex flex-col gap-[30px] ">
-        <div className="flex justify-between items-center gap-[50px]">
-          <div className="flex gap-[50px] items-center w-[60%] ">
+      <div className="mt-[100px] w-full container mx-auto flex flex-col gap-[30px]">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-[30px] lg:gap-[50px]">
+          <div className="w-full lg:w-[60%] flex flex-col lg:flex-row gap-[30px] lg:gap-[50px] items-center">
             <p className="uppercase text-gris2 font-semibold text-[24px]/[38px] font-bricolage">
               Buscar
             </p>
@@ -68,7 +68,7 @@ export default async function Tienda({
               <Search />
             </Suspense>
           </div>
-          <div className="flex gap-[40px] justify-end items-center w-[40%]">
+          <div className="flex flex-col lg:flex-row gap-[20px] lg:gap-[40px] items-center w-full lg:w-[40%]">
             <p className="uppercase text-gris4 font-semibold text-[18px]/[28px] font-bricolage">
               Mostrando 5 resultados
             </p>
@@ -77,12 +77,12 @@ export default async function Tienda({
             </p>
           </div>
         </div>
-        <div className="flex">
-          <Suspense fallback={null}>
+        <div className="flex flex-col lg:flex-row">
+            <Suspense fallback={null}>
             <Sidebar />
-          </Suspense>
-          <div className="w-[80%] flex flex-col">
-            <div className="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-[25px] gap-[10px]">
+          </Suspense>   
+          <div className="w-full lg:w-[80%] flex flex-col">
+            <div className="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:p-[25px] gap-[10px]">
               {products.map((product, index) => {
                 return (
                   <ProductCard
