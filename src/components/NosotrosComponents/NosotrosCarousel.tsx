@@ -45,8 +45,8 @@ export default function NosotrosCarousel() {
   const currentTextColor = items[selectedItem].textColor;
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto flex overflow-hidden h-[430px] rounded-bl-[30px] rounded-tr-[30px]">
-      <div className="h-full aspect-[575/430] relative overflow-hidden">
+    <div className="w-full lg:max-w-[1600px] lg:mx-auto p-0 lg:flex overflow-hidden lg:h-[430px] rounded-bl-[30px] rounded-tr-[30px]">
+      <div className="lg:h-full aspect-[575/430] relative overflow-hidden">
         <Image
           src={items[selectedItem].foto}
           alt="mapa san juan"
@@ -61,15 +61,15 @@ export default function NosotrosCarousel() {
       >
         <div className="h-[80%] top-0 flex justify-center items-center">
           <p
-            className={`font-bricolage text-[18px]/[23px] font-light text-[${items[selectedItem].textColor}]`}
+            className={`font-bricolage font-regular text-center text-[16px]/[24px] lg:text-start lg:text-[18px]/[23px] lg:font-light text-[${items[selectedItem].textColor}]`}
           >
             {items[selectedItem].text}
           </p>
         </div>
-        <div className="h-[20%] flex justify-center items-center w-full">
-          <div className="flex items-center gap-[50px]">
+        <div className="lg:h-[20%] flex justify-center items-center mt-6 lg:m-0 lg:w-full">
+          <div className="flex items-center lg:gap-[50px]">
             <Image src={deslizarIzq} alt="deslizarIzq" onClick={handlePrev} />
-            <div className="flex items-center">
+            <div className="flex items-center mx-[60px] lg:m-0">
               <div
                 style={
                   selectedItem === 0
@@ -87,7 +87,7 @@ export default function NosotrosCarousel() {
                 }
                 className={`w-[10px] h-[10px] rounded-full`}
               ></div>
-              <hr className={`w-[100px] border-[${currentTextColor}]`} />
+              <hr className={`w-[20px] lg:w-[100px] border-[${currentTextColor}]`} />
               <div
                 style={
                   selectedItem === 1
@@ -105,7 +105,7 @@ export default function NosotrosCarousel() {
                 }
                 className={`w-[10px] h-[10px] rounded-full`}
               ></div>
-              <hr className={`w-[100px] border-[${currentTextColor}]`} />
+              <hr className={`w-[20px] lg:w-[100px] border-[${currentTextColor}]`} />
               <div
                 style={
                   selectedItem === 2
