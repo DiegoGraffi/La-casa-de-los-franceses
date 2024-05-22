@@ -16,9 +16,9 @@ export default function ProductCard({ image, title, price }: ProductCardProps) {
       <div className="p-2 flex justify-center items-center relative w-[150px] aspect-square border">
         <Image
           src={image!}
-          alt="imagen producto" 
+          alt="imagen producto"
           fill
-          className="object-contain p-2 h-[150px] w-[150px]"
+          className="object-contain p-2"
         />
       </div>
       <div className="flex flex-col lg:gap-[20px] justify-center items-center lg:mt-[20px] lg:mb-[12px] h-full">
