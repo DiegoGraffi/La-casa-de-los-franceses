@@ -63,9 +63,8 @@ export default async function Marca() {
               >
                 <Image
                   src={image.image}
-                  className="object-contain border w-auto hover:scale-110 transition-all ease-in-out duration-200"
+                  className="object-contain w-[200px] hover:scale-110 transition-all ease-in-out duration-200"
                   alt="logo"
-                  fill
                 />
               </div>
             );

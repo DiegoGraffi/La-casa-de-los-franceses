@@ -3,6 +3,7 @@ import { fetchGraphql, graphql } from "@/lib/graphql";
 import Search from "@/components/GeneralComponents/search";
 import { Suspense } from "react";
 import { Sidebar } from "./Sidebar";
+import Link from "next/link";
 
 export const runtime = "edge";
 
@@ -32,6 +33,7 @@ export default async function Tienda({
       ) {
         nodes {
           title
+          handle
           priceRange {
             maxVariantPrice {
               amount
@@ -85,12 +87,14 @@ export default async function Tienda({
             <div className="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:p-[25px] gap-[10px]">
               {products.map((product, index) => {
                 return (
-                  <ProductCard
-                    image={product.featuredImage?.url}
-                    price={product.priceRange.maxVariantPrice.amount}
-                    title={product.title}
-                    key={index}
-                  />
+                  <Link key={index} href={`/producto/${product.handle}`}>
+                    <ProductCard
+                      image={product.featuredImage?.url}
+                      price={product.priceRange.maxVariantPrice.amount}
+                      title={product.title}
+                      key={index}
+                    />
+                  </Link>
                 );
               })}
             </div>
