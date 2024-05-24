@@ -1,5 +1,3 @@
-"use client";
-
 import Hero from "./homeSections/Hero";
 import Carousel from "./homeSections/Carousel";
 import Membresia from "./homeSections/Membresia";
