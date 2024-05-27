@@ -17,7 +17,7 @@ export default function Membresia() {
         />
       </div>
       <div className="absolute w-full h-full hidden lg:flex justify-center items-center bottom-0 top-0 left-0">
-        <div className="w-[150px] h-[150px] relative">
+        <div className="w-[110px] h-[110px] relative">
           <Image src={estrella} alt="estrella" fill />
         </div>
       </div>

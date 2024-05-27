@@ -20,7 +20,7 @@ export default function Nosotros() {
   return (
     <div className="group w-full mt-[25px] md:mt-[50px] lg:mt-[110px] max-h-[580px] h-full relative flex flex-col lg:flex-row justify-center">
       <div className="w-full container mx-auto absolute z-[100] hidden lg:flex">
-        <div className="h-[130px] -translate-y-[50%] w-[130px] relative left-[80%] origin-center">
+        <div className="h-[110px] -translate-y-[50%] w-[110px] relative left-[80%] origin-center">
           <Image
             src={estrella}
             alt="estrella"
