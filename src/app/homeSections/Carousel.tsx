@@ -11,7 +11,7 @@ function Carousel() {
   ];
 
   return (
-    <div className="max-h-[2000px] max-w-full gap-[56px] pt-[90px] mx-auto flex flex-col justify-center items-center overflow-hidden">
+    <div className="max-h-[2000px] w-full lg:px-[209px] gap-[35px] lg:gap-[56px] pt-[70px] lg:pt-[90px] mx-auto flex flex-col justify-center items-center overflow-hidden mb-[60px] lg:mb-0">
       <SectionTitle title="Selección del mes"/>
       <CarouselComponent
       slides={slides}

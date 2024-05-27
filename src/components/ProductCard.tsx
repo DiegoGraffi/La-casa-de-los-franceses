@@ -12,7 +12,7 @@ type ProductCardProps = {
 
 export default function ProductCard({ image, title, price }: ProductCardProps) {
   return (
-    <div className="p-[15px] lg:p-[30px] flex flex-col justify-center items-center hover:bg-gris6 rounded-tl-[5px] rounded-tr-[25px] rounded-bl-[25px] rounded-br-[5px] w-[157px] lg:w-full transition-all ease-out duration-300">
+    <div className="p-[15px] lg:p-[30px] flex flex-col items-center hover:bg-gris6 rounded-tl-[5px] rounded-tr-[25px] rounded-bl-[25px] rounded-br-[5px] w-[157px] lg:w-full transition-all ease-out duration-300">
       <div className="p-2 flex justify-center items-center relative w-[150px] aspect-square border">
         <Image
           src={image!}
@@ -34,7 +34,7 @@ export default function ProductCard({ image, title, price }: ProductCardProps) {
       <div className="hidden lg:block">
         <BotonNoFillLG text="Agregar al carrito" link="#" icon={cartIcon} />
       </div>
-      <div className="block lg:hidden">
+      <div className="block lg:hidden pt-[10px] lg:p-0">
         <BotonNoFillSM text="Agregar al carrito" link="#" icon={cartIcon} />
       </div>
     </div>
