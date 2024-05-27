@@ -4,7 +4,6 @@ import Image from "next/image";
 import portada from "../../../public/images/inicio/portadaNosotros.jpg";
 import arrowRight from "../../../public/images/arrowRight.svg";
 import arrowLeft from "../../../public/images/arrowLeft.svg";
-import estrella from "../../../public/images/estrellaNosotros.svg";
 import nosotrosLine from "../../../public/images/nosotrosLine.svg";
 import wineIcon from "../../../public/images/wineIcon.svg";
 import locationIcon from "../../../public/images/locationIcon.svg";
@@ -20,14 +19,6 @@ export default function Nosotros() {
   return (
     <div className="group w-full mt-[25px] md:mt-[50px] lg:mt-[110px] max-h-[580px] h-full relative flex flex-col lg:flex-row justify-center">
       <div className="w-full container mx-auto absolute z-[100] hidden lg:flex">
-        <div className="h-[110px] -translate-y-[50%] w-[110px] relative left-[80%] origin-center">
-          <Image
-            src={estrella}
-            alt="estrella"
-            fill
-            className="object-contain"
-          />
-        </div>
       </div>
       <div className="w-full h-full absolute z-50 overflow-x-hidden hidden lg:flex justify-center">
         <div className="w-full h-full absolute container overflow-hidden">
