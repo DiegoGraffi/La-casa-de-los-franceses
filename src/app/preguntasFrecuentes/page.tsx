@@ -3,12 +3,17 @@ import SectionTitle from "@/components/SectionTitle";
 
 function page() {
   return (
-    <div className="min-h-screen mb-20 pt-[150px] flex flex-col gap-[40px]">
-      <SectionTitle title="Preguntas Frecuentes" />
-
-      <h3 className="font-bricolage font-semibold text-[48px]/[58px] text-terciarioPrincipal flex justify-center align-center mt-[93px]">
+    <div className="min-h-screen mb-20 pt-[150px] flex flex-col gap-[10px] lg:gap-[40px]">
+      <div className="mx-[100px] lg:m-0">
+        <SectionTitle title="Preguntas Frecuentes"/>
+      </div>
+      
+<div className="flex justify-center">
+   <h3 className="w-[315px] lg:w-full font-bricolage font-semibold text-center text-[40px]/[48px] lg:text-[48px]/[58px] text-terciarioPrincipal mt-[50px] lg:mt-[93px]">
         Membresía
       </h3>
+</div>
+     
 
 <div className="flex flex-col gap-[11px]">
 <AccordionQuestion
@@ -36,10 +41,12 @@ function page() {
         answer="En el valle de las sombras fugaces, donde el tiempo parece deslizarse con la sutileza de una brisa suave, vivía una pequeña aldea conocida por sus coloridas casas y sus aún más coloridos habitantes. Cada mañana, los pájaros entonaban melodías que resonaban entre las colinas circundantes, anunciando el comienzo de un nuevo día lleno de promesas y pequeñas aventuras."
       />
 </div>
-
-      <h3 className="font-bricolage font-semibold text-[48px]/[58px] text-terciarioPrincipal flex justify-center align-center mt-20">
+      <div className="flex justify-center">
+        <h3 className="w-[315px] lg:w-full font-bricolage font-semibold text-[40px]/[48px] lg:text-[48px]/[58px] text-center text-terciarioPrincipal mt-8 lg:mt-20">
         Tienda online
       </h3>
+      </div>
+      
 
 <div className="flex flex-col gap-[11px]">
     <AccordionQuestion
@@ -68,11 +75,13 @@ function page() {
       />
 </div>
       
-
-      <h3 className="font-bricolage font-semibold text-[48px]/[58px] text-terciarioPrincipal flex justify-center align-center mt-20">
+    <div className="flex justify-center">
+      <h3 className="w-[315px] lg:w-full font-bricolage font-semibold text-[40px]/[48px] lg:text-[48px]/[58px] text-center text-terciarioPrincipal mt-8 lg:mt-20">
         Cupones de descuento
       </h3>
 
+    </div>
+      
 <div className="flex flex-col gap-[11px]">
     <AccordionQuestion
         question="¿Qué es un cupón de descuento?"
