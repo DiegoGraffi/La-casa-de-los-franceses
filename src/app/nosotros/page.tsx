@@ -2,14 +2,11 @@
 
 import Image from "next/image";
 import banner from "../../../public/images/nosotros/banner.jpg";
-import item1 from "../../../public/images/nosotros/item1.jpg";
-import item2 from "../../../public/images/nosotros/item2.jpg";
-import item3 from "../../../public/images/nosotros/item3.jpg";
 import personas from "../../../public/images/nosotros/personas.jpg";
 import estrella from "../../../public/images/nosotros/estrella.svg";
 import NosotrosCarousel from "@/components/NosotrosComponents/NosotrosCarousel";
 import nosotros from "@/lib/constants";
-import fondoNosotros from "../../../public/images/nosotros/tiendaFondo.jpg";
+import fondoNosotros from "../../../public/images/nosotros/fondoNosotros.jpg";
 import Lottie from "lottie-react";
 import arrow from "../../../public/animations/nosotros/FlechaRed.json";
 
@@ -109,12 +106,12 @@ export default function NosotrosPage() {
               Quiero la membresia
             </p>
           </div>
-          <div className="lg:group-hover:bg-[#511018] absolute w-full h-full bg-gradient-to-t lg:bg-gradient-to-r from-[#511018] from-[0%] lg:from-[27%] to-transparent z-30 left-0 transition-all ease-in-out duration-200"></div>
+          <div className="lg:group-hover:bg-[#511018] absolute w-full h-full bg-gradient-to-t md:bg-gradient-to-r from-[#511018] from-[0%] lg:from-[27%] to-transparent z-30 left-0 transition-all ease-in-out duration-200"></div>
           <Image
             src={fondoNosotros}
             alt="wines"
             fill
-            className="lg:object-cover object-center"
+            className="object-cover object-center"
           />
         </div>
       </section>

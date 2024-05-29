@@ -72,7 +72,7 @@ export default async function Tienda({
           </div>
           <div className="flex flex-col lg:flex-row gap-[20px] lg:gap-[40px] items-center w-full lg:w-[40%]">
             <p className="uppercase text-gris4 font-semibold text-[18px]/[28px] font-bricolage">
-              Mostrando 5 resultados
+              Mostrando {products.length} resultados
             </p>
             <p className="uppercase text-gris3 font-semibold text-[18px]/[28px] font-bricolage">
               ordenar por
@@ -80,11 +80,11 @@ export default async function Tienda({
           </div>
         </div>
         <div className="flex flex-col lg:flex-row">
-            <Suspense fallback={null}>
+          <Suspense fallback={null}>
             <Sidebar />
-          </Suspense>   
+          </Suspense>
           <div className="w-full lg:w-[80%] flex flex-col">
-            <div className="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:p-[25px] gap-[10px]">
+            <div className="w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 lg:p-[25px] gap-[10px] justify-stretch">
               {products.map((product, index) => {
                 return (
                   <Link key={index} href={`/producto/${product.handle}`}>
