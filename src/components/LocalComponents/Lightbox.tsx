@@ -33,6 +33,7 @@ export default function LightBox({ photos }: PhotoListProps) {
                   <div
                     key={index}
                     className="w-[200px] h-[200px] relative grid grid-rows-2 overflow-hidden"
+                    onMouseDown={(e) => e.preventDefault()}
                     onClick={() => openLightboxOnSlide(index)}
                   >
                     <Image
@@ -52,6 +53,7 @@ export default function LightBox({ photos }: PhotoListProps) {
                   <div
                     key={index}
                     className="w-[200px] h-[200px] relative grid grid-rows-2 overflow-hidden"
+                    onMouseDown={(e) => e.preventDefault()}
                     onClick={() => openLightboxOnSlide(adjustedIndex)}
                   >
                     <Image

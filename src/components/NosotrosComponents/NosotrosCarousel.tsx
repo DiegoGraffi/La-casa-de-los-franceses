@@ -71,7 +71,10 @@ export default function NosotrosCarousel() {
         </div>
         <div className="lg:h-[20%] flex justify-center items-center mt-6 lg:m-0 lg:w-full">
           <div className="flex items-center lg:gap-[50px]">
-            <div onClick={handlePrev}>
+            <div
+              onClick={handlePrev}
+              className="rounded-full bg-transparent hover:bg-[#c4b19d]  transition-all ease-in-out duration-200 cursor-pointer"
+            >
               <NosotrosArrow color={items[selectedItem].textColor} />
             </div>
 
@@ -135,7 +138,10 @@ export default function NosotrosCarousel() {
               ></div>
             </div>
 
-            <div onClick={handleNext} className="transform rotate-180">
+            <div
+              onClick={handleNext}
+              className="transform rotate-180 bg-transparent hover:bg-[#c4b19d] transition-all ease-in-out duration-200 rounded-full cursor-pointer"
+            >
               <NosotrosArrow color={items[selectedItem].textColor} />
             </div>
           </div>

@@ -7,6 +7,7 @@ import wines from "../../../public/images/local/wines.png";
 import "react-indiana-drag-scroll/dist/style.css";
 import EventsSection from "@/components/LocalComponents/EventsSection";
 import GallerySection from "@/components/LocalComponents/GallerySection";
+import Link from "next/link";
 
 export default function Local() {
   return (
@@ -78,7 +79,10 @@ export default function Local() {
 
       <GallerySection />
 
-      <section className="w-full pb-[60px] px-[15px] lg:px-[100px]">
+      <Link
+        href="../tienda"
+        className="w-full pb-[60px] px-[15px] lg:px-[100px]"
+      >
         <div className="group h-[420px] max-w-[1600px] w-full xl:px-[100px] rounded-tr-[10px] lg:rounded-tr-[45px] rounded-bl-[10px] lg:rounded-bl-[45px] relative mx-auto overflow-hidden">
           <div className="w-full h-full p-[50px] lg:px-[100] flex flex-col justify-end lg:justify-center absolute z-[100] group-hover:hidden">
             <p className="font-vangeda text-[55px]/[62px] text-terciarioPrincipal hidden lg:flex">
@@ -92,7 +96,7 @@ export default function Local() {
               Mirá nuestra tienda online
             </p>
           </div>
-          <div className="w-full h-full hidden justify-center items-center absolute z-[100] group-hover:flex left-0 transition-all ease-in-out duration-200">
+          <div className="w-full h-full hidden justify-center items-center absolute z-[100] xl:flex left-0 transition-all ease-in-out duration-200">
             <p className="font-vangeda text-[55px]/[62px] text-terciarioPrincipal">
               Ver tienda online
             </p>
@@ -100,7 +104,7 @@ export default function Local() {
           <div className="group-hover:bg-[#96AC60] absolute w-full h-full bg-gradient-to-t lg:bg-gradient-to-r from-[#96AC60] from-[27%] md:from-[57%] xl:from-[27%] to-transparent z-30 left-0 transition-all ease-in-out duration-200"></div>
           <Image src={wines} alt="wines" fill className="object-cover" />
         </div>
-      </section>
+      </Link>
     </div>
   );
 }
