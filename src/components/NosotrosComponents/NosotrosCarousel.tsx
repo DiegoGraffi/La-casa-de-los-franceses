@@ -1,3 +1,5 @@
+//nosotros carrusel
+
 import Image from "next/image";
 import item1 from "../../../public/images/nosotros/item1.png";
 import item2 from "../../../public/images/nosotros/item2.jpg";
@@ -5,6 +7,7 @@ import item3 from "../../../public/images/nosotros/item3.jpg";
 import { useState } from "react";
 import deslizarIzq from "../../../public/images/nosotros/deslizarIzq.svg";
 import deslizarDer from "../../../public/images/nosotros/deslizarDer.svg";
+import NosotrosArrow from "./NosotrosArrow";
 
 const items = [
   {
@@ -68,7 +71,10 @@ export default function NosotrosCarousel() {
         </div>
         <div className="lg:h-[20%] flex justify-center items-center mt-6 lg:m-0 lg:w-full">
           <div className="flex items-center lg:gap-[50px]">
-            <Image src={deslizarIzq} alt="deslizarIzq" onClick={handlePrev} />
+            <div onClick={handlePrev}>
+              <NosotrosArrow color={items[selectedItem].textColor} />
+            </div>
+
             <div className="flex items-center mx-[60px] lg:m-0">
               <div
                 style={
@@ -87,7 +93,9 @@ export default function NosotrosCarousel() {
                 }
                 className={`w-[10px] h-[10px] rounded-full`}
               ></div>
-              <hr className={`w-[20px] lg:w-[100px] border-[${currentTextColor}]`} />
+              <hr
+                className={`w-[20px] lg:w-[100px] border-[${currentTextColor}]`}
+              />
               <div
                 style={
                   selectedItem === 1
@@ -105,7 +113,9 @@ export default function NosotrosCarousel() {
                 }
                 className={`w-[10px] h-[10px] rounded-full`}
               ></div>
-              <hr className={`w-[20px] lg:w-[100px] border-[${currentTextColor}]`} />
+              <hr
+                className={`w-[20px] lg:w-[100px] border-[${currentTextColor}]`}
+              />
               <div
                 style={
                   selectedItem === 2
@@ -125,7 +135,9 @@ export default function NosotrosCarousel() {
               ></div>
             </div>
 
-            <Image src={deslizarDer} alt="deslizarDer" onClick={handleNext} />
+            <div onClick={handleNext} className="transform rotate-180">
+              <NosotrosArrow color={items[selectedItem].textColor} />
+            </div>
           </div>
         </div>
       </div>

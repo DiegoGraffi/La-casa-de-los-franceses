@@ -8,7 +8,7 @@ import NosotrosCarousel from "@/components/NosotrosComponents/NosotrosCarousel";
 import nosotros from "@/lib/constants";
 import fondoNosotros from "../../../public/images/nosotros/fondoNosotros.jpg";
 import Lottie from "lottie-react";
-import arrow from "../../../public/animations/nosotros/FlechaRed.json";
+import arrow from "../../../public/animations/nosotros/FlechaNosotros.json";
 
 export default function NosotrosPage() {
   return (
@@ -17,7 +17,7 @@ export default function NosotrosPage() {
         <div className="absolute w-[72px] h-[72px] lg:w-[126px] lg:h-[126px] left-[44%] lg:left-[80%] bottom-0 z-[100] origin-center translate-y-[50%]">
           <Image src={estrella} alt="estrella" />
         </div>
-        <div className="absolute h-[553px] w-full lg:h-full z-30 max-w-[1600px] flex items-end justify-center lg:justify-start  lg:items-end px-[100px] bottom-[75px]">
+        <div className="absolute h-[553px] w-full lg:h-full z-30 max-w-[1600px] flex items-end justify-center lg:justify-start lg:items-end px-[100px] bottom-[75px]">
           <p className="font-vangeda font-regular text-center lg:text-left text-[40px]/[39px] lg:text-[100px]/[95px] text-primarioClaro">
             Sobre
             <br />
@@ -49,40 +49,50 @@ export default function NosotrosPage() {
             className="object-contain lg:object-cover lg:object-top"
           />
         </div>
-        <div className="group h-[300px] w-full max-w-[1600px] flex flex-col lg:flex-row items-center lg:py-[75px] border border-red-500 relative origin-center">
+        <div className="group h-[300px] w-full max-w-[1600px] flex flex-col lg:flex-row items-center lg:py-[75px] relative origin-center">
           <div className="h-full w-full absolute flex flex-col lg:flex-row justify-center items-center">
-            <div className="w-[75px] group-hover:opacity-0 transition-all ease-in-out duration-700 ">
+            <div className="w-[75px] group-hover:opacity-0 transition-all ease-in-out duration-300 ">
               <Lottie animationData={arrow} />
             </div>
           </div>
-          <div className="w-[50%] h-full left-0 flex justify-center items-center group-hover:opacity-0 transition-all ease-in-out duration-700 ">
+          <div className="w-[50%] absolute h-full left-0 flex justify-center items-center group-hover:opacity-0 transition-all ease-in-out duration-300 ">
             <p className="text-[55px]/[62px] font-vangeda text-terciarioPrincipal">
               Conocenos
             </p>
           </div>
 
-          <div className="flex border relative w-[50%] h-full justify-center items-center mr-[-25%] group-hover:absolute group-hover:grow group-hover:w-full group-hover:justify-around transition-all ease-in-out duration-700 origin-right">
-            {nosotros.map((persona, index) => {
-              const zIndex = nosotros.length - index;
-              return (
-                <div
-                  key={index}
-                  style={{
-                    zIndex: zIndex,
-                    marginLeft: index === 0 ? 0 : "-35px",
-                  }}
-                >
-                  <div className="w-[100px] h-[100px] rounded-full overflow-hidden border-4 border-white relative">
-                    <Image
-                      src={persona.image}
-                      alt="imagen"
-                      fill
-                      className="object-cover"
-                    />
+          <div className="group w-full flex justify-end items-end h-full relative">
+            <div className="flex relative w-[50%] h-full justify-center items-center group-hover:absolute group-hover:grow group-hover:w-full group-hover:justify-around transition-all ease-in-out duration-700 origin-right right-0">
+              {nosotros.map((persona, index) => {
+                const zIndex = nosotros.length - index;
+                return (
+                  <div
+                    key={index}
+                    style={{
+                      zIndex: zIndex,
+                      marginLeft: index === 0 ? 0 : "-35px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      position: "relative",
+                    }}
+                  >
+                    <div className="w-full flex justify-center items-center w">
+                      <Image
+                        src={persona.image}
+                        alt="imagen"
+                        className="object-cover mx-auto w-[85px] h-[85px] xl:w-[100px] xl:h-[100px] border-white border-4 rounded-full"
+                      />
+                    </div>
+                    <p className="text-terciarioPrincipal text-[16px]/[20px] font-vangeda z-50 hidden group-hover:flex transition-all ease-in-out duration-700 text-center w-full justify-center mt-[12px]">
+                      {persona.name}
+                    </p>
+                    <p className="text-terciarioPrincipal text-[12px]/[16px] font-regular font-bricolage z-50 hidden group-hover:flex transition-all ease-in-out duration-700 text-center w-full justify-center mt-[6px]">
+                      {persona.role}
+                    </p>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

@@ -55,18 +55,7 @@ export default async function Producto({
             src="../../../../public/images/nosotros/profile1.jpg"
             zoomSrc={require("../../../../public/images/nosotros/profile1.jpg")}
           /> */}
-          <div className="lg:w-[25%] w-full h-[150px] lg:h-[500px] flex lg:flex-col gap-[15px] border overflow-y-scroll">
-            {slides.map((slide, index) => {
-              return (
-                <div
-                  key={index}
-                  className="h-full lg:h-auto lg:w-full shrink-0 aspect-square bg-red-500 flex justify-center items-center hover:border hover:border-black"
-                >
-                  <p className="text-white">{slide}</p>
-                </div>
-              );
-            })}
-          </div>
+
           <div className="max-w-[500px] max-h-[500px] h-[500px] lg:h-full w-full relative">
             <Image
               src={imageUrl}

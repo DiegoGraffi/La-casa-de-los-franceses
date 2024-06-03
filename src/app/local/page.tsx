@@ -62,9 +62,7 @@ export default function Local() {
             Calendario
           </h4>
 
-          <div className="w-screen h-auto">
-            <EventsSection />
-          </div>
+          <EventsSection />
         </div>
       </section>
 
