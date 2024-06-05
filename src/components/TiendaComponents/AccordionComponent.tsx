@@ -14,7 +14,17 @@ import checkboxImg from "../../../public/images/tiendaPage/checkboxSquare.svg";
 import checkImg from "../../../public/images/tiendaPage/check.svg";
 import FilterLabel from "../GeneralComponents/filterLabel";
 
-export default function AccordionComponent() {
+type Props = {
+  listaTipos: string[];
+  listaBodegas: string[];
+  listaVarietal: string[];
+};
+
+export default function AccordionComponent({
+  listaTipos,
+  listaBodegas,
+  listaVarietal,
+}: Props) {
   return (
     <div className="w-full pr-[25px]">
       <Accordion type="multiple">
@@ -36,10 +46,9 @@ export default function AccordionComponent() {
             />
           </AccordionTrigger>
           <AccordionContent className="pl-[20px]">
-            <FilterLabel label="Tintos" />
-            <FilterLabel label="Blancos" />
-            <FilterLabel label="Rosados" />
-            <FilterLabel label="Espumantes" />
+            {listaTipos.map((tipo, index) => {
+              return <FilterLabel key={index} label={tipo} />;
+            })}
           </AccordionContent>
           <div className="w-full h-[1px] relative">
             <Image
@@ -69,12 +78,9 @@ export default function AccordionComponent() {
             />
           </AccordionTrigger>
           <AccordionContent className="pl-[20px]">
-            <FilterLabel label="Ruca Malen" />
-            <FilterLabel label="Roberto Bonfanti" />
-            <FilterLabel label="Los Toneles" />
-            <FilterLabel label="Graffigna" />
-            <FilterLabel label="Catena Zapata" />
-            <FilterLabel label="La Azul" />
+            {listaBodegas.map((bodega, index) => {
+              return <FilterLabel key={index} label={bodega} />;
+            })}
           </AccordionContent>
           <div className="w-full h-[1px] relative">
             <Image
@@ -104,13 +110,9 @@ export default function AccordionComponent() {
             />
           </AccordionTrigger>
           <AccordionContent className="pl-[20px]">
-            <FilterLabel label="Merlot" />
-            <FilterLabel label="Malbec" />
-            <FilterLabel label="Syrah" />
-            <FilterLabel label="Tannat" />
-            <FilterLabel label="Petit Verdot" />
-            <FilterLabel label="Cabernet Sauvignon" />
-            <FilterLabel label="Bonarda" />
+            {listaVarietal.map((varietal, index) => {
+              return <FilterLabel key={index} label={varietal} />;
+            })}
           </AccordionContent>
           <div className="w-full h-[1px] relative">
             <Image

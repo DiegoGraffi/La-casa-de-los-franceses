@@ -34,6 +34,12 @@ export default async function Tienda({
         nodes {
           title
           handle
+          productType
+          collections(first: 1) {
+            nodes {
+              title
+            }
+          }
           priceRange {
             maxVariantPrice {
               amount
@@ -41,6 +47,9 @@ export default async function Tienda({
           }
           featuredImage {
             url
+          }
+          metafields(identifiers: [{ namespace: "custom", key: "varietal" }]) {
+            value
           }
         }
       }
@@ -51,7 +60,46 @@ export default async function Tienda({
     query: searchValue,
   });
 
-  const products = data.products.nodes;
+  const products = data.products.nodes.filter(
+    (product) =>
+      !product.collections.nodes.some(
+        (collection) => collection.title === "Membresias"
+      )
+  );
+
+  const listaProductos = products.filter((product) => product.productType);
+
+  const listaTipos: string[] = [];
+  listaProductos.forEach((producto) => {
+    if (!listaTipos.includes(producto.productType)) {
+      listaTipos.push(producto.productType);
+    }
+  });
+
+  const productosBodegas = products.filter(
+    (product) =>
+      product.collections.nodes.length === 0 ||
+      (product.collections.nodes[0].title !== "Carnes" &&
+        product.collections.nodes[0].title !== "Membresias")
+  );
+
+  const listaBodegas: string[] = [];
+  productosBodegas.forEach((producto) => {
+    if (producto.collections.nodes.length > 0) {
+      const bodega = producto.collections.nodes[0].title;
+      if (!listaBodegas.includes(bodega)) {
+        listaBodegas.push(bodega);
+      }
+    }
+  });
+
+  const listaVarietal: string[] = [];
+  products.forEach((producto) => {
+    const varietal = producto.metafields[0]?.value;
+    if (varietal && !listaVarietal.includes(varietal)) {
+      listaVarietal.push(varietal);
+    }
+  });
 
   return (
     <div className="min-h-screen flex flex-col pt-[122px]">
@@ -81,19 +129,25 @@ export default async function Tienda({
         </div>
         <div className="flex flex-col lg:flex-row">
           <Suspense fallback={null}>
-            <Sidebar />
+            <Sidebar
+              listaTipos={listaTipos}
+              listaBodegas={listaBodegas}
+              listaVarietal={listaVarietal}
+            />
           </Suspense>
           <div className="w-full lg:w-[80%] flex flex-col">
             <div className="w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 lg:p-[25px] gap-[10px] justify-stretch">
               {products.map((product) => (
-                <Link key={product.handle} href={`/producto/${product.handle}`} legacyBehavior>
-                  
-                    <ProductCard
-                      image={product.featuredImage?.url}
-                      price={product.priceRange.maxVariantPrice.amount}
-                      title={product.title}
-                    />
-               
+                <Link
+                  key={product.handle}
+                  href={`/producto/${product.handle}`}
+                  legacyBehavior
+                >
+                  <ProductCard
+                    image={product.featuredImage?.url}
+                    price={product.priceRange.maxVariantPrice.amount}
+                    title={product.title}
+                  />
                 </Link>
               ))}
             </div>
