@@ -40,7 +40,7 @@ export default function NosotrosPage() {
         <NosotrosCarousel />
       </section>
 
-      <section className="w-full max-w-[1600px] lg:mx-auto lg:mt-[75px] px-[16px] lg:px-[100px]">
+      <section className="hidden lg:block w-full max-w-[1600px] lg:mx-auto lg:mt-[75px] px-[16px] lg:px-[100px]">
         <div className="w-full h-[450px] relative">
           <Image
             src={personas}
@@ -51,7 +51,7 @@ export default function NosotrosPage() {
         </div>
         <div className="group h-[300px] w-full max-w-[1600px] flex flex-col lg:flex-row items-center lg:py-[75px] relative origin-center">
           <div className="h-full w-full absolute flex flex-col lg:flex-row justify-center items-center">
-            <div className="w-[75px] group-hover:opacity-0 transition-all ease-in-out duration-300 ">
+            <div className="w-[75px] lg:transform lg:rotate-0 transform rotate-90 group-hover:opacity-0 transition-all ease-in-out duration-300">
               <Lottie animationData={arrow} />
             </div>
           </div>
@@ -61,7 +61,7 @@ export default function NosotrosPage() {
             </p>
           </div>
 
-          <div className="group w-full flex justify-end items-end h-full relative">
+          <div className="group w-full flex justify-end items-end h-full relative ">
             <div className="flex relative w-[50%] h-full justify-center items-center group-hover:absolute group-hover:grow group-hover:w-full group-hover:justify-around transition-all ease-in-out duration-700 origin-right right-0">
               {nosotros.map((persona, index) => {
                 const zIndex = nosotros.length - index;
@@ -76,7 +76,7 @@ export default function NosotrosPage() {
                       position: "relative",
                     }}
                   >
-                    <div className="w-full flex justify-center items-center w">
+                    <div className="w-full flex justify-center items-center">
                       <Image
                         src={persona.image}
                         alt="imagen"
@@ -94,6 +94,46 @@ export default function NosotrosPage() {
               })}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="lg:hidden w-full max-w-[1600px] px-[16px]">
+        <div className="w-full h-[450px] relative">
+          <Image
+            src={personas}
+            alt="nosotros"
+            fill
+            className="object-contain lg:object-cover lg:object-top"
+          />
+        </div>
+        <div className="h-full left-0 flex justify-center items-center group-hover:opacity-0 transition-all ease-in-out duration-300 lg:gap-0 gap-10">
+          <p className="text-[40px]/[39px] font-vangeda text-terciarioPrincipal">
+            Conocenos
+          </p>
+          <div className="w-[47px] h-[39px] transform rotate-90 group-hover:opacity-0 transition-all ease-in-out duration-300">
+            <Lottie animationData={arrow} />
+          </div>
+        </div>
+
+        <div className="w-full grid grid-cols-2 gap-4 mt-8 mb-8">
+          {nosotros.map((persona, index) => (
+            <div
+              key={index}
+              className="flex flex-col justify-center items-center"
+            >
+              <Image
+                src={persona.image}
+                alt="imagen"
+                className="object-cover w-[85px] h-[85px] border-white border-4 rounded-full"
+              />
+              <p className="text-terciarioPrincipal text-[16px]/[20px] font-vangeda text-center mt-[12px]">
+                {persona.name}
+              </p>
+              <p className="text-terciarioPrincipal text-[12px]/[16px] font-regular font-bricolage text-center mt-[6px]">
+                {persona.role}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
