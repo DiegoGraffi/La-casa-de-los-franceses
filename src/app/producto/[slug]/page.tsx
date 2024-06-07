@@ -36,17 +36,41 @@ export default async function Producto({
         featuredImage {
           url
         }
+        metafields(
+          identifiers: [
+            { namespace: "custom", key: "awards" }
+            { namespace: "custom", key: "vintage" }
+            { namespace: "custom", key: "designation_of_origin" }
+            { namespace: "custom", key: "alcoholic_strength" }
+            { namespace: "custom", key: "producer" }
+            { namespace: "custom", key: "wine_type" }
+            { namespace: "custom", key: "varietal" }
+          ]
+        ) {
+          value
+        }
       }
     }
   `);
 
   const variables = { handle: params.slug };
   const data = await fetchGraphql(query, variables);
-  console.log(data);
+
+  let awards: string[] = [];
+
+  if (data.productByHandle?.metafields[0]?.value) {
+    try {
+      const parsedAwards = JSON.parse(data.productByHandle.metafields[0].value);
+      if (Array.isArray(parsedAwards)) {
+        awards = parsedAwards.map((award: string) => award);
+      }
+    } catch (e) {
+      console.error("Error parsing awards:", e);
+    }
+  }
 
   const imageUrl = data.productByHandle?.featuredImage?.url || Imagen;
 
-  const slides = ["1", "2", "3", "4", "5", "6", "7"];
   return (
     <div className="pt-[220px] py-[100px] flex flex-col gap-[150px] justify-center items-center">
       <section className="flex flex-col lg:flex-row max-w-[1600px] px-[200px] gap-[40px] w-screen border">
@@ -126,19 +150,21 @@ export default async function Producto({
           Información adicional
         </h3>
         <div className="flex flex-col w-full">
-          <div className="flex border-t-2 border-t-[#FFAA00] bg-gradient-to-t from-[#FFC654] to-[rgba(255,220,149,20%)]">
-            <div className="w-[20%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[24px] font-bricolage font-semibold">
-                Awards
-              </p>
+          {data.productByHandle?.metafields[0]?.value ? (
+            <div className="flex border-t-2 border-t-[#FFAA00] bg-gradient-to-t from-[#FFC654] to-[rgba(255,220,149,20%)]">
+              <div className="w-[20%] flex justify-start items-start py-[20px] px-[40px]">
+                <p className="text-[20px]/[24px] font-bricolage font-semibold">
+                  Awards
+                </p>
+              </div>
+              <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
+                <p className="text-[20px]/[25px] font-bricolage font-light">
+                  {awards.join(", ")}
+                </p>
+              </div>
             </div>
-            <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[25px] font-bricolage font-light">
-                2017 - Premio de Francia, 2018 - Cata Cuyana, 2022 - Aprobado
-                por Chayane
-              </p>
-            </div>
-          </div>
+          ) : null}
+
           <div className="flex border-t-2 border-t-terciarioPrincipal">
             <div className="w-[20%] flex justify-start items-start py-[20px] px-[40px]">
               <p className="text-[20px]/[24px] font-bricolage font-semibold">
@@ -147,7 +173,9 @@ export default async function Producto({
             </div>
             <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
               <p className="text-[20px]/[25px] font-bricolage font-light">
-                2005
+                {data.productByHandle?.metafields[1]?.value
+                  ? data.productByHandle.metafields[1].value
+                  : "No hay información"}
               </p>
             </div>
           </div>
@@ -159,7 +187,9 @@ export default async function Producto({
             </div>
             <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
               <p className="text-[20px]/[25px] font-bricolage font-light">
-                nombrecito cheto
+                {data.productByHandle?.metafields[2]?.value
+                  ? data.productByHandle.metafields[2].value
+                  : "No hay información"}
               </p>
             </div>
           </div>
@@ -171,7 +201,9 @@ export default async function Producto({
             </div>
             <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
               <p className="text-[20px]/[25px] font-bricolage font-light">
-                12°
+                {data.productByHandle?.metafields[3]?.value
+                  ? data.productByHandle.metafields[3].value + "°"
+                  : "No hay información"}
               </p>
             </div>
           </div>
@@ -183,7 +215,9 @@ export default async function Producto({
             </div>
             <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
               <p className="text-[20px]/[25px] font-bricolage font-light">
-                Bodega de Mendoza
+                {data.productByHandle?.metafields[4]?.value
+                  ? data.productByHandle.metafields[4].value
+                  : "No hay información"}
               </p>
             </div>
           </div>
@@ -195,7 +229,9 @@ export default async function Producto({
             </div>
             <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
               <p className="text-[20px]/[25px] font-bricolage font-light">
-                Vino tinto
+                {data.productByHandle?.metafields[5]?.value
+                  ? data.productByHandle.metafields[5].value
+                  : "No hay información"}
               </p>
             </div>
           </div>
@@ -207,7 +243,9 @@ export default async function Producto({
             </div>
             <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
               <p className="text-[20px]/[25px] font-bricolage font-light">
-                Cabernet Franc
+                {data.productByHandle?.metafields[6]?.value
+                  ? data.productByHandle.metafields[6].value
+                  : "No hay información"}
               </p>
             </div>
           </div>
