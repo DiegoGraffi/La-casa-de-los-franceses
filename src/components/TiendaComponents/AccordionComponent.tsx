@@ -9,9 +9,6 @@ import {
 import arrow from "../../../public/images/tiendaPage/accordionArrow.svg";
 import divider from "../../../public/images/tiendaPage/divider.svg";
 import Image from "next/image";
-import Checkbox from "react-custom-checkbox";
-import checkboxImg from "../../../public/images/tiendaPage/checkboxSquare.svg";
-import checkImg from "../../../public/images/tiendaPage/check.svg";
 import FilterLabel from "../GeneralComponents/filterLabel";
 
 type Props = {

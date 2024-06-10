@@ -20,8 +20,6 @@ export default async function Producto({
 }: {
   params: { slug: string };
 }) {
-  console.log(params);
-
   const query = graphql(`
     query ProductQuery($handle: String!) {
       productByHandle(handle: $handle) {
