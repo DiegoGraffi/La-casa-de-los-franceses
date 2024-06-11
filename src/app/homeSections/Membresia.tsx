@@ -1,9 +1,9 @@
 import Image from "next/image";
 import fondoMembresia from "../../../public/images/portadaMembresia.jpg";
 import estrella from "../../../public/images/estrella.png";
-import BotonNoFillXXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXXL";
 import membresiaIcon from "../../../public/images/membresiaIconButton.svg";
 import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
+import BotonNoFillXXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXXL";
 
 export default function Membresia() {
   return (
@@ -22,7 +22,7 @@ export default function Membresia() {
         </div>
       </div>
       <div className="flex flex-col flex-1 justify-center basis-1 lg:basis-1/2 bg-secundarioPrincipal bg-opacity-85 lg:bg-transparent">
-        <div className="w-full h-full px-[50px] lg:px-[100px] flex flex-col justify-center items-center lg:items-start gap-[30px]">
+        <div className="w-full h-full px-[50px] lg:px-[100px] flex flex-col justify-center items-center lg:items-start gap-[30px] z-40">
           <h3 className="font-vangeda text-[55px]/[62px] text-terciarioPrincipal text-center lg:text-start">
             Unite a la membresia
           </h3>
