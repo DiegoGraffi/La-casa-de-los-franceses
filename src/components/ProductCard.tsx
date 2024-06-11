@@ -4,6 +4,7 @@ import cartIcon from "../../public/images/cartIconButton.svg";
 import vino from "../../public/images/vinoImagenProducto.png";
 import BotonNoFillSM from "./GeneralComponents/BotonesNoFill/BotonNoFillSM";
 import BotonNoFillMD from "./GeneralComponents/BotonesNoFill/BotonNoFillMD";
+import BotonNoFillXS from "./GeneralComponents/BotonesNoFill/BotonNoFillXS";
 
 type ProductCardProps = {
   image?: string;
@@ -23,14 +24,20 @@ export default function ProductCard({ image, title, price }: ProductCardProps) {
         />
       </div>
       <div className="flex-1 flex flex-col basis-1/2 h-full px-[20px] justify-between items-center w-full gap-[20px]">
-        <p className="uppercase font-light text-[14px]/[20px] lg:text-[20px]/[24px] text-gris2 text-center line-clamp-2">
+        <p className="uppercase lg:font-light text-[14px]/[20px] lg:text-[20px]/[24px] text-gris2 text-center line-clamp-2">
           {title}
         </p>
         <div className="flex flex-col justify-center items-center gap-[20px]">
-          <p className="text-[28px]/[34px] font-bricolage font-semibold text-gris2 text-center">
+          <p className="text-[24px]/[28px] lg:text-[28px]/[34px] font-bricolage font-semibold text-gris2 text-center">
             ${price}
           </p>
-          <BotonNoFillMD link="#" text="Agregar al carrito" icon={cartIcon} />
+          <div className="hidden lg:block">
+             <BotonNoFillMD link="#" text="Agregar al carrito" icon={cartIcon} />
+          </div>
+          <div className="block lg:hidden">
+            <BotonNoFillXS link="#" text="Agregar al carrito" icon={cartIcon} />
+          </div>
+         
         </div>
       </div>
     </div>
