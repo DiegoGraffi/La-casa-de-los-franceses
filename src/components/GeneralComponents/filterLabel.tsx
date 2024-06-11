@@ -1,14 +1,26 @@
 import Checkbox from "react-custom-checkbox";
 import checkImg from "../../../public/images/tiendaPage/check.svg";
 import Image from "next/image";
+import { TiendaContext } from "../../../context/TiendaProvider";
+import { useContext } from "react";
 
 type FilterLabelProps = {
   label: string;
 };
 
 export default function FilterLabel({ label }: FilterLabelProps) {
+  const context = useContext(TiendaContext);
+
+  if (!context) {
+    throw new Error("useContext must be used within a TiendaProvider");
+  }
+  const { selectedItemCategory, setSelectedItemCategory } = context;
+
   return (
-    <div className="p-2 hover:bg-gris6 rounded-md w-max">
+    <div
+      className="p-2 hover:bg-gris6 rounded-md w-max"
+      onClick={() => setSelectedItemCategory && setSelectedItemCategory(label)}
+    >
       <div className="relative flex gap-[10px] items-center">
         <Checkbox
           checked={false}
