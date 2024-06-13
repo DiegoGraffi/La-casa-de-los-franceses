@@ -17,7 +17,7 @@ import FooterItem from "./FooterItem";
 
 export default function Footer() {
   return (
-    <div className="bg-terciarioClaro w-full py-[70px]">
+    <div id="footer" className="bg-terciarioClaro w-full py-[70px]">
       <div className="container mx-auto flex flex-col lg:flex-row gap-[50px] lg:gap-[100px]">
         <div className="flex items-center flex-col gap-[60px]">
           <Image src={logo} alt="logo" width={150} className="object-contain" />
