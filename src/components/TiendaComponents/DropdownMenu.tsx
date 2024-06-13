@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useContext } from "react";
-import { TiendaContext } from "../../../context/TiendaProvider";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
+import { useState, useContext, useCallback } from "react";
 
 export default function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,13 +10,19 @@ export default function DropdownMenu() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-  const context = useContext(TiendaContext);
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set(name, value);
 
-  if (!context) {
-    throw new Error("useContext must be used within a TiendaProvider");
-  }
-  const { setOrder } = context;
+      return params.toString();
+    },
+    [searchParams]
+  );
 
   return (
     <div
@@ -36,7 +43,12 @@ export default function DropdownMenu() {
       >
         <ul className="relative">
           <li
-            onClick={() => setOrder("descendente")}
+            onClick={() => {
+              router.push(
+                pathname + "?" + createQueryString("sort", "price-desc")
+              );
+              setIsOpen(false);
+            }}
             className={`rounded-[3px] px-[10px] py-[3px] hover:bg-gris6 active:bg-gris5 transition-all ease-in-out duration-200 cursor-pointer ${
               isOpen ? "opacity-100" : "opacity-0"
             }`}
@@ -46,7 +58,12 @@ export default function DropdownMenu() {
             </p>
           </li>
           <li
-            onClick={() => setOrder("ascendente")}
+            onClick={() => {
+              router.push(
+                pathname + "?" + createQueryString("sort", "price-asc")
+              );
+              setIsOpen(false);
+            }}
             className={`rounded-[3px] px-[10px] py-[3px] hover:bg-gris6 active:bg-gris5 transition-all ease-in-out duration-200 cursor-pointer ${
               isOpen ? "opacity-100" : "opacity-0"
             }`}
@@ -56,7 +73,12 @@ export default function DropdownMenu() {
             </p>
           </li>
           <li
-            onClick={() => setOrder("reciente")}
+            onClick={() => {
+              router.push(
+                pathname + "?" + createQueryString("sort", "created")
+              );
+              setIsOpen(false);
+            }}
             className={`rounded-[3px] px-[10px] py-[3px] hover:bg-gris6 active:bg-gris5 transition-all ease-in-out duration-200 cursor-pointer ${
               isOpen ? "opacity-100" : "opacity-0"
             }`}
@@ -66,7 +88,12 @@ export default function DropdownMenu() {
             </p>
           </li>
           <li
-            onClick={() => setOrder("popular")}
+            onClick={() => {
+              router.push(
+                pathname + "?" + createQueryString("sort", "popular")
+              );
+              setIsOpen(false);
+            }}
             className={`rounded-[3px] px-[10px] py-[3px] hover:bg-gris6 active:bg-gris5 transition-all ease-in-out duration-200 cursor-pointer ${
               isOpen ? "opacity-100" : "opacity-0"
             }`}

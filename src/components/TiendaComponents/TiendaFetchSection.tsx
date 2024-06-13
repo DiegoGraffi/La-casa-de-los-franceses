@@ -1,8 +1,3 @@
-import { Suspense, useContext } from "react";
-import Search from "../GeneralComponents/search";
-import DropdownMenu from "./DropdownMenu";
-import { Sidebar } from "@/app/tienda/Sidebar";
-import ProductsSection from "./ProductsSection";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import TiendaSection from "./TiendaSection";
 
@@ -59,7 +54,6 @@ export default async function TiendaFetchSection({
         (collection) => collection.title === "Membresias"
       )
   );
-  console.log(products[0]);
 
   return <TiendaSection products={products} />;
 }

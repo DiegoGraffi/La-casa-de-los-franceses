@@ -1,10 +1,7 @@
-import Image, { StaticImageData } from "next/image";
-import BotonNoFillLG from "./GeneralComponents/BotonesNoFill/BotonNoFillLG";
-import cartIcon from "../../public/images/cartIconButton.svg";
-import vino from "../../public/images/vinoImagenProducto.png";
-import BotonNoFillSM from "./GeneralComponents/BotonesNoFill/BotonNoFillSM";
+import Image from "next/image";
 import BotonNoFillMD from "./GeneralComponents/BotonesNoFill/BotonNoFillMD";
 import BotonNoFillXS from "./GeneralComponents/BotonesNoFill/BotonNoFillXS";
+import CartIcon from "./GeneralComponents/CartIcon";
 
 type ProductCardProps = {
   image?: string;
@@ -32,12 +29,15 @@ export default function ProductCard({ image, title, price }: ProductCardProps) {
             ${price}
           </p>
           <div className="hidden lg:block">
-             <BotonNoFillMD link="#" text="Agregar al carrito" icon={cartIcon} />
+            <BotonNoFillMD link="#" text="Agregar al carrito">
+              <CartIcon className="stroke-primarioOscuro group-hover:stroke-primarioClaro transition-all ease-in-out duration-200" />
+            </BotonNoFillMD>
           </div>
           <div className="block lg:hidden">
-            <BotonNoFillXS link="#" text="Agregar al carrito" icon={cartIcon} />
+            <BotonNoFillXS link="#" text="Agregar al carrito">
+              <CartIcon className="stroke-primarioOscuro group-hover:stroke-primarioClaro transition-all ease-in-out duration-200" />
+            </BotonNoFillXS>
           </div>
-         
         </div>
       </div>
     </div>

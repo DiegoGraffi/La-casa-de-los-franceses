@@ -1,24 +1,9 @@
-import Link from "next/link";
-import ProductCard from "../ProductCard";
+import { ReactNode } from "react";
 
-export default function ProductsSection({ products }) {
+export default function ProductsSection({ children }: { children: ReactNode }) {
   return (
     <div className="w-full flex flex-col">
-      <div className="w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 lg:p-[25px] gap-[10px] justify-stretch">
-        {products.map((product) => (
-          <Link
-            key={product.handle}
-            href={`/producto/${product.handle}`}
-            legacyBehavior
-          >
-            <ProductCard
-              image={product.featuredImage?.url}
-              price={product.priceRange.maxVariantPrice.amount}
-              title={product.title}
-            />
-          </Link>
-        ))}
-      </div>
+      {children}
 
       <div className="flex flex-col gap-[25px] justify-center items-center my-[25px]">
         <p className="uppercase text-gris4 text-[24px]/[28px] font-semibold font-bricolage">
