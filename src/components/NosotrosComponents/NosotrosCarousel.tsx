@@ -1,5 +1,4 @@
 //nosotros carrusel
-
 import Image from "next/image";
 import item1 from "../../../public/images/nosotros/item1.png";
 import item2 from "../../../public/images/nosotros/item2.jpg";
@@ -49,7 +48,7 @@ export default function NosotrosCarousel() {
 
   return (
     <div className="w-full lg:max-w-[1600px] lg:mx-auto p-0 lg:flex overflow-hidden lg:h-[430px] rounded-bl-[30px] rounded-tr-[30px]">
-      <div className="lg:h-full aspect-[575/430] relative overflow-hidden">
+      <div className="h-[300px] lg:h-full aspect-[575/430] relative overflow-hidden">
         <Image
           src={items[selectedItem].foto}
           alt="mapa san juan"
@@ -62,7 +61,7 @@ export default function NosotrosCarousel() {
         style={{ backgroundColor: items[selectedItem].bgColor }}
         className={`bg-[${items[selectedItem].bgColor}] flex flex-col justify-center items-start flex-1 h-auto p-[40px]`}
       >
-        <div className="h-[80%] top-0 flex justify-center items-center">
+        <div className="h-[250px] flex justify-center items-center overflow-hidden">
           <p
             className={`font-bricolage font-regular text-center text-[16px]/[24px] lg:text-start lg:text-[18px]/[23px] lg:font-light text-[${items[selectedItem].textColor}]`}
           >
@@ -73,7 +72,7 @@ export default function NosotrosCarousel() {
           <div className="flex items-center lg:gap-[50px]">
             <div
               onClick={handlePrev}
-              className="rounded-full bg-transparent hover:bg-[#c4b19d]  transition-all ease-in-out duration-200 cursor-pointer"
+              className="rounded-full bg-transparent hover:bg-[#c4b19d] transition-all ease-in-out duration-200 cursor-pointer"
             >
               <NosotrosArrow color={items[selectedItem].textColor} />
             </div>
