@@ -1,5 +1,3 @@
-import TiendaFetchSection from "@/components/TiendaComponents/TiendaFetchSection";
-import TiendaProvider from "../../../context/TiendaProvider";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import TiendaSection from "@/components/TiendaComponents/TiendaSection";
 import { VariablesOf } from "gql.tada";

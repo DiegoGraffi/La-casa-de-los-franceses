@@ -1,10 +1,7 @@
 // "use client";
 
-import Image from "next/image";
-import ProductoImg from "../../../../public/images/vinoImagenProducto.png";
-import BotonNoFillMD from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillMD";
+import Image, { StaticImageData } from "next/image";
 import CartIcon from "../../../../public/images/productDetail/cartIcon.svg";
-import ProductCard from "@/components/ProductCard";
 
 import "pure-react-carousel/dist/react-carousel.es.css";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
@@ -14,6 +11,7 @@ import BotonXL from "@/components/GeneralComponents/Botones/BotonXL";
 import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
 import CarouselComponent from "@/components/CarouselComponent";
 import { fetchGraphql, graphql } from "@/lib/graphql";
+import ImageZoom from "@/components/ProductDetailComponents/ImageZoom";
 
 export default async function Producto({
   params,
@@ -67,16 +65,17 @@ export default async function Producto({
     }
   }
 
-  const imageUrl = data.productByHandle?.featuredImage?.url || Imagen;
+  const featuredImageUrl = data.productByHandle?.featuredImage?.url;
+  const imageUrl =
+    typeof featuredImageUrl === "string"
+      ? featuredImageUrl
+      : (Imagen as StaticImageData).src;
 
   return (
     <div className="pt-[220px] py-[100px] flex flex-col gap-[150px] justify-center items-center">
       <section className="flex flex-col lg:flex-row max-w-[1600px] px-[200px] gap-[40px] w-screen border">
         <div className="flex flex-col-reverse flex-1 gap-[15px] lg:flex-row">
-          {/* <InnerImageZoom
-            src="../../../../public/images/nosotros/profile1.jpg"
-            zoomSrc={require("../../../../public/images/nosotros/profile1.jpg")}
-          /> */}
+          {/* <ImageZoom imageUrl={imageUrl} /> */}
 
           <div className="max-w-[500px] max-h-[500px] h-[500px] lg:h-full w-full relative">
             <Image
