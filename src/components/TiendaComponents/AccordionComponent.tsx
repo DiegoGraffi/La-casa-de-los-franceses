@@ -23,7 +23,7 @@ export default function AccordionComponent({
   listaVarietal,
 }: Props) {
   return (
-    <div className="w-full pr-[25px]">
+    <div className="w-full lg:pr-[25px]">
       <Accordion type="multiple">
         <AccordionItem value="item-1" className="flex flex-col">
           <AccordionTrigger
@@ -31,7 +31,7 @@ export default function AccordionComponent({
             aria-hidden
             hidden={true}
           >
-            <p className="uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+            <p className="pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
               Categoria
             </p>
             <Image
@@ -63,7 +63,7 @@ export default function AccordionComponent({
             aria-hidden
             hidden={true}
           >
-            <p className="uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+            <p className="pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
               Bodega
             </p>
             <Image
@@ -95,7 +95,7 @@ export default function AccordionComponent({
             aria-hidden
             hidden={true}
           >
-            <p className="uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+            <p className="pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
               Varietal
             </p>
             <Image
@@ -127,7 +127,7 @@ export default function AccordionComponent({
             aria-hidden
             hidden={true}
           >
-            <p className="uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+            <p className="pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
               Precio
             </p>
             <Image
@@ -138,7 +138,7 @@ export default function AccordionComponent({
               aria-hidden
             />
           </AccordionTrigger>
-          <AccordionContent className="flex flex-col gap-[10px]">
+          <AccordionContent className="px-[40px]  lg:px-[20px] flex flex-col gap-[10px]">
             <div className="flex flex-col gap-[7px]">
               <p className="font-bricolage font-light text-[20px]/[25px] text-gris3">
                 Desde
@@ -148,7 +148,7 @@ export default function AccordionComponent({
                 className="border border-gris5 px-1 py-2 rounded-[10px]"
               />
             </div>
-            <div className="flex flex-col gap-[7px]">
+            <div className="flex flex-col gap-[7px] pb-2">
               <p className="font-bricolage font-light text-[20px]/[25px] text-gris3">
                 Hasta
               </p>
