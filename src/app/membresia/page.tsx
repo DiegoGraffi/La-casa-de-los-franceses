@@ -1,14 +1,43 @@
-"use client";
-
-import React, { useState } from "react";
 import Image from "next/image";
 import MembresiaCard from "@/components/MembresiaComponents/MembresiaCard";
 import PasosCard from "@/components/MembresiaComponents/PasosCard";
 import SectionTitle from "@/components/SectionTitle";
 import portada from "../../../public/images/membresiaPage/sillas.jpg";
 import Link from "next/link";
+import { fetchGraphql, graphql } from "@/lib/graphql";
 
-function Membresia() {
+const query = graphql(`
+  query MembresiasTienda {
+    collection(handle: "Membresias") {
+      products(first: 10) {
+        nodes {
+          title
+          description
+
+          priceRange {
+            maxVariantPrice {
+              amount
+            }
+          }
+          featuredImage {
+            url
+          }
+        }
+      }
+    }
+  }
+`);
+
+async function Membresia() {
+  const data = await fetchGraphql(query, {});
+
+  if (!data.collection) {
+    console.error("Collection not found");
+    return <div>Collection not found</div>;
+  }
+
+  const products = data.collection.products.nodes;
+
   return (
     <div>
       <div className="relative w-full h-[70vh] lg:h-[750px]">
@@ -104,28 +133,28 @@ function Membresia() {
 
         <div className="grid grid-cols-2 mx-auto lg:flex lg:flex-row justify-center items-stretch mt-[37px] gap-[10px]">
           <MembresiaCard
-            image="/images/membresiaPage/membresia1.avif"
-            name="SIMPLE BOX"
-            description="Caja de 3 vinos seleccionados. Descuentos exclusivos en nuestra tienda online y física."
-            precio={50}
+            image={products[3].featuredImage?.url}
+            name={products[3].title}
+            description={products[3].description}
+            precio={products[3].priceRange.maxVariantPrice.amount}
           />
           <MembresiaCard
-            image="/images/membresiaPage/membresia2.avif"
-            name="LARGE BOX"
-            description="Caja de 5 vinos seleccionados. Descuentos exclusivos en nuestra tienda online y física."
-            precio={70}
+            image={products[2].featuredImage?.url}
+            name={products[2].title}
+            description={products[2].description}
+            precio={products[2].priceRange.maxVariantPrice.amount}
           />
           <MembresiaCard
-            image="/images/membresiaPage/membresia3.avif"
-            name="SIMPLE BOX MIX"
-            description="Caja de 3 vinos seleccionados con 1 extra seleccionado. Descuentos exclusivos en nuestra tienda online y física."
-            precio={85}
+            image={products[1].featuredImage?.url}
+            name={products[1].title}
+            description={products[1].description}
+            precio={products[1].priceRange.maxVariantPrice.amount}
           />
           <MembresiaCard
-            image="/images/membresiaPage/membresia4.avif"
-            name="LARGE BOX MIX"
-            description="Caja de 5 vinos seleccionados con 2 extras seleccionados. Descuentos exclusivos en nuestra tienda online y física"
-            precio={97}
+            image={products[0].featuredImage?.url}
+            name={products[0].title}
+            description={products[0].description}
+            precio={products[0].priceRange.maxVariantPrice.amount}
           />
         </div>
         <div className="flex flex-col gap-[15px] lg:gap-[30px] mt-[120px]">

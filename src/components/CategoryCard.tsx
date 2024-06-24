@@ -23,20 +23,22 @@ export default function CategoryCard({
   reverse,
   color,
 }: CategoryCardProps) {
+  const productTypeQuery = `?productType=${encodeURIComponent(link)}`;
+  const updatedLink = `/tienda${productTypeQuery}`;
   return (
     <div
-      className={`group w-full flex md:px-0 flex-col gap-[25px] lg:flex-row lg:gap-0 lg:h-[425px] ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+      className={`group w-full flex md:px-0 flex-col gap-[25px] lg:flex-row lg:gap-0 lg:h-[425px] ${
+        reverse ? "lg:flex-row-reverse" : "lg:flex-row"
       } `}
     >
       <div className="lg:max-h-[425px] flex-1 relative basis-1/2">
         <Image
           src={image}
           alt="imagen categoria"
-
           className="object-cover h-[250px] lg:hidden"
         />
 
-<Image
+        <Image
           src={image}
           alt="imagen categoria"
           fill
@@ -59,23 +61,24 @@ export default function CategoryCard({
           {description}
         </p>
 
-        <div className="py-[25px] flex justify-center lg:justify-start"> 
+        <div className="py-[25px] flex justify-center lg:justify-start">
           <div className="flex lg:hidden">
-            <BotonMD  text={textButton}
-            link={link}
-            icon={catalogoIcon}
-            color={color}/>
-          </div>
-          
-          <div className="hidden lg:flex">
-
-          <BotonXL
-            text={textButton}
-            link={link}
-            icon={catalogoIcon}
-            color={color}
+            <BotonMD
+              text={textButton}
+              link={updatedLink}
+              icon={catalogoIcon}
+              color={color}
             />
-            </div>
+          </div>
+
+          <div className="hidden lg:flex">
+            <BotonXL
+              text={textButton}
+              link={updatedLink}
+              icon={catalogoIcon}
+              color={color}
+            />
+          </div>
         </div>
       </div>
     </div>

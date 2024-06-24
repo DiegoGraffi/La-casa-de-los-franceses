@@ -1,4 +1,4 @@
-import { Suspense, useContext, useEffect, useState } from "react";
+import { Suspense } from "react";
 import Search from "../GeneralComponents/search";
 import DropdownMenu from "./DropdownMenu";
 import { Sidebar } from "@/app/tienda/Sidebar";
@@ -16,28 +16,23 @@ export default function TiendaSection({ products }: ProductsList) {
     }
   });
 
-  const productosBodegas = products.filter(
-    (product) =>
-      product.collections.nodes.length === 0 ||
-      (product.collections.nodes[0].title !== "Carnes" &&
-        product.collections.nodes[0].title !== "Membresias")
-  );
-
   const listaBodegas: string[] = [];
-  productosBodegas.forEach((producto) => {
-    if (producto.collections.nodes.length > 0) {
-      const bodega = producto.collections.nodes[0].title;
-      if (!listaBodegas.includes(bodega)) {
-        listaBodegas.push(bodega);
-      }
+  listaProductos.forEach((producto) => {
+    const bodega = producto.vendor;
+    if (!listaBodegas.includes(bodega)) {
+      listaBodegas.push(bodega);
     }
   });
 
   const listaVarietal: string[] = [];
-  products.forEach((producto) => {
-    const varietal = producto.metafields?.[0]?.value;
-    if (varietal && !listaVarietal.includes(varietal)) {
-      listaVarietal.push(varietal);
+  listaProductos.forEach((producto) => {
+    const varietales = producto.tags;
+    if (varietales && varietales.length > 0) {
+      varietales.forEach((varietal) => {
+        if (varietal && varietal !== "" && !listaVarietal.includes(varietal)) {
+          listaVarietal.push(varietal);
+        }
+      });
     }
   });
 

@@ -6,7 +6,7 @@ type MembresiaCardProps = {
   image?: string;
   name: string;
   description: string;
-  precio: number;
+  precio: string;
 };
 
 function MembresiaCard({

@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-import { useState, useContext, useCallback } from "react";
+import { useState, useCallback } from "react";
 
 export default function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);

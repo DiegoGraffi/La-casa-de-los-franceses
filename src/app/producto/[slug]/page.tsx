@@ -2,7 +2,6 @@
 
 import Image, { StaticImageData } from "next/image";
 import CartIcon from "../../../../public/images/productDetail/cartIcon.svg";
-
 import "pure-react-carousel/dist/react-carousel.es.css";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import InnerImageZoom from "react-inner-image-zoom";
@@ -12,6 +11,8 @@ import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoF
 import CarouselComponent from "@/components/CarouselComponent";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import ImageZoom from "@/components/ProductDetailComponents/ImageZoom";
+import Link from "next/link";
+import ProductCard from "@/components/ProductCard";
 
 export default async function Producto({
   params,
@@ -49,6 +50,29 @@ export default async function Producto({
     }
   `);
 
+  const queryRelatedProducts = graphql(`
+    query ProductosRecomendados {
+      collectionByHandle(handle: "seleccion-del-mes") {
+        products(first: 100) {
+          nodes {
+            title
+            handle
+            featuredImage {
+              url
+            }
+            variants(first: 1) {
+              nodes {
+                price {
+                  amount
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
   const variables = { handle: params.slug };
   const data = await fetchGraphql(query, variables);
 
@@ -71,9 +95,31 @@ export default async function Producto({
       ? featuredImageUrl
       : (Imagen as StaticImageData).src;
 
+  const dataRelatedProducts = await fetchGraphql(queryRelatedProducts, {});
+  const products = dataRelatedProducts.collectionByHandle?.products.nodes;
+
+  const slides = products
+    ? products.map((product, index) => {
+        return (
+          <Link
+            key={product.handle}
+            href={`/producto/${product.handle}`}
+            legacyBehavior
+          >
+            <ProductCard
+              key={index}
+              price={product.variants.nodes[0].price.amount}
+              title={product.title}
+              image={product.featuredImage?.url}
+            />
+          </Link>
+        );
+      })
+    : [];
+
   return (
-    <div className="pt-[220px] py-[100px] flex flex-col gap-[150px] justify-center items-center">
-      <section className="flex flex-col lg:flex-row max-w-[1600px] px-[200px] gap-[40px] w-screen border">
+    <div className="pt-[220px] py-[100px] flex flex-col gap-[150px] justify-center items-center overflow-x-hidden">
+      <section className="flex flex-col lg:flex-row max-w-[1600px] px-[200px] gap-[40px] w-screen border border-green-500">
         <div className="flex flex-col-reverse flex-1 gap-[15px] lg:flex-row">
           {/* <ImageZoom imageUrl={imageUrl} /> */}
 
@@ -128,21 +174,24 @@ export default async function Producto({
               text="Añadir al carrito"
               icon={CartIcon}
             />
-            <BotonNoFillXL text="Ver mas" link="#" />
+            <BotonNoFillXL text="Ver mas" link={"#aditionalInfo"} />
           </div>
         </div>
       </section>
 
-      <section className="flex flex-col items-center">
+      <section className="flex flex-col items-center border border-blue-400">
         <h3 className="text-[48px]/[58px] text-terciarioPrincipal font-vangeda">
           Productos similares
         </h3>
-        <div className="max-h-[2000px] max-w-full gap-[56px] pt-[90px] mx-auto flex flex-col justify-center items-center overflow-hidden">
-          {/* <CarouselComponent slides={slides} /> */}
+        <div className="max-h-[2000px] w-full lg:px-[200px] gap-[35px] lg:gap-[56px] pt-[70px] lg:pt-[90px] mx-auto flex flex-col justify-center items-center overflow-hidden mb-[60px] lg:mb-0">
+          <CarouselComponent slides={slides} />
         </div>
       </section>
 
-      <section className="flex flex-col max-w-[1600px] w-full px-[100px] lg:px-[200px] gap-[70px] justify-center items-center">
+      <section
+        id="aditionalInfo"
+        className="flex flex-col max-w-[1600px] w-full px-[100px] lg:px-[200px] gap-[70px] justify-center items-center border border-red-500"
+      >
         <h3 className="text-[48px]/[58px] text-terciarioPrincipal font-vangeda text-center">
           Información adicional
         </h3>

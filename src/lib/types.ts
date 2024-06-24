@@ -4,9 +4,10 @@ type MetafieldProps = {
 
 export type ProductProps = {
   title: string;
+  tags: string[];
   handle: string;
+  vendor: string;
   productType: string;
-  collections: { nodes: { title: string }[] };
   createdAt: string;
   priceRange: {
     maxVariantPrice: {

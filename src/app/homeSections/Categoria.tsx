@@ -21,7 +21,7 @@ export default function Categoria() {
             textButton="Catálogo de vinos"
             description="¡¡Che, date una vuelta por nuestro catálogo de tintos y descubrí lo que te estás perdiendo! ¡No te lo podés perder!"
             image={vinos}
-            link="#"
+            link="Vinos"
             reverse={false}
             color="verde"
           />
@@ -31,7 +31,7 @@ export default function Categoria() {
             textButton="Catálogo de carnes"
             description="¡Ey, no te pierdas nuestra selección de espumantes que te va a dejar sin aliento! ¡Son puro sabor y burbujas de felicidad! ¡Animate a descubrir la magia de nuestros espumantes y brindá con estilo!"
             image={carnes}
-            link="#"
+            link="Carnes"
             reverse={true}
             color="rojo"
           />
@@ -40,7 +40,7 @@ export default function Categoria() {
             textButton="Catálogo completo"
             description="¡Che, date una vuelta por nuestro catálogo de tintos y descubrí lo que te estás perdiendo! ¡No te lo podés perder!"
             image={champagnes}
-            link="#"
+            link="Champagnes y espirituosos"
             reverse={false}
             color="verde"
           />
@@ -50,7 +50,7 @@ export default function Categoria() {
             textButton="Catálogo de especiales"
             description="¡Ey, no te pierdas nuestra selección de espumantes que te va a dejar sin aliento! ¡Son puro sabor y burbujas de felicidad! ¡Animate a descubrir la magia de nuestros espumantes y brindá con estilo!"
             image={especiales}
-            link="#"
+            link="Especiales"
             reverse={true}
             color="rojo"
           />

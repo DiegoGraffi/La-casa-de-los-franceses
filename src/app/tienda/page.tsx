@@ -40,14 +40,11 @@ const query = graphql(`
     products(sortKey: $sortKey, reverse: $reverse, query: $query, first: 100) {
       nodes {
         title
+        tags
         handle
         productType
         createdAt
-        collections(first: 1) {
-          nodes {
-            title
-          }
-        }
+        vendor
         priceRange {
           maxVariantPrice {
             amount
@@ -64,26 +61,72 @@ const query = graphql(`
   }
 `);
 
+function getVendorQuery(vendor: string | string[] | undefined) {
+  if (vendor === undefined) {
+    return null;
+  }
+
+  if (typeof vendor === "string") {
+    return `vendor:'${vendor}'`;
+  }
+
+  return vendor.map((v) => `vendor:'${v}'`).join(" OR ");
+}
+
+function getVarietalQuery(varietal: string | string[] | undefined) {
+  if (varietal === undefined) {
+    return null;
+  }
+
+  if (typeof varietal === "string") {
+    return `tag:'${varietal}'`;
+  }
+
+  return varietal.map((v) => `tag:'${v}'`).join(" OR ");
+}
+
+type QueryNode = string | undefined | null | false;
+
+function combineQueryNodes(nodes: QueryNode[]) {
+  return nodes
+    .filter(Boolean)
+    .map((node) => `(${node})`)
+    .join(" AND ");
+}
+
 export default async function Tienda({
   searchParams,
 }: {
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  const { q: searchValue } = searchParams as { [key: string]: string };
+  const {
+    q: searchValue,
+    productType,
+    vendor,
+  } = searchParams as {
+    [key: string]: string;
+  };
+
+  const vendorQuery = getVendorQuery(searchParams?.["vendor"]);
+  const varietalQuery = getVarietalQuery(searchParams?.["varietal"]);
 
   const sort = searchParams?.["sort"];
 
+  const shopifyQuery = combineQueryNodes([
+    searchValue,
+    productType && `product_type:${productType}`,
+    vendorQuery,
+    varietalQuery,
+  ]);
+
+  console.log(shopifyQuery);
+
   const data = await fetchGraphql(query, {
-    query: searchValue,
+    query: shopifyQuery,
     ...getSortVariables(typeof sort === "string" ? sort : ""),
   });
 
-  const products = data.products.nodes.filter(
-    (product) =>
-      !product.collections.nodes.some(
-        (collection) => collection.title === "Membresias"
-      )
-  );
+  const products = data.products.nodes;
 
   return <TiendaSection products={products} />;
 }
