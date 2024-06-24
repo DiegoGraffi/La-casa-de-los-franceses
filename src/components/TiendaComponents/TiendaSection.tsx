@@ -43,6 +43,7 @@ export default function TiendaSection({ products }: ProductsList) {
           ¿Estas listo?
         </p>
       </div>
+
       <div className="w-full container mx-auto flex flex-col lg:gap-[30px]">
         <div className="flex flex-col lg:flex-row order-2 lg:order-1 justify-between items-start lg:items-center gap-[30px] lg:gap-[50px]">
           <div className="w-full lg:w-[60%] flex flex-col lg:flex-row lg:gap-[50px] items-center lg:py-[50px]">
@@ -53,6 +54,7 @@ export default function TiendaSection({ products }: ProductsList) {
               <Search />
             </Suspense>
           </div>
+
           <div className="flex flex-col lg:flex-row gap-[10px] lg:gap-[40px] items-center w-full lg:w-[40%]">
             <p className="uppercase text-gris4 font-light lg:font-semibold text-[12px]/[16px] lg:text-[18px]/[28px] lg:font-bricolage font-gibson min-w-max">
               Mostrando {products.length} resultados
@@ -77,9 +79,9 @@ export default function TiendaSection({ products }: ProductsList) {
         </div>
       </div>
       <div className="w-full container mx-auto flex flex-col lg:w-[80%] lg:hidden pt-[20px]">
-            <ProductsSection>
-              <Products products={products} />
-            </ProductsSection>
+        <ProductsSection>
+          <Products products={products} />
+        </ProductsSection>
       </div>
     </div>
   );

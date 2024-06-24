@@ -23,7 +23,7 @@ export default function AccordionComponent({
   listaVarietal,
 }: Props) {
   return (
-    <div className="w-full">
+    <div className="w-full lg:pr-[25px]">
       <Accordion type="multiple">
         {listaTipos.length >= 2 && (
           <AccordionItem value="item-1" className="flex flex-col">
@@ -32,7 +32,7 @@ export default function AccordionComponent({
               aria-hidden
               hidden={true}
             >
-              <p className="uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+              <p className="pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
                 Categoria
               </p>
               <Image
@@ -66,7 +66,7 @@ export default function AccordionComponent({
               aria-hidden
               hidden={true}
             >
-              <p className="uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+              <p className="pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
                 Bodega
               </p>
               <Image
@@ -100,7 +100,7 @@ export default function AccordionComponent({
               aria-hidden
               hidden={true}
             >
-              <p className="uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+              <p className="upl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
                 Varietal
               </p>
               <Image
