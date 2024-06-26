@@ -13,6 +13,9 @@ import { fetchGraphql, graphql } from "@/lib/graphql";
 import ImageZoom from "@/components/ProductDetailComponents/ImageZoom";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
+import BotonLG from "@/components/GeneralComponents/Botones/BotonLG";
+import BotonNoFillLG from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillLG";
+import Counter from "@/components/ProductDetailComponents/Counter";
 
 export default async function Producto({
   params,
@@ -23,6 +26,7 @@ export default async function Producto({
     query ProductQuery($handle: String!) {
       productByHandle(handle: $handle) {
         title
+        totalInventory
         description
         priceRange {
           maxVariantPrice {
@@ -75,7 +79,6 @@ export default async function Producto({
 
   const variables = { handle: params.slug };
   const data = await fetchGraphql(query, variables);
-
   let awards: string[] = [];
 
   if (data.productByHandle?.metafields[0]?.value) {
@@ -97,6 +100,8 @@ export default async function Producto({
 
   const dataRelatedProducts = await fetchGraphql(queryRelatedProducts, {});
   const products = dataRelatedProducts.collectionByHandle?.products.nodes;
+  const stock = data.productByHandle?.totalInventory ?? 0;
+  const addToCartDisabled = stock === 0;
 
   const slides = products
     ? products.map((product, index) => {
@@ -118,177 +123,181 @@ export default async function Producto({
     : [];
 
   return (
-    <div className="pt-[220px] py-[100px] flex flex-col gap-[150px] justify-center items-center overflow-x-hidden">
-      <section className="flex flex-col lg:flex-row max-w-[1600px] px-[200px] gap-[40px] w-screen border border-green-500">
-        <div className="flex flex-col-reverse flex-1 gap-[15px] lg:flex-row">
+    <div className="md:pt-[180px] py-[150px] flex flex-col gap-[150px] justify-center items-center overflow-x-hidden">
+      <section className="grid grid-cols-1 auto-rows-auto lg:grid-cols-2 lg:grid-rows-1 max-w-[1600px] px-[20px] lg:px-[100px] xl:px-[200px] gap-[40px] w-screen justify-center">
+        <div className="flex flex-col-reverse gap-[15px] lg:flex-row">
           {/* <ImageZoom imageUrl={imageUrl} /> */}
 
-          <div className="max-w-[500px] max-h-[500px] h-[500px] lg:h-full w-full relative">
+          <div className="md:max-w-[500px] md:max-h-[500px] max-w-[300px] mx-auto h-[300px] md:h-[500px] rounded-[10px] lg:h-full w-full relative aspect-square border">
             <Image
               src={imageUrl}
               alt="vino"
               fill
-              className="object-contain border"
+              className="object-contain aspect-square"
             />
           </div>
         </div>
-        <div className="flex flex-col gap-[20px] border flex-1">
+        <div className="flex flex-col gap-[20px] border">
           <div className="flex flex-col gap-[20px]">
-            <h2 className="text-[48px]/[58px] text-terciarioPrincipal font-vangeda">
+            <h2 className="text-[32px]/[38px] lg:text-[48px]/[58px] text-terciarioPrincipal font-vangeda text-center lg:text-start text-balance">
               {data.productByHandle?.title}
             </h2>
-            <p className="font-bricolage text-[20px]/[25px] font-light text-gris1 max-w-[650px]">
+            <p className="font-bricolage text-balance text-[14px]/[22px] lg:text-[20px]/[25px] font-light text-gris1 max-w-[650px] mx-auto md:text-center lg:text-start">
               {data.productByHandle?.description}
             </p>
           </div>
 
-          <div className="flex items-center gap-[10px]">
-            <p className="text-[55px]/[62px] text-terciarioClaro font-vangeda">
+          <div className="flex items-center gap-[10px] justify-center lg:justify-start">
+            <p className="lg:text-[55px]/[62px] text-[28px]/[34px] text-terciarioClaro font-vangeda">
               {data.productByHandle?.priceRange.maxVariantPrice.currencyCode}{" "}
               {data.productByHandle?.priceRange.maxVariantPrice.amount}
             </p>
-            <p className="text-[26px]/[34px] font-vangeda text-gris2">
+            <p className="text-[16px]/[15px] lg:text-[26px]/[34px] font-vangeda text-gris2">
               10% descuento
             </p>
           </div>
 
-          <div className="flex items-center gap-[25px]">
-            <div className="flex">
-              <button className="px-[15px] py-[2px] text-gris6 bg-gris4 flex justify-center items-center rounded-l-full hover:bg-gris2 hover:text-gris4">
-                <p className="text-[24px] font-bricolage font-semibold">-</p>
-              </button>
-
-              <div className="px-[15px] py-[5px] bg-gris6 flex justify-center items-center">
-                <p className="text-[24px]/[28px] text-gris2 font-bricolage font-semibold">
-                  1
-                </p>
-              </div>
-
-              <button className="px-[15px] py-[2px] text-gris6 bg-gris4 flex justify-center items-center rounded-r-full hover:bg-gris2 hover:text-gris4">
-                <p className="text-[24px] font-bricolage font-semibold">+</p>
-              </button>
+          <div className="flex items-center gap-[25px] justify-center lg:justify-start">
+            <Counter stock={stock} />
+            <div className="hidden lg:flex">
+              <BotonXL
+                link="#"
+                color="rojo"
+                text="Añadir al carrito"
+                icon={CartIcon}
+              />
             </div>
-            <BotonXL
-              link="#"
-              color="rojo"
-              text="Añadir al carrito"
-              icon={CartIcon}
-            />
-            <BotonNoFillXL text="Ver mas" link={"#aditionalInfo"} />
+
+            <div className="lg:hidden">
+              <BotonLG
+                link="#"
+                color="rojo"
+                text="Añadir al carrito"
+                icon={CartIcon}
+              />
+            </div>
+
+            <div className="hidden lg:flex ">
+              <BotonNoFillXL text="Ver mas" link={"#aditionalInfo"} />
+            </div>
+          </div>
+
+          <div className="lg:hidden mx-auto md:mt-[20px]">
+            <BotonNoFillLG text="Ver mas" link={"#aditionalInfo"} />
           </div>
         </div>
       </section>
 
-      <section className="flex flex-col items-center border border-blue-400">
+      {/* <section className="flex flex-col items-center border border-blue-400">
         <h3 className="text-[48px]/[58px] text-terciarioPrincipal font-vangeda">
           Productos similares
         </h3>
         <div className="max-h-[2000px] w-full lg:px-[200px] gap-[35px] lg:gap-[56px] pt-[70px] lg:pt-[90px] mx-auto flex flex-col justify-center items-center overflow-hidden mb-[60px] lg:mb-0">
           <CarouselComponent slides={slides} />
         </div>
-      </section>
+      </section> */}
 
       <section
         id="aditionalInfo"
-        className="flex flex-col max-w-[1600px] w-full px-[100px] lg:px-[200px] gap-[70px] justify-center items-center border border-red-500"
+        className="flex flex-col max-w-[1600px] w-full px-[20px] md:px-[100px] lg:px-[200px] gap-[70px] justify-center items-center"
       >
-        <h3 className="text-[48px]/[58px] text-terciarioPrincipal font-vangeda text-center">
+        <h3 className="text-[32px]/[38px] lg:text-[48px]/[58px] text-terciarioPrincipal font-vangeda text-center">
           Información adicional
         </h3>
         <div className="flex flex-col w-full">
           {data.productByHandle?.metafields[0]?.value ? (
-            <div className="flex border-t-2 border-t-[#FFAA00] bg-gradient-to-t from-[#FFC654] to-[rgba(255,220,149,20%)]">
-              <div className="w-[20%] flex justify-start items-start py-[20px] px-[40px]">
-                <p className="text-[20px]/[24px] font-bricolage font-semibold">
+            <div className="flex flex-col lg:flex-row border-t-2 border-t-[#FFAA00] bg-gradient-to-t from-[#FFC654] to-[rgba(255,220,149,20%)] items-center lg:items-start">
+              <div className="w-[80%] lg:w-[30%] xl:w-[20%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+                <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-semibold text-center lg:text-start">
                   Awards
                 </p>
               </div>
-              <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
-                <p className="text-[20px]/[25px] font-bricolage font-light">
+              <div className="w-[80%] lg:w-[70%] xl:w-[80%] flex justify-start items-start py-[10px] lg:py-[20px] px-[40px]">
+                <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-light text-center lg:text-start">
                   {awards.join(", ")}
                 </p>
               </div>
             </div>
           ) : null}
 
-          <div className="flex border-t-2 border-t-terciarioPrincipal">
-            <div className="w-[20%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[24px] font-bricolage font-semibold">
+          <div className="flex border-t-2 border-t-terciarioPrincipal flex-col lg:flex-row items-center lg:items-start">
+            <div className="w-[80%] lg:w-[30%] xl:w-[20%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+              <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-semibold text-center lg:text-start">
                 Añada
               </p>
             </div>
-            <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[25px] font-bricolage font-light">
+            <div className="w-[80%] lg:w-[70%] xl:w-[80%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+              <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-light">
                 {data.productByHandle?.metafields[1]?.value
                   ? data.productByHandle.metafields[1].value
                   : "No hay información"}
               </p>
             </div>
           </div>
-          <div className="flex border-t-2 border-t-terciarioPrincipal bg-gris6">
-            <div className="w-[20%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[24px] font-bricolage font-semibold">
+          <div className="flex border-t-2 border-t-terciarioPrincipal bg-gris6 flex-col lg:flex-row items-center lg:items-start">
+            <div className="w-[80%] lg:w-[30%] xl:w-[20%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+              <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-semibold text-center lg:text-start">
                 Denominación de origen
               </p>
             </div>
-            <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[25px] font-bricolage font-light">
+            <div className="w-[80%] lg:w-[70%] xl:w-[80%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+              <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-light">
                 {data.productByHandle?.metafields[2]?.value
                   ? data.productByHandle.metafields[2].value
                   : "No hay información"}
               </p>
             </div>
           </div>
-          <div className="flex border-t-2 border-t-terciarioPrincipal">
-            <div className="w-[20%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[24px] font-bricolage font-semibold">
+          <div className="flex border-t-2 border-t-terciarioPrincipal flex-col lg:flex-row items-center lg:items-start">
+            <div className="w-[80%] lg:w-[30%] xl:w-[20%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+              <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-semibold text-center lg:text-start">
                 Grado de alcohol
               </p>
             </div>
-            <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[25px] font-bricolage font-light">
+            <div className="w-[80%] lg:w-[70%] xl:w-[80%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+              <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-light">
                 {data.productByHandle?.metafields[3]?.value
                   ? data.productByHandle.metafields[3].value + "°"
                   : "No hay información"}
               </p>
             </div>
           </div>
-          <div className="flex border-t-2 border-t-terciarioPrincipal bg-gris6">
-            <div className="w-[20%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[24px] font-bricolage font-semibold">
+          <div className="flex border-t-2 border-t-terciarioPrincipal bg-gris6 flex-col lg:flex-row items-center lg:items-start">
+            <div className="w-[80%] lg:w-[30%] xl:w-[20%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+              <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-semibold text-center lg:text-start">
                 Productor
               </p>
             </div>
-            <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[25px] font-bricolage font-light">
+            <div className="ww-[80%] lg:w-[70%] xl:w-[80%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+              <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-light">
                 {data.productByHandle?.metafields[4]?.value
                   ? data.productByHandle.metafields[4].value
                   : "No hay información"}
               </p>
             </div>
           </div>
-          <div className="flex border-t-2 border-t-terciarioPrincipal">
-            <div className="w-[20%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[24px] font-bricolage font-semibold">
+          <div className="flex border-t-2 border-t-terciarioPrincipal flex-col lg:flex-row items-center lg:items-start">
+            <div className="w-[80%] lg:w-[30%] xl:w-[20%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+              <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-semibold text-center lg:text-start">
                 Tipo de vino
               </p>
             </div>
-            <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[25px] font-bricolage font-light">
+            <div className="w-[80%] lg:w-[70%] xl:w-[80%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+              <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-light">
                 {data.productByHandle?.metafields[5]?.value
                   ? data.productByHandle.metafields[5].value
                   : "No hay información"}
               </p>
             </div>
           </div>
-          <div className="flex border-y-2 border-y-terciarioPrincipal bg-gris6">
-            <div className="w-[20%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[24px] font-bricolage font-semibold">
+          <div className="flex border-y-2 border-y-terciarioPrincipal bg-gris6 flex-col lg:flex-row items-center lg:items-start">
+            <div className="w-[80%] lg:w-[30%] xl:w-[20%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+              <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-semibold text-center lg:text-start">
                 Varietal
               </p>
             </div>
-            <div className="w-[80%] flex justify-start items-start py-[20px] px-[40px]">
-              <p className="text-[20px]/[25px] font-bricolage font-light">
+            <div className="w-[80%] lg:w-[70%] xl:w-[80%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+              <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-light">
                 {data.productByHandle?.metafields[6]?.value
                   ? data.productByHandle.metafields[6].value
                   : "No hay información"}

@@ -85,6 +85,18 @@ function getVarietalQuery(varietal: string | string[] | undefined) {
   return varietal.map((v) => `tag:'${v}'`).join(" OR ");
 }
 
+function getProductTypeQuery(type: string | string[] | undefined) {
+  if (type === undefined) {
+    return null;
+  }
+
+  if (typeof type === "string") {
+    return `product_type:${type}`;
+  }
+
+  return type.map((t) => `product_type:'${t}'`).join(" OR ");
+}
+
 type QueryNode = string | undefined | null | false;
 
 function combineQueryNodes(nodes: QueryNode[]) {
@@ -109,12 +121,13 @@ export default async function Tienda({
 
   const vendorQuery = getVendorQuery(searchParams?.["vendor"]);
   const varietalQuery = getVarietalQuery(searchParams?.["varietal"]);
+  const productTypeQuery = getProductTypeQuery(searchParams?.["productType"]);
 
   const sort = searchParams?.["sort"];
 
   const shopifyQuery = combineQueryNodes([
     searchValue,
-    productType && `product_type:${productType}`,
+    productTypeQuery,
     vendorQuery,
     varietalQuery,
   ]);

@@ -25,107 +25,105 @@ export default function AccordionComponent({
   return (
     <div className="w-full lg:pr-[25px]">
       <Accordion type="multiple">
-        {listaTipos.length >= 2 && (
-          <AccordionItem value="item-1" className="flex flex-col">
-            <AccordionTrigger
-              className="AccordionTrigger"
+        <AccordionItem value="item-1" className="flex flex-col">
+          <AccordionTrigger
+            className="AccordionTrigger"
+            aria-hidden
+            hidden={true}
+          >
+            <p className="pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+              Categoria
+            </p>
+            <Image
+              src={arrow}
+              alt="arrow"
+              height={20}
+              className="AccordionChevron"
               aria-hidden
-              hidden={true}
-            >
-              <p className="pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
-                Categoria
-              </p>
-              <Image
-                src={arrow}
-                alt="arrow"
-                height={20}
-                className="AccordionChevron"
-                aria-hidden
-              />
-            </AccordionTrigger>
-            <AccordionContent className="pl-[20px]">
-              {listaTipos.map((tipo, index) => {
-                return <FilterLabel key={index} label={tipo} />;
-              })}
-            </AccordionContent>
-            <div className="w-full h-[1px] relative">
-              <Image
-                src={divider}
-                alt="divider"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </AccordionItem>
-        )}
+            />
+          </AccordionTrigger>
+          <AccordionContent className="pl-[20px]">
+            {listaTipos.map((tipo, index) => {
+              return (
+                <FilterLabel key={index} label={tipo} name="productType" />
+              );
+            })}
+          </AccordionContent>
+          <div className="w-full h-[1px] relative">
+            <Image
+              src={divider}
+              alt="divider"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </AccordionItem>
 
-        {listaBodegas.length >= 2 && (
-          <AccordionItem value="item-2" className="flex flex-col">
-            <AccordionTrigger
-              className="AccordionTrigger"
+        <AccordionItem value="item-2" className="flex flex-col">
+          <AccordionTrigger
+            className="AccordionTrigger"
+            aria-hidden
+            hidden={true}
+          >
+            <p className="pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+              Bodega
+            </p>
+            <Image
+              src={arrow}
+              alt="arrow"
+              height={20}
+              className="AccordionChevron"
               aria-hidden
-              hidden={true}
-            >
-              <p className="pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
-                Bodega
-              </p>
-              <Image
-                src={arrow}
-                alt="arrow"
-                height={20}
-                className="AccordionChevron"
-                aria-hidden
-              />
-            </AccordionTrigger>
-            <AccordionContent className="pl-[20px]">
-              {listaBodegas.map((bodega, index) => {
-                return <FilterLabel key={index} label={bodega} />;
-              })}
-            </AccordionContent>
-            <div className="w-full h-[1px] relative">
-              <Image
-                src={divider}
-                alt="divider"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </AccordionItem>
-        )}
+            />
+          </AccordionTrigger>
+          <AccordionContent className="pl-[20px]">
+            {listaBodegas.map((bodega, index) => {
+              return <FilterLabel key={index} label={bodega} name="vendor" />;
+            })}
+          </AccordionContent>
+          <div className="w-full h-[1px] relative">
+            <Image
+              src={divider}
+              alt="divider"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </AccordionItem>
 
-        {listaVarietal.length >= 2 && (
-          <AccordionItem value="item-3" className="flex flex-col">
-            <AccordionTrigger
-              className="AccordionTrigger"
+        <AccordionItem value="item-3" className="flex flex-col">
+          <AccordionTrigger
+            className="AccordionTrigger"
+            aria-hidden
+            hidden={true}
+          >
+            <p className="upl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+              Varietal
+            </p>
+            <Image
+              src={arrow}
+              alt="arrow"
+              height={20}
+              className="AccordionChevron"
               aria-hidden
-              hidden={true}
-            >
-              <p className="upl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
-                Varietal
-              </p>
-              <Image
-                src={arrow}
-                alt="arrow"
-                height={20}
-                className="AccordionChevron"
-                aria-hidden
-              />
-            </AccordionTrigger>
-            <AccordionContent className="pl-[20px]">
-              {listaVarietal.map((varietal, index) => {
-                return <FilterLabel key={index} label={varietal} />;
-              })}
-            </AccordionContent>
-            <div className="w-full h-[1px] relative">
-              <Image
-                src={divider}
-                alt="divider"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </AccordionItem>
-        )}
+            />
+          </AccordionTrigger>
+          <AccordionContent className="pl-[20px]">
+            {listaVarietal.map((varietal, index) => {
+              return (
+                <FilterLabel key={index} label={varietal} name="varietal" />
+              );
+            })}
+          </AccordionContent>
+          <div className="w-full h-[1px] relative">
+            <Image
+              src={divider}
+              alt="divider"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </AccordionItem>
 
         <AccordionItem value="item-4" className="flex flex-col">
           <AccordionTrigger
