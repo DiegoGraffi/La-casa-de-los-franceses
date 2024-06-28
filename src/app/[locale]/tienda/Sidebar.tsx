@@ -24,6 +24,12 @@ export function Sidebar({ listaTipos, listaBodegas, listaVarietal }: Props) {
     const entries: string[][] = Array.from(data.entries());
 
     const newParams = new URLSearchParams(entries);
+    //@ts-ignore
+    for (const [key, value] of searchParams.entries()) {
+      if (!newParams.has(key)) {
+        newParams.set(key, value);
+      }
+    }
 
     router.push(createUrl(pathname, newParams));
   }
@@ -31,7 +37,7 @@ export function Sidebar({ listaTipos, listaBodegas, listaVarietal }: Props) {
   return (
     <form
       onSubmit={onSubmit}
-      className="lg:w-[25%] h-max lg:border-r-primarioMuyOscuro lg:border-r py-[25px] pr-[15px]"
+      className="lg:w-[25%] h-max lg:border-r-primarioMuyOscuro lg:border-r py-[25px] lg:pr-[25px]"
     >
       <AccordionComponent
         listaTipos={listaTipos}
@@ -40,14 +46,14 @@ export function Sidebar({ listaTipos, listaBodegas, listaVarietal }: Props) {
       />
       <button
         type="submit"
-        className="w-full flex justify-center items-center p-2 rounded-md border-[.5px] border-gray-500 mt-5"
+        className="w-full flex justify-center items-center p-2 rounded-md mt-5 bg-terciarioPrincipal hover:bg-terciarioOscuro text-secundarioClaro transition-all ease-in-out duration-200 cursor-pointer font-bricolage"
       >
         Aplicar filtros
       </button>
       <button
         type="button"
         onClick={() => router.push("/tienda")}
-        className="w-full flex justify-center items-center p-2 rounded-md border-[.5px] border-gray-500 mt-5"
+        className="w-full flex justify-center items-center p-2 rounded-md bg-terciarioPrincipal hover:bg-terciarioOscuro text-secundarioClaro transition-all ease-in-out duration-200 cursor-pointer font-bricolage mt-2"
       >
         Eliminar filtros
       </button>

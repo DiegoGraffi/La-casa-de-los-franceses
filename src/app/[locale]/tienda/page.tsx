@@ -36,26 +36,42 @@ const query = graphql(`
     $sortKey: ProductSortKeys
     $reverse: Boolean
     $query: String
+    $first: Int
+    $after: String
   ) {
-    products(sortKey: $sortKey, reverse: $reverse, query: $query, first: 100) {
-      nodes {
-        title
-        tags
-        handle
-        productType
-        createdAt
-        vendor
-        priceRange {
-          maxVariantPrice {
-            amount
+    products(
+      sortKey: $sortKey
+      reverse: $reverse
+      query: $query
+      first: $first
+      after: $after
+    ) {
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        endCursor
+      }
+      edges {
+        node {
+          title
+          tags
+          handle
+          productType
+          createdAt
+          vendor
+          priceRange {
+            maxVariantPrice {
+              amount
+            }
+          }
+          featuredImage {
+            url
+          }
+          metafields(identifiers: [{ namespace: "custom", key: "varietal" }]) {
+            value
           }
         }
-        featuredImage {
-          url
-        }
-        metafields(identifiers: [{ namespace: "custom", key: "varietal" }]) {
-          value
-        }
+        cursor
       }
     }
   }
@@ -111,17 +127,22 @@ export default async function Tienda({
 }: {
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  const {
-    q: searchValue,
-    productType,
-    vendor,
-  } = searchParams as {
+  const { q: searchValue, page: pageCursor } = searchParams as {
     [key: string]: string;
   };
 
   const vendorQuery = getVendorQuery(searchParams?.["vendor"]);
   const varietalQuery = getVarietalQuery(searchParams?.["varietal"]);
   const productTypeQuery = getProductTypeQuery(searchParams?.["productType"]);
+  const minPrice = searchParams?.["minPrice"];
+  const maxPrice = searchParams?.["maxPrice"];
+
+  const priceQuery =
+    minPrice || maxPrice
+      ? `variants.price:>${minPrice || 0} AND variants.price:<${
+          maxPrice || Infinity
+        }`
+      : "";
 
   const sort = searchParams?.["sort"];
 
@@ -130,16 +151,21 @@ export default async function Tienda({
     productTypeQuery,
     vendorQuery,
     varietalQuery,
+    priceQuery,
   ]);
-
-  console.log(shopifyQuery);
 
   const data = await fetchGraphql(query, {
     query: shopifyQuery,
     ...getSortVariables(typeof sort === "string" ? sort : ""),
+    first: 30,
+    after: pageCursor || null,
   });
 
-  const products = data.products.nodes;
+  const products = data.products.edges.map((edge: { node: any }) => edge.node);
 
-  return <TiendaSection products={products} />;
+  const productos = products.filter(
+    (producto: any) => producto.productType != "Membresia"
+  );
+
+  return <TiendaSection products={productos} />;
 }

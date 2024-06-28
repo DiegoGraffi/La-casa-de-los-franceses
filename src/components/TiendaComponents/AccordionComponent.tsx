@@ -23,7 +23,7 @@ export default function AccordionComponent({
   listaVarietal,
 }: Props) {
   return (
-    <div className="w-full lg:pr-[25px]">
+    <div className="w-full">
       <Accordion type="multiple">
         <AccordionItem value="item-1" className="flex flex-col">
           <AccordionTrigger
@@ -142,13 +142,14 @@ export default function AccordionComponent({
               aria-hidden
             />
           </AccordionTrigger>
-          <AccordionContent className="px-[40px]  lg:px-[20px] flex flex-col gap-[10px]">
-            <div className="flex flex-col gap-[7px]">
+          <AccordionContent className="plg:px-[20px] flex flex-col gap-[10px]">
+            <div className="flex flex-col gap-[7px] w-full">
               <p className="font-bricolage font-light text-[20px]/[25px] text-gris3">
                 Desde
               </p>
               <input
                 type="text"
+                name="minPrice"
                 className="border border-gris5 px-1 py-2 rounded-[10px]"
               />
             </div>
@@ -158,6 +159,7 @@ export default function AccordionComponent({
               </p>
               <input
                 type="text"
+                name="maxPrice"
                 className="border border-gris5 px-1 py-2 rounded-[10px]"
               />
             </div>
