@@ -1,0 +1,73 @@
+{
+    "Tienda": {
+        "titulo": "¿Tu es prêt?",
+        "buscar": "Chercher",
+        "filtro1": "Catégorie",
+        "filtro2": "Marque",
+        "filtro3": "Prix",
+        "filtro4": "Variétal"
+    },
+    "Home": {
+        "heroHome": "Choisissez le vin, nous vous le livrons",
+        "categoria": "Tout ce que nous avons pour vous",
+        "titulo1": "Tout ce que nous",
+        "titulo2": "avons pour vous",
+        "nombreCategoria1": "FALTA TRADUCCIÓN",
+        "nombreCategoria2": "Viandes",
+        "nombreCategoria3": "Champagnes et spiritueux",
+        "nombreCategoria4": "FALTA TRADUCCIÓN",
+        "descripcionVinos": "FALTA TRADUCCIÓN",
+        "descripcionCarnes": "Découvrez notre sélection de viandes et savourez ce que vous manquez. À ne pas rater !",
+        "descripcionChampagne": "Laissez-vous séduire par la sophistication de nos champagnes et la richesse de nos spiritueux. Une expérience sensorielle à ne pas rater pour les amateurs de bon goût et d'élégance.",
+        "descripcionEspeciales": "FALTA TRADUCCIÓN",
+        "botonVinos": "Catalogue de vins",
+        "botonCarnes": "Catalogue de viandes",
+        "botonChampagne": "Catalogue complet",
+        "botonEspeciales": "FALTA TRADUCCIÓN",
+        "tituloMembresia": "Rejoignez l'adhésion",
+        "descripcionMembresia": "Rejoignez notre adhésion dès maintenant ! Recevez chaque mois une boîte contenant les meilleurs vins, livrée directement chez vous ! Des rouges pleins de caractère aux blancs délicats, chaque bouteille est un voyage en soi. Osez vivre une expérience unique et laissez le vin vous surprendre !",
+        "botonMembresia": "FALTA TRADUCCIÓN"
+    },
+    "Membresia": {
+        "heroMembresia": "Comment fonctionne notre adhésion?",
+        "eleccionMembresia": "Choisissez votre adhésion"
+    },
+    "Local": {
+        "tituloLocal1": "Découvrez",
+        "tituloLocal2": "notre boutique",
+        "cardIzq": "FALTA TRADUCCIÓN",
+        "cardIzq2": "FALTA TRADUCCIÓN",
+        "cardDer": "Trouve-nous",
+        "cardDer2": "FALTA TRADUCCIÓN",
+        "tituloCalendario": "Calendrier",
+        "textoCalendario": "Notre magasin est bien plus qu'un lieu pour acheter des vins argentins et des spécialités françaises ; c'est un espace chaleureux et convivial conçu pour que vous vous sentiez comme chez vous, entouré de vos amis. Imaginez arriver après une journée de travail ou pendant le week-end et être accueilli par une lumière douce et une atmosphère accueillante que nous vous offrons.",
+        "textoBanner": "Obtenez le vin que vous recherchez",
+        "textoBanner2": "sur notre site Internet.",
+        "textoBanner3": "Consultez notre boutique en ligne et trouvez le vin",
+        "textoBanner4": "que vous souhaitez. nous l'emmenons chez vous.",
+        "textoBanner5": "FALTA TRADUCCIÓN"
+
+    },
+    "Preguntas Frecuentes": {
+       "titulo": "Questions Fréquentes",
+       "seccion1": "Adhésion",
+       "seccion2": "Boutique en ligne?",
+       "seccion3": "Coupons de réduction",
+       "pregunta1": "Comment devenir membre?",
+       "pregunta2": "Comment puis-je l'annuler?",
+       "pregunta3": "Comment utiliser les réductions?",
+       "pregunta4": "À quelle fréquence devez-vous payer à nouveau ??",
+       "pregunta5": "Combien de temps le produit prend-il pour arriver?",
+       "pregunta6": "L'adhésion couvre-t-elle les frais de livraison?",
+       "pregunta7": "Comment appliquer des réductions?",
+       "pregunta8": "Dans quel statut est ma commande?",
+       "pregunta9": "Puis-je récupérer ma commande personnellement?",
+       "pregunta10": "Puis-je envoyer ma commande à une autre personne?",
+       "pregunta11": "Quel emballage utilisez-vous?",
+       "pregunta12": "Combien de temps faut-il pour que ma commande arrive?",
+       "pregunta13": "Combien sont les frais de livraison?",
+       "pregunta14": "FALTA TRADUCCIÓN",
+       "pregunta15": "FALTA TRADUCCIÓN",
+       "pregunta16": "FALTA TRADUCCIÓN"
+    }
+}

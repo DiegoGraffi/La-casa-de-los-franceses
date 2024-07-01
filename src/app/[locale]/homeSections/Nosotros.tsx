@@ -1,17 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import portada from "../../../public/images/inicio/portadaNosotros.jpg";
+import portada from "../../../../public/images/inicio/portadaNosotros.jpg";
 import arrowRight from "../../../public/images/arrowRight.svg";
 import arrowLeft from "../../../public/images/arrowLeft.svg";
-import nosotrosLine from "../../../public/images/nosotrosLine.svg";
-import wineIcon from "../../../public/images/wineIcon.svg";
-import locationIcon from "../../../public/images/locationIcon.svg";
-import bookIcon from "../../../public/images/inicio/bookIcon.svg";
+import nosotrosLine from "../../../../public/images/nosotrosLine.svg";
+import wineIcon from "../../../../public/images/wineIcon.svg";
+import locationIcon from "../../../../public/images/locationIcon.svg";
+import bookIcon from "../../../../public/images/inicio/bookIcon.svg";
 import BotonXL from "@/components/GeneralComponents/Botones/BotonXL";
 import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
 import Lottie from "lottie-react";
-import FlechaIzq from "../../../public/animations/inicio/FlechaIzq.json";
+import FlechaIzq from "../../../../public/animations/inicio/FlechaIzq.json";
 import BotonMD from "@/components/GeneralComponents/Botones/BotonMD";
 import BotonLG from "@/components/GeneralComponents/Botones/BotonLG";
 

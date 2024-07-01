@@ -27,7 +27,7 @@ export function Sidebar({ listaTipos, listaBodegas, listaVarietal }: Props) {
 
     router.push(createUrl(pathname, newParams));
   }
-
+  
   return (
     <form
       onSubmit={onSubmit}

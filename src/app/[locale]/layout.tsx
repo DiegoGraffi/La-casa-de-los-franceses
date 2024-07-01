@@ -7,11 +7,11 @@ import localFont from "next/font/local";
 const vangeda = localFont({
   src: [
     {
-      path: "../../public/fonts/Vangeda-Regular.ttf",
+      path: "../../../public/fonts/Vangeda-Regular.ttf",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Vangeda-Italic.ttf",
+      path: "../../../public/fonts/Vangeda-Italic.ttf",
       style: "italic",
     },
   ],
@@ -21,7 +21,7 @@ const vangeda = localFont({
 const bricolage = localFont({
   src: [
     {
-      path: "../../public/fonts/BricolageGrotesque[opsz,wdth,wght].ttf",
+      path: "../../../public/fonts/BricolageGrotesque[opsz,wdth,wght].ttf",
       style: "normal",
     },
   ],
@@ -35,11 +35,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: {locale}
 }: Readonly<{
   children: React.ReactNode;
+  params: {locale: string};
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="locale" className="scroll-smooth">
       <body className={`${vangeda.variable} ${bricolage.variable}`}>
         <Navbar />
         {children}

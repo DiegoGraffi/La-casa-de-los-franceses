@@ -1,0 +1,72 @@
+{
+    "Tienda": {
+        "titulo": "¿Estás listo?",
+        "buscar": "Buscar",
+        "filtro1": "Categoría",
+        "filtro2": "Bodega",
+        "filtro3": "Precio",
+        "filtro4": "Varietal"
+    },
+    "Home": {
+        "heroHome": "Elegí el vino, nosotros te lo llevamos",
+        "categoria": "Todo lo que tenemos para vos",
+        "titulo1": "Todo lo que",
+        "titulo2": "tenemos para vos",
+        "nombreCategoria1": "Vinos",
+        "nombreCategoria2": "Carnes",
+        "nombreCategoria3": "Champagne y espirituosos",
+        "nombreCategoria4": "Especiales",
+        "descripcionVinos": "¡Che, date una vuelta por nuestro catálogo de tintos y descubrí lo que te estás perdiendo! ¡No te lo podes perder!",
+        "descripcionCarnes": "FALTA TEXTO",
+        "descripcionChampagne": "¡Ey, no te pierdas nuestra selección de espumantes que te va a dejar sin aliento! ¡Son puro sabor y burbujas de felicidad! ¡Animate a descubrir la magia de nuestros espumantes y brindá con estilo!",
+        "descripcionEspeciales": "FALTA TEXTO",
+        "botonVinos": "Catálogo de vinos",
+        "botonCarnes": "Catálogo de carnes",
+        "botonChampagne": "Catálogo completo",
+        "botonEspeciales": "Catálogo de especiales",
+        "tituloMembresia": "Unite a la membresía",
+        "descripcionMembresia": "¡Sumate a nuestra membresía y recibí en tu casa, mes a mes, una caja con los mejores vinos! Desde tintos con toda la fuerza hasta blancos súper delicados, cada botella es un viaje en sí misma. ¡Animate a vivir esta experiencia única y dejá que el vino te sorprenda!",
+        "botonMembresia": "Mirá nuestros planes"
+    },
+    "Membresia": {
+        "heroMembresia": "¿Cómo funciona nuestra membresía?",
+        "eleccionMembresia": "Elegí tu membresía"
+    },
+    "Local": {
+        "tituloLocal1": "Conocé",
+        "tituloLocal2": "nuestro local",
+        "cardIzq": "Menú",
+        "cardIzq2": "Ver menú",
+        "cardDer": "Ubicación",
+        "cardDer2": "Ver ubicación",
+        "tituloCalendario": "Calendario",
+        "textoCalendario": "Nuestra tienda física es mucho más que un lugar para comprar vinos argentinos y delicias francesas; es un espacio cálido y relajado, diseñado para que te sientas como en casa con amigos. Imagínate llegar después de un día de trabajo o durante un fin de semana, y ser recibido por la cálida luz y el ambiente acogedor que ofrecemos.",
+        "textoBanner": "Conseguí el vino que",
+        "textoBanner2": "buscas en nuestra web",
+        "textoBanner3": "Mirá nuestra tienda online y encontrá ese vino",
+        "textoBanner4": "que querés. Te lo llevamos a tu casa.",
+        "textoBanner5": "Ver tienda online"
+    },
+    "Preguntas Frecuentes": {
+       "titulo": "Preguntas Frecuentes",
+       "seccion1": "Membresía",
+       "seccion2": "Tienda online",
+       "seccion3": "Cupones de descuento",
+       "pregunta1": "¿Cómo me hago miembro?",
+       "pregunta2": "¿Cómo le doy de baja?",
+       "pregunta3": "¿Cómo usar los descuentos?",
+       "pregunta4": "¿Cada cuanto tiempo hay que volver a pagar?",
+       "pregunta5": "¿Cuánto tarda el producto en llegar?",
+       "pregunta6": "¿La membresía cubre el costo de envío?",
+       "pregunta7": "¿Cómo aplicar descuentos?",
+       "pregunta8": "¿En qué estado se encuentra mi pedido?",
+       "pregunta9": "¿Puedo recoger mi pedido personalmente?",
+       "pregunta10": "¿Puedo enviar mi pedido a otra persona?",
+       "pregunta11": "¿Qué embalajes utilizan?",
+       "pregunta12": "¿Cuánto demora en llegar mi pedido?",
+       "pregunta13": "¿Cuales son los gastos de envío?",
+       "pregunta14": "¿Cómo canjear mi cupón de descuento?",
+       "pregunta15": "¿Cómo recibir un cupón de descuento?",
+       "pregunta16": "¿Puedo regalar cupones de descuento?"
+    }
+}

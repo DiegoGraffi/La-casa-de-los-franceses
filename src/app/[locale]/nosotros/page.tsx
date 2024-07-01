@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import banner from "../../../public/images/nosotros/banner.jpg";
-import personas from "../../../public/images/nosotros/personas.jpg";
-import estrella from "../../../public/images/nosotros/estrella.svg";
+import banner from "../../../../public/images/nosotros/banner.jpg";
+import personas from "../../../../public/images/nosotros/personas.jpg";
+import estrella from "../../../../public/images/nosotros/estrella.svg";
 import NosotrosCarousel from "@/components/NosotrosComponents/NosotrosCarousel";
 import nosotros from "@/lib/constants";
-import fondoNosotros from "../../../public/images/nosotros/fondoNosotros.jpg";
+import fondoNosotros from "../../../../public/images/nosotros/fondoNosotros.jpg";
 import Lottie from "lottie-react";
-import arrow from "../../../public/animations/nosotros/FlechaNosotros.json";
+import arrow from "../../../../public/animations/nosotros/FlechaNosotros.json";
 
 export default function NosotrosPage() {
   return (

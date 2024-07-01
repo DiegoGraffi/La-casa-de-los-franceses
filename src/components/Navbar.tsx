@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import logo from "../../public/images/logo.svg";
 import Link from "next/link";
@@ -13,6 +14,10 @@ import closeIcon from "../../public/images/navbar/close.svg";
 
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const locale = searchParams.get('locale') || 'es'; // Ajusta según tus locales predeterminados
 
   const handleNavigate = () => {
     setMenuAbierto(!menuAbierto);
@@ -25,7 +30,7 @@ export default function Navbar() {
   return (
     <div className="bg-white w-full px-4 h-[86px] lg:h-[120px] flex absolute z-[1000] mx-auto">
       <div className="w-full md:px-[50px] xl:px-[100px] mx-auto flex justify-between items-center lg:py-[5px] max-w-[1600px]">
-        <Link href={"/"} className="lg:hidden">
+        <Link href={`/${locale}`} className="lg:hidden">
           <Image
             src={logo}
             alt="Logo La Casa de los Franceses"
@@ -44,7 +49,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden lg:flex justify-center">
-          <Link href="/">
+          <Link href={`/${locale}`}>
             <Image
               src={logo}
               alt="Logo La Casa de los Franceses"
@@ -53,20 +58,20 @@ export default function Navbar() {
           </Link>
         </div>
         <ul className="hidden lg:flex gap-5 font-light">
-          <Link href="/tienda" className="group px-[25px] py-[10px]">
+          <Link href={`/${locale}/tienda`} className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro">Tienda</p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
 
-          <Link href="/nosotros" className="group px-[25px] py-[10px]">
+          <Link href={`/${locale}/nosotros`} className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro">Nosotros</p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
-          <Link href="/membresia" className="group px-[25px] py-[10px]">
+          <Link href={`/${locale}/membresia`} className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro">Membresia</p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
-          <Link href="/local" className="group px-[25px] py-[10px]">
+          <Link href={`/${locale}/local`} className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro">Local</p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
@@ -75,7 +80,7 @@ export default function Navbar() {
         <div className="lg:flex justify-center items-center gap-[25px] hidden">
           <div className="hidden lg:flex gap-[10px]">
             <Link
-              href={"#"}
+              href="#"
               className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
             >
               <Image src={LenguajeIcon} alt="lenguaje icon" />
@@ -89,7 +94,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href={"#footer"}
+              href="#footer"
               className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
             >
               <Image src={UserIcon} alt="contacto icon" />
@@ -97,7 +102,7 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:flex">
-            <Link href={"#"}>
+            <Link href="#">
               <Image src={FlagsIcon} alt="flag icon" />
             </Link>
           </div>
@@ -127,14 +132,14 @@ export default function Navbar() {
               <div>
                 <ul className="flex flex-col gap-[25px] items-center">
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href="/" onClick={handleNavigate}>
+                    <Link href={`/${locale}`} onClick={handleNavigate}>
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Inicio
                       </p>
                     </Link>
                   </li>
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href="/tienda" onClick={handleNavigate}>
+                    <Link href={`/${locale}/tienda`} onClick={handleNavigate}>
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Tienda
                       </p>
@@ -142,7 +147,7 @@ export default function Navbar() {
                   </li>
 
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href="/nosotros" onClick={handleNavigate}>
+                    <Link href={`/${locale}/nosotros`} onClick={handleNavigate}>
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Nosotros
                       </p>
@@ -150,7 +155,7 @@ export default function Navbar() {
                   </li>
 
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href="/membresia" onClick={handleNavigate}>
+                    <Link href={`/${locale}/membresia`} onClick={handleNavigate}>
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Membresia
                       </p>
@@ -158,7 +163,7 @@ export default function Navbar() {
                   </li>
 
                   <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href="/local" onClick={handleNavigate}>
+                    <Link href={`/${locale}/local`} onClick={handleNavigate}>
                       <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                         Local
                       </p>

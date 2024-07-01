@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import eventosImg from "../../../public/images/inicio/eventos.jpg";
-import degustacionImg from "../../../public/images/inicio/degustacion.jpg";
+import eventosImg from "../../../../public/images/inicio/eventos.jpg";
+import degustacionImg from "../../../../public/images/inicio/degustacion.jpg";
 
 import Lottie from "lottie-react";
-import FlechaIzq from "../../../public/animations/inicio/FlechaIzq.json";
-import FlechaRed from "../../../public/animations/inicio/FlechaRed.json";
+import FlechaIzq from "../../../../public/animations/inicio/FlechaIzq.json";
+import FlechaRed from "../../../../public/animations/inicio/FlechaRed.json";
 
 export default function Eventos() {
   return (

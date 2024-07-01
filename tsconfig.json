@@ -31,7 +31,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/Carousel.jsx"
+    "src/components/Carousel.jsx",
+    "src/app/locale/not-found.tsx",
+    "src/app/locale/page.tsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -2,7 +2,7 @@ import Image from "next/image";
 import MembresiaCard from "@/components/MembresiaComponents/MembresiaCard";
 import PasosCard from "@/components/MembresiaComponents/PasosCard";
 import SectionTitle from "@/components/SectionTitle";
-import portada from "../../../public/images/membresiaPage/sillas.jpg";
+import portada from "../../../../public/images/membresiaPage/sillas.jpg";
 import Link from "next/link";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 
