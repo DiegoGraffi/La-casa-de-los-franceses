@@ -68,5 +68,8 @@
        "pregunta14": "¿Cómo canjear mi cupón de descuento?",
        "pregunta15": "¿Cómo recibir un cupón de descuento?",
        "pregunta16": "¿Puedo regalar cupones de descuento?"
+    },
+    "Product Card": {
+        "boton": "Agregar al carrito"
     }
 }

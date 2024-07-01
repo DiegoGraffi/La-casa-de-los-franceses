@@ -35,13 +35,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params: {locale}
+  params: { locale }
 }: Readonly<{
   children: React.ReactNode;
-  params: {locale: string};
+  params: { locale: string };
 }>) {
   return (
-    <html lang="locale" className="scroll-smooth">
+    <html lang={locale} className="scroll-smooth">
       <body className={`${vangeda.variable} ${bricolage.variable}`}>
         <Navbar />
         {children}

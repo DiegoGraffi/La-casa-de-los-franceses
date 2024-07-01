@@ -2,6 +2,8 @@ import Image from "next/image";
 import BotonNoFillMD from "./GeneralComponents/BotonesNoFill/BotonNoFillMD";
 import BotonNoFillXS from "./GeneralComponents/BotonesNoFill/BotonNoFillXS";
 import CartIcon from "./GeneralComponents/CartIcon";
+import { useTranslations } from "next-intl";
+
 
 type ProductCardProps = {
   image?: string;
@@ -10,6 +12,7 @@ type ProductCardProps = {
 };
 
 export default function ProductCard({ image, title, price }: ProductCardProps) {
+  const t = useTranslations("Product Card")
   return (
     <div className="flex flex-col p-[15px] justify-center items-center rounded-tl-[5px] rounded-tr-[25px] rounded-bl-[25px] rounded-br-[5px] bg-white hover:bg-gris6 transition-all ease-in-out duration-200 h-full gap-[20px]">
       <div className="flex-1 relative w-full aspect-square basis-1/2 max-w-[190px] max-h-[190px] rounded-[5px] overflow-hidden">
@@ -29,12 +32,12 @@ export default function ProductCard({ image, title, price }: ProductCardProps) {
             ${price}
           </p>
           <div className="hidden lg:block">
-            <BotonNoFillMD link="#" text="Agregar al carrito">
+            <BotonNoFillMD link="#" text={t("boton")}>
               <CartIcon className="stroke-primarioOscuro group-hover:stroke-primarioClaro transition-all ease-in-out duration-200" />
             </BotonNoFillMD>
           </div>
           <div className="block lg:hidden">
-            <BotonNoFillXS link="#" text="Agregar al carrito">
+            <BotonNoFillXS link="#" text={t("boton")}>
               <CartIcon className="stroke-primarioOscuro group-hover:stroke-primarioClaro transition-all ease-in-out duration-200" />
             </BotonNoFillXS>
           </div>

@@ -22,8 +22,11 @@
         "tadaOutputLocation": "./graphql-env.d.ts"
       }
     ],
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@app/*": ["src/app/*"],
+      "@locale/*": ["src/app/[locale]/*"]
     }
   },
   "include": [
