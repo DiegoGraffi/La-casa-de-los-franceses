@@ -24,7 +24,7 @@ export default function MarqueeComponent({ images }: MarqueeProps) {
               <div className="hidden lg:block">
                 <Image
                   src={image}
-                  className="object-contain lg:w-[200px] hover:scale-110 transition-all ease-in-out duration-200 saturate-0 opacity-60 hover:saturate-100 hover:opacity-100"
+                  className="object-contain lg:w-[200px] hover:scale-110 transition-all ease-in-out duration-200 saturate-0 brightness-0 opacity-60 hover:saturate-100 hover:opacity-100"
                   alt="logo"
                   width={200}
                   height={150}

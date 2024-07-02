@@ -1,3 +1,5 @@
+"use client";
+
 //nosotros carrusel
 import Image from "next/image";
 import item1 from "../../../public/images/nosotros/item1.png";

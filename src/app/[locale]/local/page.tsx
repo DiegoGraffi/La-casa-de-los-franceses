@@ -25,7 +25,7 @@ export default function Local() {
         <div className="w-full h-full absolute flex items-end z-20 px-[100px] py-[50px] max-w-[1600px] mx-auto">
           <p className="text-[#F3EDC8] font-vangeda text-[40px]/[39px] mx-auto md:mx-0 md:text-[100px]/[95px] text-center md:text-start">
             {t("tituloLocal1")} <br />
-           {t("tituloLocal2")}
+            {t("tituloLocal2")}
           </p>
         </div>
       </section>
@@ -77,25 +77,22 @@ export default function Local() {
 
       <GallerySection />
 
-      <Link
-        href="../tienda"
-        className="w-full pb-[60px] px-[15px] lg:px-[100px]"
-      >
+      <Link href="/tienda" className="w-full pb-[60px] px-[15px] lg:px-[100px]">
         <div className="group h-[420px] max-w-[1600px] w-full xl:px-[100px] rounded-tr-[10px] lg:rounded-tr-[45px] rounded-bl-[10px] lg:rounded-bl-[45px] relative mx-auto overflow-hidden">
           <div className="w-full h-full p-[50px] lg:px-[100] flex flex-col justify-end lg:justify-center absolute z-[100] group-hover:hidden">
             <p className="font-vangeda text-[55px]/[62px] text-terciarioPrincipal hidden lg:flex">
               {t("textoBanner")} <br /> {t("textoBanner2")}
             </p>
             <p className="font-bricolage text-[20px]/[25px] text-terciarioPrincipal hidden lg:flex">
-            {t("textoBanner3")}   <br /> {t("textoBanner4")}
+              {t("textoBanner3")} <br /> {t("textoBanner4")}
             </p>
-            {/* Este texto de abajo no entiendo donde va porque no lo veo en la pagina diego si lo ves hablame XD */}
-            <p className="text-[40px]/[39px] text-terciarioPrincipal lg:hidden font-vangeda text-center md:text-start"> 
+
+            <p className="text-[40px]/[39px] text-terciarioPrincipal lg:hidden font-vangeda text-center md:text-start">
               Mirá nuestra tienda online
             </p>
           </div>
           <div className="w-full h-full hidden justify-center items-center absolute z-[100] xl:flex left-0 transition-all ease-in-out duration-200">
-            <p className="font-vangeda text-[55px]/[62px] text-terciarioPrincipal">
+            <p className="font-vangeda text-[55px]/[62px] text-terciarioPrincipal hidden group-hover:flex">
               {t("textoBanner5")}
             </p>
           </div>

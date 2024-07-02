@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import banner from "../../../../public/images/nosotros/banner.jpg";
 import personas from "../../../../public/images/nosotros/personas.jpg";
@@ -7,10 +5,66 @@ import estrella from "../../../../public/images/nosotros/estrella.svg";
 import NosotrosCarousel from "@/components/NosotrosComponents/NosotrosCarousel";
 import nosotros from "@/lib/constants";
 import fondoNosotros from "../../../../public/images/nosotros/fondoNosotros.jpg";
-import Lottie from "lottie-react";
-import arrow from "../../../../public/animations/nosotros/FlechaNosotros.json";
+import BodegasCarousel from "@/components/NosotrosComponents/BodegasCarousel";
+import NosotrosArrowComponent from "@/components/NosotrosComponents/NosotrosArrowComponent";
+import { fetchGraphql, graphql } from "@/lib/graphql";
 
-export default function NosotrosPage() {
+export default async function NosotrosPage() {
+  const query = graphql(`
+    query GalleryQuery {
+      metaobjects(type: "bodegas", first: 100) {
+        nodes {
+          fields {
+            value
+            key
+            reference {
+              __typename
+              ... on MediaImage {
+                image {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const data = await fetchGraphql(query, {});
+
+  function isMediaImage(obj: any): obj is { image: { url: string } } {
+    return (
+      obj &&
+      obj.__typename === "MediaImage" &&
+      obj.image &&
+      typeof obj.image.url === "string"
+    );
+  }
+
+  const bodegaData = data.metaobjects.nodes.map((node) => {
+    const name =
+      node.fields.find((field) => field.key === "nombre_bodega")?.value ||
+      "No Name";
+    const description =
+      node.fields.find((field) => field.key === "descripcion")?.value ||
+      "No Description";
+
+    const bgImageField = node.fields.find((field) => field.key === "fondo");
+    const bgImage =
+      bgImageField && isMediaImage(bgImageField.reference)
+        ? bgImageField.reference.image.url
+        : "";
+
+    const logoImageField = node.fields.find((field) => field.key === "logo");
+    const logoImage =
+      logoImageField && isMediaImage(logoImageField.reference)
+        ? logoImageField.reference.image.url
+        : "";
+
+    return { name, description, bgImage, logoImage };
+  });
+
   return (
     <div className="min-h-screen w-full flex flex-col justify-center items-center">
       <div className="h-[553px] lg:h-[70vh] w-full relative">
@@ -52,7 +106,7 @@ export default function NosotrosPage() {
         <div className="group h-[300px] w-full max-w-[1600px] flex flex-col lg:flex-row items-center lg:py-[75px] relative origin-center">
           <div className="h-full w-full absolute flex flex-col lg:flex-row justify-center items-center">
             <div className="w-[75px] lg:transform lg:rotate-0 transform rotate-90 group-hover:opacity-0 transition-all ease-in-out duration-300">
-              <Lottie animationData={arrow} />
+              <NosotrosArrowComponent />
             </div>
           </div>
           <div className="w-[50%] absolute h-full left-0 flex justify-center items-center group-hover:opacity-0 transition-all ease-in-out duration-300 ">
@@ -111,7 +165,7 @@ export default function NosotrosPage() {
             Conocenos
           </p>
           <div className="w-[47px] h-[39px] transform rotate-90 group-hover:opacity-0 transition-all ease-in-out duration-300">
-            <Lottie animationData={arrow} />
+            <NosotrosArrowComponent />
           </div>
         </div>
 
@@ -134,6 +188,15 @@ export default function NosotrosPage() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="w-full max-w-[1600px] flex flex-col gap-[50px] justify-center items-center mt-[80px] lg:mt-[150px] px-[35px] lg:px-[100px]">
+        <h3 className="hidden lg:block font-vangeda text-[55px]/[63px] text-terciarioPrincipal text-center">
+          Nuestras Bodegas
+        </h3>
+        <div className="w-full mt-[20px]">
+          <BodegasCarousel bodegasData={bodegaData} />
         </div>
       </section>
 

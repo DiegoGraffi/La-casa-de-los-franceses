@@ -1,6 +1,7 @@
 import React from "react";
 import BotonLG from "../GeneralComponents/Botones/BotonLG";
 import Image from "next/image";
+import Separator from "../../../public/images/membresiaPage/separador.svg";
 
 type MembresiaCardProps = {
   image?: string;
@@ -30,12 +31,7 @@ function MembresiaCard({
       <h3 className="text-primarioMuyOscuro font-bricolage font-light text-[32px] mb-[10px] text-center">
         {name}
       </h3>
-      <Image
-        src="images/membresiaPage/separador.svg"
-        alt="separador"
-        width={316}
-        height={0}
-      />
+      <Image src={Separator} alt="separador" width={316} height={0} />
       <div className="flex flex-col justify-between items-center mt-[10px] h-max grow">
         <div>
           <p className="font-bricolage font-light text-[16px]/[24px] text-gris3 text-center">

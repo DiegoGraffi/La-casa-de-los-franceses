@@ -7,7 +7,6 @@ import Products from "./Products";
 import { Sidebar } from "@/app/[locale]/tienda/Sidebar";
 import { useTranslations } from "next-intl";
 
-
 export default function TiendaSection({ products }: ProductsList) {
   const t = useTranslations("Tienda");
   const listaProductos = products.filter((product) => product.productType);

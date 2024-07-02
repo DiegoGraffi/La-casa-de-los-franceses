@@ -36,7 +36,6 @@ export default async function Marca() {
   }
 
   const LogoImages = images.filter((_, index) => index % 2 !== 0);
-
   return (
     <div className="max-w-[1600px] w-full overflow-hidden mx-auto flex justify-center items-center flex-col pb-[50px] lg:pb-[110px] mt-[25px] md:mt-[50px] lg:mt-[110px]">
       <SectionTitle title="nuestra familia" />
