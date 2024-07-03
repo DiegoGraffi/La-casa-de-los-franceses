@@ -72,5 +72,23 @@
     },
     "Product Card": {
         "boton": "Ajouter au panier"
+    },
+    "Nosotros": {
+        "hero1": "À propos",
+        "hero2": "de nous",
+        "carouselTitle": "Notre histoire",
+        "carouselText1": "Notre histoire commence à San Juan, en Argentine, où un groupe d'amis s'est réuni autour de l'amour du vin, du barbecue, du rire et de la camaraderie. Inspirés par notre amitié et notre passion du partage de bons moments, nous avons décidé d'apporter notre expérience unique sur les terres françaises",
+        "carouselText2": "Nous créons un espace chaleureux et convivial, imprégné de l’esprit de notre amitié. Avec une sélection de vins argentins et de produits français, nous célébrons la diversité de nos cultures.",
+        "carouselText3": "Rejoignez-nous pour partager un bon vin et profiter de la joie d’être ensemble. Bienvenue dans notre maison, où chaque rencontre est une célébration de la vie et de l’amitié.",
+        "equipoTitle": "Connaissez-nous",
+        "bodegasTitle": "Les caves de la casa",
+        "bannerTitle1": "Les meilleurs vins",
+        "bannerTitle2": "à la porte de chez vous",
+        "bannerText": "Votre adhésion vous attend, recevez chaque mois",
+        "bannerText2": "les meilleures sélections de vins sans vous déplacer.",
+        "banner2": "Je veux l'adhésion",
+        "bannerMobile1": "Découvrez",
+        "bannerMobile2": "notre",
+        "bannerMobile3": "adhésion"
     }
 }

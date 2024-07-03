@@ -71,5 +71,23 @@
     },
     "Product Card": {
         "boton": "Agregar al carrito"
+    },
+    "Nosotros": {
+        "hero1": "Sobre",
+        "hero2": "nosotros",
+        "carouselTitle": "Nuestra historia",
+        "carouselText1": "Nuestra historia comienza en San Juan, Argentina, donde un grupo de amigos se unió en torno al amor por el vino, el asado, las risas y la camaradería. Inspirados por nuestra amistad y la pasión por compartir buenos momentos, decidimos llevar nuestra experiencia única a tierras francesas.",
+        "carouselText2": "En nuestros espacios celebramos la calidez y cercanía que nos caracteriza como amigos. Cada rincón está impregnado con el espíritu de nuestra amistad, creando un ambiente acogedor donde todos se sienten como en casa. Nuestra selección de vinos argentinos y productos franceses refleja la diversidad de nuestras experiencias y la riqueza de nuestras culturas combinadas.",
+        "carouselText3": "Te invitamos a unirte a nosotros en este espacio de amistad y disfrutar de la alegría de compartir con amigos un buen vino.¡Bienvenido a nuestro hogar lejos de casa, donde cada encuentro es una celebración de la vida y la amistad!",
+        "equipoTitle": "Conocenos",
+        "bodegasTitle": "Bodegas de la casa",
+        "bannerTitle1": "Los mejores vinos",
+        "bannerTitle2": "a la puerta de tu casa",
+        "bannerText1": "Tu membresía te espera, recibí mensualmente",
+        "bannerText2": "las mejores selecciones de vino sin moverte.",
+        "banner2": "Quiero la membresía",
+        "bannerMobile1": "Conocé",
+        "bannerMobile2": "nuestra",
+        "bannerMobile3": "membresía"
     }
 }

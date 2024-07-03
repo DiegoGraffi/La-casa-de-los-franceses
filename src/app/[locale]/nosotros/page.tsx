@@ -8,6 +8,7 @@ import fondoNosotros from "../../../../public/images/nosotros/fondoNosotros.jpg"
 import BodegasCarousel from "@/components/NosotrosComponents/BodegasCarousel";
 import NosotrosArrowComponent from "@/components/NosotrosComponents/NosotrosArrowComponent";
 import { fetchGraphql, graphql } from "@/lib/graphql";
+import { getTranslations } from "next-intl/server";
 
 export default async function NosotrosPage() {
   const query = graphql(`
@@ -32,6 +33,7 @@ export default async function NosotrosPage() {
   `);
 
   const data = await fetchGraphql(query, {});
+  const t = await getTranslations("Nosotros");
 
   function isMediaImage(obj: any): obj is { image: { url: string } } {
     return (
@@ -73,9 +75,9 @@ export default async function NosotrosPage() {
         </div>
         <div className="absolute h-[553px] w-full lg:h-full z-30 max-w-[1600px] flex items-end justify-center lg:justify-start lg:items-end px-[100px] bottom-[75px]">
           <p className="font-vangeda font-regular text-center lg:text-left text-[40px]/[39px] lg:text-[100px]/[95px] text-primarioClaro">
-            Sobre
+            {t("hero1")}
             <br />
-            nosotros
+            {t("hero2")}
           </p>
         </div>
         <div className="w-full h-full absolute z-20 bg-[#492415] opacity-70"></div>
@@ -89,7 +91,7 @@ export default async function NosotrosPage() {
 
       <section className="w-full max-w-[1600px] mx-auto flex flex-col gap-[50px] justify-center items-center mt-[80px] lg:mt-[50px] px-[35px] lg:px-[100px]">
         <h3 className="hidden lg:block font-vangeda text-[55px]/[63px] text-terciarioPrincipal text-center">
-          Nuestra historia
+         {t("carouselTitle")}
         </h3>
         <NosotrosCarousel />
       </section>
@@ -111,7 +113,7 @@ export default async function NosotrosPage() {
           </div>
           <div className="w-[50%] absolute h-full left-0 flex justify-center items-center group-hover:opacity-0 transition-all ease-in-out duration-300 ">
             <p className="text-[55px]/[62px] font-vangeda text-terciarioPrincipal">
-              Conocenos
+              {t("carouselTitle")}
             </p>
           </div>
 
@@ -162,7 +164,7 @@ export default async function NosotrosPage() {
         </div>
         <div className="h-full left-0 flex justify-center items-center group-hover:opacity-0 transition-all ease-in-out duration-300 lg:gap-0 gap-10">
           <p className="text-[40px]/[39px] font-vangeda text-terciarioPrincipal">
-            Conocenos
+            {t("carouselTitle")}
           </p>
           <div className="w-[47px] h-[39px] transform rotate-90 group-hover:opacity-0 transition-all ease-in-out duration-300">
             <NosotrosArrowComponent />
@@ -193,7 +195,7 @@ export default async function NosotrosPage() {
 
       <section className="w-full max-w-[1600px] flex flex-col gap-[50px] justify-center items-center mt-[80px] lg:mt-[150px] px-[35px] lg:px-[100px]">
         <h3 className="hidden lg:block font-vangeda text-[55px]/[63px] text-terciarioPrincipal text-center">
-          Nuestras Bodegas
+         {t("bodegasTitle")}
         </h3>
         <div className="w-full mt-[20px]">
           <BodegasCarousel bodegasData={bodegaData} />
@@ -204,19 +206,19 @@ export default async function NosotrosPage() {
         <div className="group h-[323px] lg:h-[420px] max-w-[1600px] w-full lg:px-[100px] rounded-tr-[25px] rounded-bl-[25px] lg:rounded-tr-[45px] lg:rounded-bl-[75px] relative mx-auto overflow-hidden">
           <div className="w-full h-full m-0 p-0 lg:px-[100] flex flex-col justify-end lg:justify-center absolute z-[100] lg:group-hover:hidden">
             <p className="hidden md:block lg:block font-vangeda text-[55px]/[62px] text-secundarioClaro uppercase">
-              Los mejores vinos <br /> a la puerta de tu casa
+              {t("bannerTitle1")} <br /> {t("bannerTitle2")}
             </p>
             <p className="hidden md:block lg:block font-bricolage text-[20px]/[25px] text-secundarioClaro font-light">
-              Tu membresía te espera, recibí mensualmente
-              <br /> las mejores selecciones de vinos sin moverte.
+              {t("bannerText1")}
+              <br /> {t("bannerText2")}
             </p>
             <p className="font-vangeda font-regular ml-10 mb-10 text-[40px]/[39px] text-left text-secundarioClaro md:hidden lg:hidden">
-              Conocé <br /> nuestra <br /> membresía
+              {t("bannerMobile1")} <br /> {t("bannerMobile2")} <br /> {t("bannerMobile3")}
             </p>
           </div>
           <div className="w-full h-full hidden justify-center items-center absolute z-[100] lg:group-hover:flex left-0 transition-all ease-in-out duration-200">
             <p className="font-vangeda text-[55px]/[62px] text-secundarioClaro uppercase">
-              Quiero la membresia
+              {t("banner2")}
             </p>
           </div>
           <div className="lg:group-hover:bg-[#511018] absolute w-full h-full bg-gradient-to-t md:bg-gradient-to-r from-[#511018] from-[0%] lg:from-[27%] to-transparent z-30 left-0 transition-all ease-in-out duration-200"></div>
