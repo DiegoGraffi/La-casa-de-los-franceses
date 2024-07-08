@@ -1,6 +1,5 @@
 "use client";
 
-//nosotros carrusel
 import Image from "next/image";
 import item1 from "../../../public/images/nosotros/item1.png";
 import item2 from "../../../public/images/nosotros/item2.jpg";
@@ -9,29 +8,32 @@ import { useState } from "react";
 import deslizarIzq from "../../../public/images/nosotros/deslizarIzq.svg";
 import deslizarDer from "../../../public/images/nosotros/deslizarDer.svg";
 import NosotrosArrow from "./NosotrosArrow";
-
-const items = [
-  {
-    foto: item1,
-    text: "Nuestra historia comienza en San Juan, Argentina, donde un grupo de amigos se unió en torno al amor por el vino, el asado, las risas y la camaradería. Inspirados por nuestra amistad y la pasión por compartir buenos momentos, decidimos llevar nuestra experiencia única a tierras francesas.",
-    textColor: "#3A4A09",
-    bgColor: "#E1E8C6",
-  },
-  {
-    foto: item2,
-    text: "En nuestros espacios celebramos la calidez y cercanía que nos caracteriza como amigos. Cada rincón está impregnado con el espíritu de nuestra amistad, creando un ambiente acogedor donde todos se sienten como en casa. Nuestra selección de vinos argentinos y productos franceses refleja la diversidad de nuestras experiencias y la riqueza de nuestras culturas combinadas.",
-    textColor: "#F3EDC8",
-    bgColor: "#BA7B61",
-  },
-  {
-    foto: item3,
-    text: "Te invitamos a unirte a nosotros en este espacio de amistad y disfrutar de la alegría de compartir con amigos un buen vino.¡Bienvenido a nuestro hogar lejos de casa, donde cada encuentro es una celebración de la vida y la amistad!",
-    textColor: "#F3EDC8",
-    bgColor: "#3A4A09",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function NosotrosCarousel() {
+  const t = useTranslations("Nosotros");
+
+  const items = [
+    {
+      foto: item1,
+      text: t("carouselText1"),
+      textColor: "#3A4A09",
+      bgColor: "#E1E8C6",
+    },
+    {
+      foto: item2,
+      text: t("carouselText2"),
+      textColor: "#F3EDC8",
+      bgColor: "#BA7B61",
+    },
+    {
+      foto: item3,
+      text: t("carouselText3"),
+      textColor: "#F3EDC8",
+      bgColor: "#3A4A09",
+    },
+  ];
+
   const [selectedItem, setSelectedItem] = useState(0);
 
   const handlePrev = () => {
