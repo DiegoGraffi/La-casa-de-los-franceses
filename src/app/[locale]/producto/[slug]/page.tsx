@@ -196,7 +196,9 @@ export default async function Producto({
                   product.productByHandle?.variants.edges[0].node
                     .availableForSale
                 }
-                variants={product.productByHandle?.variants.edges}
+                variants={product.productByHandle?.variants.edges?.map(
+                  (edge) => edge.node
+                )}
               />
             </Suspense>
             <div className="lg:hidden">

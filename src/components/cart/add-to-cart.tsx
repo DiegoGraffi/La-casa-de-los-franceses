@@ -74,11 +74,16 @@ export function AddToCart({
   availableForSale: boolean | undefined;
 }) {
   const [message, formAction] = useFormState(addItem, null);
-  const searchParams = useSearchParams();
+  const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
+  const selectedVariantId = defaultVariantId;
+  const actionWithVariant = formAction.bind(null, selectedVariantId);
 
   return (
-    <form>
-      <SubmitButton availableForSale={availableForSale} />
+    <form action={actionWithVariant}>
+      <SubmitButton
+        availableForSale={availableForSale}
+        selectedVariantId={selectedVariantId}
+      />
       <p aria-live="polite" className="sr-only" role="status">
         {message}
       </p>
