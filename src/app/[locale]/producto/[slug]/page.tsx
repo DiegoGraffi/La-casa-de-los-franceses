@@ -17,6 +17,7 @@ import BotonNoFillLG from "@/components/GeneralComponents/BotonesNoFill/BotonNoF
 import Counter from "@/components/ProductDetailComponents/Counter";
 import { Suspense } from "react";
 import { AddToCart } from "@/components/cart/add-to-cart";
+import CartComponent from "@/components/TiendaComponents/CartComponent";
 
 export default async function Producto({
   params,
@@ -27,7 +28,7 @@ export default async function Producto({
     query ProductQuery($handle: String!) {
       productByHandle(handle: $handle) {
         title
-        variants(first: 1) {
+        variants(first: 250) {
           edges {
             node {
               id
@@ -94,7 +95,6 @@ export default async function Producto({
       }
     }
   `);
-
   const variables = { handle: params.slug };
   const product = await fetchGraphql(query, variables);
   let awards: string[] = [];
@@ -143,7 +143,7 @@ export default async function Producto({
       })
     : [];
 
-  console.log(product);
+  console.log(product.productByHandle?.variants.edges[0].node.availableForSale);
 
   return (
     <div className="md:pt-[180px] py-[150px] flex flex-col gap-[150px] justify-center items-center overflow-x-hidden">
@@ -182,22 +182,23 @@ export default async function Producto({
 
           <div className="flex items-center gap-[25px] justify-center lg:justify-start">
             <Counter stock={stock} />
-            <div className="hidden lg:flex">
+            {/* <div className="hidden lg:flex">
               <BotonXL
                 link="#"
                 color="rojo"
                 text="Añadir al carrito"
                 icon={CartIcon}
               />
-            </div>
-            {/* <Suspense fallback={null}>
+            </div> */}
+            <Suspense fallback={null}>
               <AddToCart
                 availableForSale={
                   product.productByHandle?.variants.edges[0].node
                     .availableForSale
                 }
+                variants={product.productByHandle?.variants.edges}
               />
-            </Suspense> */}
+            </Suspense>
             <div className="lg:hidden">
               <BotonLG
                 link="#"
@@ -336,6 +337,8 @@ export default async function Producto({
           </div>
         </div>
       </section>
+
+      <CartComponent />
     </div>
   );
 }

@@ -23,7 +23,7 @@ function CartComponent() {
           />
         </div>
       </div>
-      <div className="flex flex-col items-center my-[30px] gap-3 max-h-[calc(100vh - 84px - 80px)] overflow-y-auto">
+      <div className="flex flex-col items-center my-[30px] gap-3 max-h-[calc(100vh - 84px - 80px)] overflow-y-scroll">
         <ItemCart />
         <ItemCart />
         <ItemCart />
