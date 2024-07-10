@@ -2,7 +2,8 @@
 
 import AccordionComponent from "@/components/TiendaComponents/AccordionComponent";
 import { createUrl } from "@/lib/utils";
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "@/navigation";
+import { useSearchParams } from "next/navigation";
 
 type Props = {
   listaTipos: string[];
@@ -33,7 +34,7 @@ export function Sidebar({ listaTipos, listaBodegas, listaVarietal }: Props) {
 
     router.push(createUrl(pathname, newParams));
   }
-  
+
   return (
     <form
       onSubmit={onSubmit}

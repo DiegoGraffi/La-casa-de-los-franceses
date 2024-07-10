@@ -73,16 +73,19 @@ export default function BodegasCarousel({
   return (
     <div className="relative w-full flex flex-col items-center px-[60px] lg:px-[80px]">
       <div className="relative w-full flex items-center">
-        <button
-          onClick={() => slider.current && slider.current.prev()}
-          className="absolute left-[-40px] z-20 rounded-full top-1/2 transform -translate-y-1/2 hover:bg-primarioMuyClaro"
-        >
-          <Image
-            src={prevArrow}
-            alt="Flecha Anterior"
-            className="hidden lg:block"
-          />
-        </button>
+        <div className="h-full w-[75px] flex items-center justify-center absolute bg-gradient-to-r from-white to-transparent z-50">
+          <button
+            onClick={() => slider.current && slider.current.prev()}
+            className="absolute left-[-40px] z-20 rounded-full top-1/2 transform -translate-y-1/2 hover:bg-primarioMuyClaro"
+          >
+            <Image
+              src={prevArrow}
+              alt="Flecha Anterior"
+              className="hidden lg:block"
+            />
+          </button>
+        </div>
+
         <div ref={sliderRef} className="keen-slider w-full">
           {slides.map((slide, index) => (
             <div
@@ -95,16 +98,18 @@ export default function BodegasCarousel({
             </div>
           ))}
         </div>
-        <button
-          onClick={() => slider.current && slider.current.next()}
-          className="absolute right-[-40px] z-20 rounded-full top-1/2 transform -translate-y-1/2 hover:bg-primarioMuyClaro"
-        >
-          <Image
-            src={nextArrow}
-            alt="Flecha Siguiente"
-            className="hidden lg:block"
-          />
-        </button>
+        <div className="h-full w-[75px] flex items-center justify-center absolute bg-gradient-to-l from-white to-transparent z-50 right-0">
+          <button
+            onClick={() => slider.current && slider.current.next()}
+            className="absolute right-[-40px] z-20 rounded-full top-1/2 transform -translate-y-1/2 hover:bg-primarioMuyClaro"
+          >
+            <Image
+              src={nextArrow}
+              alt="Flecha Siguiente"
+              className="hidden lg:block"
+            />
+          </button>
+        </div>
       </div>
 
       {activeSlide !== null && (

@@ -7,7 +7,12 @@ import Products from "./Products";
 import { Sidebar } from "@/app/[locale]/tienda/Sidebar";
 import { useTranslations } from "next-intl";
 
-export default function TiendaSection({ products }: ProductsList) {
+export default function TiendaSection({
+  products,
+  pageInfo,
+  endCursor,
+  startCursor,
+}: ProductsList & { pageInfo: any; endCursor: string; startCursor: string }) {
   const t = useTranslations("Tienda");
   const listaProductos = products.filter((product) => product.productType);
 
@@ -39,9 +44,9 @@ export default function TiendaSection({ products }: ProductsList) {
   });
 
   return (
-    <div className="min-h-screen flex flex-col pt-[122px] pb-[50px]">
+    <div className="min-h-screen flex flex-col pt-[122px]">
       <div className="w-full h-[250px] flex justify-center items-center bg-terciarioPrincipal">
-        <p className="text-[40px]/[39px] lg:text-[100px]/[173px] mt-12 lg:mt-0 font-vangeda text-secundarioClaro">
+        <p className="text-[40px]/[39px] lg:text-[100px]/[173px] lg:mt-0 font-vangeda text-secundarioClaro">
           {t("titulo")}
         </p>
       </div>
@@ -57,11 +62,13 @@ export default function TiendaSection({ products }: ProductsList) {
             </Suspense>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-[10px] lg:gap-[40px] items-center w-full lg:w-[40%]">
-            <p className="uppercase text-gris4 font-light lg:font-semibold text-[12px]/[16px] lg:text-[18px]/[28px] lg:font-bricolage font-gibson min-w-max">
+          <div className="flex flex-col lg:flex-row gap-[10px] lg:gap-[40px] items-start w-full lg:w-[40%]">
+            <p className="uppercase text-gris4 font-light lg:font-semibold text-[12px]/[16px] lg:text-[18px]/[28px] lg:font-bricolage font-gibson min-w-max top-0 p-2">
               Mostrando {products.length} resultados
             </p>
-            <DropdownMenu />
+            <div className="relative w-full top-0 h-[50px] flex justify-center">
+              <DropdownMenu />
+            </div>
           </div>
         </div>
 
@@ -74,14 +81,22 @@ export default function TiendaSection({ products }: ProductsList) {
             />
           </Suspense>
           <div className="w-full lg:w-[80%] hidden lg:flex lg:flex-col">
-            <ProductsSection>
+            <ProductsSection
+              pageInfo={pageInfo}
+              endCursor={endCursor}
+              startCursor={pageInfo.startCursor}
+            >
               <Products products={products} />
             </ProductsSection>
           </div>
         </div>
       </div>
       <div className="w-full container mx-auto flex flex-col lg:w-[80%] lg:hidden pt-[20px]">
-        <ProductsSection>
+        <ProductsSection
+          pageInfo={pageInfo}
+          endCursor={endCursor}
+          startCursor={startCursor}
+        >
           <Products products={products} />
         </ProductsSection>
       </div>

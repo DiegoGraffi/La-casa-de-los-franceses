@@ -31,7 +31,7 @@ export default function AccordionComponent({
             aria-hidden
             hidden={true}
           >
-            <p className="pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+            <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
               Categoria
             </p>
             <Image
@@ -49,13 +49,8 @@ export default function AccordionComponent({
               );
             })}
           </AccordionContent>
-          <div className="w-full h-[1px] relative">
-            <Image
-              src={divider}
-              alt="divider"
-              fill
-              className="object-contain"
-            />
+          <div className="w-full">
+            <Image src={divider} alt="divider" className="w-full h-[2px]" />
           </div>
         </AccordionItem>
 
@@ -65,7 +60,7 @@ export default function AccordionComponent({
             aria-hidden
             hidden={true}
           >
-            <p className="pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+            <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
               Bodega
             </p>
             <Image
@@ -81,13 +76,8 @@ export default function AccordionComponent({
               return <FilterLabel key={index} label={bodega} name="vendor" />;
             })}
           </AccordionContent>
-          <div className="w-full h-[1px] relative">
-            <Image
-              src={divider}
-              alt="divider"
-              fill
-              className="object-contain"
-            />
+          <div className="w-full">
+            <Image src={divider} alt="divider" className="w-full h-[2px]" />
           </div>
         </AccordionItem>
 
@@ -97,7 +87,7 @@ export default function AccordionComponent({
             aria-hidden
             hidden={true}
           >
-            <p className="upl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+            <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
               Varietal
             </p>
             <Image
@@ -115,13 +105,8 @@ export default function AccordionComponent({
               );
             })}
           </AccordionContent>
-          <div className="w-full h-[1px] relative">
-            <Image
-              src={divider}
-              alt="divider"
-              fill
-              className="object-contain"
-            />
+          <div className="w-full ">
+            <Image src={divider} alt="divider" className="w-full h-[2px]" />
           </div>
         </AccordionItem>
 
@@ -131,7 +116,7 @@ export default function AccordionComponent({
             aria-hidden
             hidden={true}
           >
-            <p className="pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+            <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
               Precio
             </p>
             <Image
@@ -164,13 +149,8 @@ export default function AccordionComponent({
               />
             </div>
           </AccordionContent>
-          <div className="w-full h-[1px] relative">
-            <Image
-              src={divider}
-              alt="divider"
-              fill
-              className="object-contain"
-            />
+          <div className="w-full">
+            <Image src={divider} alt="divider" className="w-full h-[2px]" />
           </div>
         </AccordionItem>
       </Accordion>

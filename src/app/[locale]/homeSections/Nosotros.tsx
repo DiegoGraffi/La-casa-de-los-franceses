@@ -18,11 +18,10 @@ import BotonLG from "@/components/GeneralComponents/Botones/BotonLG";
 export default function Nosotros() {
   return (
     <div className="group w-full mt-[25px] md:mt-[50px] lg:mt-[110px] max-h-[580px] h-full relative flex flex-col lg:flex-row justify-center">
-      <div className="w-full container mx-auto absolute z-[100] hidden lg:flex">
-      </div>
+      <div className="w-full container mx-auto absolute z-[100] hidden lg:flex"></div>
       <div className="w-full h-full absolute z-50 overflow-x-hidden hidden lg:flex justify-center">
         <div className="w-full h-full absolute container overflow-hidden">
-          <div className="w-[50%] flex flex-col justify-center gap-[15px] h-full z-[150] absolute left-0 px-[60px] -translate-x-[100%] opacity-0 group-hover:-translate-x-0 group-hover:opacity-100 transition-all ease-[cubic-bezier(0,0.96,1,1)] duration-700">
+          <div className="w-[50%] flex flex-col justify-center gap-[15px] h-full z-[150] absolute left-0 px-[60px] -translate-x-[100%] opacity-0 group-hover:-translate-x-0 group-hover:opacity-100 transition-all ease-[cubic-bezier(0,0.96,1,1)] duration-700 ">
             <p className="text-[55px]/[62px] font-vangeda text-primarioClaro">
               Conocé <br />
               nuestra casa
@@ -31,7 +30,7 @@ export default function Nosotros() {
             <Image
               src={nosotrosLine}
               alt="line"
-              className="h-[2px] w-full object-cover"
+              className="h-[2px] w-full object-cover "
             />
           </div>
           <div className="w-[50%] flex flex-col justify-center gap-[15px] h-full z-[150] absolute left-[50%] px-[60px] translate-x-[100%] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all ease-[cubic-bezier(0,0.96,1,1)] duration-700">

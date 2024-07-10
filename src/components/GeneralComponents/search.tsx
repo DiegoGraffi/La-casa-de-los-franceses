@@ -24,14 +24,14 @@ export default function Search() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="w-max-[550px] relative">
+    <form onSubmit={onSubmit} className="w-full lg:max-w-[550px] relative">
       <input
         key={searchParams?.get("q")}
         type="text"
         name="search"
         autoComplete="off"
         defaultValue={searchParams?.get("q") || ""}
-        className="rounded-lg border border-gris5 bg-transparent px-4 py-2 text-sm text-black placeholder:text-black "
+        className="rounded-lg border border-gris5 bg-transparent px-4 py-2 text-sm text-black placeholder:text-black w-full"
       />
       <div className="absolute right-0 top-0 mr-3 flex h-full items-center"></div>
     </form>

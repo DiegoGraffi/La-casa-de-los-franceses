@@ -51,29 +51,32 @@ export default function NosotrosCarousel() {
   const currentTextColor = items[selectedItem].textColor;
 
   return (
-    <div className="w-full lg:max-w-[1600px] lg:mx-auto p-0 lg:flex overflow-hidden lg:h-[430px] rounded-bl-[30px] rounded-tr-[30px]">
-      <div className="h-[300px] lg:h-full aspect-[575/430] relative overflow-hidden">
+    <div className="w-full lg:max-w-[1600px] lg:mx-auto p-0 md:flex overflow-hidden md:h-[430px] rounded-bl-[30px] rounded-tr-[30px] mb-[50px] lg:mb-0">
+      <div
+        className="aspect-video w-full md:h-full md:aspect-[575/430] relative overflow-hidden"
+        style={{ backgroundColor: items[selectedItem].bgColor }}
+      >
         <Image
           src={items[selectedItem].foto}
           alt="mapa san juan"
           fill
-          className="object-cover h-full"
+          className="w-full object-cover h-full"
         />
       </div>
 
       <div
         style={{ backgroundColor: items[selectedItem].bgColor }}
-        className={`bg-[${items[selectedItem].bgColor}] flex flex-col justify-center items-start flex-1 h-auto p-[40px]`}
+        className={`bg-[${items[selectedItem].bgColor}] flex flex-col justify-center items-start flex-1 h-auto p-[40px] shrink`}
       >
         <div className="h-[250px] flex justify-center items-center overflow-hidden">
           <p
-            className={`font-bricolage font-regular text-center text-[16px]/[24px] lg:text-start lg:text-[18px]/[23px] lg:font-light text-[${items[selectedItem].textColor}]`}
+            className={`font-bricolage font-regular text-center text-[16px]/[24px] md:text-start lg:text-[18px]/[23px] lg:font-light text-[${items[selectedItem].textColor}]`}
           >
             {items[selectedItem].text}
           </p>
         </div>
-        <div className="lg:h-[20%] flex justify-center items-center mt-6 lg:m-0 lg:w-full">
-          <div className="flex items-center lg:gap-[50px]">
+        <div className="lg:h-[20%] flex justify-center items-center mt-6 lg:m-0 w-full">
+          <div className="flex items-center lg:gap-[50px] border z-50 justify-between w-full">
             <div
               onClick={handlePrev}
               className="rounded-full bg-transparent hover:bg-[#c4b19d] transition-all ease-in-out duration-200 cursor-pointer"
@@ -81,7 +84,7 @@ export default function NosotrosCarousel() {
               <NosotrosArrow color={items[selectedItem].textColor} />
             </div>
 
-            <div className="flex items-center mx-[60px] lg:m-0">
+            <div className="flex items-center mx-[20px] lg:mx-[60px] lg:m-0">
               <div
                 style={
                   selectedItem === 0
@@ -100,7 +103,7 @@ export default function NosotrosCarousel() {
                 className={`w-[10px] h-[10px] rounded-full`}
               ></div>
               <hr
-                className={`w-[20px] lg:w-[100px] border-[${currentTextColor}]`}
+                className={`w-[30px] md:w-[50px] lg:w-[100px] border-[${currentTextColor}] z-50`}
               />
               <div
                 style={
@@ -120,7 +123,7 @@ export default function NosotrosCarousel() {
                 className={`w-[10px] h-[10px] rounded-full`}
               ></div>
               <hr
-                className={`w-[20px] lg:w-[100px] border-[${currentTextColor}]`}
+                className={`w-[30px] md:w-[50px] lg:w-[100px] border-[${currentTextColor}] z-50`}
               />
               <div
                 style={

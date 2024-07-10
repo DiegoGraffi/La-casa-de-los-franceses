@@ -1,11 +1,10 @@
 // "use client";
 
 import Image, { StaticImageData } from "next/image";
-import CartIcon from "../../../../public/images/productDetail/cartIcon.svg";
+import CartIcon from "../../../../../public/images/productDetail/cartIcon.svg";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import InnerImageZoom from "react-inner-image-zoom";
-import Imagen from "../../../../public/images/nosotros/profile1.jpg";
 import BotonXL from "@/components/GeneralComponents/Botones/BotonXL";
 import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
 import CarouselComponent from "@/components/CarouselComponent";
@@ -16,6 +15,8 @@ import ProductCard from "@/components/ProductCard";
 import BotonLG from "@/components/GeneralComponents/Botones/BotonLG";
 import BotonNoFillLG from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillLG";
 import Counter from "@/components/ProductDetailComponents/Counter";
+import { Suspense } from "react";
+import { AddToCart } from "@/components/cart/add-to-cart";
 
 export default async function Producto({
   params,
@@ -26,6 +27,23 @@ export default async function Producto({
     query ProductQuery($handle: String!) {
       productByHandle(handle: $handle) {
         title
+        variants(first: 1) {
+          edges {
+            node {
+              id
+              title
+              availableForSale
+              selectedOptions {
+                name
+                value
+              }
+              price {
+                amount
+                currencyCode
+              }
+            }
+          }
+        }
         totalInventory
         description
         priceRange {
@@ -78,12 +96,14 @@ export default async function Producto({
   `);
 
   const variables = { handle: params.slug };
-  const data = await fetchGraphql(query, variables);
+  const product = await fetchGraphql(query, variables);
   let awards: string[] = [];
 
-  if (data.productByHandle?.metafields[0]?.value) {
+  if (product.productByHandle?.metafields[0]?.value) {
     try {
-      const parsedAwards = JSON.parse(data.productByHandle.metafields[0].value);
+      const parsedAwards = JSON.parse(
+        product.productByHandle.metafields[0].value
+      );
       if (Array.isArray(parsedAwards)) {
         awards = parsedAwards.map((award: string) => award);
       }
@@ -92,7 +112,7 @@ export default async function Producto({
     }
   }
 
-  const featuredImageUrl = data.productByHandle?.featuredImage?.url;
+  const featuredImageUrl = product.productByHandle?.featuredImage?.url;
   const imageUrl =
     typeof featuredImageUrl === "string"
       ? featuredImageUrl
@@ -100,27 +120,30 @@ export default async function Producto({
 
   const dataRelatedProducts = await fetchGraphql(queryRelatedProducts, {});
   const products = dataRelatedProducts.collectionByHandle?.products.nodes;
-  const stock = data.productByHandle?.totalInventory ?? 0;
+  const stock = product.productByHandle?.totalInventory ?? 0;
   const addToCartDisabled = stock === 0;
 
   const slides = products
-    ? products.map((product, index) => {
+    ? products.map((product) => {
         return (
           <Link
             key={product.handle}
             href={`/producto/${product.handle}`}
             legacyBehavior
           >
-            <ProductCard
-              key={index}
-              price={product.variants.nodes[0].price.amount}
-              title={product.title}
-              image={product.featuredImage?.url}
-            />
+            <div>
+              <ProductCard
+                price={product.variants.nodes[0].price.amount}
+                title={product.title}
+                image={product.featuredImage?.url}
+              />
+            </div>
           </Link>
         );
       })
     : [];
+
+  console.log(product);
 
   return (
     <div className="md:pt-[180px] py-[150px] flex flex-col gap-[150px] justify-center items-center overflow-x-hidden">
@@ -140,17 +163,17 @@ export default async function Producto({
         <div className="flex flex-col gap-[20px] border">
           <div className="flex flex-col gap-[20px]">
             <h2 className="text-[32px]/[38px] lg:text-[48px]/[58px] text-terciarioPrincipal font-vangeda text-center lg:text-start text-balance">
-              {data.productByHandle?.title}
+              {product.productByHandle?.title}
             </h2>
             <p className="font-bricolage text-balance text-[14px]/[22px] lg:text-[20px]/[25px] font-light text-gris1 max-w-[650px] mx-auto md:text-center lg:text-start">
-              {data.productByHandle?.description}
+              {product.productByHandle?.description}
             </p>
           </div>
 
           <div className="flex items-center gap-[10px] justify-center lg:justify-start">
             <p className="lg:text-[55px]/[62px] text-[28px]/[34px] text-terciarioClaro font-vangeda">
-              {data.productByHandle?.priceRange.maxVariantPrice.currencyCode}{" "}
-              {data.productByHandle?.priceRange.maxVariantPrice.amount}
+              {product.productByHandle?.priceRange.maxVariantPrice.currencyCode}{" "}
+              {product.productByHandle?.priceRange.maxVariantPrice.amount}
             </p>
             <p className="text-[16px]/[15px] lg:text-[26px]/[34px] font-vangeda text-gris2">
               10% descuento
@@ -167,7 +190,14 @@ export default async function Producto({
                 icon={CartIcon}
               />
             </div>
-
+            {/* <Suspense fallback={null}>
+              <AddToCart
+                availableForSale={
+                  product.productByHandle?.variants.edges[0].node
+                    .availableForSale
+                }
+              />
+            </Suspense> */}
             <div className="lg:hidden">
               <BotonLG
                 link="#"
@@ -188,14 +218,14 @@ export default async function Producto({
         </div>
       </section>
 
-      {/* <section className="flex flex-col items-center border border-blue-400">
+      <section className="flex flex-col items-center border border-blue-400">
         <h3 className="text-[48px]/[58px] text-terciarioPrincipal font-vangeda">
           Productos similares
         </h3>
         <div className="max-h-[2000px] w-full lg:px-[200px] gap-[35px] lg:gap-[56px] pt-[70px] lg:pt-[90px] mx-auto flex flex-col justify-center items-center overflow-hidden mb-[60px] lg:mb-0">
           <CarouselComponent slides={slides} />
         </div>
-      </section> */}
+      </section>
 
       <section
         id="aditionalInfo"
@@ -205,7 +235,7 @@ export default async function Producto({
           Información adicional
         </h3>
         <div className="flex flex-col w-full">
-          {data.productByHandle?.metafields[0]?.value ? (
+          {product.productByHandle?.metafields[0]?.value ? (
             <div className="flex flex-col lg:flex-row border-t-2 border-t-[#FFAA00] bg-gradient-to-t from-[#FFC654] to-[rgba(255,220,149,20%)] items-center lg:items-start">
               <div className="w-[80%] lg:w-[30%] xl:w-[20%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
                 <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-semibold text-center lg:text-start">
@@ -228,8 +258,8 @@ export default async function Producto({
             </div>
             <div className="w-[80%] lg:w-[70%] xl:w-[80%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
               <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-light">
-                {data.productByHandle?.metafields[1]?.value
-                  ? data.productByHandle.metafields[1].value
+                {product.productByHandle?.metafields[1]?.value
+                  ? product.productByHandle.metafields[1].value
                   : "No hay información"}
               </p>
             </div>
@@ -242,8 +272,8 @@ export default async function Producto({
             </div>
             <div className="w-[80%] lg:w-[70%] xl:w-[80%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
               <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-light">
-                {data.productByHandle?.metafields[2]?.value
-                  ? data.productByHandle.metafields[2].value
+                {product.productByHandle?.metafields[2]?.value
+                  ? product.productByHandle.metafields[2].value
                   : "No hay información"}
               </p>
             </div>
@@ -256,8 +286,8 @@ export default async function Producto({
             </div>
             <div className="w-[80%] lg:w-[70%] xl:w-[80%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
               <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-light">
-                {data.productByHandle?.metafields[3]?.value
-                  ? data.productByHandle.metafields[3].value + "°"
+                {product.productByHandle?.metafields[3]?.value
+                  ? product.productByHandle.metafields[3].value + "°"
                   : "No hay información"}
               </p>
             </div>
@@ -270,8 +300,8 @@ export default async function Producto({
             </div>
             <div className="ww-[80%] lg:w-[70%] xl:w-[80%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
               <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-light">
-                {data.productByHandle?.metafields[4]?.value
-                  ? data.productByHandle.metafields[4].value
+                {product.productByHandle?.metafields[4]?.value
+                  ? product.productByHandle.metafields[4].value
                   : "No hay información"}
               </p>
             </div>
@@ -284,8 +314,8 @@ export default async function Producto({
             </div>
             <div className="w-[80%] lg:w-[70%] xl:w-[80%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
               <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-light">
-                {data.productByHandle?.metafields[5]?.value
-                  ? data.productByHandle.metafields[5].value
+                {product.productByHandle?.metafields[5]?.value
+                  ? product.productByHandle.metafields[5].value
                   : "No hay información"}
               </p>
             </div>
@@ -298,8 +328,8 @@ export default async function Producto({
             </div>
             <div className="w-[80%] lg:w-[70%] xl:w-[80%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
               <p className="text-[16px]/[24px] md:text-[20px]/[24px] font-bricolage font-light">
-                {data.productByHandle?.metafields[6]?.value
-                  ? data.productByHandle.metafields[6].value
+                {product.productByHandle?.metafields[6]?.value
+                  ? product.productByHandle.metafields[6].value
                   : "No hay información"}
               </p>
             </div>

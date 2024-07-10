@@ -37,19 +37,24 @@ const query = graphql(`
     $reverse: Boolean
     $query: String
     $first: Int
+    $last: Int
     $after: String
+    $before: String
   ) {
     products(
       sortKey: $sortKey
       reverse: $reverse
       query: $query
       first: $first
+      last: $last
       after: $after
+      before: $before
     ) {
       pageInfo {
         hasNextPage
         hasPreviousPage
         endCursor
+        startCursor
       }
       edges {
         node {
@@ -127,7 +132,7 @@ export default async function Tienda({
 }: {
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  const { q: searchValue, page: pageCursor } = searchParams as {
+  const { q: searchValue } = searchParams as {
     [key: string]: string;
   };
 
@@ -146,26 +151,57 @@ export default async function Tienda({
 
   const sort = searchParams?.["sort"];
 
+  const excludeMembresiaQuery = "NOT product_type:Membresia";
+
   const shopifyQuery = combineQueryNodes([
     searchValue,
     productTypeQuery,
     vendorQuery,
     varietalQuery,
     priceQuery,
+    excludeMembresiaQuery,
   ]);
+
+  let endCursor = null;
+  let startCursor = null;
+
+  const after = searchParams?.after as string | undefined;
+  const before = searchParams?.before as string | undefined;
+
+  const pageSize = 24;
+
+  const paginationParams = after
+    ? {
+        first: pageSize,
+        after: after,
+      }
+    : before
+    ? {
+        last: pageSize,
+        before: before,
+      }
+    : { first: pageSize };
 
   const data = await fetchGraphql(query, {
     query: shopifyQuery,
     ...getSortVariables(typeof sort === "string" ? sort : ""),
-    first: 30,
-    after: pageCursor || null,
+    ...paginationParams,
   });
+
+  endCursor = data.products.pageInfo.endCursor;
+  startCursor = data.products.pageInfo.startCursor;
 
   const products = data.products.edges.map((edge: { node: any }) => edge.node);
 
   const productos = products.filter(
     (producto: any) => producto.productType != "Membresia"
   );
-
-  return <TiendaSection products={productos} />;
+  return (
+    <TiendaSection
+      products={productos}
+      pageInfo={data.products.pageInfo}
+      endCursor={endCursor || ""}
+      startCursor={startCursor || ""}
+    />
+  );
 }

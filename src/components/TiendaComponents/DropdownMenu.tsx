@@ -26,12 +26,12 @@ export default function DropdownMenu() {
 
   return (
     <div
-      className={`relative border rounded-md p-2 bg-white z-50 ${
+      className={`absolute border rounded-md p-2 bg-white z-50 w-max flex flex-col ${
         isOpen ? "border border-opacity-100" : "border-0 border-opacity-0"
       }`}
     >
       <button
-        className="uppercase text-gris3 font-semibold text-[18px]/[28px] font-bricolage hover:bg-gris6 transition-all ease-in-out duration-200 px-[10px] rounded-md active:bg-gris5"
+        className="uppercase text-gris3 font-semibold text-[18px]/[28px] font-bricolage hover:bg-gris6 transition-all ease-in-out duration-200 px-[10px] rounded-md active:bg-gris5 text-center lg:text-start"
         onClick={toggleMenu}
       >
         Ordenar por

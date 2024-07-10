@@ -9,6 +9,7 @@ import BodegasCarousel from "@/components/NosotrosComponents/BodegasCarousel";
 import NosotrosArrowComponent from "@/components/NosotrosComponents/NosotrosArrowComponent";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import { getTranslations } from "next-intl/server";
+import SectionTitle from "@/components/SectionTitle";
 
 export default async function NosotrosPage() {
   const query = graphql(`
@@ -91,7 +92,7 @@ export default async function NosotrosPage() {
 
       <section className="w-full max-w-[1600px] mx-auto flex flex-col gap-[50px] justify-center items-center mt-[80px] lg:mt-[50px] px-[35px] lg:px-[100px]">
         <h3 className="hidden lg:block font-vangeda text-[55px]/[63px] text-terciarioPrincipal text-center">
-         {t("carouselTitle")}
+          {t("carouselTitle")}
         </h3>
         <NosotrosCarousel />
       </section>
@@ -159,7 +160,7 @@ export default async function NosotrosPage() {
             src={personas}
             alt="nosotros"
             fill
-            className="object-contain lg:object-cover lg:object-top"
+            className="object-contain lg:object-cover lg:object-top w-full"
           />
         </div>
         <div className="h-full left-0 flex justify-center items-center group-hover:opacity-0 transition-all ease-in-out duration-300 lg:gap-0 gap-10">
@@ -193,19 +194,17 @@ export default async function NosotrosPage() {
         </div>
       </section>
 
-      <section className="w-full max-w-[1600px] flex flex-col gap-[50px] justify-center items-center mt-[80px] lg:mt-[150px] px-[35px] lg:px-[100px]">
-        <h3 className="hidden lg:block font-vangeda text-[55px]/[63px] text-terciarioPrincipal text-center">
-         {t("bodegasTitle")}
-        </h3>
+      <section className="w-full max-w-[1600px] flex flex-col gap-[50px] justify-center items-center mt-[80px] lg:mt-[100px] px-[35px] lg:px-[100px]">
+        <SectionTitle title={t("bodegasTitle")} />
         <div className="w-full mt-[20px]">
           <BodegasCarousel bodegasData={bodegaData} />
         </div>
       </section>
 
       <section className="w-full py-[20px] px-[20px] lg:py-[60px] lg:px-[100px]">
-        <div className="group h-[323px] lg:h-[420px] max-w-[1600px] w-full lg:px-[100px] rounded-tr-[25px] rounded-bl-[25px] lg:rounded-tr-[45px] lg:rounded-bl-[75px] relative mx-auto overflow-hidden">
-          <div className="w-full h-full m-0 p-0 lg:px-[100] flex flex-col justify-end lg:justify-center absolute z-[100] lg:group-hover:hidden">
-            <p className="hidden md:block lg:block font-vangeda text-[55px]/[62px] text-secundarioClaro uppercase">
+        <div className="group h-[323px] lg:h-[420px] max-w-[1600px] w-full lg:px-[50px] rounded-tr-[25px] rounded-bl-[25px] lg:rounded-tr-[45px] lg:rounded-bl-[75px] relative mx-auto overflow-hidden">
+          <div className="w-full h-full m-0 p-0 md:px-[50px] flex flex-col justify-end md:justify-center absolute z-[100] lg:group-hover:hidden">
+            <p className="hidden md:block lg:block font-vangeda text-[50px]/[57px] text-secundarioClaro uppercase">
               {t("bannerTitle1")} <br /> {t("bannerTitle2")}
             </p>
             <p className="hidden md:block lg:block font-bricolage text-[20px]/[25px] text-secundarioClaro font-light">
@@ -213,7 +212,8 @@ export default async function NosotrosPage() {
               <br /> {t("bannerText2")}
             </p>
             <p className="font-vangeda font-regular ml-10 mb-10 text-[40px]/[39px] text-left text-secundarioClaro md:hidden lg:hidden">
-              {t("bannerMobile1")} <br /> {t("bannerMobile2")} <br /> {t("bannerMobile3")}
+              {t("bannerMobile1")} <br /> {t("bannerMobile2")} <br />{" "}
+              {t("bannerMobile3")}
             </p>
           </div>
           <div className="w-full h-full hidden justify-center items-center absolute z-[100] lg:group-hover:flex left-0 transition-all ease-in-out duration-200">
@@ -226,7 +226,7 @@ export default async function NosotrosPage() {
             src={fondoNosotros}
             alt="wines"
             fill
-            className="object-cover object-center"
+            className="object-cover object-bottom"
           />
         </div>
       </section>
