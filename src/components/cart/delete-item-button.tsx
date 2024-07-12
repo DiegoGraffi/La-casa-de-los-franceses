@@ -19,7 +19,7 @@ function SubmitButton() {
       aria-label="Remove cart item"
       aria-disabled={pending}
       className={clsx(
-        "ease flex h-[17px] w-[17px] items-center justify-center rounded-full bg-neutral-500 transition-all duration-200",
+        "ease flex h-full w-[40px] items-center justify-center bg-terciarioClaro transition-all duration-200",
         {
           "cursor-not-allowed px-0": pending,
         }
@@ -28,7 +28,11 @@ function SubmitButton() {
       {pending ? (
         <LoadingDots className="bg-white" />
       ) : (
-        <XMarkIcon className="hover:text-accent-3 mx-[1px] h-4 w-4 text-white dark:text-black" />
+        <div className="bg-terciarioClaro h-full w-full flex justify-center items-center">
+          <p className="text-[24px]/[28px] font-bricolage font-semibold text-primarioMuyClaro">
+            -
+          </p>
+        </div>
       )}
     </button>
   );
@@ -40,7 +44,7 @@ export function DeleteItemButton({ item }: { item: CartItem }) {
   const actionWithVariant = formAction.bind(null, itemId);
 
   return (
-    <form action={actionWithVariant}>
+    <form action={actionWithVariant} className="h-full w-[40px]">
       <SubmitButton />
       <p aria-live="polite" className="sr-only" role="status">
         {message}

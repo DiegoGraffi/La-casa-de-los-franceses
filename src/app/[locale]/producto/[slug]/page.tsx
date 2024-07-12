@@ -221,7 +221,7 @@ export default async function Producto({
         </div>
       </section>
 
-      <section className="flex flex-col items-center border border-blue-400">
+      <section className="flex flex-col items-center ">
         <h3 className="text-[48px]/[58px] text-terciarioPrincipal font-vangeda">
           Productos similares
         </h3>

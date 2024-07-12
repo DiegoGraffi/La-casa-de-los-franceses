@@ -2,17 +2,18 @@
 
 import { Dialog, Transition } from "@headlessui/react";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
-import Price from "@/components/price";
+import Price from "../../components/price";
 import { DEFAULT_OPTION } from "@/lib/constants";
 import type { Cart } from "@/lib/shopify/types";
 import { createUrl } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
+
 import { Fragment, useEffect, useRef, useState } from "react";
 import CloseCart from "./close-cart";
 import { DeleteItemButton } from "./delete-item-button";
 import { EditItemQuantityButton } from "./edit-item-quantity-button";
 import OpenCart from "./open-cart";
+import { Link } from "@/navigation";
 
 type MerchandiseSearchParams = {
   [key: string]: string;
@@ -64,9 +65,11 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl md:w-[390px] dark:border-neutral-700 dark:bg-black/80 dark:text-white">
-              <div className="flex items-center justify-between">
-                <p className="text-lg font-semibold">My Cart</p>
+            <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col bg-terciarioPrincipal text-black md:w-[500px]">
+              <div className="flex items-center justify-between bg-terciarioClaro px-[25px] py-[15px]">
+                <p className="ont-bricolage font-semibold text-[24px]/[28px] text-primarioMuyClaro">
+                  Carro de compras ({cart?.totalQuantity})
+                </p>
 
                 <button aria-label="Close cart" onClick={closeCart}>
                   <CloseCart />
@@ -75,14 +78,14 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
 
               {!cart || cart.lines.length === 0 ? (
                 <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
-                  <ShoppingCartIcon className="h-16" />
-                  <p className="mt-6 text-center text-2xl font-bold">
-                    Your cart is empty.
+                  <ShoppingCartIcon className="h-16 text-primarioMuyClaro" />
+                  <p className="mt-6 text-center text-2xl font-normal font-bricolage text-primarioMuyClaro">
+                    El carro de compras está vacio.
                   </p>
                 </div>
               ) : (
-                <div className="flex h-full flex-col justify-between overflow-hidden p-1">
-                  <ul className="flex-grow overflow-auto py-4">
+                <div className="flex h-full flex-col justify-between overflow-hidden p-4 px-8">
+                  <ul className="flex-grow overflow-auto overflow-x-hidden">
                     {cart.lines.map((item, i) => {
                       const merchandiseSearchParams =
                         {} as MerchandiseSearchParams;
@@ -96,29 +99,25 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                       );
 
                       const merchandiseUrl = createUrl(
-                        `/product/${item.merchandise.product.handle}`,
+                        `/producto/${item.merchandise.product.handle}`,
                         new URLSearchParams(merchandiseSearchParams)
                       );
 
                       return (
                         <li
                           key={i}
-                          className="flex w-full flex-col border-b border-neutral-300 dark:border-neutral-700"
+                          className="group flex w-full flex-row bg-white  items-center justify-stretch relative"
                         >
-                          <div className="relative flex w-full flex-row justify-between px-1 py-4">
-                            <div className="absolute z-40 -mt-2 ml-[55px]">
-                              <DeleteItemButton item={item} />
-                            </div>
+                          <div className="relative flex w-full flex-row justify-between p-2 items-center h-full border">
                             <Link
                               href={merchandiseUrl}
                               onClick={closeCart}
-                              className="z-30 flex flex-row space-x-4"
+                              className="z-30 flex flex-row space-x-4 h-full"
                             >
-                              <div className="relative h-16 w-16 cursor-pointer overflow-hidden rounded-md border border-neutral-300 bg-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-800">
+                              <div className="relative cursor-pointer overflow-hidden rounded-md aspect-square w-[100px] h-[100px] border border-red-500 items-center">
                                 <Image
-                                  className="h-full w-full object-cover"
-                                  width={64}
-                                  height={64}
+                                  className="h-full w-full object-contain border"
+                                  fill
                                   alt={
                                     item.merchandise.product.featuredImage
                                       .altText || item.merchandise.product.title
@@ -129,41 +128,39 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                                 />
                               </div>
 
-                              <div className="flex flex-1 flex-col text-base">
-                                <span className="leading-tight">
+                              <div className="flex flex-1 flex-col text-base justify-between">
+                                <p className="font-bricolage font-light text-[15px]/[20px] text-black">
                                   {item.merchandise.product.title}
-                                </span>
-                                {item.merchandise.title !== DEFAULT_OPTION ? (
-                                  <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                                    {item.merchandise.title}
-                                  </p>
-                                ) : null}
+                                </p>
+                                <Price
+                                  className="flex space-y-2 border font-bricolage font-semibold text-[20px]/[24px]"
+                                  amount={item.cost.totalAmount.amount}
+                                  currencyCode={
+                                    item.cost.totalAmount.currencyCode
+                                  }
+                                />
                               </div>
                             </Link>
-                            <div className="flex h-16 flex-col justify-between">
-                              <Price
-                                className="flex justify-end space-y-2 text-right text-sm"
-                                amount={item.cost.totalAmount.amount}
-                                currencyCode={
-                                  item.cost.totalAmount.currencyCode
-                                }
-                              />
-                              <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200 dark:border-neutral-700">
+                            <div className="flex h-[100%] flex-col justify-between ">
+                              <div className="flex h-full flex-col items-center justify-between border border-neutral-200 dark:border-neutral-700">
                                 <EditItemQuantityButton
                                   item={item}
                                   type="minus"
                                 />
-                                <p className="w-6 text-center">
-                                  <span className="w-full text-sm">
+                                <div className="w-full h-full aspect-square flex justify-center items-center">
+                                  <p className="w-full font-bricolage font-semibold text-[20px]/[24px] text-gris2 text-center">
                                     {item.quantity}
-                                  </span>
-                                </p>
+                                  </p>
+                                </div>
                                 <EditItemQuantityButton
                                   item={item}
                                   type="plus"
                                 />
                               </div>
                             </div>
+                          </div>
+                          <div className="relative h-full w-0 group-hover:w-[40px] transition-all ease-in-out duration-200 z-[300]flex justify-center items-center border border-cyan-400 ">
+                            <DeleteItemButton item={item} />
                           </div>
                         </li>
                       );

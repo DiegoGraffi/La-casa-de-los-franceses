@@ -71,10 +71,7 @@ export default function Navbar() {
               <Image src={LenguajeIcon} alt="lenguaje icon" />
             </Link>
 
-            <Link
-              href="#"
-              className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
-            >
+            <Link href="#">
               <Cart />
               {/* <Image src={CarritoIcon} alt="carrito icon" /> */}
             </Link>

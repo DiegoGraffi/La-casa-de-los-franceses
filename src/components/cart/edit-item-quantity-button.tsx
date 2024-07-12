@@ -55,7 +55,10 @@ export function EditItemQuantityButton({
   const actionWithVariant = formAction.bind(null, payload);
 
   return (
-    <form action={actionWithVariant}>
+    <form
+      action={actionWithVariant}
+      className="aspect-square bg-gris3 shrink-0"
+    >
       <SubmitButton type={type} />
       <p aria-live="polite" className="sr-only" role="status">
         {message}
