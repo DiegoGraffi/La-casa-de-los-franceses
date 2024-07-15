@@ -75,9 +75,13 @@ function page() {
         question={t("pregunta12")}
         answer="En el valle de las sombras fugaces, donde el tiempo parece deslizarse con la sutileza de una brisa suave, vivía una pequeña aldea conocida por sus coloridas casas y sus aún más coloridos habitantes. Cada mañana, los pájaros entonaban melodías que resonaban entre las colinas circundantes, anunciando el comienzo de un nuevo día lleno de promesas y pequeñas aventuras."
       />
+      <AccordionQuestion
+        question={t("pregunta13")}
+        answer="En el valle de las sombras fugaces, donde el tiempo parece deslizarse con la sutileza de una brisa suave, vivía una pequeña aldea conocida por sus coloridas casas y sus aún más coloridos habitantes. Cada mañana, los pájaros entonaban melodías que resonaban entre las colinas circundantes, anunciando el comienzo de un nuevo día lleno de promesas y pequeñas aventuras."
+      />
 </div>
       
-    <div className="flex justify-center">
+    {/* <div className="flex justify-center">
       <h3 className="w-[315px] lg:w-full font-bricolage font-semibold text-[40px]/[48px] lg:text-[48px]/[58px] text-center text-terciarioPrincipal mt-8 lg:mt-20">
         {t("seccion3")}
       </h3>
@@ -101,7 +105,7 @@ function page() {
         question={t("pregunta16")}
         answer="En el valle de las sombras fugaces, donde el tiempo parece deslizarse con la sutileza de una brisa suave, vivía una pequeña aldea conocida por sus coloridas casas y sus aún más coloridos habitantes. Cada mañana, los pájaros entonaban melodías que resonaban entre las colinas circundantes, anunciando el comienzo de un nuevo día lleno de promesas y pequeñas aventuras."
       />
-</div>
+</div> */}
       
     </div>
   );

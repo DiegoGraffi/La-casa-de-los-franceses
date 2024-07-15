@@ -1,8 +1,10 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { useState, useCallback } from "react";
+
 
 export default function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +25,7 @@ export default function DropdownMenu() {
     },
     [searchParams]
   );
-
+  const t = useTranslations("Tienda")
   return (
     <div
       className={`absolute border rounded-md p-2 bg-white z-50 w-max flex flex-col ${
@@ -34,7 +36,7 @@ export default function DropdownMenu() {
         className="uppercase text-gris3 font-semibold text-[18px]/[28px] font-bricolage hover:bg-gris6 transition-all ease-in-out duration-200 px-[10px] rounded-md active:bg-gris5 text-center lg:text-start"
         onClick={toggleMenu}
       >
-        Ordenar por
+       {t("ordenar")}
       </button>
       <div
         className={`left-0 right-0 rounded-md overflow-hidden transition-all ease-in-out duration-200 ${
@@ -54,7 +56,7 @@ export default function DropdownMenu() {
             }`}
           >
             <p className="text-gris3 text-[14px]/[20px] font-light">
-              Precio más alto
+              {t("dropdown1")}
             </p>
           </li>
           <li
@@ -69,7 +71,7 @@ export default function DropdownMenu() {
             }`}
           >
             <p className="text-gris3 text-[14px]/[20px] font-light">
-              Precio más bajo
+            {t("dropdown2")}
             </p>
           </li>
           <li
@@ -84,7 +86,7 @@ export default function DropdownMenu() {
             }`}
           >
             <p className="text-gris3 text-[14px]/[20px] font-light">
-              Agregado recientemente
+            {t("dropdown3")}
             </p>
           </li>
           <li
@@ -99,7 +101,7 @@ export default function DropdownMenu() {
             }`}
           >
             <p className="text-gris3 text-[14px]/[20px] font-light">
-              Popularidad
+            {t("dropdown4")}
             </p>
           </li>
         </ul>

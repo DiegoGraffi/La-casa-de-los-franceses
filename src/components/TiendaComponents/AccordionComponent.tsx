@@ -10,6 +10,7 @@ import arrow from "../../../public/images/tiendaPage/accordionArrow.svg";
 import divider from "../../../public/images/tiendaPage/divider.svg";
 import Image from "next/image";
 import FilterLabel from "../GeneralComponents/filterLabel";
+import { useTranslations } from "next-intl";
 
 type Props = {
   listaTipos: string[];
@@ -22,6 +23,7 @@ export default function AccordionComponent({
   listaBodegas,
   listaVarietal,
 }: Props) {
+  const t = useTranslations("Tienda")
   return (
     <div className="w-full">
       <Accordion type="multiple">
@@ -32,7 +34,7 @@ export default function AccordionComponent({
             hidden={true}
           >
             <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
-              Categoria
+              {t("filtro1")}
             </p>
             <Image
               src={arrow}
@@ -61,7 +63,7 @@ export default function AccordionComponent({
             hidden={true}
           >
             <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
-              Bodega
+            {t("filtro2")}
             </p>
             <Image
               src={arrow}
@@ -88,7 +90,7 @@ export default function AccordionComponent({
             hidden={true}
           >
             <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
-              Varietal
+            {t("filtro3")}
             </p>
             <Image
               src={arrow}
@@ -117,7 +119,7 @@ export default function AccordionComponent({
             hidden={true}
           >
             <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
-              Precio
+            {t("filtro4")}
             </p>
             <Image
               src={arrow}
@@ -130,7 +132,7 @@ export default function AccordionComponent({
           <AccordionContent className="plg:px-[20px] flex flex-col gap-[10px]">
             <div className="flex flex-col gap-[7px] w-full">
               <p className="font-bricolage font-light text-[20px]/[25px] text-gris3">
-                Desde
+                Min
               </p>
               <input
                 type="text"
@@ -140,7 +142,7 @@ export default function AccordionComponent({
             </div>
             <div className="flex flex-col gap-[7px] pb-2">
               <p className="font-bricolage font-light text-[20px]/[25px] text-gris3">
-                Hasta
+                Max
               </p>
               <input
                 type="text"

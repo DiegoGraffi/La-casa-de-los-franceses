@@ -2,8 +2,8 @@
 
 import AccordionComponent from "@/components/TiendaComponents/AccordionComponent";
 import { createUrl } from "@/lib/utils";
-import { usePathname, useRouter } from "@/navigation";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 type Props = {
   listaTipos: string[];
@@ -34,7 +34,7 @@ export function Sidebar({ listaTipos, listaBodegas, listaVarietal }: Props) {
 
     router.push(createUrl(pathname, newParams));
   }
-
+  const t = useTranslations("Tienda");
   return (
     <form
       onSubmit={onSubmit}
@@ -49,14 +49,14 @@ export function Sidebar({ listaTipos, listaBodegas, listaVarietal }: Props) {
         type="submit"
         className="w-full flex justify-center items-center p-2 rounded-md mt-5 bg-terciarioPrincipal hover:bg-terciarioOscuro text-secundarioClaro transition-all ease-in-out duration-200 cursor-pointer font-bricolage"
       >
-        Aplicar filtros
+       {t("botonSidebar1")}
       </button>
       <button
         type="button"
         onClick={() => router.push("/tienda")}
         className="w-full flex justify-center items-center p-2 rounded-md bg-terciarioPrincipal hover:bg-terciarioOscuro text-secundarioClaro transition-all ease-in-out duration-200 cursor-pointer font-bricolage mt-2"
       >
-        Eliminar filtros
+        {t("botonSidebar2")}
       </button>
     </form>
   );
