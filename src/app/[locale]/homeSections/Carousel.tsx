@@ -2,7 +2,7 @@ import CarouselComponent from "@/components/CarouselComponent";
 import ProductCard from "@/components/ProductCard";
 import SectionTitle from "@/components/SectionTitle";
 import { fetchGraphql, graphql } from "@/lib/graphql";
-import Link from "next/link";
+import { Link } from "@/navigation";
 
 async function Carousel() {
   const query = graphql(`
@@ -52,7 +52,7 @@ async function Carousel() {
     : [];
 
   return (
-    <div className="max-h-[2000px] w-full lg:px-[100px] xl:px-[200px] gap-[35px] lg:gap-[56px] pt-[70px] lg:pt-[90px] mx-auto flex flex-col justify-center items-center overflow-hidden mb-[60px] lg:mb-0">
+    <div className="max-h-[2000px] w-full lg:px-[100px] xl:px-[200px] gap-[35px] lg:gap-[56px] pt-[70px] lg:pt-[90px] mx-auto flex flex-col justify-center items-center overflow-hidden mb-[60px] lg:mb-0 max-w-[1600px]">
       <SectionTitle title="Selección del mes" />
       <CarouselComponent slides={slides} />
     </div>

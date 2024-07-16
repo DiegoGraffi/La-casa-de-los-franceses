@@ -12,36 +12,18 @@ export default function TiendaSection({
   pageInfo,
   endCursor,
   startCursor,
-}: ProductsList & { pageInfo: any; endCursor: string; startCursor: string }) {
+  listaTipos,
+  listaBodegas,
+  listaVarietal,
+}: ProductsList & {
+  pageInfo: any;
+  endCursor: string;
+  startCursor: string;
+  listaTipos: string[];
+  listaBodegas: string[];
+  listaVarietal: string[];
+}) {
   const t = useTranslations("Tienda");
-  const listaProductos = products.filter((product) => product.productType);
-
-  const listaTipos: string[] = [];
-  listaProductos.forEach((producto) => {
-    if (!listaTipos.includes(producto.productType)) {
-      listaTipos.push(producto.productType);
-    }
-  });
-
-  const listaBodegas: string[] = [];
-  listaProductos.forEach((producto) => {
-    const bodega = producto.vendor;
-    if (!listaBodegas.includes(bodega)) {
-      listaBodegas.push(bodega);
-    }
-  });
-
-  const listaVarietal: string[] = [];
-  listaProductos.forEach((producto) => {
-    const varietales = producto.tags;
-    if (varietales && varietales.length > 0) {
-      varietales.forEach((varietal) => {
-        if (varietal && varietal !== "" && !listaVarietal.includes(varietal)) {
-          listaVarietal.push(varietal);
-        }
-      });
-    }
-  });
 
   return (
     <div className="min-h-screen flex flex-col pt-[122px]">

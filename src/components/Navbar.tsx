@@ -14,7 +14,7 @@ import BotonIdioma from "./TiendaComponents/BotonIdioma";
 
 export default function Navbar() {
   const menuAbierto = false;
-    const t = useTranslations("Navbar")
+  const t = useTranslations("Navbar");
   return (
     <div className="bg-white w-full px-4 h-[86px] lg:h-[120px] flex absolute z-[100] mx-auto">
       <div className="w-full md:px-[50px] xl:px-[100px] mx-auto flex justify-between items-center lg:py-[5px] max-w-[1600px]">
@@ -71,7 +71,7 @@ export default function Navbar() {
               href="#"
               className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
             >
-             <BotonIdioma/>
+              <BotonIdioma />
             </Link>
 
             <Link href="#">
@@ -116,51 +116,47 @@ export default function Navbar() {
                 />
               </div>
               <div>
-              <Link href={`/`}> 
-                      <div className="mt-[25px]">
-                        <Image src={logo} alt="logo" />
-                      </div>
-                      </Link>
-                    </div>
-                <ul className="flex flex-col gap-[25px] items-center">
-                  <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                   
-                  
-                  </li>
-                  <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href={`/tienda`}>
-                      <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
-                      {t("item1")}
-                      </p>
-                    </Link>
-                  </li>
-
-                  <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href={`/nosotros`}>
-                      <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
-                      {t("item2")}
-                      </p>
-                    </Link>
-                  </li>
-
-                  <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href={`/membresia`}>
-                      <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
-                      {t("item3")}
-                      </p>
-                    </Link>
-                  </li>
-
-                  <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-                    <Link href={`/local`}>
-                      <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
-                      {t("item4")}
-                      </p>
-                    </Link>
-                  </li>
-                </ul>
+                <Link href={`/`}>
+                  <div className="mt-[25px]">
+                    <Image src={logo} alt="logo" />
+                  </div>
+                </Link>
               </div>
-              
+              <ul className="flex flex-col gap-[25px] items-center">
+                <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro"></li>
+                <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
+                  <Link href={`/tienda`}>
+                    <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
+                      {t("item1")}
+                    </p>
+                  </Link>
+                </li>
+
+                <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
+                  <Link href={`/nosotros`}>
+                    <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
+                      {t("item2")}
+                    </p>
+                  </Link>
+                </li>
+
+                <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
+                  <Link href={`/membresia`}>
+                    <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
+                      {t("item3")}
+                    </p>
+                  </Link>
+                </li>
+
+                <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
+                  <Link href={`/local`}>
+                    <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
+                      {t("item4")}
+                    </p>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         ) : null}
       </div>

@@ -25,9 +25,12 @@ export function Sidebar({ listaTipos, listaBodegas, listaVarietal }: Props) {
     const entries: string[][] = Array.from(data.entries());
 
     const newParams = new URLSearchParams(entries);
+
+    newParams.delete("after");
+    newParams.delete("before");
     //@ts-ignore
     for (const [key, value] of searchParams.entries()) {
-      if (!newParams.has(key)) {
+      if (!newParams.has(key) && key !== "after" && key !== "before") {
         newParams.set(key, value);
       }
     }

@@ -82,6 +82,66 @@ const query = graphql(`
   }
 `);
 
+const productTypesQuery = graphql(`
+  query ProductTypes {
+    products(first: 250) {
+      edges {
+        node {
+          productType
+        }
+      }
+    }
+  }
+`);
+
+const vendorsQuery = graphql(`
+  query Vendors {
+    products(first: 250) {
+      edges {
+        node {
+          vendor
+        }
+      }
+    }
+  }
+`);
+
+const tagsQuery = graphql(`
+  query Tags {
+    products(first: 250) {
+      edges {
+        node {
+          tags
+        }
+      }
+    }
+  }
+`);
+
+async function fetchProductTypes() {
+  const data = await fetchGraphql(productTypesQuery, {});
+  const productTypes = data.products.edges.map(
+    (edge: { node: { productType: string } }) => edge.node.productType
+  );
+  return Array.from(new Set(productTypes));
+}
+
+async function fetchVendors() {
+  const data = await fetchGraphql(vendorsQuery, {});
+  const vendors = data.products.edges.map(
+    (edge: { node: { vendor: string } }) => edge.node.vendor
+  );
+  return Array.from(new Set(vendors));
+}
+
+async function fetchTags() {
+  const data = await fetchGraphql(tagsQuery, {});
+  const tags = data.products.edges.flatMap(
+    (edge: { node: { tags: string[] } }) => edge.node.tags
+  );
+  return Array.from(new Set(tags));
+}
+
 function getVendorQuery(vendor: string | string[] | undefined) {
   if (vendor === undefined) {
     return null;
@@ -182,6 +242,12 @@ export default async function Tienda({
       }
     : { first: pageSize };
 
+  const [listaTipos, listaBodegas, listaVarietal] = await Promise.all([
+    fetchProductTypes(),
+    fetchVendors(),
+    fetchTags(),
+  ]);
+
   const data = await fetchGraphql(query, {
     query: shopifyQuery,
     ...getSortVariables(typeof sort === "string" ? sort : ""),
@@ -199,6 +265,9 @@ export default async function Tienda({
   return (
     <TiendaSection
       products={productos}
+      listaTipos={listaTipos}
+      listaBodegas={listaBodegas}
+      listaVarietal={listaVarietal}
       pageInfo={data.products.pageInfo}
       endCursor={endCursor || ""}
       startCursor={startCursor || ""}

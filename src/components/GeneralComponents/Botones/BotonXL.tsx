@@ -27,9 +27,7 @@ export default function BotonXL({ text, icon, link, color }: Props) {
           className="mr-[10px]"
         />
       )}
-      <p
-        className={`text-primarioMuyClaro disabled:bg-primarioPrincipal text-[18px] font-semibold leading-[24px] font-bricolage`}
-      >
+      <p className="text-primarioMuyClaro disabled:bg-primarioPrincipal text-[18px] font-semibold leading-[24px] font-bricolage">
         {text}
       </p>
     </Link>

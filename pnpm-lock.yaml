@@ -64,6 +64,9 @@ dependencies:
   react-fast-marquee:
     specifier: ^1.6.4
     version: 1.6.4(react-dom@18.3.1)(react@18.3.1)
+  react-image-zoom:
+    specifier: ^1.3.1
+    version: 1.3.1
   react-indiana-drag-scroll:
     specifier: 3.0.3-alpha
     version: 3.0.3-alpha(react-dom@18.3.1)(react@18.3.1)
@@ -1334,6 +1337,11 @@ packages:
     resolution: {integrity: sha512-zZgay+fPG6PgMUrpyFADmQmvLo39+AZa7Gc5pZhev2RhDxwANEq2etwD8d0e6rTg5NkwOIlQmaEmns3draC6Ng==}
     dev: false
 
+  /js-image-zoom@0.7.0:
+    resolution: {integrity: sha512-csvn2FmRLjVz5O9AtXGRPKy0Khfcf5n2Vuyg1NyOVylcjzJ6IKN60JmZ/d5rVQvMya9V6tqAaCqj/c20PlUYpQ==}
+    engines: {node: '>=0.8.0'}
+    dev: false
+
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
     dev: false
@@ -1714,6 +1722,13 @@ packages:
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+    dev: false
+
+  /react-image-zoom@1.3.1:
+    resolution: {integrity: sha512-RSw64hMnrnezokenByljfIWVJX5vJQiCirMBJxVqQ3rbQFXk0KGKsoMzdr7cc0/YYStrag3xK8UQZH8KdlTbYQ==}
+    dependencies:
+      js-image-zoom: 0.7.0
+      prop-types: 15.8.1
     dev: false
 
   /react-indiana-drag-scroll@3.0.3-alpha(react-dom@18.3.1)(react@18.3.1):

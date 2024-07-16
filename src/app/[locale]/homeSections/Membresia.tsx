@@ -1,10 +1,11 @@
 import Image from "next/image";
 import fondoMembresia from "../../../../public/images/portadaMembresia.jpg";
 import estrella from "../../../../public/images/estrella.png";
-import membresiaIcon from "../../../../public/images/membresiaIconButton.svg";
+import membresiaIcon from "../../../../public/images/inicio/verified-badge.svg";
 import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
 import BotonNoFillXXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXXL";
 import { useTranslations } from "next-intl";
+import { Link } from "@/navigation";
 
 export default function Membresia() {
   const t = useTranslations("Home");
@@ -26,16 +27,30 @@ export default function Membresia() {
       <div className="flex flex-col flex-1 justify-center basis-1 lg:basis-1/2 bg-secundarioPrincipal bg-opacity-85 lg:bg-transparent">
         <div className="w-full h-full px-[50px] lg:px-[100px] flex flex-col justify-center items-center lg:items-start gap-[30px] z-40">
           <h3 className="font-vangeda text-[55px]/[62px] text-terciarioPrincipal text-center lg:text-start">
-           {t("tituloMembresia")}
+            {t("tituloMembresia")}
           </h3>
           <p className="text-terciarioPrincipal text-[20px]/[25px] font-light font-bricolage text-center lg:text-start">
-           {t("descripcionMembresia")}
+            {t("descripcionMembresia")}
           </p>
-          <BotonNoFillXL
-            text={t("botonMembresia")}
-            link="#"
-            icon={membresiaIcon}
-          />
+
+          <Link
+            href={"#"}
+            className={`group border border-solid border-terciarioPrincipal px-[28px] py-[10px] rounded-full justify-center items-center flex w-max bg-transparent hover:bg-primarioOscuro hover:border-primarioMuyOscuro active:bg-primarioClaro disabled:border-primarioMuyClaro disabled:text-primarioClaro transition-all ease-out duration-300`}
+          >
+            <Image
+              src={membresiaIcon}
+              alt="icon"
+              width={24}
+              height={24}
+              className="mr-[10px]"
+            />
+
+            <p
+              className={`text-terciarioPrincipal group-hover:text-primarioClaro group-disabled:text-primarioClaro group-active:text-primarioOscuro group-focus:text-primarioOscuro text-[18px] font-semibold leading-[24px]`}
+            >
+              {t("botonMembresia")}
+            </p>
+          </Link>
         </div>
       </div>
     </div>

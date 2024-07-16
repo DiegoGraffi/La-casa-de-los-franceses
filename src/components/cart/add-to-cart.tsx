@@ -6,6 +6,8 @@ import LoadingDots from "../../components/loading-dots";
 import { ProductVariant } from "../../lib/shopify/types";
 import { useSearchParams } from "next/navigation";
 import { useFormState, useFormStatus } from "react-dom";
+import CartIcon from "../../../public/images/productDetail/cartIcon.svg";
+import Image from "next/image";
 
 function SubmitButton({
   availableForSale,
@@ -16,13 +18,15 @@ function SubmitButton({
 }) {
   const { pending } = useFormStatus();
   const buttonClasses =
-    "relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white";
+    "relative flex w-full items-center justify-center rounded-full bg-terciarioClaro tracking-wide text-primarioMuyClaro bg-primarioSemiOscuro hover:bg-primarioOscuro active:bg-primarioMuyOscuro disabled:bg-primarioClaro focus:border-2 focus:border-[#CB9A60] px-[28px] py-[10px] rounded-full justify-center items-center flex w-max transition-all ease-out duration-100";
   const disabledClasses = "cursor-not-allowed opacity-60 hover:opacity-60";
 
   if (!availableForSale) {
     return (
       <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
-        Out Of Stock
+        <p className="text-primarioMuyClaro disabled:bg-primarioPrincipal text-[18px] font-semibold leading-[24px] font-bricolage">
+          Sin Stock
+        </p>
       </button>
     );
   }
@@ -34,10 +38,12 @@ function SubmitButton({
         aria-disabled
         className={clsx(buttonClasses, disabledClasses)}
       >
-        <div className="absolute left-0 ml-4">
-          <Plus className="h-5" />
+        <div className="mr-[5px]">
+          <Image src={CartIcon} alt="Cart Icon" className="h-5" />
         </div>
-        Add To Cart
+        <p className="text-primarioMuyClaro disabled:bg-primarioPrincipal text-[18px] font-semibold leading-[24px] font-bricolage">
+          Añadir al carrito
+        </p>
       </button>
     );
   }
@@ -50,18 +56,20 @@ function SubmitButton({
       aria-label="Add to cart"
       aria-disabled={pending}
       className={clsx(buttonClasses, {
-        "hover:opacity-90": true,
+        "hover:opacity-100": true,
         [disabledClasses]: pending,
       })}
     >
-      <div className="absolute left-0 ml-4">
+      <div className="mr-[5px]">
         {pending ? (
-          <LoadingDots className="mb-3 bg-white" />
+          <LoadingDots className="mb-3 bg-primarioMuyClaro" />
         ) : (
-          <Plus className="h-5" />
+          <Image src={CartIcon} alt="Cart Icon" className="h-5" />
         )}
       </div>
-      Add To Cart
+      <p className="text-primarioMuyClaro disabled:bg-primarioPrincipal text-[18px] font-semibold leading-[24px] font-bricolage">
+        Añadir al carrito
+      </p>
     </button>
   );
 }

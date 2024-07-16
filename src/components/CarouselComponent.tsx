@@ -16,7 +16,7 @@ type CarouselComponentProps = {
 
 function CarouselComponent({
   slides,
-  slideSpacing = 10,
+  slideSpacing = 0.5,
   perView = 4,
 }: CarouselComponentProps) {
   const [sliderRef, slider] = useKeenSlider({
@@ -30,6 +30,8 @@ function CarouselComponent({
       },
     },
     slides: { perView: 2, spacing: slideSpacing },
+    renderMode: "precision",
+    mode: "free-snap",
   });
 
   return (
@@ -38,7 +40,11 @@ function CarouselComponent({
         onClick={() => slider.current && slider.current.prev()}
         className="absolute left-0 z-20 rounded-full top-1/2 transform -translate-y-1/2 hover:bg-primarioMuyClaro"
       >
-        <Image src={prevArrow} alt="Flecha Anterior" className="hidden lg:block" />
+        <Image
+          src={prevArrow}
+          alt="Flecha Anterior"
+          className="hidden lg:block"
+        />
       </button>
       <div ref={sliderRef} className="keen-slider">
         {slides.map((slide: ReactNode, index: number) => (
@@ -51,7 +57,11 @@ function CarouselComponent({
         onClick={() => slider.current && slider.current.next()}
         className="absolute right-0 z-20 rounded-full top-1/2 transform -translate-y-1/2 hover:bg-primarioMuyClaro"
       >
-        <Image src={nextArrow} alt="Flecha Siguiente" className="hidden lg:block" />
+        <Image
+          src={nextArrow}
+          alt="Flecha Siguiente"
+          className="hidden lg:block"
+        />
       </button>
 
       <div className="block lg:hidden">

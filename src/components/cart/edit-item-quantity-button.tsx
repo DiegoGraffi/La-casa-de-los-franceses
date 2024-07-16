@@ -21,7 +21,7 @@ function SubmitButton({ type }: { type: "plus" | "minus" }) {
       }
       aria-disabled={pending}
       className={clsx(
-        "ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full px-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80",
+        "ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center px-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80 ",
         {
           "cursor-not-allowed": pending,
           "ml-auto": type === "minus",
@@ -29,11 +29,15 @@ function SubmitButton({ type }: { type: "plus" | "minus" }) {
       )}
     >
       {pending ? (
-        <LoadingDots className="bg-black dark:bg-white" />
+        <LoadingDots className="bg-gris6" />
       ) : type === "plus" ? (
-        <PlusIcon className="h-4 w-4 dark:text-neutral-500" />
+        <p className="font-bricolage font-semibold text-[24px]/[28px] text-gris6 ">
+          +
+        </p>
       ) : (
-        <MinusIcon className="h-4 w-4 dark:text-neutral-500" />
+        <p className="font-bricolage font-semibold text-[24px]/[28px] text-gris6 ">
+          -
+        </p>
       )}
     </button>
   );
@@ -57,7 +61,7 @@ export function EditItemQuantityButton({
   return (
     <form
       action={actionWithVariant}
-      className="aspect-square bg-gris3 shrink-0"
+      className="group aspect-square bg-gris4 shrink-0 hover:bg-gris2 transition-all ease-in-out duration-200 cursor-pointer"
     >
       <SubmitButton type={type} />
       <p aria-live="polite" className="sr-only" role="status">

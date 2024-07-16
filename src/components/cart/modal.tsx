@@ -14,6 +14,7 @@ import { DeleteItemButton } from "./delete-item-button";
 import { EditItemQuantityButton } from "./edit-item-quantity-button";
 import OpenCart from "./open-cart";
 import { Link } from "@/navigation";
+import BotonXXL from "../GeneralComponents/Botones/BotonXXL";
 
 type MerchandiseSearchParams = {
   [key: string]: string;
@@ -106,17 +107,17 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                       return (
                         <li
                           key={i}
-                          className="group flex w-full flex-row bg-white  items-center justify-stretch relative"
+                          className="group flex w-full flex-row bg-white items-stretch justify-stretch relative mb-3 last:mb-0"
                         >
-                          <div className="relative flex w-full flex-row justify-between p-2 items-center h-full border">
+                          <div className="relative flex w-full flex-row justify-between p-2 items-center h-full">
                             <Link
                               href={merchandiseUrl}
                               onClick={closeCart}
                               className="z-30 flex flex-row space-x-4 h-full"
                             >
-                              <div className="relative cursor-pointer overflow-hidden rounded-md aspect-square w-[100px] h-[100px] border border-red-500 items-center">
+                              <div className="relative cursor-pointer overflow-hidden rounded-md aspect-square w-[100px] h-[100px] items-center">
                                 <Image
-                                  className="h-full w-full object-contain border"
+                                  className="h-full w-full object-contain"
                                   fill
                                   alt={
                                     item.merchandise.product.featuredImage
@@ -129,11 +130,11 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                               </div>
 
                               <div className="flex flex-1 flex-col text-base justify-between">
-                                <p className="font-bricolage font-light text-[15px]/[20px] text-black">
+                                <p className="font-bricolage font-light text-[18px]/[23px] text-black">
                                   {item.merchandise.product.title}
                                 </p>
                                 <Price
-                                  className="flex space-y-2 border font-bricolage font-semibold text-[20px]/[24px]"
+                                  className="flex space-y-2 font-bricolage font-semibold text-[20px]/[24px]"
                                   amount={item.cost.totalAmount.amount}
                                   currencyCode={
                                     item.cost.totalAmount.currencyCode
@@ -141,25 +142,25 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                                 />
                               </div>
                             </Link>
-                            <div className="flex h-[100%] flex-col justify-between ">
-                              <div className="flex h-full flex-col items-center justify-between border border-neutral-200 dark:border-neutral-700">
+                            <div className="flex h-[100%] flex-col justify-between ml-2">
+                              <div className="flex h-full flex-col items-center justify-between ">
                                 <EditItemQuantityButton
                                   item={item}
-                                  type="minus"
+                                  type="plus"
                                 />
-                                <div className="w-full h-full aspect-square flex justify-center items-center">
+                                <div className="w-full h-full aspect-square flex justify-center items-center bg-gris6">
                                   <p className="w-full font-bricolage font-semibold text-[20px]/[24px] text-gris2 text-center">
                                     {item.quantity}
                                   </p>
                                 </div>
                                 <EditItemQuantityButton
                                   item={item}
-                                  type="plus"
+                                  type="minus"
                                 />
                               </div>
                             </div>
                           </div>
-                          <div className="relative h-full w-0 group-hover:w-[40px] transition-all ease-in-out duration-200 z-[300]flex justify-center items-center border border-cyan-400 ">
+                          <div className="h-full w-0 group-hover:w-[40px] transition-all ease-in-out duration-200 z-[300]flex justify-center items-center flex-grow">
                             <DeleteItemButton item={item} />
                           </div>
                         </li>
@@ -167,33 +168,40 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                     })}
                   </ul>
                   <div className="py-4 text-sm text-neutral-500 dark:text-neutral-400">
-                    <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 dark:border-neutral-700">
+                    {/* <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 dark:border-neutral-700">
                       <p>Taxes</p>
                       <Price
                         className="text-right text-base text-black dark:text-white"
                         amount={cart.cost.totalTaxAmount.amount}
                         currencyCode={cart.cost.totalTaxAmount.currencyCode}
                       />
-                    </div>
-                    <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1 dark:border-neutral-700">
-                      <p>Shipping</p>
-                      <p className="text-right">Calculated at checkout</p>
-                    </div>
-                    <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1 dark:border-neutral-700">
-                      <p>Total</p>
+                    </div> */}
+
+                    <div className="mb-3 flex flex-col items-center justify-center">
+                      <p className="font-bricolage font-extralight text-white text-[24px]/[28px] text-center">
+                        Total
+                      </p>
                       <Price
-                        className="text-right text-base text-black dark:text-white"
+                        className="font-bricolage font-semibold text-white text-[24px]/[28px] text-center"
                         amount={cart.cost.totalAmount.amount}
                         currencyCode={cart.cost.totalAmount.currencyCode}
                       />
                     </div>
                   </div>
-                  <a
-                    href={cart.checkoutUrl}
-                    className="block w-full rounded-full bg-blue-600 p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
-                  >
-                    Proceed to Checkout
-                  </a>
+                  <div className="flex flex-col justify-center items-center gap-3">
+                    <a
+                      href={cart.checkoutUrl}
+                      className="block rounded-full bg-terciarioClaro px-[28px] py-[10px] text-center text-[20px]/[25px] font-bricolage text-primarioMuyClaro font-semibold  hover:bg-primarioOscuro active:bg-primarioMuyOscuro disabled:bg-primarioClaro focus:border-2 focus:border-[#CB9A60]"
+                    >
+                      Comprar
+                    </a>
+
+                    <Link href={"/tienda"}>
+                      <p className="font-bricolage font-light text-[20px]/[25px] text-primarioClaro hover:text-primarioOscuro hover:underline cursor-pointer">
+                        Seguir viendo
+                      </p>
+                    </Link>
+                  </div>
                 </div>
               )}
             </Dialog.Panel>
