@@ -3,9 +3,9 @@ import MembresiaCard from "@/components/MembresiaComponents/MembresiaCard";
 import PasosCard from "@/components/MembresiaComponents/PasosCard";
 import SectionTitle from "@/components/SectionTitle";
 import portada from "../../../../public/images/membresiaPage/sillas.jpg";
-import Link from "next/link";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/navigation";
 
 const query = graphql(`
   query MembresiasTienda {
@@ -61,7 +61,7 @@ async function Membresia() {
       <div className="group w-full relative">
         <div className="bg-secundarioOscuro h-auto px-[15px] py-[75px] lg:h-[349px] w-full flex flex-col items-center justify-center gap-[35px]">
           <h3 className="hidden lg:flex font-vangeda text-[55px] text-secundarioClaro relative transition-opacity duration-500 opacity-100 group-hover:opacity-0">
-          {t("heroMembresia")}
+            {t("heroMembresia")}
           </h3>
           <h3 className="text-secundarioClaro font-bricolage text-[32px]/[38px] font-semibold lg:hidden">
             {t("heroMobile")}
@@ -184,21 +184,22 @@ async function Membresia() {
               className="py-[22px] lg:py-[55px] w-full bg-secundarioClaro max-w-[1600px] border rounded-tr-[10px] rounded-bl-[10px] lg:rounded-tr-[55px] lg:rounded-bl-[55px] flex items-center justify-center hover:bg-secundarioPrincipal transition-all ease-in-out duration-300"
             >
               <h3 className="text-[28px]/[34px] lg:text-[55px]/[62px] font-vangeda font-regular text-secundarioOscuro text-center">
-                {t("bannerBasesMobile1")} 
+                {t("bannerBasesMobile1")}
                 <br className="lg:hidden" />
                 {t("bannerBasesMobile2")}
               </h3>
             </Link>
           </section>
 
-          <Link href="../tienda" className="w-full mb-[15px] lg:mb-[30px]">
+          <Link href={"/tienda"} className="w-full mb-[15px] lg:mb-[30px]">
             <div className="group h-[420px] max-w-[1600px] w-full xl:px-[100px] rounded-tr-[10px] lg:rounded-tr-[45px] rounded-bl-[10px] lg:rounded-bl-[45px] relative mx-auto overflow-hidden">
               <div className="w-full h-full p-[50px] lg:px-[100] flex flex-col justify-end lg:justify-center absolute z-[100] group-hover:hidden">
                 <p className="font-vangeda text-[55px]/[62px] text-terciarioPrincipal hidden lg:flex">
                   {t("bannerTiendaTitle1")} <br /> {t("bannerTiendaTitle2")}
                 </p>
                 <p className="font-bricolage text-[20px]/[25px] text-terciarioPrincipal hidden lg:flex">
-                {t("bannerTiendaDescription1")} <br /> {t("bannerTiendaDescription2")}
+                  {t("bannerTiendaDescription1")} <br />{" "}
+                  {t("bannerTiendaDescription2")}
                 </p>
                 <p className="text-[40px]/[39px] text-terciarioPrincipal lg:hidden font-vangeda text-center md:text-start">
                   {t("bannerTiendaMobile1")}
@@ -207,7 +208,7 @@ async function Membresia() {
               </div>
               <div className="w-full h-full hidden justify-center items-center absolute z-[100] md:group-hover:flex left-0 transition-all ease-in-out duration-200">
                 <p className="font-vangeda text-[55px]/[62px] text-terciarioPrincipal">
-                 {t("bannerTiendaHover")}
+                  {t("bannerTiendaHover")}
                 </p>
               </div>
               <div className="group-hover:bg-[#96AC60] absolute w-full h-full bg-gradient-to-t lg:bg-gradient-to-r from-[#96AC60] from-[27%] md:from-[57%] xl:from-[37%] to-transparent z-30 left-0 transition-all ease-in-out duration-200"></div>

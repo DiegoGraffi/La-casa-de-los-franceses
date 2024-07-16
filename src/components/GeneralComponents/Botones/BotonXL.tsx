@@ -1,5 +1,5 @@
+import { Link } from "@/navigation";
 import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
 
 type Props = {
   text: string;

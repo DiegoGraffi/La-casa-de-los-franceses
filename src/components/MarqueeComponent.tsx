@@ -11,9 +11,10 @@ export default function MarqueeComponent({ images }: MarqueeProps) {
   return (
     <div className="h-[300px]">
       <Marquee
-        gradient
         pauseOnHover={false}
         className="overflow-hidden grid z-50"
+        gradient
+        autoFill
       >
         {images.map((image, index) => {
           return (

@@ -14,6 +14,7 @@ import shopIcon from "../../public/images/footer/shopIcon.svg";
 import headsetIcon from "../../public/images/footer/headsetIcon.svg";
 import arrow from "../../public/images/footer/arrow.svg";
 import FooterItem from "./FooterItem";
+import Legislation from "../../public/images/footer/legislation.png";
 
 export default function Footer() {
   return (
@@ -47,7 +48,7 @@ export default function Footer() {
               <p className="text-primarioMuyClaro font-bricolage font-semibold text-[28px]/[34px] text-center md:text-start">
                 Contacto
               </p>
-              <Image src={arrow} alt="arrow" className="hidden lg:flex"/>
+              <Image src={arrow} alt="arrow" className="hidden lg:flex" />
             </div>
 
             <ul className="w-[90%] md:w-full mx-auto">
@@ -106,6 +107,9 @@ export default function Footer() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="max-w-[800px] mx-auto mt-[50px] px-[15px] md:px-[50px]">
+        <Image src={Legislation} alt="legislation" />
       </div>
     </div>
   );

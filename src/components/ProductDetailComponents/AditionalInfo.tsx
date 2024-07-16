@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface Metafield {
   value: string | null;
 }
@@ -36,6 +38,17 @@ export default function AditionalInfo({ product, awards }: Props) {
   }
 
   const productData = product.productByHandle;
+  const linkUrl = productData.metafields[7]?.value;
+
+  let url = "";
+  if (linkUrl) {
+    try {
+      const linkData = JSON.parse(linkUrl);
+      url = linkData.url;
+    } catch (error) {
+      console.error("Error parsing JSON:", error);
+    }
+  }
 
   return (
     <section
@@ -131,7 +144,7 @@ export default function AditionalInfo({ product, awards }: Props) {
             </p>
           </div>
         </div>
-        <div className="flex border-y-2 border-y-terciarioPrincipal bg-gris6 flex-col lg:flex-row items-center lg:items-start">
+        <div className="flex border-t-2 border-t-terciarioPrincipal bg-gris6 flex-col lg:flex-row items-center lg:items-start">
           <div className="w-[80%] lg:w-[30%] xl:w-[20%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
             <p className="text-[16px]/[24px] md:text-[20px] font-bricolage font-semibold text-center lg:text-start">
               Variedad de uva
@@ -143,6 +156,28 @@ export default function AditionalInfo({ product, awards }: Props) {
                 ? productData.metafields[6].value
                 : "No hay información"}
             </p>
+          </div>
+        </div>
+        <div className="flex border-y-2 border-y-terciarioPrincipal flex-col lg:flex-row items-center lg:items-start">
+          <div className="w-[80%] lg:w-[30%] xl:w-[20%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+            <p className="text-[16px]/[24px] md:text-[20px] font-bricolage font-semibold text-center lg:text-start">
+              Link
+            </p>
+          </div>
+          <div className="w-[80%] lg:w-[70%] xl:w-[80%] flex lg:justify-start items-start py-[10px] lg:py-[20px] px-[40px] justify-center">
+            {url != "" ? (
+              <Link
+                href={url}
+                className="text-[16px]/[24px] md:text-[20px] font-bricolage font-light cursor-pointer underline"
+                target="_blank"
+              >
+                <p>Ficha tecnica</p>
+              </Link>
+            ) : (
+              <p className="text-[16px]/[24px] md:text-[20px] font-bricolage font-light">
+                No hay información
+              </p>
+            )}
           </div>
         </div>
       </div>

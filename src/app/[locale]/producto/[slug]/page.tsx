@@ -15,6 +15,7 @@ import { AddToCart } from "@/components/cart/add-to-cart";
 import AditionalInfo from "@/components/ProductDetailComponents/AditionalInfo";
 import { Link } from "@/navigation";
 import BotonXL from "@/components/GeneralComponents/Botones/BotonXL";
+import Placeholder from "../../../../../public/images/productDetail/bottle.png";
 
 export default async function Producto({
   params,
@@ -68,6 +69,7 @@ export default async function Producto({
             { namespace: "custom", key: "producer" }
             { namespace: "custom", key: "wine_type" }
             { namespace: "custom", key: "varietal" }
+            { namespace: "custom", key: "link" }
           ]
         ) {
           value
@@ -117,15 +119,11 @@ export default async function Producto({
 
   const featuredImageUrl = product.productByHandle?.featuredImage?.url;
   const imageUrl =
-    typeof featuredImageUrl === "string"
-      ? featuredImageUrl
-      : (Image as unknown as StaticImageData).src;
+    typeof featuredImageUrl === "string" ? featuredImageUrl : Placeholder.src;
 
-  const imagerUrlZoom = `${imageUrl}?w=800&h=800`;
   const dataRelatedProducts = await fetchGraphql(queryRelatedProducts, {});
   const products = dataRelatedProducts.collectionByHandle?.products.nodes;
   const stock = product.productByHandle?.totalInventory ?? 0;
-  const addToCartDisabled = stock === 0;
 
   const slides = products
     ? products.map((product) => {
@@ -147,19 +145,12 @@ export default async function Producto({
       })
     : [];
 
-  console.log(product.productByHandle?.variants.edges[0].node.availableForSale);
-
   const precioDescuento =
     product.productByHandle?.priceRange.maxVariantPrice.amount;
   const precio =
     product.productByHandle?.compareAtPriceRange.maxVariantPrice.amount;
   const currencyCode =
     product.productByHandle?.priceRange.maxVariantPrice.currencyCode;
-
-  // const descuento =
-  //   precio && precioDescuento
-  //     ? Math.round(((precio - precioDescuento) / precio) * 100)
-  //     : 0;
 
   return (
     <div className="md:pt-[180px] py-[150px] flex flex-col gap-[150px] justify-center items-center overflow-x-hidden">
@@ -183,7 +174,7 @@ export default async function Producto({
             <h2 className="text-[32px]/[38px] lg:text-[48px]/[58px] text-terciarioPrincipal font-vangeda text-center lg:text-start text-balance">
               {product.productByHandle?.title}
             </h2>
-            <p className="font-bricolage text-balance text-[14px]/[22px] lg:text-[20px]/[25px] font-light text-gris1 max-w-[650px] mx-auto md:text-center lg:text-start">
+            <p className="font-bricolage text-balance text-[14px]/[22px] lg:text-[20px]/[25px] font-light text-gris1 max-w-[650px] mx-auto md:text-center lg:text-start w-full">
               {product.productByHandle?.description}
             </p>
           </div>

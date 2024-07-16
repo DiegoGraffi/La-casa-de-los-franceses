@@ -3,7 +3,7 @@ import BotonNoFillMD from "./GeneralComponents/BotonesNoFill/BotonNoFillMD";
 import BotonNoFillXS from "./GeneralComponents/BotonesNoFill/BotonNoFillXS";
 import CartIcon from "./GeneralComponents/CartIcon";
 import { useTranslations } from "next-intl";
-
+import Placeholder from "../../public/images/productDetail/bottle.png";
 
 type ProductCardProps = {
   image?: string;
@@ -12,12 +12,14 @@ type ProductCardProps = {
 };
 
 export default function ProductCard({ image, title, price }: ProductCardProps) {
-  const t = useTranslations("Product Card")
+  const t = useTranslations("Product Card");
+
+  const imageUrl = typeof image === "string" ? image : Placeholder.src;
   return (
     <div className="flex flex-col p-[15px] justify-center items-center rounded-tl-[5px] rounded-tr-[25px] rounded-bl-[25px] rounded-br-[5px] bg-white hover:bg-gris6 transition-all ease-in-out duration-200 h-full gap-[20px]">
       <div className="flex-1 relative w-full aspect-square basis-1/2 max-w-[190px] max-h-[190px] rounded-[5px] overflow-hidden">
         <Image
-          src={image!}
+          src={imageUrl!}
           alt="imagen producto"
           fill
           className="object-contain p-1"

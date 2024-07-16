@@ -7,8 +7,8 @@ import wines from "../../../../public/images/local/wines.png";
 import "react-indiana-drag-scroll/dist/style.css";
 import EventsSection from "@/components/LocalComponents/EventsSection";
 import GallerySection from "@/components/LocalComponents/GallerySection";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { Link } from "@/navigation";
 
 export default function Local() {
   const t = useTranslations("Local");

@@ -2,7 +2,8 @@
 
 import AccordionComponent from "@/components/TiendaComponents/AccordionComponent";
 import { createUrl } from "@/lib/utils";
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { useRouter, usePathname } from "@/navigation";
 import { useTranslations } from "next-intl";
 
 type Props = {
@@ -52,7 +53,7 @@ export function Sidebar({ listaTipos, listaBodegas, listaVarietal }: Props) {
         type="submit"
         className="w-full flex justify-center items-center p-2 rounded-md mt-5 bg-terciarioPrincipal hover:bg-terciarioOscuro text-secundarioClaro transition-all ease-in-out duration-200 cursor-pointer font-bricolage"
       >
-       {t("botonSidebar1")}
+        {t("botonSidebar1")}
       </button>
       <button
         type="button"
