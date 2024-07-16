@@ -10,6 +10,7 @@ import closeIcon from "../../public/images/navbar/close.svg";
 import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 import Cart from "./cart";
+import BotonIdioma from "./TiendaComponents/BotonIdioma";
 
 export default function Navbar() {
   const menuAbierto = false;
@@ -70,7 +71,7 @@ export default function Navbar() {
               href="#"
               className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
             >
-              <Image src={LenguajeIcon} alt="lenguaje icon" />
+             <BotonIdioma/>
             </Link>
 
             <Link href="#">
