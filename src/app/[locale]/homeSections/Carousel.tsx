@@ -5,7 +5,6 @@ import { fetchGraphql, graphql } from "@/lib/graphql";
 import { Link } from "@/navigation";
 import { getTranslations } from "next-intl/server";
 
-
 async function Carousel() {
   const query = graphql(`
     query ProductosRecomendados {
@@ -52,7 +51,7 @@ async function Carousel() {
         );
       })
     : [];
-    const t = await getTranslations("Home");
+  const t = await getTranslations("Home");
   return (
     <div className="max-h-[2000px] w-full lg:px-[100px] xl:px-[200px] gap-[35px] lg:gap-[56px] pt-[70px] lg:pt-[90px] mx-auto flex flex-col justify-center items-center overflow-hidden mb-[60px] lg:mb-0">
       <SectionTitle title={t("carouselTitle")} />

@@ -84,7 +84,7 @@ const query = graphql(`
 
 const productTypesQuery = graphql(`
   query ProductTypes {
-    products(first: 250) {
+    products(first: 250, query: "NOT product_type:Membresia") {
       edges {
         node {
           productType

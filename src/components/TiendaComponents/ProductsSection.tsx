@@ -1,7 +1,9 @@
+"use client";
+
+import { useSearchParamsAppend } from "@/hooks";
 import { Link } from "@/navigation";
 import { useTranslations } from "next-intl";
 import { ReactNode } from "react";
-
 
 export default function ProductsSection({
   children,
@@ -15,7 +17,9 @@ export default function ProductsSection({
   startCursor: string;
 }) {
   const { hasNextPage, hasPreviousPage } = pageInfo;
-  const t = useTranslations("Tienda")
+  const t = useTranslations("Tienda");
+  const createUrl = useSearchParamsAppend();
+
   return (
     <div className="w-full flex flex-col">
       {children}
@@ -26,7 +30,7 @@ export default function ProductsSection({
         </p> */}
         <div className="flex gap-[10px]">
           {hasPreviousPage && (
-            <Link href={`?before=${startCursor}`}>
+            <Link href={createUrl({ before: startCursor })}>
               <p className="uppercase text-gris3 text-[20px]/[24px] font-normal font-bricolage hover:bg-gris6 transition-all ease-in-out duration-200 p-2 rounded-md border-[.5px] border-gris5">
                 {t("paginacionTienda1")}
               </p>
@@ -34,7 +38,7 @@ export default function ProductsSection({
           )}
 
           {hasNextPage && (
-            <Link href={`?after=${endCursor}`}>
+            <Link href={createUrl({ after: endCursor })}>
               <p className="uppercase text-gris3 text-[20px]/[24px] font-normal font-bricolage hover:bg-gris6 transition-all ease-in-out duration-200 p-2 rounded-md border-[.5px] border-gris5">
                 {t("paginacionTienda2")}
               </p>

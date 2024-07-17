@@ -1,10 +1,10 @@
 "use client";
 
+import { useSearchParamsAppend } from "@/hooks";
 import { useTranslations } from "next-intl";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "@/navigation";
 
-import { useState, useCallback } from "react";
-
+import { useState } from "react";
 
 export default function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,19 +13,10 @@ export default function DropdownMenu() {
     setIsOpen(!isOpen);
   };
   const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
+  const createUrl = useSearchParamsAppend(["before", "after"]);
 
-      return params.toString();
-    },
-    [searchParams]
-  );
-  const t = useTranslations("Tienda")
+  const t = useTranslations("Tienda");
   return (
     <div
       className={`absolute border rounded-md p-2 bg-white z-50 w-max flex flex-col ${
@@ -36,7 +27,7 @@ export default function DropdownMenu() {
         className="uppercase text-gris3 font-semibold text-[18px]/[28px] font-bricolage hover:bg-gris6 transition-all ease-in-out duration-200 px-[10px] rounded-md active:bg-gris5 text-center lg:text-start"
         onClick={toggleMenu}
       >
-       {t("ordenar")}
+        {t("ordenar")}
       </button>
       <div
         className={`left-0 right-0 rounded-md overflow-hidden transition-all ease-in-out duration-200 ${
@@ -46,9 +37,7 @@ export default function DropdownMenu() {
         <ul className="relative">
           <li
             onClick={() => {
-              router.push(
-                pathname + "?" + createQueryString("sort", "price-desc")
-              );
+              router.push(createUrl({ sort: "price-desc" }));
               setIsOpen(false);
             }}
             className={`rounded-[3px] px-[10px] py-[3px] hover:bg-gris6 active:bg-gris5 transition-all ease-in-out duration-200 cursor-pointer ${
@@ -61,9 +50,7 @@ export default function DropdownMenu() {
           </li>
           <li
             onClick={() => {
-              router.push(
-                pathname + "?" + createQueryString("sort", "price-asc")
-              );
+              router.push(createUrl({ sort: "price-asc" }));
               setIsOpen(false);
             }}
             className={`rounded-[3px] px-[10px] py-[3px] hover:bg-gris6 active:bg-gris5 transition-all ease-in-out duration-200 cursor-pointer ${
@@ -71,14 +58,12 @@ export default function DropdownMenu() {
             }`}
           >
             <p className="text-gris3 text-[14px]/[20px] font-light">
-            {t("dropdown2")}
+              {t("dropdown2")}
             </p>
           </li>
           <li
             onClick={() => {
-              router.push(
-                pathname + "?" + createQueryString("sort", "created")
-              );
+              router.push(createUrl({ sort: "created" }));
               setIsOpen(false);
             }}
             className={`rounded-[3px] px-[10px] py-[3px] hover:bg-gris6 active:bg-gris5 transition-all ease-in-out duration-200 cursor-pointer ${
@@ -86,14 +71,12 @@ export default function DropdownMenu() {
             }`}
           >
             <p className="text-gris3 text-[14px]/[20px] font-light">
-            {t("dropdown3")}
+              {t("dropdown3")}
             </p>
           </li>
           <li
             onClick={() => {
-              router.push(
-                pathname + "?" + createQueryString("sort", "popular")
-              );
+              router.push(createUrl({ sort: "popular" }));
               setIsOpen(false);
             }}
             className={`rounded-[3px] px-[10px] py-[3px] hover:bg-gris6 active:bg-gris5 transition-all ease-in-out duration-200 cursor-pointer ${
@@ -101,7 +84,7 @@ export default function DropdownMenu() {
             }`}
           >
             <p className="text-gris3 text-[14px]/[20px] font-light">
-            {t("dropdown4")}
+              {t("dropdown4")}
             </p>
           </li>
         </ul>

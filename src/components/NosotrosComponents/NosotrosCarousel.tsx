@@ -53,7 +53,7 @@ export default function NosotrosCarousel() {
   return (
     <div className="w-full lg:max-w-[1600px] lg:mx-auto p-0 md:flex overflow-hidden md:h-[430px] rounded-bl-[30px] rounded-tr-[30px] mb-[50px] lg:mb-0">
       <div
-        className="aspect-video w-full md:h-full md:aspect-[575/430] relative overflow-hidden"
+        className="aspect-video w-full md:h-full md:w-[45%] relative overflow-hidden border border-red-500"
         style={{ backgroundColor: items[selectedItem].bgColor }}
       >
         <Image
@@ -66,7 +66,7 @@ export default function NosotrosCarousel() {
 
       <div
         style={{ backgroundColor: items[selectedItem].bgColor }}
-        className={`bg-[${items[selectedItem].bgColor}] flex flex-col justify-center items-start flex-1 h-auto p-[40px] shrink`}
+        className={`bg-[${items[selectedItem].bgColor}] flex flex-col justify-center items-start flex-1 h-auto p-[40px] shrink md:w-[60%]`}
       >
         <div className="h-[250px] flex justify-center items-center overflow-hidden">
           <p

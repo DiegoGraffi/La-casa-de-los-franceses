@@ -97,8 +97,8 @@ export default async function NosotrosPage() {
         <NosotrosCarousel />
       </section>
 
-      <section className="hidden lg:block w-full max-w-[1600px] lg:mx-auto lg:mt-[75px] px-[16px] lg:px-[100px]">
-        <div className="w-full h-[450px] relative">
+      <section className="hidden lg:block w-full max-w-[1600px] lg:mx-auto lg:mt-[75px] px-[16px] border-4 border-red-500">
+        <div className="w-full h-[450px] relative border border-red-500">
           <Image
             src={personas}
             alt="nosotros"
@@ -154,16 +154,16 @@ export default async function NosotrosPage() {
         </div>
       </section>
 
-      <section className="lg:hidden w-full max-w-[1600px] px-[16px]">
+      <section className="lg:hidden w-full max-w-[1600px] border border-red-500 px-[35px] lg:px-[100px]">
         <div className="w-full h-[450px] relative">
           <Image
             src={personas}
             alt="nosotros"
             fill
-            className="object-contain lg:object-cover lg:object-top w-full"
+            className="object-cover lg:object-top w-full"
           />
         </div>
-        <div className="h-full left-0 flex justify-center items-center group-hover:opacity-0 transition-all ease-in-out duration-300 lg:gap-0 gap-10">
+        <div className="h-full left-0 flex justify-center items-center group-hover:opacity-0 transition-all ease-in-out duration-300 lg:gap-0 gap-10 mt-[40px]">
           <p className="text-[40px]/[39px] font-vangeda text-terciarioPrincipal">
             {t("carouselTitle")}
           </p>
@@ -176,7 +176,7 @@ export default async function NosotrosPage() {
           {nosotros.map((persona, index) => (
             <div
               key={index}
-              className="flex flex-col justify-center items-center"
+              className="flex flex-col justify-center items-center border"
             >
               <Image
                 src={persona.image}

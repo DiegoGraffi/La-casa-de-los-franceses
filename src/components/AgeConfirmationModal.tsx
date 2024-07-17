@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Link } from "@/navigation";
@@ -26,7 +28,12 @@ export default function AgeConfirmationModal() {
         <div className="fixed inset-0 flex items-center justify-center">
           <div className="absolute inset-0 bg-black opacity-60"></div>
           <div className="bg-terciarioClaro p-8 rounded-tr-[55px] rounded-bl-[55px] shadow-lg z-0 w-[603px] h-[490px] flex flex-col items-center justify-around">
-            <Image src="/images/logoblanco.svg" alt="logo" width={239} height={150} />
+            <Image
+              src="/images/logoblanco.svg"
+              alt="logo"
+              width={239}
+              height={150}
+            />
             <Image
               src="/images/whiteDivider.svg"
               alt="linea"
