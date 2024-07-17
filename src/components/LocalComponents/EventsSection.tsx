@@ -3,6 +3,8 @@ import EventoCard from "../EventoCard";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import Image from "next/image";
 import mouse from "../../../public/images/local/mouse.svg";
+import { getTranslations } from "next-intl/server";
+
 
 function formatDate(dateStr: string | null): string {
   if (dateStr === null) return "Error: Fecha no definida";
@@ -45,7 +47,7 @@ export default async function EventsSection() {
     const dateB = new Date(b.fields[0].value!);
     return dateA.getTime() - dateB.getTime();
   });
-
+  const t = await getTranslations("Local");
   return (
     <div className="flex max-w-[1600px] mx-auto overflow-x-scroll scrollbar-hide cursor-grab relative h-full left-0 w-full flex-col">
       <div className="h-full hidden md:flex w-[300px] bg-gradient-to-r from-terciarioClaro to-transparent absolute z-50 touch-disabled"></div>
@@ -73,7 +75,7 @@ export default async function EventsSection() {
           />
         </div>
         <p className="font-bricolage text-[#D3DDA8] text-[14px]/[20px] text-center">
-          deslizar
+          {t("deslizarText")}
         </p>
       </div>
     </div>

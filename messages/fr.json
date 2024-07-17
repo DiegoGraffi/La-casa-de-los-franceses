@@ -97,8 +97,9 @@
         "textoBanner2": "sur notre site Internet.",
         "textoBanner3": "Consultez notre boutique en ligne et trouvez le vin",
         "textoBanner4": "que vous souhaitez. nous l'emmenons chez vous.",
-        "textoBanner5": "Voir le boutique en ligne"
-
+        "textoBanner5": "Voir le boutique en ligne",
+        "deslizarText": "Glisser",
+        "galleryText": "Photos de la maison"
     },
     "Preguntas Frecuentes": {
        "titulo": "Questions Fréquentes",

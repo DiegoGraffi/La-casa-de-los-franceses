@@ -3,6 +3,7 @@ import mouseRojo from "../../../public/images/local/mouseOscuro.svg";
 import FlechaAbajo from "../FlechaAbajo";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import LightBox from "./Lightbox";
+import { getTranslations } from "next-intl/server";
 
 export default async function GallerySection() {
   const query = graphql(`
@@ -36,12 +37,12 @@ export default async function GallerySection() {
       }
     }
   }
-
+  const t = await getTranslations("Local");
   return (
     <section className="py-[70px] w-full flex flex-col gap-[60px] justify-center lg:justify-start items-center overflow-hidden px-[100px]">
       <div className="max-w-[1600px] px-[15px] w-full flex justify-between items-center mx-auto">
         <p className="text-terciarioPrincipal font-vangeda text-[40px]/[39px] lg:text-[55px]/[62px] text-center lg:text-start">
-          Fotos de la casa
+          {t("galleryText")}
         </p>
         <FlechaAbajo />
       </div>
@@ -56,7 +57,7 @@ export default async function GallerySection() {
           />
         </div>
         <p className="font-bricolage text-terciarioPrincipal text-[14px]/[20px] text-center">
-          deslizar
+          {t("deslizarText")}
         </p>
       </div>
     </section>

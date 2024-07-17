@@ -97,7 +97,9 @@
         "textoBanner2": "buscas en nuestra web",
         "textoBanner3": "Mirá nuestra tienda online y encontrá ese vino",
         "textoBanner4": "que querés. Te lo llevamos a tu casa.",
-        "textoBanner5": "Ver tienda online"
+        "textoBanner5": "Ver tienda online",
+        "deslizarText": "Deslizar",
+        "galleryText": "Fotos de la casa"
     },
     "Preguntas Frecuentes": {
        "titulo": "Preguntas Frecuentes",
