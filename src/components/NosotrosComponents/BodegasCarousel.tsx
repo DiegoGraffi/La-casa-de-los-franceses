@@ -7,6 +7,7 @@ import prevArrow from "../../../public/images/tiendaPage/prevArrowCarousel.svg";
 import nextArrow from "../../../public/images/tiendaPage/nextArrowCarousel.svg";
 import mouse from "../../../public/images/local/mouseSemiOscuro.svg";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 type BodegaData = {
   name: string;
@@ -69,7 +70,7 @@ export default function BodegasCarousel({
       </div>
     );
   });
-
+const t = useTranslations("Local")
   return (
     <div className="relative w-full flex flex-col items-center px-[60px] lg:px-[80px]">
       <div className="relative w-full flex items-center">
@@ -141,7 +142,7 @@ export default function BodegasCarousel({
             />
           </div>
           <p className="font-bricolage text-primarioSemiOscuro text-[14px]/[20px] text-center">
-            deslizar
+            {t("deslizarText")}
           </p>
         </div>
       </div>
