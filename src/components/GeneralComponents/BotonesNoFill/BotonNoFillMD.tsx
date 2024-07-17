@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import CartIcon from "../CartIcon";
 import { ReactNode } from "react";
 

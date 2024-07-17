@@ -1,6 +1,7 @@
 import SectionTitle from "@/components/SectionTitle";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import MarqueeComponent from "@/components/MarqueeComponent";
+import { getTranslations } from "next-intl/server";
 
 export default async function Marca() {
   const query = graphql(`
@@ -35,11 +36,13 @@ export default async function Marca() {
     }
   }
 
+  const LogoImages = images.filter((_, index) => index % 2 !== 0);
+  const t = await getTranslations("Home");
   return (
     <div className="max-w-[1600px] w-full overflow-hidden mx-auto flex justify-center items-center flex-col pb-[50px] lg:pb-[110px] mt-[25px] md:mt-[50px] lg:mt-[110px] relative">
       <div className="h-full w-[150px] z-[100] absolute left-0 bg-gradient-to-r from-white from-20% to-transparent"></div>
       <div className="h-full w-[150px] z-[100] absolute right-0 bg-gradient-to-l from-white from-20% to-transparent"></div>
-      <SectionTitle title="nuestra familia" />
+      <SectionTitle title={t("bodegasTitle")} />
       <MarqueeComponent images={images} />
     </div>
   );

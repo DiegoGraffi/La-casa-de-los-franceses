@@ -14,8 +14,11 @@ import Lottie from "lottie-react";
 import FlechaIzq from "../../../../public/animations/inicio/FlechaIzq.json";
 import BotonMD from "@/components/GeneralComponents/Botones/BotonMD";
 import BotonLG from "@/components/GeneralComponents/Botones/BotonLG";
+import { useTranslations } from "next-intl";
+
 
 export default function Nosotros() {
+  const t = useTranslations("Home");
   return (
     <div className="group w-full mt-[25px] md:mt-[50px] lg:mt-[110px] max-h-[580px] h-full relative flex flex-col lg:flex-row justify-center">
       <div className="w-full container mx-auto absolute z-[100] hidden lg:flex"></div>
@@ -23,8 +26,8 @@ export default function Nosotros() {
         <div className="w-full h-full absolute container overflow-hidden">
           <div className="w-[50%] flex flex-col justify-center gap-[15px] h-full z-[150] absolute left-0 px-[60px] -translate-x-[100%] opacity-0 group-hover:-translate-x-0 group-hover:opacity-100 transition-all ease-[cubic-bezier(0,0.96,1,1)] duration-700 ">
             <p className="text-[55px]/[62px] font-vangeda text-primarioClaro">
-              Conocé <br />
-              nuestra casa
+              {t("nosotrosTitle1")} <br />
+              {t("nosotrosTitle2")} 
             </p>
 
             <Image
@@ -35,17 +38,13 @@ export default function Nosotros() {
           </div>
           <div className="w-[50%] flex flex-col justify-center gap-[15px] h-full z-[150] absolute left-[50%] px-[60px] translate-x-[100%] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all ease-[cubic-bezier(0,0.96,1,1)] duration-700">
             <p className="text-[20px]/[25px] font-light font-bricolage text-primarioClaro">
-              Vení a visitar nuestro local y descubrí el paraíso de los amantes
-              del vino y la buena onda! Te esperamos con los brazos abiertos
-              para que vivas una experiencia única. ¡No te pierdas la
-              oportunidad de conocer nuestro espacio y sumergirte en el mundo
-              del vino con nosotros! ¡Te garantizamos momentos inolvidables!
+              {t("nosotrosDescription")}
             </p>
             <div className="flex gap-[30px]">
-              <BotonXL icon={wineIcon} text="Ver carta" link="#" />
+              <BotonXL icon={wineIcon} text={t("botonMenu")} link="#" />
               <BotonNoFillXL
                 icon={locationIcon}
-                text="Ubicación y más..."
+                text={t("botonUbicacion")}
                 link="#"
               />
             </div>
@@ -58,8 +57,8 @@ export default function Nosotros() {
           <Lottie animationData={FlechaIzq} />
         </div>
         <h4 className="font-vangeda text-[55px]/[62px] text-secundarioClaro text-center">
-          Conocé <br />
-          nuestra casa
+        {t("nosotrosTitle1")}  <br />
+        {t("nosotrosTitle2")} 
         </h4>
         <div className="relative origin-center rotate-180 w-[77px]">
           <Lottie animationData={FlechaIzq} />
@@ -76,9 +75,9 @@ export default function Nosotros() {
       </div>
       <div className="lg:hidden flex flex-col gap-[30px] py-[60px]">
         <p className="text-[40px]/[39px] md:text-[55px]/[62px] font-vangeda text-terciarioPrincipal text-center">
-          Conocé
+        {t("nosotrosTitle1")} 
           <br />
-          nuestra casa
+          {t("nosotrosTitle2")} 
         </p>
         <div className="w-full flex gap-[30px] justify-center md:hidden">
           <BotonLG link="#" color="verde" text="Ver carta" icon={bookIcon} />

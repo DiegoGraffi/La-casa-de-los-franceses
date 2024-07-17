@@ -20,10 +20,13 @@
         "dropdown1": "Le prix le plus élevé",
         "dropdown2": "Prix ​​le plus bas",
         "dropdown3": "Récemment ajouté",
-        "dropdown4": "Popularité"
+        "dropdown4": "Popularité",
+        "paginacionTienda1": "Précédente",
+        "paginacionTienda2": "Suivante"
     },
     "Home": {
         "heroHome": "Choisissez le vin, nous vous le livrons",
+        "carouselTitle": "Sélection du mois",
         "categoria": "Tout ce que nous avons pour vous",
         "titulo1": "Tout ce que nous",
         "titulo2": "avons pour vous",
@@ -41,7 +44,19 @@
         "botonEspeciales": "Catalogue de spécialités",
         "tituloMembresia": "Rejoignez l'adhésion",
         "descripcionMembresia": "Rejoignez notre adhésion dès maintenant ! Recevez chaque mois une boîte contenant les meilleurs vins, livrée directement chez vous ! Des rouges pleins de caractère aux blancs délicats, chaque bouteille est un voyage en soi. Osez vivre une expérience unique et laissez le vin vous surprendre !",
-        "botonMembresia": "Regardez nos offres"
+        "botonMembresia": "Regardez nos offres",
+         "nosotrosTitle1": "Découvrez",
+        "nosotrosTitle2": "notre maison",
+        "nosotrosDescription": "Venez profiter de notre établissement et découvrez le paradis des amateurs de vin et de bonne ambiance. Nous vous attendons les bras ouverts pour que vous viviez une expérience unique. Ne manquez pas l'occasion de découvrir notre espace et de vous immerger dans le monde du vin argentin avec nous. Nous vous garantissons des moments inoubliables.",
+        "botonMenu": "Voir le menu",
+        "botonUbicacion": "Horaires et adresse",
+        "eventosTitle": "Dégustarions et événements",
+        "eventosTitle2": "Voir",
+        "eventosTitle3": "le calendrier",
+        "opinionTitle1": "Votre avis nous intéresse",
+        "opinionTitle2": "Joins-le ici",
+        "bodegasTitle": "Notre famille"
+
     },
     "Membresia": {
         "heroMembresia": "Comment fonctionne notre adhésion?",

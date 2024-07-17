@@ -20,10 +20,13 @@
         "dropdown1": "Precio mas alto",
         "dropdown2": "Precio más bajo",
         "dropdown3": "Recientemente añadidos",
-        "dropdown4": "Popularidad"
+        "dropdown4": "Popularidad",
+        "paginacionTienda1": "Anterior",
+        "paginacionTienda2": "Siguiente"
     },
     "Home": {
         "heroHome": "Elegí el vino, nosotros te lo llevamos",
+        "carouselTitle": "Selección del mes",
         "categoria": "Todo lo que tenemos para vos",
         "titulo1": "Todo lo que",
         "titulo2": "tenemos para vos",
@@ -41,7 +44,19 @@
         "botonEspeciales": "Catálogo de especiales",
         "tituloMembresia": "Unite a la membresía",
         "descripcionMembresia": "¡Sumate a nuestra membresía y recibí en tu casa, mes a mes, una caja con los mejores vinos! Desde tintos con toda la fuerza hasta blancos súper delicados, cada botella es un viaje en sí misma. ¡Animate a vivir esta experiencia única y dejá que el vino te sorprenda!",
-        "botonMembresia": "Mirá nuestros planes"
+        "botonMembresia": "Mirá nuestros planes",
+        "nosotrosTitle1": "Conocé",
+        "nosotrosTitle2": "nuestra casa",
+        "nosotrosDescription": "Vení a visitar nuestro local y descubrí el paraíso de los amantes del vino y la buena onda! Te esperamos con los brazos abiertos para que vivas una experiencia única. ¡No te pierdas la oportunidad de conocer nuestro espacio y sumergirte en el mundo del vino con nosotros! ¡Te garantizamos momentos inolvidables!",
+        "botonMenu": "Ver menú",
+        "botonUbicacion": "Horarios y ubicación",
+        "eventosTitle": "Degustación y eventos",
+        "eventosTitle2": "Ver",
+        "eventosTitle3": "eventos",
+        "opinionTitle1": "¡Tu opinión nos interesa!",
+        "opinionTitle2": "Dejala aquí",
+        "bodegasTitle": "Nuestra familia"
+
     },
     "Membresia": {
         "heroMembresia": "¿Cómo funciona nuestra membresía?",
