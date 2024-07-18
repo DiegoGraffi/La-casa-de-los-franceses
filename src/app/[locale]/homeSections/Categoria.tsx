@@ -9,14 +9,14 @@ import { useTranslations } from "next-intl";
 export default function Categoria() {
   const t = useTranslations("Home");
   return (
-    <div className="px-[15px] lg:px-[100px] mx-auto flex flex-col justify-center w-full max-w-[1600px] gap-[50px]mt-[25px] md:mt-[50px] lg:mt-[110px]">
+    <div className="px-[15px] lg:px-[100px] mx-auto flex flex-col justify-center w-full max-w-[1600px] gap-[50px] mt-[50px] lg:mt-[110px]">
       <div className="hidden lg:flex justify-center">
         <SectionTitle title={t("categoria")} />
       </div>
       <div className="lg:hidden flex justify-center">
         <SectionTitle title={t("titulo1")} title2={t("titulo2")} />
       </div>
-      <div className="flex gap-x-[60px] relative self-center mt-[50px]">
+      <div className="flex gap-x-[60px] relative self-center mt-[30px]">
         <div className="flex flex-col gap-[25px] lg:gap-0">
           <CategoryCard
             title={t("nombreCategoria1")}
