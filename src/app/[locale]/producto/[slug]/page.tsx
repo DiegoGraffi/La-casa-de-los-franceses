@@ -10,7 +10,7 @@ import { Suspense } from "react";
 import { AddToCart } from "@/components/cart/add-to-cart";
 import AditionalInfo from "@/components/ProductDetailComponents/AditionalInfo";
 import Placeholder from "../../../../../public/images/productDetail/bottle.png";
-import RelatedProductCarousel from "./RelatedProductCarousel";
+import RelatedProducts from "@/components/RelatedProducts";
 
 export default async function Producto({
   params,
@@ -21,6 +21,7 @@ export default async function Producto({
     query ProductQuery($handle: String!) {
       productByHandle(handle: $handle) {
         title
+        id
         variants(first: 250) {
           edges {
             node {
@@ -73,37 +74,6 @@ export default async function Producto({
     }
   `);
 
-  const queryRelatedProducts = graphql(`
-    query ProductosRecomendados {
-      collectionByHandle(handle: "seleccion-del-mes") {
-        products(first: 100) {
-          nodes {
-            title
-            handle
-            availableForSale
-            featuredImage {
-              url
-            }
-            variants(first: 1) {
-              nodes {
-                id
-                title
-                availableForSale
-                selectedOptions {
-                  name
-                  value
-                }
-                price {
-                  amount
-                  currencyCode
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
   const variables = { handle: params.slug };
   const product = await fetchGraphql(query, variables);
   let awards: string[] = [];
@@ -125,8 +95,6 @@ export default async function Producto({
   const imageUrl =
     typeof featuredImageUrl === "string" ? featuredImageUrl : Placeholder.src;
 
-  const dataRelatedProducts = await fetchGraphql(queryRelatedProducts, {});
-  const products = dataRelatedProducts.collectionByHandle?.products.nodes || [];
   const stock = product.productByHandle?.totalInventory ?? 0;
 
   const precioDescuento =
@@ -135,6 +103,8 @@ export default async function Producto({
     product.productByHandle?.compareAtPriceRange.maxVariantPrice.amount;
   const currencyCode =
     product.productByHandle?.priceRange.maxVariantPrice.currencyCode;
+
+  const productId = product.productByHandle?.id;
 
   return (
     <div className="flex flex-col items-center justify-center overflow-x-hidden gap-[75px] md:gap-[100px] lg:gap-[150px] pt-[100px] lg:pt-[180px]">
@@ -214,7 +184,7 @@ export default async function Producto({
         </div>
       </section>
 
-      <RelatedProductCarousel products={products} />
+      <RelatedProducts id={productId ?? ""} />
 
       <div className="mx-auto w-full max-w-[1600px] pb-[100px]">
         <AditionalInfo product={product} awards={awards} />
