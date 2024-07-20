@@ -113,9 +113,7 @@ const config = {
     },
   },
   variants: {
-    extend: {
-      stroke: ["hover", "group-hover"],
-    },
+    extend: {},
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;

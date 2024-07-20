@@ -45,7 +45,7 @@ export default function TiendaSection({
           </div>
 
           <div className="flex flex-col lg:flex-row gap-[10px] lg:gap-[40px] items-start w-full lg:w-[40%]">
-            <p className="uppercase text-gris4 font-light lg:font-semibold text-[12px]/[16px] lg:text-[18px]/[28px] lg:font-bricolage font-gibson min-w-max top-0 p-2">
+            <p className="uppercase text-gris4 font-light lg:font-semibold text-[12px]/[16px] lg:text-[18px]/[28px] lg:font-bricolage font-gibson min-w-max top-0 p-2 mx-auto">
               {t("mostrar1")} {products.length} {t("mostrar2")}
             </p>
             <div className="relative w-full top-0 h-[50px] flex justify-center">

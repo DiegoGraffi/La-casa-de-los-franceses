@@ -23,7 +23,8 @@ export default function AccordionComponent({
   listaBodegas,
   listaVarietal,
 }: Props) {
-  const t = useTranslations("Tienda")
+  const t = useTranslations("Tienda");
+
   return (
     <div className="w-full">
       <Accordion type="multiple">
@@ -63,7 +64,7 @@ export default function AccordionComponent({
             hidden={true}
           >
             <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
-            {t("filtro2")}
+              {t("filtro2")}
             </p>
             <Image
               src={arrow}
@@ -90,7 +91,7 @@ export default function AccordionComponent({
             hidden={true}
           >
             <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
-            {t("filtro3")}
+              {t("filtro3")}
             </p>
             <Image
               src={arrow}
@@ -119,7 +120,7 @@ export default function AccordionComponent({
             hidden={true}
           >
             <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
-            {t("filtro4")}
+              {t("filtro4")}
             </p>
             <Image
               src={arrow}
@@ -130,24 +131,26 @@ export default function AccordionComponent({
             />
           </AccordionTrigger>
           <AccordionContent className="plg:px-[20px] flex flex-col gap-[10px]">
-            <div className="flex flex-col gap-[7px] w-full">
+            <div className="flex flex-col gap-[7px] w-full px-[2px]">
               <p className="font-bricolage font-light text-[20px]/[25px] text-gris3">
                 Min
               </p>
               <input
                 type="text"
                 name="minPrice"
-                className="border border-gris5 px-1 py-2 rounded-[10px]"
+                className="border border-gris5 p-2 rounded-[10px] outline-none font-bricolage font-light text-[16px] text-gris3"
+                placeholder="$"
               />
             </div>
-            <div className="flex flex-col gap-[7px] pb-2">
+            <div className="flex flex-col gap-[7px] pb-2 px-[2px]">
               <p className="font-bricolage font-light text-[20px]/[25px] text-gris3">
                 Max
               </p>
               <input
                 type="text"
                 name="maxPrice"
-                className="border border-gris5 px-1 py-2 rounded-[10px]"
+                className="border border-gris5 p-2 rounded-[10px] outline-none font-bricolage font-light text-[16px] text-gris3"
+                placeholder="$"
               />
             </div>
           </AccordionContent>
