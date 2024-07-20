@@ -13,6 +13,7 @@ import { Link } from "@/navigation";
 import Cart from "./cart";
 import BotonIdioma from "./TiendaComponents/BotonIdioma";
 import { useState } from "react";
+import OpenCart from "./cart/open-cart";
 
 export function NavbarMobile() {
   const t = useTranslations("Navbar");
@@ -21,11 +22,7 @@ export function NavbarMobile() {
     <>
       <div className="flex gap-[15px] lg:hidden items-center">
         <BotonIdioma />
-        <Image
-          src={CarritoIcon}
-          alt="carrito"
-          className="lg:hidden scale-110"
-        />
+        <OpenCart />
         <Image
           src={menu}
           alt="menu"

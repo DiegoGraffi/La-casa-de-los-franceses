@@ -22,6 +22,7 @@
     "fslightbox-react": "^1.7.6",
     "gql.tada": "^1.7.6",
     "graphql": "^16.8.2",
+    "jotai": "^2.9.0",
     "keen-slider": "^6.8.6",
     "lodash": "^4.17.21",
     "lottie-react": "^2.4.0",

@@ -15,15 +15,17 @@ import { EditItemQuantityButton } from "./edit-item-quantity-button";
 import OpenCart from "./open-cart";
 import { Link } from "@/navigation";
 import BotonXXL from "../GeneralComponents/Botones/BotonXXL";
+import { useAtom } from "jotai";
+import { cartAtom, cartItemsQuantityAtom } from "@/lib/atoms";
 
 type MerchandiseSearchParams = {
   [key: string]: string;
 };
 
 export default function CartModal({ cart }: { cart: Cart | undefined }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useAtom(cartAtom);
+  const [quantity, setQuantity] = useAtom(cartItemsQuantityAtom);
   const quantityRef = useRef(cart?.totalQuantity);
-  const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
 
   useEffect(() => {
@@ -44,11 +46,15 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
     }
   }, [isOpen]);
 
+  // sincroniza cantidad de items en el carrito por servidor y por cliente
+  useEffect(() => {
+    if (cart) {
+      setQuantity(cart.totalQuantity);
+    }
+  }, [cart?.totalQuantity]);
+
   return (
     <>
-      <button aria-label="Open cart" onClick={openCart}>
-        <OpenCart quantity={cart?.totalQuantity} />
-      </button>
       <Transition show={isOpen}>
         <Dialog onClose={closeCart} className="relative z-[2000]">
           <Transition.Child

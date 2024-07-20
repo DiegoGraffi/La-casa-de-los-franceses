@@ -12,6 +12,7 @@ import { Link } from "@/navigation";
 import Cart from "./cart";
 import BotonIdioma from "./TiendaComponents/BotonIdioma";
 import { NavbarMobile } from "./NavbarMobile";
+import OpenCart from "./cart/open-cart";
 
 export default function Navbar() {
   const t = useTranslations("Navbar");
@@ -66,10 +67,7 @@ export default function Navbar() {
               <BotonIdioma />
             </Link>
 
-            <Link href="#">
-              <Cart />
-              {/* <Image src={CarritoIcon} alt="carrito icon" /> */}
-            </Link>
+            <OpenCart />
 
             <Link
               href="#footer"

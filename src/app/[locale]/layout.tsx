@@ -3,8 +3,9 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import localFont from "next/font/local";
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import Cart from "@/components/cart";
 
 const vangeda = localFont({
   src: [
@@ -42,7 +43,6 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
-
   const messages = await getMessages({ locale });
 
   return (
@@ -50,6 +50,7 @@ export default async function RootLayout({
       <body className={`${vangeda.variable} ${bricolage.variable}`}>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
+          <Cart />
           {children}
           <Footer />
         </NextIntlClientProvider>
