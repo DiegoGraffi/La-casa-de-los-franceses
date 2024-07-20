@@ -1,6 +1,5 @@
 "use client";
 
-import { XMarkIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { removeItem } from "@/components/cart/actions";
 import LoadingDots from "@/components/loading-dots";
@@ -19,7 +18,7 @@ function SubmitButton() {
       aria-label="Remove cart item"
       aria-disabled={pending}
       className={clsx(
-        "ease flex h-full w-full items-center justify-center bg-terciarioClaro transition-all duration-200 flex-grow",
+        "ease flex h-full w-full items-center justify-center bg-terciarioClaro transition-all duration-200",
         {
           "cursor-not-allowed px-0": pending,
         }
@@ -28,7 +27,7 @@ function SubmitButton() {
       {pending ? (
         <LoadingDots className="bg-white" />
       ) : (
-        <div className="bg-terciarioClaro h-full w-full flex justify-center items-center flex-grow">
+        <div className="bg-terciarioClaro h-full w-full flex justify-center items-center hover:brightness-125 cursor-pointer">
           <p className="text-[24px]/[28px] font-bricolage font-semibold text-primarioMuyClaro">
             -
           </p>
@@ -44,7 +43,7 @@ export function DeleteItemButton({ item }: { item: CartItem }) {
   const actionWithVariant = formAction.bind(null, itemId);
 
   return (
-    <form action={actionWithVariant} className="h-full w-full flex-grow">
+    <form action={actionWithVariant} className="h-full w-full">
       <SubmitButton />
       <p aria-live="polite" className="sr-only" role="status">
         {message}

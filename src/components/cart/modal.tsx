@@ -165,7 +165,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                               </div>
                             </div>
                           </div>
-                          <div className="h-full w-0 group-hover:w-[40px] transition-all ease-in-out duration-200 z-[300]flex justify-center items-center flex-grow">
+                          <div className="transition-all ease-in-out duration-200 z-[300] flex justify-center items-center md:w-[0px] w-[50px] md:group-hover:w-[50px]">
                             <DeleteItemButton item={item} />
                           </div>
                         </li>
