@@ -10,11 +10,11 @@ import Cart from "@/components/cart";
 const vangeda = localFont({
   src: [
     {
-      path: "../../../public/fonts/Vangeda-Regular.ttf",
+      path: "../../assets/fonts/Vangeda-Regular.ttf",
       style: "normal",
     },
     {
-      path: "../../../public/fonts/Vangeda-Italic.ttf",
+      path: "../../assets/fonts/Vangeda-Italic.ttf",
       style: "italic",
     },
   ],
@@ -24,7 +24,7 @@ const vangeda = localFont({
 const bricolage = localFont({
   src: [
     {
-      path: "../../../public/fonts/BricolageGrotesque[opsz,wdth,wght].ttf",
+      path: "../../assets/fonts/BricolageGrotesque[opsz,wdth,wght].ttf",
       style: "normal",
     },
   ],

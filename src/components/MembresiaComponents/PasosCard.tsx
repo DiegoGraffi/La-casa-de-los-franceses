@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 type PasosCardProps = {
   number: number;
   title: string;

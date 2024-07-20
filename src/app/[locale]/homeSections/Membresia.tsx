@@ -1,9 +1,7 @@
 import Image from "next/image";
-import fondoMembresia from "../../../../public/images/portadaMembresia.jpg";
-import estrella from "../../../../public/images/estrella.png";
-import membresiaIcon from "../../../../public/images/inicio/verified-badge.svg";
-import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
-import BotonNoFillXXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXXL";
+import fondoMembresia from "@/assets/images/portadaMembresia.jpg";
+import estrella from "@/assets/images/estrella.png";
+import membresiaIcon from "@/assets/images/inicio/verified-badge.svg";
 import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 

@@ -1,20 +1,20 @@
 import Image from "next/image";
-import logo from "../../public/images/footer/logo.svg";
-import pinIcon from "../../public/images/footer/pinIcon.svg";
-import instagramIcon from "../../public/images/footer/instagramIcon.svg";
-import facebookIcon from "../../public/images/footer/facebookIcon.svg";
-import youtubeIcon from "../../public/images/footer/youtubeIcon.svg";
-import phoneIcon from "../../public/images/footer/phoneIcon.svg";
-import mailIcon from "../../public/images/footer/mailIcon.svg";
-import questionIcon from "../../public/images/footer/questionIcon.svg";
-import listIcon from "../../public/images/footer/listIcon.svg";
-import creditCardIcon from "../../public/images/footer/creditCardIcon.svg";
-import messageAlertIcon from "../../public/images/footer/messageAlertIcon.svg";
-import shopIcon from "../../public/images/footer/shopIcon.svg";
-import headsetIcon from "../../public/images/footer/headsetIcon.svg";
-import arrow from "../../public/images/footer/arrow.svg";
+import logo from "@/assets/images/footer/logo.svg";
+import pinIcon from "@/assets/images/footer/pinIcon.svg";
+import instagramIcon from "@/assets/images/footer/instagramIcon.svg";
+import facebookIcon from "@/assets/images/footer/facebookIcon.svg";
+import youtubeIcon from "@/assets/images/footer/youtubeIcon.svg";
+import phoneIcon from "@/assets/images/footer/phoneIcon.svg";
+import mailIcon from "@/assets/images/footer/mailIcon.svg";
+import questionIcon from "@/assets/images/footer/questionIcon.svg";
+import listIcon from "@/assets/images/footer/listIcon.svg";
+import creditCardIcon from "@/assets/images/footer/creditCardIcon.svg";
+import messageAlertIcon from "@/assets/images/footer/messageAlertIcon.svg";
+import shopIcon from "@/assets/images/footer/shopIcon.svg";
+import headsetIcon from "@/assets/images/footer/headsetIcon.svg";
+import arrow from "@/assets/images/footer/arrow.svg";
 import FooterItem from "./FooterItem";
-import Legislation from "../../public/images/footer/legislation.png";
+import Legislation from "@/assets/images/footer/legislation.png";
 
 export default function Footer() {
   return (

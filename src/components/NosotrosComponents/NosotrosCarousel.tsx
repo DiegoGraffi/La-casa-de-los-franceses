@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import item1 from "../../../public/images/nosotros/item1.png";
-import item2 from "../../../public/images/nosotros/item2.jpg";
-import item3 from "../../../public/images/nosotros/item3.jpg";
+import item1 from "@/assets/images/nosotros/item1.png";
+import item2 from "@/assets/images/nosotros/item2.jpg";
+import item3 from "@/assets/images/nosotros/item3.jpg";
 import React, { useEffect, useState } from "react";
-import deslizarIzq from "../../../public/images/nosotros/deslizarIzq.svg";
-import deslizarDer from "../../../public/images/nosotros/deslizarDer.svg";
+import deslizarIzq from "@/assets/images/nosotros/deslizarIzq.svg";
+import deslizarDer from "@/assets/images/nosotros/deslizarDer.svg";
 import NosotrosArrow from "./NosotrosArrow";
 import { useTranslations } from "next-intl";
 

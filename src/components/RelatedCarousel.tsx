@@ -9,7 +9,7 @@ import {
 } from "./GeneralComponents/ProductCarousel/CarouselArrowButton";
 import Image from "next/image";
 import ProductCard from "./ProductCard";
-import mouse from "../../public/images/local/mouseSemiOscuro.svg";
+import mouse from "@/assets/images/local/mouseSemiOscuro.svg";
 import { Link } from "@/navigation";
 
 export default function RelatedCarousel({ relatedProducts }: any) {

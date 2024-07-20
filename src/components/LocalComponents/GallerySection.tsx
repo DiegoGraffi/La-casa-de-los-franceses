@@ -1,5 +1,5 @@
 import Image from "next/image";
-import mouseRojo from "../../../public/images/local/mouseOscuro.svg";
+import mouseRojo from "@/assets/images/local/mouseOscuro.svg";
 import FlechaAbajo from "../FlechaAbajo";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import LightBox from "./Lightbox";

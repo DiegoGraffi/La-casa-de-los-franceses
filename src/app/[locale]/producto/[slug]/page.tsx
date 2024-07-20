@@ -9,7 +9,7 @@ import Counter from "@/components/ProductDetailComponents/Counter";
 import { Suspense } from "react";
 import { AddToCart } from "@/components/cart/add-to-cart";
 import AditionalInfo from "@/components/ProductDetailComponents/AditionalInfo";
-import Placeholder from "../../../../../public/images/productDetail/bottle.png";
+import Placeholder from "@/assets/images/productDetail/bottle.png";
 import RelatedProducts from "@/components/RelatedProducts";
 
 export default async function Producto({

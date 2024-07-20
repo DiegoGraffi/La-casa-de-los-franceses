@@ -1,8 +1,8 @@
 import CategoryCard from "@/components/CategoryCard";
-import vinos from "../../../../public/images/inicio/vinos.png";
-import carnes from "../../../../public/images/inicio/carnes.png";
-import champagnes from "../../../../public/images/inicio/champagnes.png";
-import especiales from "../../../../public/images/inicio/especiales.png";
+import vinos from "@/assets/images/inicio/vinos.png";
+import carnes from "@/assets/images/inicio/carnes.png";
+import champagnes from "@/assets/images/inicio/champagnes.png";
+import especiales from "@/assets/images/inicio/especiales.png";
 import SectionTitle from "@/components/SectionTitle";
 import { useTranslations } from "next-intl";
 

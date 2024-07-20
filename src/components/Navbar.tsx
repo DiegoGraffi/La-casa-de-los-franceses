@@ -1,15 +1,9 @@
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Image from "next/image";
-import logo from "../../public/images/logo.svg";
-import LenguajeIcon from "../../public/images/navbar/lenguaje.svg";
-import CarritoIcon from "../../public/images/navbar/carrito.svg";
-import UserIcon from "../../public/images/navbar/user.svg";
-import FlagsIcon from "../../public/images/navbar/flags.svg";
-import menu from "../../public/images/navbar/menu.svg";
-import closeIcon from "../../public/images/navbar/close.svg";
+import logo from "@/assets/images/logo.svg";
+import UserIcon from "@/assets/images/navbar/user.svg";
+import FlagsIcon from "@/assets/images/navbar/flags.svg";
 import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
-import Cart from "./cart";
 import BotonIdioma from "./TiendaComponents/BotonIdioma";
 import { NavbarMobile } from "./NavbarMobile";
 import OpenCart from "./cart/open-cart";

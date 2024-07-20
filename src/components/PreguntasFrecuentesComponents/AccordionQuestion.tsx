@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import arrow from "../../../public/images/arrowQuestion.svg";
+import arrow from "@/assets/images/arrowQuestion.svg";
 import Image from "next/image";
 
 type AccordionQuestionProps = {
@@ -14,11 +14,17 @@ type AccordionQuestionProps = {
   answer: string;
 };
 
-export default function AccordionQuestion({question, answer}: AccordionQuestionProps) {
+export default function AccordionQuestion({
+  question,
+  answer,
+}: AccordionQuestionProps) {
   return (
     <div className="w-full flex flex-col justify-center items-center">
       <Accordion type="multiple">
-        <AccordionItem value="item-1" className="flex flex-col w-[361px] lg:w-[910px]">
+        <AccordionItem
+          value="item-1"
+          className="flex flex-col w-[361px] lg:w-[910px]"
+        >
           <AccordionTrigger
             className="AccordionTrigger bg-terciarioPrincipal"
             aria-hidden
@@ -35,13 +41,11 @@ export default function AccordionQuestion({question, answer}: AccordionQuestionP
             />
           </AccordionTrigger>
           <AccordionContent className="mt-4 lg:mt-5 w-[361px] lg:w-full ">
-           <p className="font-bricolage font-light text-[20px]/[25px] text-gris2 ">
-            {answer}
-           </p>
+            <p className="font-bricolage font-light text-[20px]/[25px] text-gris2 ">
+              {answer}
+            </p>
           </AccordionContent>
-         
         </AccordionItem>
-
       </Accordion>
     </div>
   );

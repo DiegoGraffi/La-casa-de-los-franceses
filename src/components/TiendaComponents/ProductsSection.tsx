@@ -25,9 +25,6 @@ export default function ProductsSection({
       {children}
 
       <div className="flex flex-col gap-[25px] justify-center items-center my-[25px]">
-        {/* <p className="uppercase text-gris4 text-[24px]/[28px] font-semibold font-bricolage">
-          Páginas
-        </p> */}
         <div className="flex gap-[10px]">
           {hasPreviousPage && (
             <Link href={createUrl({ before: startCursor })}>

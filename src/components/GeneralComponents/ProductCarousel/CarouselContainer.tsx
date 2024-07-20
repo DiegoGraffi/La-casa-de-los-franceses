@@ -9,8 +9,8 @@ import {
 import useEmblaCarousel from "embla-carousel-react";
 import { Link } from "@/navigation";
 import ProductCard from "../../ProductCard";
+import Mouse from "@/assets/images/local/mouse.svg";
 import Image from "next/image";
-import mouse from "../../../../public/images/local/mouseSemiOscuro.svg";
 
 type ProductProps = {
   title: string;
@@ -88,7 +88,7 @@ const CarouselContainer: React.FC<PropType> = (props) => {
         <div className="flex flex-col gap-[10px] justify-center mt-[20px]">
           <div className="flex items-center w-[80px] mx-auto">
             <Image
-              src={mouse}
+              src={Mouse}
               alt="mouse icon"
               className="animate-mouse-slider"
             />

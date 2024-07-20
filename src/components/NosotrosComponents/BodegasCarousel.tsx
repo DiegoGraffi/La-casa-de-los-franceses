@@ -3,9 +3,9 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
-import prevArrow from "../../../public/images/tiendaPage/prevArrowCarousel.svg";
-import nextArrow from "../../../public/images/tiendaPage/nextArrowCarousel.svg";
-import mouse from "../../../public/images/local/mouseSemiOscuro.svg";
+import prevArrow from "@/assets/images/tiendaPage/prevArrowCarousel.svg";
+import nextArrow from "@/assets/images/tiendaPage/nextArrowCarousel.svg";
+import mouse from "@/assets/images/local/mouseSemiOscuro.svg";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 

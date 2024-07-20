@@ -8,13 +8,11 @@ import type { Cart } from "@/lib/shopify/types";
 import { createUrl } from "@/lib/utils";
 import Image from "next/image";
 
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import CloseCart from "./close-cart";
 import { DeleteItemButton } from "./delete-item-button";
 import { EditItemQuantityButton } from "./edit-item-quantity-button";
-import OpenCart from "./open-cart";
 import { Link } from "@/navigation";
-import BotonXXL from "../GeneralComponents/Botones/BotonXXL";
 import { useAtom } from "jotai";
 import { cartAtom, cartItemsQuantityAtom } from "@/lib/atoms";
 
@@ -29,12 +27,10 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
   const closeCart = () => setIsOpen(false);
 
   useEffect(() => {
-    // Open cart modal when quantity changes, but only if it's not already open.
     if (cart?.totalQuantity !== quantityRef.current && !isOpen) {
       setIsOpen(true);
     }
 
-    // Always update the quantity reference
     quantityRef.current = cart?.totalQuantity;
   }, [cart?.totalQuantity, isOpen]);
 
@@ -46,7 +42,6 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
     }
   }, [isOpen]);
 
-  // sincroniza cantidad de items en el carrito por servidor y por cliente
   useEffect(() => {
     if (cart) {
       setQuantity(cart.totalQuantity);
@@ -79,9 +74,15 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
           >
             <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col bg-terciarioPrincipal text-black md:w-[500px]">
               <div className="flex items-center justify-between bg-terciarioClaro px-[25px] py-[15px]">
-                <p className="font-bricolage font-semibold text-[24px]/[28px] text-primarioMuyClaro">
-                  Carro de compras ({cart?.totalQuantity})
-                </p>
+                {cart?.totalQuantity && cart?.totalQuantity > 0 ? (
+                  <p className="font-bricolage font-semibold text-[24px]/[28px] text-primarioMuyClaro">
+                    Carro de compras ({cart?.totalQuantity})
+                  </p>
+                ) : (
+                  <p className="font-bricolage font-semibold text-[24px]/[28px] text-primarioMuyClaro">
+                    Carro de compras
+                  </p>
+                )}
 
                 <button aria-label="Close cart" onClick={closeCart}>
                   <CloseCart />

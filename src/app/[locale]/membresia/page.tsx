@@ -2,10 +2,12 @@ import Image from "next/image";
 import MembresiaCard from "@/components/MembresiaComponents/MembresiaCard";
 import PasosCard from "@/components/MembresiaComponents/PasosCard";
 import SectionTitle from "@/components/SectionTitle";
-import portada from "../../../../public/images/membresiaPage/sillas.jpg";
+import portada from "@/assets/images/membresiaPage/sillas.jpg";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
+import Estrella from "@/assets/images/estrella.png";
+import EstrellaMembresia from "@/assets/images/membresiaPage/estrellaMembresia.svg";
 
 const query = graphql(`
   query MembresiasTienda {
@@ -16,7 +18,7 @@ const query = graphql(`
           description
 
           priceRange {
-            maxVariantPrice {
+            maxVariantPrice {ß
               amount
             }
           }
@@ -120,7 +122,7 @@ async function Membresia() {
         </div>
         <div className="w-full h-full max-w-[1600px] mx-auto absolute top-0 flex justify-center">
           <Image
-            src="/images/estrella.png"
+            src={Estrella}
             alt="estrella"
             width={102}
             height={102}
@@ -166,7 +168,7 @@ async function Membresia() {
             >
               <div className="absolute right-[10%] h-[84px] w-[84px] origin-center top-0 -translate-y-[50%]">
                 <Image
-                  src="/images/membresiaPage/estrellaMembresia.svg"
+                  src={EstrellaMembresia}
                   alt="estrella"
                   fill
                   className="object-contain "

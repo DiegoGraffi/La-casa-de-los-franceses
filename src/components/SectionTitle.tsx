@@ -1,5 +1,5 @@
 import Image from "next/image";
-import sectionLine from "../../public/images/sectionTitleLine.svg";
+import sectionLine from "@/assets/images/sectionTitleLine.svg";
 
 type TitleProps = {
   title: string;

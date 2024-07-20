@@ -1,7 +1,7 @@
 "use client";
 
 import Lottie from "lottie-react";
-import FlechaAnimation from "../../public/animations/local/FlechaLocal.json";
+import FlechaAnimation from "@/assets/animations/local/FlechaLocal.json";
 
 export default function FlechaAbajo() {
   return (

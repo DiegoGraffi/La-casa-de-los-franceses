@@ -1,7 +1,7 @@
 import React from "react";
 import BotonLG from "../GeneralComponents/Botones/BotonLG";
 import Image from "next/image";
-import Separator from "../../../public/images/membresiaPage/separador.svg";
+import Separator from ".@/assets/images/membresiaPage/separador.svg";
 
 type MembresiaCardProps = {
   image?: string;

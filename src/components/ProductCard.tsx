@@ -1,11 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import BotonNoFillMD from "./GeneralComponents/BotonesNoFill/BotonNoFillMD";
-import BotonNoFillXS from "./GeneralComponents/BotonesNoFill/BotonNoFillXS";
-import CartIcon from "./GeneralComponents/CartIcon";
+
 import { useTranslations } from "next-intl";
-import Placeholder from "../../public/images/productDetail/bottle.png";
+import Placeholder from "@/assets/images/productDetail/bottle.png";
 import FastAddToCartButtonMD from "./GeneralComponents/BotonesAddToCart/FastAddToCartButtonMD";
 import FastAddToCartButtonXS from "./GeneralComponents/BotonesAddToCart/FastAddToCartButtonXS";
 
@@ -48,9 +46,6 @@ export default function ProductCard({
             ${price}
           </p>
           <div className="hidden lg:block">
-            {/* <BotonNoFillMD link="#" text={t("boton")}>
-              <CartIcon className="stroke-primarioOscuro group-hover:stroke-primarioClaro transition-all ease-in-out duration-200" />
-            </BotonNoFillMD> */}
             <FastAddToCartButtonMD
               variants={variants}
               availableForSale={availableForSale}

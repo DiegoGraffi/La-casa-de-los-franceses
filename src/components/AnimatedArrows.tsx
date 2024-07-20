@@ -1,5 +1,5 @@
 import Image from "next/image";
-import arrow from "../../public/images/arrowEventos.svg";
+import arrow from "@/assets/images/arrowEventos.svg";
 
 export default function AnimatedArrows() {
   return (

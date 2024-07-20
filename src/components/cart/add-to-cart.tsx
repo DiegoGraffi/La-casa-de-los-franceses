@@ -6,7 +6,7 @@ import LoadingDots from "../../components/loading-dots";
 import { ProductVariant } from "../../lib/shopify/types";
 import { useSearchParams } from "next/navigation";
 import { useFormState, useFormStatus } from "react-dom";
-import CartIcon from "../../../public/images/productDetail/cartIcon.svg";
+import CartIcon from "@/assets/images/productDetail/cartIcon.svg";
 import Image from "next/image";
 
 function SubmitButton({

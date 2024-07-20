@@ -1,9 +1,9 @@
 import Image from "next/image";
-import heroImg from "../../../../public/images/local/heroImg.png";
-import estrella from "../../../../public/images/local/estrella.svg";
-import menu from "../../../../public/images/local/menu.png";
-import ubicacion from "../../../../public/images/local/ubicacion.png";
-import wines from "../../../../public/images/local/wines.png";
+import heroImg from "@/assets/images/local/heroImg.png";
+import estrella from "@/assets/images/local/estrella.svg";
+import menu from "@/assets/images/local/menu.png";
+import ubicacion from "@/assets/images/local/ubicacion.png";
+import wines from "@/assets/images/local/wines.png";
 import "react-indiana-drag-scroll/dist/style.css";
 import EventsSection from "@/components/LocalComponents/EventsSection";
 import GallerySection from "@/components/LocalComponents/GallerySection";

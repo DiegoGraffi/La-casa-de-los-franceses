@@ -7,8 +7,8 @@ import React, {
   useState,
 } from "react";
 import { EmblaCarouselType } from "embla-carousel";
-import prevArrow from "../../../../public/images/tiendaPage/prevArrowCarousel.svg";
-import nextArrow from "../../../../public/images/tiendaPage/nextArrowCarousel.svg";
+import prevArrow from "@/assets/images/tiendaPage/prevArrowCarousel.svg";
+import nextArrow from "@/assets/images/tiendaPage/nextArrowCarousel.svg";
 import Image from "next/image";
 
 type UsePrevNextButtonsType = {

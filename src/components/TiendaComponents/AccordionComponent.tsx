@@ -6,8 +6,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import arrow from "../../../public/images/tiendaPage/accordionArrow.svg";
-import divider from "../../../public/images/tiendaPage/divider.svg";
+import arrow from "@/assets/images/tiendaPage/accordionArrow.svg";
+import divider from "@/assets/images/tiendaPage/divider.svg";
 import Image from "next/image";
 import FilterLabel from "../GeneralComponents/filterLabel";
 import { useTranslations } from "next-intl";

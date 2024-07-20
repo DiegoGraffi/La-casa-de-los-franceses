@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import LenguajeIcon from "../../../public/images/navbar/lenguaje.svg";
+import LenguajeIcon from "@/assets/images/navbar/lenguaje.svg";
 import { useRouter, usePathname } from "next/navigation";
 
 export default function BotonIdioma() {

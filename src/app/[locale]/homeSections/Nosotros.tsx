@@ -1,21 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import portada from "../../../../public/images/inicio/portadaNosotros.jpg";
-import arrowRight from "../../../public/images/arrowRight.svg";
-import arrowLeft from "../../../public/images/arrowLeft.svg";
-import nosotrosLine from "../../../../public/images/nosotrosLine.svg";
-import wineIcon from "../../../../public/images/wineIcon.svg";
-import locationIcon from "../../../../public/images/locationIcon.svg";
-import bookIcon from "../../../../public/images/inicio/bookIcon.svg";
+import portada from "@/assets/images/inicio/portadaNosotros.jpg";
+
+import nosotrosLine from "@/assets/images/nosotrosLine.svg";
+import wineIcon from "@/assets/images/wineIcon.svg";
+import locationIcon from "@/assets/images/locationIcon.svg";
+import bookIcon from "@/assets/images/inicio/bookIcon.svg";
 import BotonXL from "@/components/GeneralComponents/Botones/BotonXL";
 import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
 import Lottie from "lottie-react";
-import FlechaIzq from "../../../../public/animations/inicio/FlechaIzq.json";
+import FlechaIzq from "@/assets/animations/inicio/FlechaIzq.json";
 import BotonMD from "@/components/GeneralComponents/Botones/BotonMD";
 import BotonLG from "@/components/GeneralComponents/Botones/BotonLG";
 import { useTranslations } from "next-intl";
-
 
 export default function Nosotros() {
   const t = useTranslations("Home");
@@ -27,7 +25,7 @@ export default function Nosotros() {
           <div className="w-[50%] flex flex-col justify-center gap-[15px] h-full z-[150] absolute left-0 px-[60px] -translate-x-[100%] opacity-0 group-hover:-translate-x-0 group-hover:opacity-100 transition-all ease-[cubic-bezier(0,0.96,1,1)] duration-700 ">
             <p className="text-[55px]/[62px] font-vangeda text-primarioClaro">
               {t("nosotrosTitle1")} <br />
-              {t("nosotrosTitle2")} 
+              {t("nosotrosTitle2")}
             </p>
 
             <Image
@@ -57,8 +55,8 @@ export default function Nosotros() {
           <Lottie animationData={FlechaIzq} />
         </div>
         <h4 className="font-vangeda text-[55px]/[62px] text-secundarioClaro text-center">
-        {t("nosotrosTitle1")}  <br />
-        {t("nosotrosTitle2")} 
+          {t("nosotrosTitle1")} <br />
+          {t("nosotrosTitle2")}
         </h4>
         <div className="relative origin-center rotate-180 w-[77px]">
           <Lottie animationData={FlechaIzq} />
@@ -75,9 +73,9 @@ export default function Nosotros() {
       </div>
       <div className="lg:hidden flex flex-col gap-[30px] py-[60px]">
         <p className="text-[40px]/[39px] md:text-[55px]/[62px] font-vangeda text-terciarioPrincipal text-center">
-        {t("nosotrosTitle1")} 
+          {t("nosotrosTitle1")}
           <br />
-          {t("nosotrosTitle2")} 
+          {t("nosotrosTitle2")}
         </p>
         <div className="w-full flex gap-[30px] justify-center md:hidden">
           <BotonLG link="#" color="verde" text="Ver carta" icon={bookIcon} />

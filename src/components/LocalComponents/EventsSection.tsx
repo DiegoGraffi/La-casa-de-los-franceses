@@ -2,9 +2,8 @@ import { ScrollContainer } from "../../components/ScrollContainerClient";
 import EventoCard from "../EventoCard";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import Image from "next/image";
-import mouse from "../../../public/images/local/mouse.svg";
+import mouse from "@/assets/images/local/mouse.svg";
 import { getTranslations } from "next-intl/server";
-
 
 function formatDate(dateStr: string | null): string {
   if (dateStr === null) return "Error: Fecha no definida";

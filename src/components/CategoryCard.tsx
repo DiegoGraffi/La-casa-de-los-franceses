@@ -1,7 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import BotonXL from "./GeneralComponents/Botones/BotonXL";
-import catalogoIcon from "../../public/images/catalogoIcon.svg";
-import BotonLG from "./GeneralComponents/Botones/BotonLG";
+import catalogoIcon from "@/assets/images/catalogoIcon.svg";
 import BotonMD from "./GeneralComponents/Botones/BotonMD";
 
 type CategoryCardProps = {

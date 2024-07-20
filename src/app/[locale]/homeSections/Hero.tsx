@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import estrella from "@/assets/images/estrella.png";
+import banner from "@/assets/images/portada.jpg";
 
 export default function Hero() {
   const t = useTranslations("Home");
@@ -13,19 +15,18 @@ export default function Hero() {
       <div className="h-full">
         <div className="w-full h-full flex justify-center">
           <div className="h-[72px] md:h-[112px] aspect-square bottom-0 absolute translate-y-[50%] ">
-
-          <Image
-            src="/images/estrella.png"
-            alt="logo"
-            fill
-            loading="eager"
-            decoding="async"
-            className="object-contain"
+            <Image
+              src={estrella}
+              alt="estrella"
+              fill
+              loading="eager"
+              decoding="async"
+              className="object-contain"
             />
-            </div>
+          </div>
         </div>
         <Image
-          src="/images/portada.jpg"
+          src={banner}
           alt="imagen hero"
           quality={100}
           loading="eager"

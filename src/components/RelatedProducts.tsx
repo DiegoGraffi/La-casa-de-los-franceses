@@ -1,6 +1,5 @@
 import { getProductRecommendations } from "@/lib/shopify";
 import { Link } from "@/navigation";
-import { GridTileImage } from "./tile";
 import RelatedCarousel from "./RelatedCarousel";
 
 export default async function RelatedProducts({ id }: { id: string }) {
