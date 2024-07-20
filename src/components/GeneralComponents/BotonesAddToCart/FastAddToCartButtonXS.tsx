@@ -75,7 +75,7 @@ function FastSubmitButtonXS({
   if (!availableForSale) {
     return (
       <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
-        <p className="text-primarioMuyClaro disabled:bg-primarioPrincipal text-[10px] font-semibold leading-[12px] font-bricolage">
+        <p className="text-primarioOscuro group-hover:text-primarioClaro group-disabled:text-primarioClaro group-active:text-primarioOscuro group-focus:text-primarioOscuro text-[14px] font-bricolage font-semibold leading-[22px] transition-all ease-out duration-300">
           Sin Stock
         </p>
       </button>
