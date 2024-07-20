@@ -27,17 +27,14 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
   const closeCart = () => setIsOpen(false);
 
   useEffect(() => {
-    // Open cart modal when quantity changes.
-    if (cart?.totalQuantity !== quantityRef.current) {
-      // But only if it's not already open (quantity also changes when editing items in cart).
-      if (!isOpen) {
-        setIsOpen(true);
-      }
-
-      // Always update the quantity reference
-      quantityRef.current = cart?.totalQuantity;
+    // Open cart modal when quantity changes, but only if it's not already open.
+    if (cart?.totalQuantity !== quantityRef.current && !isOpen) {
+      setIsOpen(true);
     }
-  }, [isOpen, cart?.totalQuantity, quantityRef]);
+
+    // Always update the quantity reference
+    quantityRef.current = cart?.totalQuantity;
+  }, [cart?.totalQuantity, isOpen]);
 
   useEffect(() => {
     if (isOpen) {
@@ -53,7 +50,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
         <OpenCart quantity={cart?.totalQuantity} />
       </button>
       <Transition show={isOpen}>
-        <Dialog onClose={closeCart} className="relative z-[300]">
+        <Dialog onClose={closeCart} className="relative z-[2000]">
           <Transition.Child
             as={Fragment}
             enter="transition-all ease-in-out duration-300"
@@ -206,7 +203,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                         Comprar
                       </a>
 
-                      <Link href={"/tienda"}>
+                      <Link href={"/tienda"} onClick={closeCart}>
                         <p className="font-bricolage font-light text-[20px]/[25px] text-primarioClaro hover:text-primarioOscuro hover:underline cursor-pointer">
                           Seguir viendo
                         </p>

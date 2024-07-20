@@ -14,10 +14,9 @@ import BotonIdioma from "./TiendaComponents/BotonIdioma";
 import { NavbarMobile } from "./NavbarMobile";
 
 export default function Navbar() {
-  const menuAbierto = false;
   const t = useTranslations("Navbar");
   return (
-    <div className="bg-white w-full px-4 h-[86px] lg:h-[120px] flex absolute z-[100] mx-auto">
+    <div className="bg-white w-full px-4 h-[86px] lg:h-[120px] flex absolute z-[500] mx-auto">
       <div className="w-full md:px-[50px] xl:px-[100px] mx-auto flex justify-between items-center lg:py-[5px] max-w-[1600px]">
         <Link href={`/`} className="lg:hidden">
           <Image

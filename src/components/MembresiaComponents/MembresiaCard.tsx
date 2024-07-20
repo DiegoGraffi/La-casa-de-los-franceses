@@ -38,7 +38,7 @@ function MembresiaCard({
             {description}
           </p>
         </div>
-        <div className="flex flex-col gap-[25px] mt-[20px]">
+        <div className="flex flex-col gap-[25px] mt-[20px] items-center">
           <p className="font-bricolage font-semibold text-[48px] text-gris2 text-center leading-[28px]">
             ${precio}
             <span className="font-light text-[24px] text-gris3">/mes</span>

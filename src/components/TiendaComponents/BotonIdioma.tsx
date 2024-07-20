@@ -50,10 +50,10 @@ export default function BotonIdioma() {
         src={LenguajeIcon}
         alt="lenguaje icon"
         onClick={toggleMenu}
-        className="cursor-pointer"
+        className="cursor-pointer scale-110"
       />
       {menuVisible && (
-        <div className="absolute mt-2 bg-white border border-secundarioOscuro rounded-lg shadow-lg">
+        <div className="absolute mt-2 bg-white border border-secundarioOscuro rounded-lg">
           <div className="p-2">
             <p
               className={`text-gris3 p-2 uppercase rounded-md hover:bg-gris5 cursor-pointer font-light ${

@@ -23,7 +23,7 @@ export default function Counter({ stock }: CounterProps) {
   };
 
   return (
-    <div className="flex h-full">
+    <div className="flex h-full max-h-[44px]">
       <button
         onClick={removeOne}
         className="px-[15px] py-[2px] text-gris6 bg-gris4 flex justify-center items-center rounded-l-full md:hover:bg-gris2 md:hover:text-gris4"

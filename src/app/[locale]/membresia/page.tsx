@@ -43,7 +43,7 @@ async function Membresia() {
     <div>
       <div className="relative w-full h-[70vh] lg:h-[750px]">
         <div className="h-full w-full absolute z-[200] flex justify-center items-end bottom-0 pb-[100px] lg:hidden">
-          <p className="text-[40px]/[39px] font-vangeda text-primarioClaro bottom-0 z-[200]">
+          <p className="text-[40px]/[39px] font-vangeda text-primarioClaro bottom-0 z-[200] text-center md:text-start">
             {t("heroMembresia")}
           </p>
         </div>
