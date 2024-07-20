@@ -18,7 +18,7 @@ export default function ProductsSection({
 }) {
   const { hasNextPage, hasPreviousPage } = pageInfo;
   const t = useTranslations("Tienda");
-  const createUrl = useSearchParamsAppend();
+  const createUrl = useSearchParamsAppend(["after", "before"]);
 
   return (
     <div className="w-full flex flex-col">
