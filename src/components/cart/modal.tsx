@@ -39,6 +39,14 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
     }
   }, [isOpen, cart?.totalQuantity, quantityRef]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [isOpen]);
+
   return (
     <>
       <button aria-label="Open cart" onClick={openCart}>
@@ -68,7 +76,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
           >
             <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col bg-terciarioPrincipal text-black md:w-[500px]">
               <div className="flex items-center justify-between bg-terciarioClaro px-[25px] py-[15px]">
-                <p className="ont-bricolage font-semibold text-[24px]/[28px] text-primarioMuyClaro">
+                <p className="font-bricolage font-semibold text-[24px]/[28px] text-primarioMuyClaro">
                   Carro de compras ({cart?.totalQuantity})
                 </p>
 
@@ -86,7 +94,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                 </div>
               ) : (
                 <div className="flex h-full flex-col justify-between overflow-hidden p-4 px-8">
-                  <ul className="flex-grow overflow-auto overflow-x-hidden">
+                  <ul className="flex-grow overflow-auto overflow-x-hidden ">
                     {cart.lines.map((item, i) => {
                       const merchandiseSearchParams =
                         {} as MerchandiseSearchParams;
@@ -167,8 +175,10 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                       );
                     })}
                   </ul>
-                  <div className="py-4 text-sm text-neutral-500 dark:text-neutral-400">
-                    {/* <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 dark:border-neutral-700">
+
+                  <div className="flex w-full md:flex-col">
+                    <div className="py-4 text-sm text-neutral-500 dark:text-neutral-400 flex-1">
+                      {/* <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 dark:border-neutral-700">
                       <p>Taxes</p>
                       <Price
                         className="text-right text-base text-black dark:text-white"
@@ -177,30 +187,31 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                       />
                     </div> */}
 
-                    <div className="mb-3 flex flex-col items-center justify-center">
-                      <p className="font-bricolage font-extralight text-white text-[24px]/[28px] text-center">
-                        Total
-                      </p>
-                      <Price
-                        className="font-bricolage font-semibold text-white text-[24px]/[28px] text-center"
-                        amount={cart.cost.totalAmount.amount}
-                        currencyCode={cart.cost.totalAmount.currencyCode}
-                      />
+                      <div className="mb-3 flex flex-col items-center justify-center">
+                        <p className="font-bricolage font-extralight text-white text-[24px]/[28px] text-center">
+                          Total
+                        </p>
+                        <Price
+                          className="font-bricolage font-semibold text-white text-[24px]/[28px] text-center"
+                          amount={cart.cost.totalAmount.amount}
+                          currencyCode={cart.cost.totalAmount.currencyCode}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex flex-col justify-center items-center gap-3">
-                    <a
-                      href={cart.checkoutUrl}
-                      className="block rounded-full bg-terciarioClaro px-[28px] py-[10px] text-center text-[20px]/[25px] font-bricolage text-primarioMuyClaro font-semibold  hover:bg-primarioOscuro active:bg-primarioMuyOscuro disabled:bg-primarioClaro focus:border-2 focus:border-[#CB9A60]"
-                    >
-                      Comprar
-                    </a>
+                    <div className="flex flex-col justify-center items-center gap-3 flex-1">
+                      <a
+                        href={cart.checkoutUrl}
+                        className="block rounded-full bg-terciarioClaro px-[28px] py-[10px] text-center text-[20px]/[25px] font-bricolage text-primarioMuyClaro font-semibold  hover:bg-primarioOscuro active:bg-primarioMuyOscuro disabled:bg-primarioClaro focus:border-2 focus:border-[#CB9A60]"
+                      >
+                        Comprar
+                      </a>
 
-                    <Link href={"/tienda"}>
-                      <p className="font-bricolage font-light text-[20px]/[25px] text-primarioClaro hover:text-primarioOscuro hover:underline cursor-pointer">
-                        Seguir viendo
-                      </p>
-                    </Link>
+                      <Link href={"/tienda"}>
+                        <p className="font-bricolage font-light text-[20px]/[25px] text-primarioClaro hover:text-primarioOscuro hover:underline cursor-pointer">
+                          Seguir viendo
+                        </p>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               )}

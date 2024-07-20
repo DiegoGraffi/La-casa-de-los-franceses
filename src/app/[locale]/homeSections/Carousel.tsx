@@ -10,16 +10,42 @@ async function Carousel() {
     query ProductosRecomendados {
       collectionByHandle(handle: "seleccion-del-mes") {
         products(first: 100) {
-          nodes {
-            title
-            handle
-            featuredImage {
-              url
-            }
-            variants(first: 1) {
-              nodes {
-                price {
+          edges {
+            node {
+              title
+              tags
+              handle
+              productType
+              createdAt
+              vendor
+              availableForSale
+              priceRange {
+                maxVariantPrice {
                   amount
+                }
+              }
+              featuredImage {
+                url
+              }
+              metafields(
+                identifiers: [{ namespace: "custom", key: "varietal" }]
+              ) {
+                value
+              }
+              variants(first: 1) {
+                edges {
+                  node {
+                    id
+                    title
+                    selectedOptions {
+                      name
+                      value
+                    }
+                    price {
+                      amount
+                      currencyCode
+                    }
+                  }
                 }
               }
             }
@@ -30,21 +56,26 @@ async function Carousel() {
   `);
 
   const data = await fetchGraphql(query, {});
-  const products = data.collectionByHandle?.products.nodes;
+  const products = data.collectionByHandle?.products.edges.map(
+    (edge) => edge.node
+  );
+
+  const handleAddToCartClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+  };
 
   const slides = products
     ? products.map((product, index) => {
         return (
-          <Link
-            key={product.handle}
-            href={`/producto/${product.handle}`}
-            legacyBehavior
-          >
+          <Link key={product.handle} href={`/producto/${product.handle}`}>
             <ProductCard
               key={index}
-              price={product.variants.nodes[0].price.amount}
+              price={product.variants.edges[0].node.price.amount}
               title={product.title}
               image={product.featuredImage?.url}
+              variants={product.variants}
+              availableForSale={product.availableForSale}
+              onAddToCartClick={handleAddToCartClick}
             />
           </Link>
         );

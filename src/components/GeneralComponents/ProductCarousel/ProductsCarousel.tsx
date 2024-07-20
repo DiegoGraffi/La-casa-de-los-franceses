@@ -11,11 +11,19 @@ type Product = {
   handle: string;
   featuredImage: {
     url: string;
-  };
+  } | null;
   variants: {
     nodes: Array<{
+      id: string;
+      title: string;
+      availableForSale: boolean;
+      selectedOptions: {
+        name: string;
+        value: string;
+      }[];
       price: {
         amount: string;
+        currencyCode: string;
       };
     }>;
   };

@@ -1,3 +1,5 @@
+"use client";
+
 import React, {
   ComponentPropsWithRef,
   useCallback,
@@ -59,14 +61,14 @@ export const PrevButton: React.FC<PropType> = (props) => {
 
   return (
     <button
-      className="embla__button embla__button--prev"
+      className="embla__button embla__button--prev bg-white hover:bg-primarioMuyClaro aspect-square shrink-0"
       type="button"
       {...restProps}
     >
       <Image
         src={prevArrow}
         alt="Flecha Anterior"
-        className="hidden lg:block"
+        className="hidden lg:block aspect-square p-1"
       />
       {children}
     </button>
@@ -78,14 +80,14 @@ export const NextButton: React.FC<PropType> = (props) => {
 
   return (
     <button
-      className="embla__button embla__button--next"
+      className="embla__button embla__button--next bg-white hover:bg-primarioMuyClaro aspect-square shrink-0"
       type="button"
       {...restProps}
     >
       <Image
         src={nextArrow}
         alt="Flecha Siguiente"
-        className="hidden lg:block"
+        className="hidden lg:block aspect-square p-1"
       />
       {children}
     </button>

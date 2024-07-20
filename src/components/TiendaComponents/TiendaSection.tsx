@@ -26,7 +26,7 @@ export default function TiendaSection({
   const t = useTranslations("Tienda");
 
   return (
-    <div className="min-h-screen flex flex-col pt-[122px]">
+    <div className="flex flex-col pt-[86px] lg:pt-[120px]">
       <div className="w-full h-[250px] flex justify-center items-center bg-terciarioPrincipal">
         <p className="text-[40px]/[39px] lg:text-[100px]/[173px] lg:mt-0 font-vangeda text-secundarioClaro">
           {t("titulo")}
@@ -46,7 +46,7 @@ export default function TiendaSection({
 
           <div className="flex flex-col lg:flex-row gap-[10px] lg:gap-[40px] items-start w-full lg:w-[40%]">
             <p className="uppercase text-gris4 font-light lg:font-semibold text-[12px]/[16px] lg:text-[18px]/[28px] lg:font-bricolage font-gibson min-w-max top-0 p-2">
-           {t("mostrar1")} {products.length} {t("mostrar2")}
+              {t("mostrar1")} {products.length} {t("mostrar2")}
             </p>
             <div className="relative w-full top-0 h-[50px] flex justify-center">
               <DropdownMenu />

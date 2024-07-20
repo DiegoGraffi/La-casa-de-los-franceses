@@ -22,7 +22,6 @@ export default function Counter({ stock }: CounterProps) {
     }
   };
 
-  console.log(stock);
   return (
     <div className="flex h-full">
       <button

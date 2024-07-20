@@ -64,6 +64,7 @@ const query = graphql(`
           productType
           createdAt
           vendor
+          availableForSale
           priceRange {
             maxVariantPrice {
               amount
@@ -74,6 +75,22 @@ const query = graphql(`
           }
           metafields(identifiers: [{ namespace: "custom", key: "varietal" }]) {
             value
+          }
+          variants(first: 1) {
+            edges {
+              node {
+                id
+                title
+                selectedOptions {
+                  name
+                  value
+                }
+                price {
+                  amount
+                  currencyCode
+                }
+              }
+            }
           }
         }
         cursor
@@ -262,6 +279,7 @@ export default async function Tienda({
   const productos = products.filter(
     (producto: any) => producto.productType != "Membresia"
   );
+
   return (
     <TiendaSection
       products={productos}

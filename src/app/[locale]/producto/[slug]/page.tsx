@@ -1,9 +1,9 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import CartIcon from "../../../../../public/images/productDetail/cartIcon.svg";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
-import CarouselComponent from "@/components/CarouselComponent";
+
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import ImageZoom from "@/components/ProductDetailComponents/ImageZoom";
 import ProductCard from "@/components/ProductCard";
@@ -16,6 +16,7 @@ import AditionalInfo from "@/components/ProductDetailComponents/AditionalInfo";
 import { Link } from "@/navigation";
 import BotonXL from "@/components/GeneralComponents/Botones/BotonXL";
 import Placeholder from "../../../../../public/images/productDetail/bottle.png";
+import CarouselContainer from "@/components/GeneralComponents/ProductCarousel/CarouselContainer";
 
 export default async function Producto({
   params,
@@ -90,8 +91,16 @@ export default async function Producto({
             }
             variants(first: 1) {
               nodes {
+                id
+                title
+                availableForSale
+                selectedOptions {
+                  name
+                  value
+                }
                 price {
                   amount
+                  currencyCode
                 }
               }
             }
@@ -124,26 +133,6 @@ export default async function Producto({
   const dataRelatedProducts = await fetchGraphql(queryRelatedProducts, {});
   const products = dataRelatedProducts.collectionByHandle?.products.nodes;
   const stock = product.productByHandle?.totalInventory ?? 0;
-
-  const slides = products
-    ? products.map((product) => {
-        return (
-          <Link
-            key={product.handle}
-            href={`/producto/${product.handle}`}
-            legacyBehavior
-          >
-            <div className="">
-              <ProductCard
-                price={product.variants.nodes[0].price.amount}
-                title={product.title}
-                image={product.featuredImage?.url}
-              />
-            </div>
-          </Link>
-        );
-      })
-    : [];
 
   const precioDescuento =
     product.productByHandle?.priceRange.maxVariantPrice.amount;
@@ -246,8 +235,8 @@ export default async function Producto({
         <h3 className="text-[48px]/[58px] text-terciarioPrincipal font-vangeda">
           Productos similares
         </h3>
-        <div className="max-h-[2000px] w-full lg:px-[100px] pt-[70px] lg:pt-[90px] mx-auto flex flex-col justify-between items-center overflow-hidden mb-[60px] lg:mb-0 max-w-[1600px]">
-          <CarouselComponent slides={slides} />
+        <div className="max-h-[2000px] w-full lg:px-[100px] mx-auto flex flex-col justify-between items-center overflow-hidden mb-[60px] lg:mb-0 max-w-[1600px] mt-[50px]">
+          <CarouselContainer products={products ?? []} />
         </div>
       </section>
 

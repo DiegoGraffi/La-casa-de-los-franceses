@@ -1,3 +1,5 @@
+"use client";
+
 import { EmblaOptionsType } from "embla-carousel";
 import {
   PrevButton,
@@ -15,11 +17,19 @@ type ProductProps = {
   handle: string;
   featuredImage: {
     url: string;
-  };
+  } | null;
   variants: {
     nodes: Array<{
+      id: string;
+      title: string;
+      availableForSale: boolean;
+      selectedOptions: {
+        name: string;
+        value: string;
+      }[];
       price: {
         amount: string;
+        currencyCode: string;
       };
     }>;
   };
@@ -40,23 +50,26 @@ const CarouselContainer: React.FC<PropType> = (props) => {
     onPrevButtonClick,
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
-  console.log(products);
+
+  const handleAddToCartClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+  };
+
   return (
-    <section className="embla w-full max-w-[1600px] relative  px-[15px] md:px-[75px]">
+    <section className="embla flex flex-col justify-center w-full max-w-[1600px] relative px-[15px] md:px-[100px]">
       <div className="embla__viewport z-20" ref={emblaRef}>
         <div className="embla__container ">
           {products.map((product, index) => (
-            <div className="embla__slide" key={index}>
-              <Link
-                key={product.handle}
-                href={`/producto/${product.handle}`}
-                legacyBehavior
-              >
+            <div className="embla__slide cursor-pointer z-[50]" key={index}>
+              <Link key={product.handle} href={`/producto/${product.handle}`}>
                 <ProductCard
                   key={index}
                   price={product.variants?.nodes[0].price.amount}
                   title={product.title}
                   image={product.featuredImage?.url}
+                  variants={product.variants.nodes}
+                  availableForSale={product.variants.nodes[0].availableForSale}
+                  onAddToCartClick={handleAddToCartClick}
                 />
               </Link>
             </div>
@@ -65,7 +78,7 @@ const CarouselContainer: React.FC<PropType> = (props) => {
       </div>
 
       <div className="embla__controls absolute w-full top-[50%] origin-center left-0 px-[15px] z-0">
-        <div className="embla__buttons justify-between w-full">
+        <div className="embla__buttons justify-between w-full h-full">
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
         </div>

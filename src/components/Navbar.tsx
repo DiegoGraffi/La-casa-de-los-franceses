@@ -27,7 +27,7 @@ export default function Navbar() {
         </Link>
 
         <div className="flex gap-[15px] lg:hidden">
-          <Image src={CarritoIcon} alt="menu" className="lg:hidden scale-110" />
+          <Cart />
           <Image
             src={menu}
             alt="menu"

@@ -1,6 +1,5 @@
 import AgeConfirmationModal from "@/components/AgeConfirmationModal";
 import Hero from "./homeSections/Hero";
-import Carousel from "./homeSections/Carousel";
 import Categoria from "./homeSections/Categoria";
 import Membresia from "./homeSections/Membresia";
 import Nosotros from "./homeSections/Nosotros";
@@ -8,7 +7,6 @@ import Eventos from "./homeSections/Eventos";
 import Marca from "./homeSections/Marca";
 import ProductCarousel from "../../components/GeneralComponents/ProductCarousel/ProductsCarousel";
 import { fetchGraphql, graphql } from "@/lib/graphql";
-import { Link } from "@/navigation";
 import { getTranslations } from "next-intl/server";
 
 export default async function Home() {
@@ -19,13 +17,22 @@ export default async function Home() {
           nodes {
             title
             handle
+            availableForSale
             featuredImage {
               url
             }
             variants(first: 1) {
               nodes {
+                id
+                title
+                availableForSale
+                selectedOptions {
+                  name
+                  value
+                }
                 price {
                   amount
+                  currencyCode
                 }
               }
             }
@@ -49,7 +56,7 @@ export default async function Home() {
       <Nosotros />
       <Eventos />
       <Marca />
-      <AgeConfirmationModal />
+      {/* <AgeConfirmationModal /> */}
     </div>
   );
 }

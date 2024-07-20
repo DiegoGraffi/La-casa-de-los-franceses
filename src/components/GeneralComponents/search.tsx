@@ -1,7 +1,8 @@
 "use client";
 
 import { createUrl } from "@/lib/utils";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "@/navigation";
 
 export default function Search() {
   const router = useRouter();

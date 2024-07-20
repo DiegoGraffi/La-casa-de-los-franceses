@@ -25,7 +25,7 @@ export default function AgeConfirmationModal() {
   return (
     <>
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center">
+        <div className="fixed inset-0 flex items-center justify-center z-[1000] px-[15px]">
           <div className="absolute inset-0 bg-black opacity-60"></div>
           <div className="bg-terciarioClaro p-8 rounded-tr-[55px] rounded-bl-[55px] shadow-lg z-0 w-[603px] h-[490px] flex flex-col items-center justify-around">
             <Image
@@ -40,7 +40,7 @@ export default function AgeConfirmationModal() {
               width={406}
               height={2}
             />
-            <h3 className="font-bricolage font-semibold text-[32px]/[38px] text-white">
+            <h3 className="font-bricolage font-semibold text-[32px]/[38px] text-white text-center">
               ¿Eres mayor de 18 años?
             </h3>
             <div className="flex flex-col items-center gap-3">

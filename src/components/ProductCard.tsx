@@ -1,17 +1,31 @@
+"use client";
+
 import Image from "next/image";
 import BotonNoFillMD from "./GeneralComponents/BotonesNoFill/BotonNoFillMD";
 import BotonNoFillXS from "./GeneralComponents/BotonesNoFill/BotonNoFillXS";
 import CartIcon from "./GeneralComponents/CartIcon";
 import { useTranslations } from "next-intl";
 import Placeholder from "../../public/images/productDetail/bottle.png";
+import FastAddToCartButtonMD from "./GeneralComponents/BotonesAddToCart/FastAddToCartButtonMD";
+import FastAddToCartButtonXS from "./GeneralComponents/BotonesAddToCart/FastAddToCartButtonXS";
 
 type ProductCardProps = {
   image?: string;
   title: string;
   price: string;
+  variants: any;
+  availableForSale: boolean;
+  onAddToCartClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export default function ProductCard({ image, title, price }: ProductCardProps) {
+export default function ProductCard({
+  image,
+  title,
+  price,
+  variants,
+  availableForSale,
+  onAddToCartClick,
+}: ProductCardProps) {
   const t = useTranslations("Product Card");
 
   const imageUrl = typeof image === "string" ? image : Placeholder.src;
@@ -34,14 +48,21 @@ export default function ProductCard({ image, title, price }: ProductCardProps) {
             ${price}
           </p>
           <div className="hidden lg:block">
-            <BotonNoFillMD link="#" text={t("boton")}>
+            {/* <BotonNoFillMD link="#" text={t("boton")}>
               <CartIcon className="stroke-primarioOscuro group-hover:stroke-primarioClaro transition-all ease-in-out duration-200" />
-            </BotonNoFillMD>
+            </BotonNoFillMD> */}
+            <FastAddToCartButtonMD
+              variants={variants}
+              availableForSale={availableForSale}
+              onAddToCartClick={onAddToCartClick}
+            />
           </div>
           <div className="block lg:hidden">
-            <BotonNoFillXS link="#" text={t("boton")}>
-              <CartIcon className="stroke-primarioOscuro group-hover:stroke-primarioClaro transition-all ease-in-out duration-200" />
-            </BotonNoFillXS>
+            <FastAddToCartButtonXS
+              variants={variants}
+              availableForSale={availableForSale}
+              onAddToCartClick={onAddToCartClick}
+            />
           </div>
         </div>
       </div>

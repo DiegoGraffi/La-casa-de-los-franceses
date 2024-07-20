@@ -70,7 +70,7 @@ export default async function NosotrosPage() {
 
   return (
     <div className="min-h-screen w-full flex flex-col justify-center items-center">
-      <div className="h-[553px] lg:h-[70vh] w-full relative">
+      <div className="h-[553px] lg:h-[70vh] w-full relative flex justify-center">
         <div className="absolute w-[72px] h-[72px] lg:w-[126px] lg:h-[126px] left-[44%] lg:left-[80%] bottom-0 z-[100] origin-center translate-y-[50%]">
           <Image src={estrella} alt="estrella" />
         </div>
@@ -90,15 +90,15 @@ export default async function NosotrosPage() {
         />
       </div>
 
-      <section className="w-full max-w-[1600px] mx-auto flex flex-col gap-[50px] justify-center items-center mt-[80px] lg:mt-[50px] px-[35px] lg:px-[100px]">
+      <section className="w-full max-w-[1600px] mx-auto flex flex-col gap-[50px] justify-center items-center mt-[80px] lg:mt-[50px] px-[15px] md:px-[35px] lg:px-[100px]">
         <h3 className="hidden lg:block font-vangeda text-[55px]/[63px] text-terciarioPrincipal text-center">
           {t("carouselTitle")}
         </h3>
         <NosotrosCarousel />
       </section>
 
-      <section className="hidden lg:block w-full max-w-[1600px] lg:mx-auto lg:mt-[75px] px-[16px] border-4 border-red-500">
-        <div className="w-full h-[450px] relative border border-red-500">
+      <section className="hidden lg:block w-full max-w-[1600px] lg:mx-auto lg:mt-[75px] px-[15px] md:px-[35px] lg:px-[100px]">
+        <div className="w-full h-[450px] relative">
           <Image
             src={personas}
             alt="nosotros"
@@ -154,7 +154,7 @@ export default async function NosotrosPage() {
         </div>
       </section>
 
-      <section className="lg:hidden w-full max-w-[1600px] border border-red-500 px-[35px] lg:px-[100px]">
+      <section className="lg:hidden w-full max-w-[1600px] px-[15px] md:px-[35px]">
         <div className="w-full h-[450px] relative">
           <Image
             src={personas}
@@ -173,30 +173,36 @@ export default async function NosotrosPage() {
         </div>
 
         <div className="w-full grid grid-cols-2 gap-4 mt-8 mb-8">
-          {nosotros.map((persona, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-center items-center border"
-            >
-              <Image
-                src={persona.image}
-                alt="imagen"
-                className="object-cover w-[85px] h-[85px] border-white border-4 rounded-full"
-              />
-              <p className="text-terciarioPrincipal text-[16px]/[20px] font-vangeda text-center mt-[12px]">
-                {persona.name}
-              </p>
-              <p className="text-terciarioPrincipal text-[12px]/[16px] font-regular font-bricolage text-center mt-[6px]">
-                {persona.role}
-              </p>
-            </div>
-          ))}
+          {nosotros.map((persona, index) => {
+            const lastItem = index === nosotros.length - 1;
+            const gridColumnSpan =
+              lastItem && nosotros.length % 2 !== 0 ? "col-span-2" : "";
+
+            return (
+              <div
+                key={index}
+                className={`flex flex-col justify-center items-center ${gridColumnSpan}`}
+              >
+                <Image
+                  src={persona.image}
+                  alt="imagen"
+                  className="object-cover w-[85px] h-[85px] border-white border-4 rounded-full"
+                />
+                <p className="text-terciarioPrincipal text-[16px]/[20px] font-vangeda text-center mt-[12px]">
+                  {persona.name}
+                </p>
+                <p className="text-terciarioPrincipal text-[12px]/[16px] font-regular font-bricolage text-center mt-[6px]">
+                  {persona.role}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      <section className="w-full max-w-[1600px] flex flex-col gap-[50px] justify-center items-center mt-[80px] lg:mt-[100px] px-[35px] lg:px-[100px]">
+      <section className="w-full max-w-[1600px] flex flex-col gap-[50px] justify-center items-center mt-[80px] lg:mt-[100px] px-[15px] md:px-[35px] lg:px-[80px]">
         <SectionTitle title={t("bodegasTitle")} />
-        <div className="w-full mt-[20px]">
+        <div className="w-full ">
           <BodegasCarousel bodegasData={bodegaData} />
         </div>
       </section>

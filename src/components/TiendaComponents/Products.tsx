@@ -1,9 +1,14 @@
+"use client";
+
 import { Link } from "@/navigation";
 import ProductCard from "../ProductCard";
 import { ProductsList } from "@/lib/types";
 
 export default function Products({ products }: ProductsList) {
-  console.log(products.length);
+  const handleAddToCartClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+  };
+
   return (
     <div
       className={`w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 lg:p-[25px] gap-[10px] justify-stretch ${
@@ -14,15 +19,14 @@ export default function Products({ products }: ProductsList) {
     >
       {products.length > 0 ? (
         products.map((product) => (
-          <Link
-            key={product.handle}
-            href={`/producto/${product.handle}`}
-            legacyBehavior
-          >
+          <Link key={product.handle} href={`/producto/${product.handle}`}>
             <ProductCard
               image={product.featuredImage?.url}
               price={product.priceRange.maxVariantPrice.amount}
               title={product.title}
+              variants={product.variants.edges.map((edge) => edge.node)}
+              availableForSale={product.availableForSale}
+              onAddToCartClick={handleAddToCartClick}
             />
           </Link>
         ))
