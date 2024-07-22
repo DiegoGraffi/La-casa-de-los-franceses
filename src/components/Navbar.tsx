@@ -75,7 +75,7 @@ export default function Navbar() {
               href="#footer"
               className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
             >
-              <Image src={UserIcon} alt="contacto icon" />
+              <Image src={UserIcon} alt="contacto icon" className="p-[2px]" />
             </Link>
           </div>
 

@@ -1,12 +1,16 @@
+"use client";
+
 import React from "react";
 import BotonLG from "../GeneralComponents/Botones/BotonLG";
 import Image from "next/image";
 import Separator from "@/assets/images/membresiaPage/separador.svg";
+import { usePathname } from "next/navigation";
 
 type MembresiaCardProps = {
   image?: string;
   name: string;
   description: string;
+  translatedDescription?: string;
   precio: string;
 };
 
@@ -14,8 +18,12 @@ function MembresiaCard({
   image,
   name,
   description,
+  translatedDescription,
   precio,
 }: MembresiaCardProps) {
+  const locale = usePathname()?.split("/")[1];
+  const isSpanish = locale === "es";
+
   return (
     <div className="flex flex-col items-center hover:bg-gris6 rounded-tl-3xl rounded-br-3xl flex-1 p-[15px] lg:p-[25px] w-full max-w-[350px] h-auto">
       <div className="flex justify-center items-center relative w-full h-[110px] lg:h-[150px] rounded-tl-[10px] rounded-br-[10px] lg:rounded-tl-[25px] lg:rounded-br-[25px] overflow-hidden mb-[21px]">
@@ -35,7 +43,7 @@ function MembresiaCard({
       <div className="flex flex-col justify-between items-center mt-[10px] h-max grow">
         <div>
           <p className="font-bricolage font-light text-[16px]/[24px] text-gris3 text-center">
-            {description}
+            {isSpanish ? description : translatedDescription}
           </p>
         </div>
         <div className="flex flex-col gap-[25px] mt-[20px] items-center">

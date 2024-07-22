@@ -50,7 +50,7 @@ export default function BotonIdioma() {
         src={LenguajeIcon}
         alt="lenguaje icon"
         onClick={toggleMenu}
-        className="cursor-pointer scale-110"
+        className="cursor-pointer p-[2px]"
       />
       {menuVisible && (
         <div className="absolute mt-2 bg-white border border-secundarioOscuro rounded-lg">

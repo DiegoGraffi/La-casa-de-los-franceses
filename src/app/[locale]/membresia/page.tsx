@@ -31,8 +31,20 @@ const query = graphql(`
   }
 `);
 
+const translateQuery = graphql(`
+  query translatedMembership @inContext(language: FR) {
+    products(first: 10, query: "product_type:'Membresia'") {
+      nodes {
+        title
+        description
+      }
+    }
+  }
+`);
+
 async function Membresia() {
   const data = await fetchGraphql(query, {});
+  const translatedData = await fetchGraphql(translateQuery, {});
 
   if (!data.collection) {
     console.error("Collection not found");
@@ -40,7 +52,9 @@ async function Membresia() {
   }
 
   const products = data.collection.products.nodes;
-  console.log("DATA", products);
+  const translateMembership = translatedData.products.nodes;
+
+  console.log("DATA", products, translateMembership);
   const t = await getTranslations("Membresia");
   return (
     <div>
@@ -141,24 +155,28 @@ async function Membresia() {
             name={products[3].title}
             description={products[3].description}
             precio={products[3].priceRange.maxVariantPrice.amount}
+            translatedDescription={translateMembership[0].description}
           />
           <MembresiaCard
             image={products[2].featuredImage?.url}
             name={products[2].title}
             description={products[2].description}
             precio={products[2].priceRange.maxVariantPrice.amount}
+            translatedDescription={translateMembership[1].description}
           />
           <MembresiaCard
             image={products[1].featuredImage?.url}
             name={products[1].title}
             description={products[1].description}
             precio={products[1].priceRange.maxVariantPrice.amount}
+            translatedDescription={translateMembership[2].description}
           />
           <MembresiaCard
             image={products[0].featuredImage?.url}
             name={products[0].title}
             description={products[0].description}
             precio={products[0].priceRange.maxVariantPrice.amount}
+            translatedDescription={translateMembership[3].description}
           />
         </div>
         <div className="flex flex-col gap-[15px] lg:gap-[30px] mt-[120px]">

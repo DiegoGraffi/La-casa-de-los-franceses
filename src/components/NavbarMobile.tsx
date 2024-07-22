@@ -21,7 +21,7 @@ export function NavbarMobile() {
         <Image
           src={menu}
           alt="menu"
-          className="lg:hidden"
+          className="lg:hidden p-[2px]"
           onClick={() => setMenuAbierto(true)}
         />
       </div>
