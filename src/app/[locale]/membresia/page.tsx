@@ -18,7 +18,7 @@ const query = graphql(`
           description
 
           priceRange {
-            maxVariantPrice {ß
+            maxVariantPrice {
               amount
             }
           }
@@ -40,6 +40,7 @@ async function Membresia() {
   }
 
   const products = data.collection.products.nodes;
+  console.log("DATA", products);
   const t = await getTranslations("Membresia");
   return (
     <div>

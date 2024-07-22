@@ -13,6 +13,21 @@ import SectionTitle from "@/components/SectionTitle";
 import Perfil from "@/components/NosotrosComponents/Perfil";
 import { Link } from "@/navigation";
 
+interface Field {
+  key: string;
+  value: string | null;
+}
+
+interface Metaobject {
+  fields: Field[];
+}
+
+interface TranslatedData {
+  metaobjects: {
+    nodes: Metaobject[];
+  };
+}
+
 export default async function NosotrosPage() {
   const query = graphql(`
     query GalleryQuery {
@@ -35,7 +50,23 @@ export default async function NosotrosPage() {
     }
   `);
 
+  const translateQuery = graphql(`
+    query BodegasTranslate @inContext(language: FR) {
+      metaobjects(type: "bodegas", first: 100) {
+        nodes {
+          fields {
+            value
+            key
+          }
+        }
+      }
+    }
+  `);
+
   const data = await fetchGraphql(query, {});
+  const translatedData: TranslatedData = await fetchGraphql(translateQuery, {});
+  console.log(translatedData.metaobjects.nodes.map((node) => node.fields[0]));
+
   const t = await getTranslations("Nosotros");
 
   function isMediaImage(obj: any): obj is { image: { url: string } } {
@@ -51,6 +82,7 @@ export default async function NosotrosPage() {
     const name =
       node.fields.find((field) => field.key === "nombre_bodega")?.value ||
       "No Name";
+
     const description =
       node.fields.find((field) => field.key === "descripcion")?.value ||
       "No Description";
@@ -69,6 +101,23 @@ export default async function NosotrosPage() {
 
     return { name, description, bgImage, logoImage };
   });
+
+  const translatedBodegaDescription = translatedData.metaobjects.nodes.map(
+    (node) => {
+      const description =
+        node.fields.find((field) => field.key === "descripcion")?.value ||
+        "No Description";
+
+      return description;
+    }
+  );
+
+  const combinedBodegaData = bodegaData.map((bodega, index) => ({
+    ...bodega,
+    translatedDescription: translatedBodegaDescription[index],
+  }));
+
+  console.log(combinedBodegaData);
 
   return (
     <div className="min-h-screen w-full flex flex-col justify-center items-center">
@@ -182,7 +231,7 @@ export default async function NosotrosPage() {
       <section className="w-full max-w-[1600px] flex flex-col gap-[50px] justify-center items-center mt-[80px] lg:mt-[100px] px-[15px] md:px-[35px] lg:px-[80px]">
         <SectionTitle title={t("bodegasTitle")} />
         <div className="w-full ">
-          <BodegasCarousel bodegasData={bodegaData} />
+          <BodegasCarousel bodegasData={combinedBodegaData} />
         </div>
       </section>
 

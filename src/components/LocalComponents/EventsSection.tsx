@@ -27,6 +27,20 @@ export default async function EventsSection() {
     query EventosQuery {
       metaobjects(first: 100, type: "eventos") {
         nodes {
+          id
+          fields {
+            value
+          }
+        }
+      }
+    }
+  `);
+
+  const translateQuery = graphql(`
+    query EventosTranslate @inContext(language: FR) {
+      metaobjects(first: 100, type: "eventos") {
+        nodes {
+          id
           fields {
             value
           }
@@ -36,8 +50,17 @@ export default async function EventsSection() {
   `);
 
   const data = await fetchGraphql(query, {});
+  const translatedData = await fetchGraphql(translateQuery, {});
+
   const eventos = data.metaobjects.nodes;
-  const validEventos = eventos.filter(
+  const translatedEventos = translatedData.metaobjects.nodes;
+
+  const mappedEventos = eventos.map((evento, index) => ({
+    ...evento,
+    translatedFields: translatedEventos[index].fields,
+  }));
+
+  const validEventos = mappedEventos.filter(
     (evento) => evento.fields[0].value !== null
   );
 
@@ -59,6 +82,9 @@ export default async function EventsSection() {
                 date={formatDate(evento.fields[0].value)}
                 description={evento.fields[1].value}
                 title={evento.fields[2].value}
+                translatedDate={formatDate(evento.translatedFields[0].value)}
+                translatedDescription={evento.translatedFields[1].value}
+                translatedTitle={evento.translatedFields[2].value}
                 key={index}
               />
             );

@@ -10,6 +10,7 @@ import { AddToCart } from "@/components/cart/add-to-cart";
 import AditionalInfo from "@/components/ProductDetailComponents/AditionalInfo";
 import Placeholder from "@/assets/images/productDetail/bottle.png";
 import RelatedProducts from "@/components/RelatedProducts";
+import ProductDetailDescription from "@/components/ProductDetailComponents/ProductDetailDescription";
 
 export default async function Producto({
   params,
@@ -73,8 +74,20 @@ export default async function Producto({
     }
   `);
 
+  const translateQuery = graphql(`
+    query translatedProduct($handle: String!) @inContext(language: FR) {
+      productByHandle(handle: $handle) {
+        title
+        id
+        description
+      }
+    }
+  `);
+
   const variables = { handle: params.slug };
   const product = await fetchGraphql(query, variables);
+  const translatedProduct = await fetchGraphql(translateQuery, variables);
+
   let awards: string[] = [];
 
   if (product.productByHandle?.metafields[0]?.value) {
@@ -123,9 +136,12 @@ export default async function Producto({
             <h2 className="text-[32px]/[38px] lg:text-[48px]/[58px] text-terciarioPrincipal font-vangeda text-center lg:text-start text-balance">
               {product.productByHandle?.title}
             </h2>
-            <p className="font-bricolage text-balance text-[14px]/[22px] lg:text-[20px]/[25px] font-light text-gris1 max-w-[650px] mx-auto text-center lg:text-start w-full">
-              {product.productByHandle?.description}
-            </p>
+            <ProductDetailDescription
+              description={product.productByHandle?.description}
+              translatedDescription={
+                translatedProduct.productByHandle?.description
+              }
+            />
           </div>
 
           {precio &&
@@ -152,7 +168,6 @@ export default async function Producto({
 
           <div className="flex items-center gap-[25px] justify-center lg:justify-start">
             <Counter stock={stock} />
-
             <Suspense fallback={null}>
               <AddToCart
                 availableForSale={
@@ -164,7 +179,6 @@ export default async function Producto({
                 )}
               />
             </Suspense>
-
             <div className="hidden lg:flex xl:hidden">
               <BotonNoFillLG text="+" link={"#aditionalInfo"} />
             </div>

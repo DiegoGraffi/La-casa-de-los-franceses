@@ -1,16 +1,11 @@
 "use client";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import logo from "@/assets/images/logo.svg";
-import LenguajeIcon from "@/assets/images/navbar/lenguaje.svg";
-import CarritoIcon from "@/assets/images/navbar/carrito.svg";
-import UserIcon from "@/assets/images/navbar/user.svg";
 import FlagsIcon from "@/assets/images/navbar/flags.svg";
 import menu from "@/assets/images/navbar/menu.svg";
 import closeIcon from "@/assets/images/navbar/close.svg";
 import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
-import Cart from "./cart";
 import BotonIdioma from "./TiendaComponents/BotonIdioma";
 import { useState } from "react";
 import OpenCart from "./cart/open-cart";

@@ -1,13 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useAtom } from "jotai";
+import { addItems } from "@/lib/atoms";
+import { useEffect } from "react";
 
 type CounterProps = {
   stock: number | undefined;
 };
 
 export default function Counter({ stock }: CounterProps) {
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useAtom(addItems);
+
   const availableStock = stock ?? 0;
 
   const addOne = () => {

@@ -1,13 +1,12 @@
 "use client";
-import { Plus } from "lucide-react";
 import clsx from "clsx";
 import { addItem } from "../../components/cart/actions";
 import LoadingDots from "../../components/loading-dots";
 import { ProductVariant } from "../../lib/shopify/types";
-import { useSearchParams } from "next/navigation";
 import { useFormState, useFormStatus } from "react-dom";
 import CartIcon from "@/assets/images/productDetail/cartIcon.svg";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 function SubmitButton({
   availableForSale,
@@ -17,13 +16,20 @@ function SubmitButton({
   selectedVariantId?: string | undefined;
 }) {
   const { pending } = useFormStatus();
+
+  const t = useTranslations("Product Card");
+
   const buttonClasses =
     "relative flex w-full items-center justify-center rounded-full bg-terciarioClaro tracking-wide text-primarioMuyClaro bg-primarioSemiOscuro hover:bg-primarioOscuro active:bg-primarioMuyOscuro disabled:bg-primarioClaro focus:border-2 focus:border-[#CB9A60] px-[28px] py-[10px] rounded-full justify-center items-center flex w-max transition-all ease-out duration-100";
   const disabledClasses = "cursor-not-allowed opacity-60 hover:opacity-60";
 
   if (!availableForSale) {
     return (
-      <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
+      <button
+        onClick={(e) => e.preventDefault()}
+        aria-disabled
+        className={clsx(buttonClasses, disabledClasses)}
+      >
         <p className="text-primarioMuyClaro disabled:bg-primarioPrincipal text-[18px] font-semibold leading-[24px] font-bricolage">
           Sin Stock
         </p>
@@ -42,7 +48,7 @@ function SubmitButton({
           <Image src={CartIcon} alt="Cart Icon" className="h-5" />
         </div>
         <p className="text-primarioMuyClaro disabled:bg-primarioPrincipal text-[18px] font-semibold leading-[24px] font-bricolage">
-          Añadir al carrito
+          {t("boton")}
         </p>
       </button>
     );
@@ -68,7 +74,7 @@ function SubmitButton({
         )}
       </div>
       <p className="text-primarioMuyClaro disabled:bg-primarioPrincipal text-[18px] font-semibold leading-[24px] font-bricolage">
-        Añadir al carrito
+        {t("boton")}
       </p>
     </button>
   );

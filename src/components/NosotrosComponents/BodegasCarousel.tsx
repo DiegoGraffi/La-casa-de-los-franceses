@@ -8,10 +8,12 @@ import nextArrow from "@/assets/images/tiendaPage/nextArrowCarousel.svg";
 import mouse from "@/assets/images/local/mouseSemiOscuro.svg";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 type BodegaData = {
   name: string;
   description: string;
+  translatedDescription: string;
   bgImage: string;
   logoImage: string;
 };
@@ -25,6 +27,8 @@ export default function BodegasCarousel({
   bodegasData,
   perView = 4,
 }: CarouselComponentProps) {
+  const locale = usePathname()?.split("/")[1];
+  const isSpanish = locale === "es";
   const [activeSlide, setActiveSlide] = useState<number | null>(null);
   const [hoveredSlide, setHoveredSlide] = useState<number | null>(null);
   const [sliderRef, slider] = useKeenSlider({
@@ -115,13 +119,15 @@ export default function BodegasCarousel({
       </div>
 
       {activeSlide !== null && (
-        <div className="relative w-full p-4 bg-white flex">
-          <div className="z-50 flex flex-col gap-6 p-[50px]">
+        <div className="relative w-full p-4 bg-white flex justify-center items-center">
+          <div className="z-50 flex flex-col gap-6 p-[50px] justify-center items-center">
             <p className="text-center text-white text-[28px]/[34px] font-bricolage font-semibold uppercase">
               {bodegasData[activeSlide].name}
             </p>
             <p className="text-center text-white text-[16px]/[22px] font-bricolage font-light">
-              {bodegasData[activeSlide].description}
+              {isSpanish
+                ? bodegasData[activeSlide].description
+                : bodegasData[activeSlide].translatedDescription}
             </p>
           </div>
           <Image
