@@ -26,6 +26,7 @@ export async function addItem(
     cart = await createCart();
     cartId = cart.id;
     cookies().set("cartId", cartId);
+    console.log("CARTID", cartId);
   }
 
   if (!selectedVariantId) {

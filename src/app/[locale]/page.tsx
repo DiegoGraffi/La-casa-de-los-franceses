@@ -56,7 +56,6 @@ export default async function Home() {
       <Nosotros />
       <Eventos />
       <Marca />
-      {/* <AgeConfirmationModal /> */}
     </div>
   );
 }

@@ -33,10 +33,7 @@ type Products = {
   products: Product[];
 };
 
-export default async function ProductsCarousel({
-  products,
-  title,
-}: Products & any) {
+export default function ProductsCarousel({ products, title }: Products & any) {
   return (
     <div className="w-full max-w-[1600px] mt-[70px] lg:mt-[90px] flex flex-col gap-[50px]">
       <SectionTitle title={title} />

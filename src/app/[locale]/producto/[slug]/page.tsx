@@ -3,7 +3,6 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
 import { fetchGraphql, graphql } from "@/lib/graphql";
-import ImageZoom from "@/components/ProductDetailComponents/ImageZoom";
 import BotonNoFillLG from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillLG";
 import Counter from "@/components/ProductDetailComponents/Counter";
 import { Suspense } from "react";
@@ -110,10 +109,6 @@ export default async function Producto({
     <div className="flex flex-col items-center justify-center overflow-x-hidden gap-[75px] md:gap-[100px] lg:gap-[150px] pt-[100px] lg:pt-[180px]">
       <section className="grid grid-cols-1 auto-rows-auto lg:grid-cols-2 lg:grid-rows-1 max-w-[1600px] px-[20px] lg:px-[100px] xl:px-[200px] gap-[40px] w-screen justify-center mx-auto">
         <div className="flex flex-col-reverse gap-[15px] lg:flex-row">
-          {/* <div className="md:max-w-[500px] md:max-h-[500px] max-w-[300px] mx-auto h-[300px] md:h-[500px] lg:h-full w-full relative aspect-square overflow-hidden justify-center items-center">
-            <ImageZoom imageUrl={imageUrl} />
-          </div> */}
-
           <div className="md:max-w-[400px] md:max-h-[400px] lg:max-w-[500px] lg:max-h-[500px] max-w-[300px] mx-auto h-[300px] md:h-[400px] lg:h-[500px] rounded-[10px] w-full relative aspect-square">
             <Image
               src={imageUrl}

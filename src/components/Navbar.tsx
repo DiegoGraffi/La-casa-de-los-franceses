@@ -34,20 +34,28 @@ export default function Navbar() {
         </div>
         <ul className="hidden lg:flex gap-5 font-light">
           <Link href={`/tienda`} className="group px-[25px] py-[10px]">
-            <p className="uppercase text-secundarioOscuro">{t("item1")}</p>
+            <p className="uppercase text-secundarioOscuro text-center">
+              {t("item1")}
+            </p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
 
           <Link href={`/nosotros`} className="group px-[25px] py-[10px]">
-            <p className="uppercase text-secundarioOscuro">{t("item2")}</p>
+            <p className="uppercase text-secundarioOscuro text-center">
+              {t("item2")}
+            </p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
           <Link href={`/membresia`} className="group px-[25px] py-[10px]">
-            <p className="uppercase text-secundarioOscuro">{t("item3")}</p>
+            <p className="uppercase text-secundarioOscuro text-center">
+              {t("item3")}
+            </p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
           <Link href={`/local`} className="group px-[25px] py-[10px]">
-            <p className="uppercase text-secundarioOscuro">{t("item4")}</p>
+            <p className="uppercase text-secundarioOscuro text-center">
+              {t("item4")}
+            </p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
         </ul>
