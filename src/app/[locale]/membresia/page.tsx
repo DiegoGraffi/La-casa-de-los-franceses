@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import MembresiaCard from "@/components/MembresiaComponents/MembresiaCard";
 import PasosCard from "@/components/MembresiaComponents/PasosCard";
@@ -16,7 +17,14 @@ const query = graphql(`
         nodes {
           title
           description
-
+          availableForSale
+          variants(first: 1){
+            edges{
+              node{
+                id
+              }
+            }
+          }
           priceRange {
             maxVariantPrice {
               amount
@@ -155,6 +163,8 @@ async function Membresia() {
             name={products[3].title}
             description={products[3].description}
             precio={products[3].priceRange.maxVariantPrice.amount}
+            availableForSale={products[3].availableForSale}
+            variants={products[3].variants.edges.map(edge => edge.node.id)}
             translatedDescription={translateMembership[0].description}
           />
           <MembresiaCard
@@ -162,6 +172,8 @@ async function Membresia() {
             name={products[2].title}
             description={products[2].description}
             precio={products[2].priceRange.maxVariantPrice.amount}
+            availableForSale={products[2].availableForSale}
+            variants={products[2].variants.edges.map(edge => edge.node.id)}
             translatedDescription={translateMembership[1].description}
           />
           <MembresiaCard
@@ -169,6 +181,8 @@ async function Membresia() {
             name={products[1].title}
             description={products[1].description}
             precio={products[1].priceRange.maxVariantPrice.amount}
+            availableForSale={products[1].availableForSale}
+            variants={products[1].variants.edges.map(edge => edge.node.id)}
             translatedDescription={translateMembership[2].description}
           />
           <MembresiaCard
@@ -176,6 +190,8 @@ async function Membresia() {
             name={products[0].title}
             description={products[0].description}
             precio={products[0].priceRange.maxVariantPrice.amount}
+            availableForSale={products[0].availableForSale}
+            variants={products[0].variants.edges.map(edge => edge.node.id)}
             translatedDescription={translateMembership[3].description}
           />
         </div>

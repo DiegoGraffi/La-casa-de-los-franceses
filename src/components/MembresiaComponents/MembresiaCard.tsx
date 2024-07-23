@@ -6,6 +6,9 @@ import Separator from "@/assets/images/membresiaPage/separador.svg";
 import { usePathname } from "next/navigation";
 import FastAddToCartButtonMD from "../GeneralComponents/BotonesAddToCart/FastAddToCartButtonMD";
 import FastAddToCartButtonXS from "../GeneralComponents/BotonesAddToCart/FastAddToCartButtonXS";
+import { useAtom } from "jotai";
+import { checkoutUrlAtom } from "@/lib/atoms";
+
 
 type MembresiaCardProps = {
   image?: string;
@@ -14,8 +17,7 @@ type MembresiaCardProps = {
   translatedDescription?: string;
   precio: string;
   availableForSale: boolean;
-  checkoutUrl: string;
-  onAddToCartClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  variants: any;
 };
 
 function MembresiaCard({
@@ -25,16 +27,16 @@ function MembresiaCard({
   translatedDescription,
   precio,
   availableForSale,
-  checkoutUrl,
-  onAddToCartClick,
+  variants,
 }: MembresiaCardProps) {
   const locale = usePathname()?.split("/")[1];
   const isSpanish = locale === "es";
-
+  const [checkoutUrl] = useAtom(checkoutUrlAtom);
   const handleComprarAhora = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+    e.stopPropagation();  
+    e.preventDefault();   
     if (checkoutUrl) {
-      window.location.href = checkoutUrl;
+      window.location.href = checkoutUrl;  
     }
   };
 
@@ -66,20 +68,24 @@ function MembresiaCard({
             <span className="font-light text-[24px] text-gris3">/mes</span>
           </p>
           <div className="hidden lg:block">
+          <a href={checkoutUrl}>
             <FastAddToCartButtonMD
               availableForSale={availableForSale}
               variants={[]} 
-              onAddToCartClick={onAddToCartClick}
               onClick={handleComprarAhora} 
+              
             />
+            </a>
           </div>
           <div className="block lg:hidden">
+            <a href={checkoutUrl}>
             <FastAddToCartButtonXS
               availableForSale={availableForSale}
               variants={[]} 
-              onAddToCartClick={onAddToCartClick}
               onClick={handleComprarAhora} 
             />
+            </a>
+            
           </div>
         </div>
       </div>

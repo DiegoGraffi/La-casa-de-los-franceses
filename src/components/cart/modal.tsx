@@ -7,22 +7,26 @@ import { DEFAULT_OPTION } from "@/lib/constants";
 import type { Cart } from "@/lib/shopify/types";
 import { createUrl } from "@/lib/utils";
 import Image from "next/image";
-
 import { Fragment, useEffect, useRef } from "react";
 import CloseCart from "./close-cart";
 import { DeleteItemButton } from "./delete-item-button";
 import { EditItemQuantityButton } from "./edit-item-quantity-button";
 import { Link } from "@/navigation";
 import { useAtom } from "jotai";
-import { cartAtom, cartItemsQuantityAtom } from "@/lib/atoms";
+import { cartAtom, cartItemsQuantityAtom, checkoutUrlAtom } from "@/lib/atoms";
 
 type MerchandiseSearchParams = {
   [key: string]: string;
 };
 
-export default function CartModal({ cart }: { cart: Cart | undefined }) {
+type CartModalProps = {
+  cart: Cart | undefined;
+};
+
+export default function CartModal({ cart }: CartModalProps) {
   const [isOpen, setIsOpen] = useAtom(cartAtom);
   const [quantity, setQuantity] = useAtom(cartItemsQuantityAtom);
+  const [, setCheckoutUrl] = useAtom(checkoutUrlAtom);
   const quantityRef = useRef(cart?.totalQuantity);
   const closeCart = () => setIsOpen(false);
 
@@ -45,6 +49,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
   useEffect(() => {
     if (cart) {
       setQuantity(cart.totalQuantity);
+      setCheckoutUrl(cart.checkoutUrl); 
     }
   }, [cart?.totalQuantity]);
 
@@ -194,7 +199,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                       </div>
                     </div>
                     <div className="flex flex-col justify-center items-center gap-3 flex-1">
-                      <a
+                    <a
                         href={cart.checkoutUrl}
                         className="block rounded-full bg-terciarioClaro px-[28px] py-[10px] text-center text-[20px]/[25px] font-bricolage text-primarioMuyClaro font-semibold  hover:bg-primarioOscuro active:bg-primarioMuyOscuro disabled:bg-primarioClaro focus:border-2 focus:border-[#CB9A60]"
                       >
