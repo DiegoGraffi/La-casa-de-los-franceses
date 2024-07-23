@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
-import BotonLG from "../GeneralComponents/Botones/BotonLG";
 import Image from "next/image";
 import Separator from "@/assets/images/membresiaPage/separador.svg";
 import { usePathname } from "next/navigation";
+import FastAddToCartButtonMD from "../GeneralComponents/BotonesAddToCart/FastAddToCartButtonMD";
+import FastAddToCartButtonXS from "../GeneralComponents/BotonesAddToCart/FastAddToCartButtonXS";
 
 type MembresiaCardProps = {
   image?: string;
@@ -12,6 +13,9 @@ type MembresiaCardProps = {
   description: string;
   translatedDescription?: string;
   precio: string;
+  availableForSale: boolean;
+  checkoutUrl: string;
+  onAddToCartClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 function MembresiaCard({
@@ -20,9 +24,19 @@ function MembresiaCard({
   description,
   translatedDescription,
   precio,
+  availableForSale,
+  checkoutUrl,
+  onAddToCartClick,
 }: MembresiaCardProps) {
   const locale = usePathname()?.split("/")[1];
   const isSpanish = locale === "es";
+
+  const handleComprarAhora = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (checkoutUrl) {
+      window.location.href = checkoutUrl;
+    }
+  };
 
   return (
     <div className="flex flex-col items-center hover:bg-gris6 rounded-tl-3xl rounded-br-3xl flex-1 p-[15px] lg:p-[25px] w-full max-w-[350px] h-auto">
@@ -51,7 +65,22 @@ function MembresiaCard({
             ${precio}
             <span className="font-light text-[24px] text-gris3">/mes</span>
           </p>
-          <BotonLG text="Comprar ahora" link="#" />
+          <div className="hidden lg:block">
+            <FastAddToCartButtonMD
+              availableForSale={availableForSale}
+              variants={[]} 
+              onAddToCartClick={onAddToCartClick}
+              onClick={handleComprarAhora} 
+            />
+          </div>
+          <div className="block lg:hidden">
+            <FastAddToCartButtonXS
+              availableForSale={availableForSale}
+              variants={[]} 
+              onAddToCartClick={onAddToCartClick}
+              onClick={handleComprarAhora} 
+            />
+          </div>
         </div>
       </div>
     </div>

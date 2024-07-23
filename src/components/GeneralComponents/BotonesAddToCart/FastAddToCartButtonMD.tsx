@@ -33,6 +33,7 @@ export function FastAddToCart({
   variants?: ProductVariant[];
   availableForSale: boolean | undefined;
   onAddToCartClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   const [message, formAction] = useFormState(addItem, null);
   const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
