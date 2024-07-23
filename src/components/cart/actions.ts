@@ -13,7 +13,10 @@ import { cookies } from "next/headers";
 
 export async function addItem(
   prevState: any,
-  selectedVariantId: string | undefined
+  options: {
+    selectedVariantId: string | undefined;
+    quantity: number;
+  }
 ) {
   let cartId = cookies().get("cartId")?.value;
   let cart;
@@ -29,13 +32,13 @@ export async function addItem(
     console.log("CARTID", cartId);
   }
 
-  if (!selectedVariantId) {
+  if (!options.selectedVariantId) {
     return "Missing product variant ID";
   }
 
   try {
     await addToCart(cartId, [
-      { merchandiseId: selectedVariantId, quantity: 1 },
+      { merchandiseId: options.selectedVariantId, quantity: options.quantity },
     ]);
     revalidateTag(TAGS.cart);
   } catch (e) {

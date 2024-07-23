@@ -7,6 +7,8 @@ import { useFormState, useFormStatus } from "react-dom";
 import CartIcon from "@/assets/images/productDetail/cartIcon.svg";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Counter from "../ProductDetailComponents/Counter";
+import { useState } from "react";
 
 function SubmitButton({
   availableForSale,
@@ -83,24 +85,33 @@ function SubmitButton({
 export function AddToCart({
   variants = [],
   availableForSale,
+  stock,
 }: {
   variants?: ProductVariant[];
   availableForSale: boolean | undefined;
+  stock: number;
 }) {
+  const [quantity, setQuantity] = useState(1);
   const [message, formAction] = useFormState(addItem, null);
   const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
   const selectedVariantId = defaultVariantId;
-  const actionWithVariant = formAction.bind(null, selectedVariantId);
+  const actionWithVariant = formAction.bind(null, {
+    selectedVariantId,
+    quantity,
+  });
 
   return (
-    <form action={actionWithVariant}>
-      <SubmitButton
-        availableForSale={availableForSale}
-        selectedVariantId={selectedVariantId}
-      />
-      <p aria-live="polite" className="sr-only" role="status">
-        {message}
-      </p>
-    </form>
+    <>
+      <Counter stock={stock} quantity={quantity} setQuantity={setQuantity} />
+      <form action={actionWithVariant}>
+        <SubmitButton
+          availableForSale={availableForSale}
+          selectedVariantId={selectedVariantId}
+        />
+        <p aria-live="polite" className="sr-only" role="status">
+          {message}
+        </p>
+      </form>
+    </>
   );
 }

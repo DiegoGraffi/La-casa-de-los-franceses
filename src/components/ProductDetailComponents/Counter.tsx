@@ -6,22 +6,26 @@ import { useEffect } from "react";
 
 type CounterProps = {
   stock: number | undefined;
+  quantity: number;
+  setQuantity: (v: number) => void;
 };
 
-export default function Counter({ stock }: CounterProps) {
-  const [amount, setAmount] = useAtom(addItems);
-
+export default function Counter({
+  stock,
+  quantity,
+  setQuantity,
+}: CounterProps) {
   const availableStock = stock ?? 0;
 
   const addOne = () => {
-    if (amount < availableStock) {
-      setAmount(amount + 1);
+    if (quantity < availableStock) {
+      setQuantity(quantity + 1);
     }
   };
 
   const removeOne = () => {
-    if (amount > 1) {
-      setAmount(amount - 1);
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
     }
   };
 
@@ -36,7 +40,7 @@ export default function Counter({ stock }: CounterProps) {
 
       <div className="px-[15px] py-[5px] bg-gris6 flex justify-center items-center w-[50px]">
         <p className="text-[24px]/[28px] text-gris2 font-bricolage font-semibold">
-          {amount}
+          {quantity}
         </p>
       </div>
 

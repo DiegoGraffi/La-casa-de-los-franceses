@@ -4,7 +4,6 @@ import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import BotonNoFillLG from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillLG";
-import Counter from "@/components/ProductDetailComponents/Counter";
 import { Suspense } from "react";
 import { AddToCart } from "@/components/cart/add-to-cart";
 import AditionalInfo from "@/components/ProductDetailComponents/AditionalInfo";
@@ -167,9 +166,9 @@ export default async function Producto({
           )}
 
           <div className="flex items-center gap-[25px] justify-center lg:justify-start">
-            <Counter stock={stock} />
             <Suspense fallback={null}>
               <AddToCart
+                stock={stock}
                 availableForSale={
                   product.productByHandle?.variants.edges[0].node
                     .availableForSale
