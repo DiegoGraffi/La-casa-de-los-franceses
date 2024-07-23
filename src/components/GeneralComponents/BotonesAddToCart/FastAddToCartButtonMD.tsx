@@ -12,15 +12,10 @@ import CartIcon from "../CartIcon";
 export default function FastAddToCartButtonMD({
   availableForSale,
   variants,
-  onAddToCartClick,
 }: any) {
   return (
     <Suspense fallback={null}>
-      <FastAddToCart
-        availableForSale={availableForSale}
-        variants={variants}
-        onAddToCartClick={onAddToCartClick}
-      />
+      <FastAddToCart availableForSale={availableForSale} variants={variants} />
     </Suspense>
   );
 }
@@ -28,24 +23,23 @@ export default function FastAddToCartButtonMD({
 export function FastAddToCart({
   variants = [],
   availableForSale,
-  onAddToCartClick,
 }: {
   variants?: ProductVariant[];
   availableForSale: boolean | undefined;
-  onAddToCartClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   const [message, formAction] = useFormState(addItem, null);
   const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
   const selectedVariantId = defaultVariantId;
-  const actionWithVariant = formAction.bind(null, selectedVariantId);
+  const actionWithVariant = formAction.bind(null, {
+    selectedVariantId,
+    quantity: 1,
+  });
 
   return (
     <form action={actionWithVariant}>
       <FastSubmitButtonMD
         availableForSale={availableForSale}
         selectedVariantId={selectedVariantId}
-        onAddToCartClick={onAddToCartClick}
       />
       <p aria-live="polite" className="sr-only" role="status">
         {message}
@@ -57,11 +51,9 @@ export function FastAddToCart({
 function FastSubmitButtonMD({
   availableForSale,
   selectedVariantId,
-  onAddToCartClick,
 }: {
   availableForSale: boolean | undefined;
   selectedVariantId?: string | undefined;
-  onAddToCartClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   const [hover, setHover] = useState(false);
   const [active, setActive] = useState(false);
@@ -93,7 +85,6 @@ function FastSubmitButtonMD({
         aria-label="Please select an option"
         aria-disabled
         className={clsx(buttonClasses, disabledClasses)}
-        onClick={onAddToCartClick}
       >
         <div className="mr-[5px]">
           <CartIcon
@@ -115,7 +106,6 @@ function FastSubmitButtonMD({
       onMouseUp={() => setActive(false)}
       onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
         if (pending) e.preventDefault();
-        onAddToCartClick(e);
       }}
       aria-label="Add to cart"
       aria-disabled={pending}

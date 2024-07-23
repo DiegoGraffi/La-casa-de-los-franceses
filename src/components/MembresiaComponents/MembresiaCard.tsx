@@ -8,7 +8,7 @@ import FastAddToCartButtonMD from "../GeneralComponents/BotonesAddToCart/FastAdd
 import FastAddToCartButtonXS from "../GeneralComponents/BotonesAddToCart/FastAddToCartButtonXS";
 import { useAtom } from "jotai";
 import { checkoutUrlAtom } from "@/lib/atoms";
-
+import FastAddToCartButtonMembershipMD from "./BotonesAddToCartMembresia/FastAddToCartButtonMembershipMD";
 
 type MembresiaCardProps = {
   image?: string;
@@ -33,10 +33,10 @@ function MembresiaCard({
   const isSpanish = locale === "es";
   const [checkoutUrl] = useAtom(checkoutUrlAtom);
   const handleComprarAhora = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();  
-    e.preventDefault();   
+    e.stopPropagation();
+    e.preventDefault();
     if (checkoutUrl) {
-      window.location.href = checkoutUrl;  
+      window.location.href = checkoutUrl;
     }
   };
 
@@ -68,24 +68,22 @@ function MembresiaCard({
             <span className="font-light text-[24px] text-gris3">/mes</span>
           </p>
           <div className="hidden lg:block">
-          <a href={checkoutUrl}>
-            <FastAddToCartButtonMD
-              availableForSale={availableForSale}
-              variants={[]} 
-              onClick={handleComprarAhora} 
-              
-            />
+            <a href={checkoutUrl}>
+              <FastAddToCartButtonMembershipMD
+                availableForSale={availableForSale}
+                variants={variants}
+                onClick={handleComprarAhora}
+              />
             </a>
           </div>
           <div className="block lg:hidden">
             <a href={checkoutUrl}>
-            <FastAddToCartButtonXS
-              availableForSale={availableForSale}
-              variants={[]} 
-              onClick={handleComprarAhora} 
-            />
+              <FastAddToCartButtonMembershipMD
+                availableForSale={availableForSale}
+                variants={variants}
+                onClick={handleComprarAhora}
+              />
             </a>
-            
           </div>
         </div>
       </div>
