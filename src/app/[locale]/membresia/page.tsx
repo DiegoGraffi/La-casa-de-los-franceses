@@ -3,6 +3,7 @@ import MembresiaCard from "@/components/MembresiaComponents/MembresiaCard";
 import PasosCard from "@/components/MembresiaComponents/PasosCard";
 import SectionTitle from "@/components/SectionTitle";
 import portada from "@/assets/images/membresiaPage/sillas.jpg";
+import portadaMembresia from "@/assets/images/membresiaPage/portadaMembresia.png";
 import { fetchGraphql, graphql } from "@/lib/graphql";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
@@ -73,7 +74,7 @@ async function Membresia() {
         <div className="w-full h-full absolute z-20 bg-[#492415] opacity-70"></div>
         <div className="w-full h-full relative">
           <Image
-            src="/images/membresiaPage/portadaMembresia.png"
+            src={portadaMembresia}
             alt="portada"
             fill
             className="object-cover"
