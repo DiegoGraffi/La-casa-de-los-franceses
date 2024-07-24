@@ -12,10 +12,15 @@ import CartIcon from "../CartIcon";
 export default function FastAddToCartButtonMD({
   availableForSale,
   variants,
+  onAddToCartClick,
 }: any) {
   return (
     <Suspense fallback={null}>
-      <FastAddToCart availableForSale={availableForSale} variants={variants} />
+      <FastAddToCart
+        availableForSale={availableForSale}
+        variants={variants}
+        onAddToCartClick={onAddToCartClick}
+      />
     </Suspense>
   );
 }
@@ -23,9 +28,11 @@ export default function FastAddToCartButtonMD({
 export function FastAddToCart({
   variants = [],
   availableForSale,
+  onAddToCartClick,
 }: {
   variants?: ProductVariant[];
   availableForSale: boolean | undefined;
+  onAddToCartClick: any;
 }) {
   const [message, formAction] = useFormState(addItem, null);
   const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
@@ -40,6 +47,7 @@ export function FastAddToCart({
       <FastSubmitButtonMD
         availableForSale={availableForSale}
         selectedVariantId={selectedVariantId}
+        onAddToCartClick={onAddToCartClick}
       />
       <p aria-live="polite" className="sr-only" role="status">
         {message}
@@ -51,9 +59,11 @@ export function FastAddToCart({
 function FastSubmitButtonMD({
   availableForSale,
   selectedVariantId,
+  onAddToCartClick,
 }: {
   availableForSale: boolean | undefined;
   selectedVariantId?: string | undefined;
+  onAddToCartClick: any;
 }) {
   const [hover, setHover] = useState(false);
   const [active, setActive] = useState(false);
@@ -104,9 +114,7 @@ function FastSubmitButtonMD({
       onMouseLeave={() => setHover(false)}
       onMouseDown={() => setActive(true)}
       onMouseUp={() => setActive(false)}
-      onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-        if (pending) e.preventDefault();
-      }}
+      onClick={onAddToCartClick}
       aria-label="Add to cart"
       aria-disabled={pending}
       className={clsx(buttonClasses, {

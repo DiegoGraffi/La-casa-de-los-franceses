@@ -31,7 +31,6 @@ export function FastAddToCartMembership({
   variants?: ProductVariant[];
   availableForSale: boolean | undefined;
   onAddToCartClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   const [message, formAction] = useFormState(addItem, null);
   const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
@@ -120,18 +119,13 @@ function FastSubmitButtonMD({
         [disabledClasses]: pending,
       })}
     >
-      <div className="mr-[5px]">
-        {pending ? (
-          <LoadingDots className="mb-3 bg-primarioClaro" />
-        ) : (
-          <CartIcon
-            color={active ? "#BE9065" : hover ? "#F3EDC8" : "#BE9065"}
-          />
-        )}
-      </div>
-      <p className="text-primarioOscuro group-hover:text-primarioClaro group-disabled:text-primarioClaro group-active:text-primarioOscuro group-focus:text-primarioOscuro text-[14px] font-bricolage font-semibold leading-[22px] transition-all ease-out duration-300">
-        {t("boton")}
-      </p>
+      {pending ? (
+        <LoadingDots className="mb-3 bg-primarioClaro z-50" />
+      ) : (
+        <p className="text-primarioOscuro group-hover:text-primarioClaro group-disabled:text-primarioClaro group-active:text-primarioOscuro group-focus:text-primarioOscuro text-[14px] font-bricolage font-semibold leading-[22px] transition-all ease-out duration-300">
+          {t("boton")}
+        </p>
+      )}
     </button>
   );
 }

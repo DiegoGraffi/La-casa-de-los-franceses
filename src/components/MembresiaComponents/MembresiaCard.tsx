@@ -31,6 +31,7 @@ function MembresiaCard({
 }: MembresiaCardProps) {
   const locale = usePathname()?.split("/")[1];
   const isSpanish = locale === "es";
+
   const [checkoutUrl] = useAtom(checkoutUrlAtom);
   const handleComprarAhora = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -72,7 +73,7 @@ function MembresiaCard({
               <FastAddToCartButtonMembershipMD
                 availableForSale={availableForSale}
                 variants={variants}
-                onClick={handleComprarAhora}
+                onAddToCartClick={handleComprarAhora}
               />
             </a>
           </div>
@@ -81,7 +82,7 @@ function MembresiaCard({
               <FastAddToCartButtonMembershipMD
                 availableForSale={availableForSale}
                 variants={variants}
-                onClick={handleComprarAhora}
+                onAddToCartClick={handleComprarAhora}
               />
             </a>
           </div>
