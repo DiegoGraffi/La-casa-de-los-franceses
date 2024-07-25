@@ -1,20 +1,22 @@
 "use client";
 
-import InnerImageZoom from "react-inner-image-zoom";
+import ImageZoom from "react-image-zooom";
 
-type ImageZoomProps = {
-  imageUrl: string;
-};
+interface Props {
+  image: string;
+}
 
-export default function ImageZoom({ imageUrl }: ImageZoomProps) {
+export default function ImageZoomComponent({ image }: Props) {
   return (
-    <InnerImageZoom
-      src={imageUrl}
-      zoomSrc={imageUrl}
-      zoomType="hover"
-      zoomPreload={true}
-      zoomScale={2}
-      className="border w-full h-full flex justify-center items-center"
-    />
+    <div className="group border flex justify-center h-full relative p-2">
+      <ImageZoom
+        src={image}
+        alt="A image to apply the ImageZoom plugin"
+        width="100%"
+        height="100%"
+        zoom="150"
+        className=" group-hover:aspect-square "
+      />
+    </div>
   );
 }

@@ -10,6 +10,8 @@ import AditionalInfo from "@/components/ProductDetailComponents/AditionalInfo";
 import Placeholder from "@/assets/images/productDetail/bottle.png";
 import RelatedProducts from "@/components/RelatedProducts";
 import ProductDetailDescription from "@/components/ProductDetailComponents/ProductDetailDescription";
+// import ImageZoomComponent from "@/components/ProductDetailComponents/ImageZoom";
+import ReactImageZoom from "@/components/ReactImageZoom";
 
 export default async function Producto({
   params,
@@ -121,13 +123,25 @@ export default async function Producto({
     <div className="flex flex-col items-center justify-center overflow-x-hidden gap-[75px] md:gap-[100px] lg:gap-[150px] pt-[100px] lg:pt-[180px]">
       <section className="grid grid-cols-1 auto-rows-auto lg:grid-cols-2 lg:grid-rows-1 max-w-[1600px] px-[20px] lg:px-[100px] xl:px-[200px] gap-[40px] w-screen justify-center mx-auto">
         <div className="flex flex-col-reverse gap-[15px] lg:flex-row">
-          <div className="md:max-w-[400px] md:max-h-[400px] lg:max-w-[500px] lg:max-h-[500px] max-w-[300px] mx-auto h-[300px] md:h-[400px] lg:h-[500px] rounded-[10px] w-full relative aspect-square">
+          <div className="md:max-w-[400px] md:max-h-[400px] lg:max-w-[500px] lg:max-h-[500px] max-w-[300px] mx-auto h-[300px] md:h-[400px] lg:h-[500px] rounded-[10px] w-full aspect-square relative">
             <Image
               src={imageUrl}
               alt="vino"
               fill
-              className="object-contain aspect-square rounded-md"
+              className="object-contain aspect-square rounded-md lg:hidden"
             />
+            <div className="hidden hover:border lg:flex justify-center h-full relative rounded-[18px] overflow-hidden transition-all ease-in-out duration-150">
+              <ReactImageZoom
+                src={imageUrl}
+                zoom="200"
+                alt="imagen"
+                height="100%"
+                width="auto"
+                className="object-contain relative hover:aspect-square w-full h-full p-2"
+                id={1}
+                onError={null}
+              />
+            </div>
           </div>
         </div>
         <div className="flex flex-col gap-[20px]">

@@ -50,7 +50,7 @@ export default function CartModal({ cart }: CartModalProps) {
   useEffect(() => {
     if (cart) {
       setQuantity(cart.totalQuantity);
-      setCheckoutUrl(cart.checkoutUrl); 
+      setCheckoutUrl(cart.checkoutUrl);
     }
   }, [cart?.totalQuantity]);
 
@@ -201,7 +201,7 @@ export default function CartModal({ cart }: CartModalProps) {
                       </div>
                     </div>
                     <div className="flex flex-col justify-center items-center gap-3 flex-1">
-                    <a
+                      <a
                         href={cart.checkoutUrl}
                         className="block rounded-full bg-terciarioClaro px-[28px] py-[10px] text-center text-[20px]/[25px] font-bricolage text-primarioMuyClaro font-semibold  hover:bg-primarioOscuro active:bg-primarioMuyOscuro disabled:bg-primarioClaro focus:border-2 focus:border-[#CB9A60]"
                       >
