@@ -66,7 +66,7 @@ export default function AccordionComponent({
             hidden={true}
           >
             <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
-              Tipo de Vino
+              {t("filtro5")}
             </p>
             <Image
               src={arrow}
