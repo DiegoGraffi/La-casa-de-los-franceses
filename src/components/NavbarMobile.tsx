@@ -27,14 +27,14 @@ export function NavbarMobile() {
       </div>
 
       <div
-        className={`w-full h-[100vh] z-[500] flex flex-col bg-white left-0 top-0 fixed -translate-y-[100%] transition-all ease-in-out duration-500 ${
-          menuAbierto && "translate-y-0"
+        className={`w-full h-full z-[500] flex flex-col bg-white overflow-y-scroll fixed top-0 left-0 transition-transform duration-500 ease-in-out ${
+          menuAbierto ? "translate-y-0" : "-translate-y-[200%]"
         }`}
       >
-        <div className="w-full p-[25px] flex justify-end">
-          <Image src={FlagsIcon} alt="banderas icono" />
-        </div>
-        <div className="w-full flex flex-col items-center gap-[25px]">
+        <div className="w-full flex flex-col items-center gap-[10px] min-h-[100vh] relative">
+          <div className="w-full p-[25px] flex justify-end">
+            <Image src={FlagsIcon} alt="banderas icono" />
+          </div>
           <div className="py-[15px]">
             <Image
               src={closeIcon}
@@ -49,39 +49,19 @@ export function NavbarMobile() {
               </div>
             </Link>
           </div>
-          <ul className="flex flex-col gap-[25px] items-center">
-            <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro"></li>
-            <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-              <Link href={`/tienda`} onClick={() => setMenuAbierto(false)}>
-                <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
-                  {t("item1")}
-                </p>
-              </Link>
-            </li>
-
-            <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-              <Link href={`/nosotros`} onClick={() => setMenuAbierto(false)}>
-                <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
-                  {t("item2")}
-                </p>
-              </Link>
-            </li>
-
-            <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-              <Link href={`/membresia`} onClick={() => setMenuAbierto(false)}>
-                <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
-                  {t("item3")}
-                </p>
-              </Link>
-            </li>
-
-            <li className="w-min px-[25px] py-[15px] border-b border-b-secundarioOscuro">
-              <Link href={`/local`} onClick={() => setMenuAbierto(false)}>
-                <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
-                  {t("item4")}
-                </p>
-              </Link>
-            </li>
+          <ul className="flex flex-col items-center lg:hidden">
+            {["tienda", "nosotros", "membresia", "local"].map((item, index) => (
+              <li
+                key={index}
+                className="w-min px-[25px] py-[25px] border-b border-b-secundarioOscuro last:mb-[25px]"
+              >
+                <Link href={`/${item}`} onClick={() => setMenuAbierto(false)}>
+                  <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
+                    {t(`item${index + 1}`)}
+                  </p>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

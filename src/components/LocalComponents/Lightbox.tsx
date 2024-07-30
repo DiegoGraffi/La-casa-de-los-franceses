@@ -25,10 +25,10 @@ export default function LightBox({ photos }: PhotoListProps) {
   return (
     <div className="w-screen h-auto">
       <div className="flex max-w-[1600px] mx-auto space-x-3 overflow-x-scroll scrollbar-hide cursor-grab relative h-auto">
-        <div className="h-full hidden lg:flex w-[300px] bg-gradient-to-r from-white to-transparent absolute z-50 touch-disabled left-0"></div>
-        <div className="h-full hidden lg:flex w-[300px] bg-gradient-to-l from-white to-transparent absolute top-0 right-0 z-50 touch-disabled"></div>
+        <div className="h-full hidden lg:flex w-[150px] bg-gradient-to-r from-white from-15% to-transparent absolute z-50 touch-disabled left-0"></div>
+        <div className="h-full hidden lg:flex w-[150px] bg-gradient-to-l from-white from-15% to-transparent absolute top-0 right-0 z-50 touch-disabled"></div>
         <ScrollContainer>
-          <div className="w-max flex flex-col gap-[10px] left-0">
+          <div className="w-max flex flex-col gap-[10px] left-0 px-[100px]">
             <div className="flex gap-[10px] w-full">
               {firstRow.map((photo, index) => {
                 return (

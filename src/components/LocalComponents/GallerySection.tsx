@@ -46,7 +46,6 @@ export default async function GallerySection() {
         </p>
         <FlechaAbajo />
       </div>
-
       <LightBox photos={photos} />
       <div className="flex flex-col gap-[10px] justify-center">
         <div className="flex items-center w-[80px] mx-auto">

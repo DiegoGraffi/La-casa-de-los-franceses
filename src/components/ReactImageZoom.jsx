@@ -185,7 +185,6 @@ export default function ReactImageZoom({
 
           backgroundPosition: position,
         }}
-        onClick={handleClick}
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
         onMouseEnter={handleClick}

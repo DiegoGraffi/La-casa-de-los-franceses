@@ -60,7 +60,7 @@ export default function BodegasCarousel({
         />
         <div
           className={`bg-black w-full h-full z-10 transition-opacity duration-300 ${
-            hoveredSlide === index ? "opacity-20" : "opacity-40"
+            hoveredSlide === index ? "opacity-10" : "opacity-30"
           }`}
         ></div>
         <Image
@@ -134,7 +134,7 @@ export default function BodegasCarousel({
             src={bodegasData[activeSlide].bgImage}
             alt={`fondo ${bodegasData[activeSlide].name}`}
             fill
-            className="object-cover z-0 brightness-50"
+            className="object-cover z-0 brightness-[.25]"
           />
         </div>
       )}

@@ -10,8 +10,8 @@ import AditionalInfo from "@/components/ProductDetailComponents/AditionalInfo";
 import Placeholder from "@/assets/images/productDetail/bottle.png";
 import RelatedProducts from "@/components/RelatedProducts";
 import ProductDetailDescription from "@/components/ProductDetailComponents/ProductDetailDescription";
-// import ImageZoomComponent from "@/components/ProductDetailComponents/ImageZoom";
 import ReactImageZoom from "@/components/ReactImageZoom";
+import { handlePrice } from "@/lib/functions";
 
 export default async function Producto({
   params,
@@ -117,6 +117,10 @@ export default async function Producto({
   const currencyCode =
     product.productByHandle?.priceRange.maxVariantPrice.currencyCode;
 
+  const { integerPart: discountInteger, decimalPart: discountDecimal } =
+    handlePrice(precioDescuento ?? 0);
+  const { integerPart, decimalPart } = handlePrice(precio ?? 0);
+
   const productId = product.productByHandle?.id;
 
   return (
@@ -130,11 +134,11 @@ export default async function Producto({
               fill
               className="object-contain aspect-square rounded-md lg:hidden"
             />
-            <div className="hidden hover:border lg:flex justify-center h-full relative rounded-[18px] overflow-hidden transition-all ease-in-out duration-150">
+            <div className="hidden hover:border lg:flex justify-center h-full relative rounded-[18px] overflow-hidden transition-all ease-in-out duration-150 scale-100 hover:scale-110 ">
               <ReactImageZoom
                 src={imageUrl}
                 zoom="200"
-                alt="imagen"
+                alt={product.productByHandle?.title}
                 height="100%"
                 width="auto"
                 className="object-contain relative hover:aspect-square w-full h-full p-2"
@@ -162,19 +166,33 @@ export default async function Producto({
           parseInt(precio) > parseInt(precioDescuento) ? (
             <div className="flex items-center gap-5">
               <div className="flex gap-2 items-center">
-                <p className="lg:text-[55px]/[62px] text-[28px]/[34px] text-terciarioClaro font-vangeda">
-                  {precioDescuento} {currencyCode}
+                <p className="lg:text-[55px]/[62px] text-[28px]/[34px] text-terciarioClaro font-vangeda flex flex-row items-start">
+                  <span className="lg:text-[55px]/[62px] text-[38px]/[42px]">
+                    {discountInteger}
+                  </span>
+                  <span className="lg:text-[24px]/[31px] text-[18px]/[22px]">
+                    {discountDecimal} €
+                  </span>
                 </p>
-                <p className="text-[16px]/[15px] lg:text-[26px]/[34px] font-vangeda text-gris2 line-through">
-                  {precio}
-                  {currencyCode}
+                <p className="lg:text-[55px]/[62px] text-[28px]/[34px] font-vangeda text-gris2 line-through flex flex-row items-start opacity-50">
+                  <span className="lg:text-[55px]/[62px] text-[38px]/[42px]">
+                    {integerPart}
+                  </span>
+                  <span className="lg:text-[24px]/[31px] text-[18px]/[22px]">
+                    {decimalPart} €
+                  </span>
                 </p>
               </div>
             </div>
           ) : (
             <div className="flex items-center gap-[10px] justify-center lg:justify-start">
-              <p className="lg:text-[55px]/[62px] text-[28px]/[34px] text-terciarioClaro font-vangeda">
-                {currencyCode} {precioDescuento}
+              <p className="lg:text-[55px]/[62px] text-[28px]/[34px] text-terciarioClaro font-vangeda flex flex-row items-start">
+                <span className="lg:text-[55px]/[62px] text-[38px]/[42px]">
+                  {discountInteger}
+                </span>
+                <span className="lg:text-[24px]/[31px] text-[18px]/[22px]">
+                  {discountDecimal} €
+                </span>
               </p>
             </div>
           )}
