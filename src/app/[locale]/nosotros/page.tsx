@@ -165,7 +165,7 @@ export default async function NosotrosPage() {
           </div>
           <div className="w-[50%] absolute h-full left-0 flex justify-center items-center group-hover:opacity-0 transition-all ease-in-out duration-300 ">
             <p className="text-[40px]/[39px] xl:text-[55px]/[62px] font-vangeda text-terciarioPrincipal">
-              {t("carouselTitle")}
+              {t("equipoTitle")}
             </p>
           </div>
 
