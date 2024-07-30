@@ -10,6 +10,8 @@ import AditionalInfo from "@/components/ProductDetailComponents/AditionalInfo";
 import Placeholder from "@/assets/images/productDetail/bottle.png";
 import RelatedProducts from "@/components/RelatedProducts";
 import ProductDetailDescription from "@/components/ProductDetailComponents/ProductDetailDescription";
+import ReactImageZoom from "@/components/ReactImageZoom";
+import { handlePrice } from "@/lib/functions";
 
 export default async function Producto({
   params,
@@ -115,19 +117,35 @@ export default async function Producto({
   const currencyCode =
     product.productByHandle?.priceRange.maxVariantPrice.currencyCode;
 
+  const { integerPart: discountInteger, decimalPart: discountDecimal } =
+    handlePrice(precioDescuento ?? 0);
+  const { integerPart, decimalPart } = handlePrice(precio ?? 0);
+
   const productId = product.productByHandle?.id;
 
   return (
     <div className="flex flex-col items-center justify-center overflow-x-hidden gap-[75px] md:gap-[100px] lg:gap-[150px] pt-[100px] lg:pt-[180px]">
       <section className="grid grid-cols-1 auto-rows-auto lg:grid-cols-2 lg:grid-rows-1 max-w-[1600px] px-[20px] lg:px-[100px] xl:px-[200px] gap-[40px] w-screen justify-center mx-auto">
         <div className="flex flex-col-reverse gap-[15px] lg:flex-row">
-          <div className="md:max-w-[400px] md:max-h-[400px] lg:max-w-[500px] lg:max-h-[500px] max-w-[300px] mx-auto h-[300px] md:h-[400px] lg:h-[500px] rounded-[10px] w-full relative aspect-square">
+          <div className="md:max-w-[400px] md:max-h-[400px] lg:max-w-[500px] lg:max-h-[500px] max-w-[300px] mx-auto h-[300px] md:h-[400px] lg:h-[500px] rounded-[10px] w-full aspect-square relative">
             <Image
               src={imageUrl}
               alt="vino"
               fill
-              className="object-contain aspect-square rounded-md"
+              className="object-contain aspect-square rounded-md lg:hidden"
             />
+            <div className="hidden hover:border lg:flex justify-center h-full relative rounded-[18px] overflow-hidden transition-all ease-in-out duration-150 scale-100 hover:scale-110 ">
+              <ReactImageZoom
+                src={imageUrl}
+                zoom="200"
+                alt={product.productByHandle?.title}
+                height="100%"
+                width="auto"
+                className="object-contain relative hover:aspect-square w-full h-full p-2"
+                id={1}
+                onError={null}
+              />
+            </div>
           </div>
         </div>
         <div className="flex flex-col gap-[20px]">
@@ -148,19 +166,33 @@ export default async function Producto({
           parseInt(precio) > parseInt(precioDescuento) ? (
             <div className="flex items-center gap-5">
               <div className="flex gap-2 items-center">
-                <p className="lg:text-[55px]/[62px] text-[28px]/[34px] text-terciarioClaro font-vangeda">
-                  {precioDescuento} {currencyCode}
+                <p className="lg:text-[55px]/[62px] text-[28px]/[34px] text-terciarioClaro font-vangeda flex flex-row items-start">
+                  <span className="lg:text-[55px]/[62px] text-[38px]/[42px]">
+                    {discountInteger}
+                  </span>
+                  <span className="lg:text-[24px]/[31px] text-[18px]/[22px]">
+                    {discountDecimal} €
+                  </span>
                 </p>
-                <p className="text-[16px]/[15px] lg:text-[26px]/[34px] font-vangeda text-gris2 line-through">
-                  {precio}
-                  {currencyCode}
+                <p className="lg:text-[55px]/[62px] text-[28px]/[34px] font-vangeda text-gris2 line-through flex flex-row items-start opacity-50">
+                  <span className="lg:text-[55px]/[62px] text-[38px]/[42px]">
+                    {integerPart}
+                  </span>
+                  <span className="lg:text-[24px]/[31px] text-[18px]/[22px]">
+                    {decimalPart} €
+                  </span>
                 </p>
               </div>
             </div>
           ) : (
             <div className="flex items-center gap-[10px] justify-center lg:justify-start">
-              <p className="lg:text-[55px]/[62px] text-[28px]/[34px] text-terciarioClaro font-vangeda">
-                {currencyCode} {precioDescuento}
+              <p className="lg:text-[55px]/[62px] text-[28px]/[34px] text-terciarioClaro font-vangeda flex flex-row items-start">
+                <span className="lg:text-[55px]/[62px] text-[38px]/[42px]">
+                  {discountInteger}
+                </span>
+                <span className="lg:text-[24px]/[31px] text-[18px]/[22px]">
+                  {discountDecimal} €
+                </span>
               </p>
             </div>
           )}

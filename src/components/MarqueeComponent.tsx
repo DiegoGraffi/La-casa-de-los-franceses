@@ -9,7 +9,7 @@ type MarqueeProps = {
 
 export default function MarqueeComponent({ images }: MarqueeProps) {
   return (
-    <div className="h-[300px]">
+    <div className="h-[230px] lg:h-[300px] mt-[15px11]">
       <Marquee
         pauseOnHover={false}
         className="overflow-hidden grid z-50"
@@ -20,7 +20,7 @@ export default function MarqueeComponent({ images }: MarqueeProps) {
           return (
             <div
               key={index}
-              className="flex lg:pr-[100px] flex-col justify-center items-center h-[350px] mx-5 relative"
+              className="flex lg:pr-[100px] flex-col justify-center items-center h-[200px] lg:h-[350px] mx-5 relative"
             >
               <div className="hidden lg:block">
                 <Image

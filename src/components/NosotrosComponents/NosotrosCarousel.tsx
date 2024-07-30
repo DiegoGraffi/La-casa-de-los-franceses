@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import item1 from "@/assets/images/nosotros/item1.png";
+import item1 from "@/assets/images/nosotros/item1.svg";
 import item2 from "@/assets/images/nosotros/item2.jpg";
 import item3 from "@/assets/images/nosotros/item3.jpg";
 import React, { useEffect, useState } from "react";

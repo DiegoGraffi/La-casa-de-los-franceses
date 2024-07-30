@@ -13,7 +13,7 @@ export default function AgeConfirmationModal() {
   const t = useTranslations("Modal Edad")
   const handleConfirm = () => {
     const ageInfo = { confirmed: true, timestamp: new Date().toISOString() };
-    Cookies.set("ageInfo", JSON.stringify(ageInfo), { expires: 1 });
+    Cookies.set("ageInfo", JSON.stringify(ageInfo), { expires: 7 });
     setShowModal(false);
     setShowMessage(false);
   };

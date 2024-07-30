@@ -16,12 +16,14 @@ type Props = {
   listaTipos: string[];
   listaBodegas: string[];
   listaVarietal: string[];
+  listaTipoVino: string[];
 };
 
 export default function AccordionComponent({
   listaTipos,
   listaBodegas,
   listaVarietal,
+  listaTipoVino,
 }: Props) {
   const t = useTranslations("Tienda");
 
@@ -64,6 +66,33 @@ export default function AccordionComponent({
             hidden={true}
           >
             <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
+              Tipo de Vino
+            </p>
+            <Image
+              src={arrow}
+              alt="arrow"
+              height={20}
+              className="AccordionChevron"
+              aria-hidden
+            />
+          </AccordionTrigger>
+          <AccordionContent className="pl-[20px]">
+            {listaTipoVino.map((tipo, index) => {
+              return <FilterLabel key={index} label={tipo} name="tag" />;
+            })}
+          </AccordionContent>
+          <div className="w-full">
+            <Image src={divider} alt="divider" className="w-full h-[2px]" />
+          </div>
+        </AccordionItem>
+
+        <AccordionItem value="item-3" className="flex flex-col">
+          <AccordionTrigger
+            className="AccordionTrigger"
+            aria-hidden
+            hidden={true}
+          >
+            <p className="lg:pl-7 lg:p-0 uppercase text-primarioMuyOscuro font-bricolage font-light text-[20px]/[38px] no-underline">
               {t("filtro2")}
             </p>
             <Image
@@ -84,7 +113,7 @@ export default function AccordionComponent({
           </div>
         </AccordionItem>
 
-        <AccordionItem value="item-3" className="flex flex-col">
+        <AccordionItem value="item-4" className="flex flex-col">
           <AccordionTrigger
             className="AccordionTrigger"
             aria-hidden
@@ -113,7 +142,7 @@ export default function AccordionComponent({
           </div>
         </AccordionItem>
 
-        <AccordionItem value="item-4" className="flex flex-col">
+        <AccordionItem value="item-5" className="flex flex-col">
           <AccordionTrigger
             className="AccordionTrigger"
             aria-hidden

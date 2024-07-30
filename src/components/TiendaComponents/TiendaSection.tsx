@@ -15,6 +15,7 @@ export default function TiendaSection({
   listaTipos,
   listaBodegas,
   listaVarietal,
+  listaTipoVino,
 }: ProductsList & {
   pageInfo: any;
   endCursor: string;
@@ -22,6 +23,7 @@ export default function TiendaSection({
   listaTipos: string[];
   listaBodegas: string[];
   listaVarietal: string[];
+  listaTipoVino: string[];
 }) {
   const t = useTranslations("Tienda");
 
@@ -60,6 +62,7 @@ export default function TiendaSection({
               listaTipos={listaTipos}
               listaBodegas={listaBodegas}
               listaVarietal={listaVarietal}
+              listaTipoVino={listaTipoVino}
             />
           </Suspense>
           <div className="w-full lg:w-[80%] hidden lg:flex lg:flex-col">

@@ -192,3 +192,13 @@
   position: fixed;
   width: 100%;
 }
+
+::-moz-selection {
+  color: #ba7b61;
+  background: #f3edc8;
+}
+
+::selection {
+  color: #ba7b61;
+  background: #f3edc8;
+}

@@ -7,7 +7,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import Cart from "@/components/cart";
 import AgeConfirmationModal from "@/components/AgeConfirmationModal";
-import AgeConfirmationWrapper from "@/components/AgeConfirmationWrapper";
+import ClientOnly from "@/components/ClientOnly";
 
 const vangeda = localFont({
   src: [
@@ -55,9 +55,9 @@ export default async function RootLayout({
           <Cart />
           {children}
           <Footer />
-          <AgeConfirmationWrapper>
+          <ClientOnly>
             <AgeConfirmationModal />
-          </AgeConfirmationWrapper>
+          </ClientOnly>
         </NextIntlClientProvider>
       </body>
     </html>

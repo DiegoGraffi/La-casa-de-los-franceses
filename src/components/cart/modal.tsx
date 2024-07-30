@@ -15,6 +15,7 @@ import { Link } from "@/navigation";
 import { useAtom } from "jotai";
 import { cartAtom, cartItemsQuantityAtom, checkoutUrlAtom } from "@/lib/atoms";
 import { useTranslations } from "next-intl";
+import { handlePrice } from "@/lib/functions";
 
 type MerchandiseSearchParams = {
   [key: string]: string;
@@ -50,11 +51,15 @@ export default function CartModal({ cart }: CartModalProps) {
   useEffect(() => {
     if (cart) {
       setQuantity(cart.totalQuantity);
-      setCheckoutUrl(cart.checkoutUrl); 
+      setCheckoutUrl(cart.checkoutUrl);
     }
   }, [cart?.totalQuantity]);
 
-  const t = useTranslations("Carro")
+  const t = useTranslations("Carro");
+  const { integerPart, decimalPart } = handlePrice(
+    cart?.cost.totalAmount.amount ?? 0
+  );
+
   return (
     <>
       <Transition show={isOpen}>
@@ -83,7 +88,7 @@ export default function CartModal({ cart }: CartModalProps) {
               <div className="flex items-center justify-between bg-terciarioClaro px-[25px] py-[15px]">
                 {cart?.totalQuantity && cart?.totalQuantity > 0 ? (
                   <p className="font-bricolage font-semibold text-[24px]/[28px] text-primarioMuyClaro">
-                   {t("title")} ({cart?.totalQuantity})
+                    {t("title")} ({cart?.totalQuantity})
                   </p>
                 ) : (
                   <p className="font-bricolage font-semibold text-[24px]/[28px] text-primarioMuyClaro">
@@ -198,10 +203,18 @@ export default function CartModal({ cart }: CartModalProps) {
                           amount={cart.cost.totalAmount.amount}
                           currencyCode={cart.cost.totalAmount.currencyCode}
                         />
+                        {/* <p className="font-bricolage font-semibold text-white text-center flex flex-row items-start">
+                          <span className="text-[24px]/[28px]">
+                            {integerPart}
+                          </span>
+                          <span className="text-[16px]/[24px]">
+                            {decimalPart}€
+                          </span>
+                        </p> */}
                       </div>
                     </div>
                     <div className="flex flex-col justify-center items-center gap-3 flex-1">
-                    <a
+                      <a
                         href={cart.checkoutUrl}
                         className="block rounded-full bg-terciarioClaro px-[28px] py-[10px] text-center text-[20px]/[25px] font-bricolage text-primarioMuyClaro font-semibold  hover:bg-primarioOscuro active:bg-primarioMuyOscuro disabled:bg-primarioClaro focus:border-2 focus:border-[#CB9A60]"
                       >

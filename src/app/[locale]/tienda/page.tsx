@@ -135,6 +135,18 @@ const tagsQuery = graphql(`
   }
 `);
 
+const wineTypeQuery = graphql(`
+  query WineType {
+    products(first: 250, query: "tag:'Blanco' OR tag:'Rosado' OR tag:'Tinto'") {
+      edges {
+        node {
+          tags
+        }
+      }
+    }
+  }
+`);
+
 async function fetchProductTypes() {
   const data = await fetchGraphql(productTypesQuery, {});
   const productTypes = data.products.edges.map(
@@ -157,6 +169,17 @@ async function fetchTags() {
     (edge: { node: { tags: string[] } }) => edge.node.tags
   );
   return Array.from(new Set(tags));
+}
+
+async function fetchWineType() {
+  const data = await fetchGraphql(wineTypeQuery, {});
+  const types = data.products.edges.flatMap(
+    (edge: { node: { tags: string[] } }) => edge.node.tags
+  );
+  const filteredTypes = types.filter((tag) =>
+    ["Blanco", "Rosado", "Tinto"].includes(tag)
+  );
+  return Array.from(new Set(filteredTypes));
 }
 
 function getVendorQuery(vendor: string | string[] | undefined) {
@@ -195,6 +218,18 @@ function getProductTypeQuery(type: string | string[] | undefined) {
   return type.map((t) => `product_type:'${t}'`).join(" OR ");
 }
 
+function getWineTypeQuery(wineType: string | string[] | undefined) {
+  if (wineType === undefined) {
+    return null;
+  }
+
+  if (typeof wineType === "string") {
+    return `tag:'${wineType}'`;
+  }
+
+  return wineType.map((v) => `tag:'${v}'`).join(" OR ");
+}
+
 type QueryNode = string | undefined | null | false;
 
 function combineQueryNodes(nodes: QueryNode[]) {
@@ -216,6 +251,7 @@ export default async function Tienda({
   const vendorQuery = getVendorQuery(searchParams?.["vendor"]);
   const varietalQuery = getVarietalQuery(searchParams?.["varietal"]);
   const productTypeQuery = getProductTypeQuery(searchParams?.["productType"]);
+  const wineTypeQuery = getWineTypeQuery(searchParams?.["tag"]);
   const minPrice = searchParams?.["minPrice"];
   const maxPrice = searchParams?.["maxPrice"];
 
@@ -235,6 +271,7 @@ export default async function Tienda({
     productTypeQuery,
     vendorQuery,
     varietalQuery,
+    wineTypeQuery,
     priceQuery,
     excludeMembresiaQuery,
   ]);
@@ -259,11 +296,13 @@ export default async function Tienda({
       }
     : { first: pageSize };
 
-  const [listaTipos, listaBodegas, listaVarietal] = await Promise.all([
-    fetchProductTypes(),
-    fetchVendors(),
-    fetchTags(),
-  ]);
+  const [listaTipos, listaBodegas, listaVarietal, listaTipoVino] =
+    await Promise.all([
+      fetchProductTypes(),
+      fetchVendors(),
+      fetchTags(),
+      fetchWineType(),
+    ]);
 
   const data = await fetchGraphql(query, {
     query: shopifyQuery,
@@ -286,6 +325,7 @@ export default async function Tienda({
       listaTipos={listaTipos}
       listaBodegas={listaBodegas}
       listaVarietal={listaVarietal}
+      listaTipoVino={listaTipoVino}
       pageInfo={data.products.pageInfo}
       endCursor={endCursor || ""}
       startCursor={startCursor || ""}

@@ -10,9 +10,15 @@ type Props = {
   listaTipos: string[];
   listaBodegas: string[];
   listaVarietal: string[];
+  listaTipoVino: string[];
 };
 
-export function Sidebar({ listaTipos, listaBodegas, listaVarietal }: Props) {
+export function Sidebar({
+  listaTipos,
+  listaBodegas,
+  listaVarietal,
+  listaTipoVino,
+}: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -42,12 +48,13 @@ export function Sidebar({ listaTipos, listaBodegas, listaVarietal }: Props) {
   return (
     <form
       onSubmit={onSubmit}
-      className="lg:w-[25%] h-max lg:border-r-primarioMuyOscuro lg:border-r py-[25px] lg:pr-[25px]"
+      className="lg:w-[25%] h-max lg:border-r-primarioMuyOscuro lg:border-r py-[25px] lg:pr-[20px] shrink-0"
     >
       <AccordionComponent
         listaTipos={listaTipos}
         listaBodegas={listaBodegas}
         listaVarietal={listaVarietal}
+        listaTipoVino={listaTipoVino}
       />
       <button
         type="submit"
