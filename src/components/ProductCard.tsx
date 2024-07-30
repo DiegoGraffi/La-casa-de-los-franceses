@@ -32,7 +32,7 @@ export default function ProductCard({
       <div className="flex-1 relative w-full aspect-square basis-1/2 max-w-[190px] max-h-[190px] rounded-[5px] overflow-hidden">
         <Image
           src={imageUrl!}
-          alt="imagen producto"
+          alt={t("altImagenProd")}
           fill
           className="object-contain p-1"
         />

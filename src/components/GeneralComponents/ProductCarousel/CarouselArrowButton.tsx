@@ -10,6 +10,7 @@ import { EmblaCarouselType } from "embla-carousel";
 import prevArrow from "@/assets/images/tiendaPage/prevArrowCarousel.svg";
 import nextArrow from "@/assets/images/tiendaPage/nextArrowCarousel.svg";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type UsePrevNextButtonsType = {
   prevBtnDisabled: boolean;
@@ -58,7 +59,7 @@ type PropType = ComponentPropsWithRef<"button">;
 
 export const PrevButton: React.FC<PropType> = (props) => {
   const { children, ...restProps } = props;
-
+  const t = useTranslations("Local")
   return (
     <button
       className="embla__button embla__button--prev bg-white hover:bg-primarioMuyClaro aspect-square shrink-0"
@@ -67,7 +68,7 @@ export const PrevButton: React.FC<PropType> = (props) => {
     >
       <Image
         src={prevArrow}
-        alt="Flecha Anterior"
+        alt={t("flechaAnterior")}
         className="hidden lg:block aspect-square p-1"
       />
       {children}
@@ -77,7 +78,7 @@ export const PrevButton: React.FC<PropType> = (props) => {
 
 export const NextButton: React.FC<PropType> = (props) => {
   const { children, ...restProps } = props;
-
+  const t = useTranslations("Varios")
   return (
     <button
       className="embla__button embla__button--next bg-white hover:bg-primarioMuyClaro aspect-square shrink-0"
@@ -86,7 +87,7 @@ export const NextButton: React.FC<PropType> = (props) => {
     >
       <Image
         src={nextArrow}
-        alt="Flecha Siguiente"
+        alt={t("flechaSiguiente")}
         className="hidden lg:block aspect-square p-1"
       />
       {children}

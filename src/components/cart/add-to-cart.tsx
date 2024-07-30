@@ -33,7 +33,7 @@ function SubmitButton({
         className={clsx(buttonClasses, disabledClasses)}
       >
         <p className="text-primarioMuyClaro disabled:bg-primarioPrincipal text-[18px] font-semibold leading-[24px] font-bricolage">
-          Sin Stock
+          {t("stock")}
         </p>
       </button>
     );

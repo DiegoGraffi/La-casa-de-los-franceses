@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 type PerfilProps = {
@@ -11,6 +12,7 @@ type PerfilProps = {
 };
 
 export default function Perfil({ persona, index, zIndex }: PerfilProps) {
+  const t = useTranslations("Varios")
   return (
     <div
       key={index}
@@ -24,7 +26,7 @@ export default function Perfil({ persona, index, zIndex }: PerfilProps) {
       <div className="w-full flex justify-center items-center aspect-square mt-0 z-10">
         <Image
           src={persona.image}
-          alt="imagen"
+          alt={t("persona")}
           className="object-cover mx-auto w-[85px] h-[85px] min-w-[85px] min-h-[85px] xl:w-[100px] xl:h-[100px] xl:min-w-[100px] xl:min-h-[100px] border-white border-4 rounded-full aspect-square "
         />
       </div>

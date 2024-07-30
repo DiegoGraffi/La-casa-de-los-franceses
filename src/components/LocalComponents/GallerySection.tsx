@@ -52,7 +52,7 @@ export default async function GallerySection() {
         <div className="flex items-center w-[80px] mx-auto">
           <Image
             src={mouseRojo}
-            alt="mouse icon"
+            alt={t("mouse")}
             className="animate-mouse-slider"
           />
         </div>

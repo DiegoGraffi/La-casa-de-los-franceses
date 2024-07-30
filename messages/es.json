@@ -82,7 +82,9 @@
         "bannerTiendaDescription2": "o con quien quieras de los mejores vinos.",
         "bannerTiendaMobile1": "Conocé",
         "bannerTiendaMobile2": "nuestro local",
-        "bannerTiendaHover": "Ver tienda en linea"
+        "bannerTiendaHover": "Ver tienda en linea",
+        "mes": "/mes",
+        "altImagen": "Imagen del producto"
     },
     "Local": {
         "tituloLocal1": "Conocé",
@@ -99,7 +101,11 @@
         "textoBanner4": "que querés. Te lo llevamos a tu casa.",
         "textoBanner5": "Ver tienda online",
         "deslizarText": "Deslizar",
-        "galleryText": "Fotos de la casa"
+        "galleryText": "Fotos de la casa",
+        "mouse": "Ícono mouse",
+        "fechaInvalida": "Fecha inválida",
+        "flechaAnterior": "Flecha anterior",
+        "flechaSiguiente": "Flecha siguiente"
     },
     "Preguntas Frecuentes": {
        "titulo": "Preguntas Frecuentes",
@@ -120,7 +126,17 @@
        "pregunta13": "¿Cuales son los gastos de envío?"
     },
     "Product Card": {
-        "boton": "Agregar al carrito"
+        "boton": "Agregar al carrito",
+        "stock": "Sin stock",
+        "altImagenProd": "Imagen del producto"
+
+    },
+    "Carro": {
+        "title": "Carro de compras",
+        "vacio": "El carro de compras está vacío",
+        "total": "Total",
+        "comprar": "Comprar",
+        "ver": "Seguir viendo"
     },
     "Nosotros": {
         "hero1": "Sobre",
@@ -138,6 +154,52 @@
         "banner2": "Quiero la membresía",
         "bannerMobile1": "Conocé",
         "bannerMobile2": "nuestra",
-        "bannerMobile3": "membresía"
+        "bannerMobile3": "membresía",
+        "altMapa": "Mapa de San Juan"
+    },
+    "Varios": {
+        "cargando": "Cargando...",
+        "cerrarCarro": "Cerrar carro de compras",
+        "foto": "Foto",
+        "persona": "Foto de persona",
+        "lenguajeIcon": "Ícono de lenguaje",
+        "noProductos": "No hay productos existentes",
+        "similares": "Productos similares"
+    },
+    "Informacion Producto": {
+        "noInfo": "No hay información disponible sobre el producto",
+        "masInfo": "Información adicional",
+        "awards": "Awards",
+        "anada": "Añada",
+        "denominacion": "Denominación de origen",
+        "alcohol": "Grado de alcohol",
+        "productor": "Productor",
+        "tipoVino": "Tipo de vino",
+        "variedad": "Variedad de uva",
+        "link": "Link",
+        "ficha": "Ficha técnica",
+        "nadaInfo": "No hay información"
+    },
+    "NotFound": {
+        "notFound1": "Página",
+        "notFound2": "no encontrada",
+        "notFound3": "No encontramos la página que estabas buscando",
+        "notFound4": "Volver a la página de inicio"
+    },
+    "Modal Edad": {
+        "preguntaMayor": "¿Eres mayor de 18 años?",
+        "noMayor": "Lo sentimos. Debes ser mayor de 18 años para acceder a esta página.",
+        "confirmar": "Confirmar",
+        "aunNo": "Aún no"
+    },
+    "Footer": {
+        "contacto": "Contacto",
+        "varios": "Varios",
+        "preguntasFrecuentes": "Preguntas Frecuentes",
+        "bases": "Bases y condiciones",
+        "membresia": "Membresía",
+        "arrepentimiento": "Botón de arrepentimiento",
+        "horariosTienda": "Tienda física: 11 a 23hs",
+        "atencion": "Atención online"
     }
 }

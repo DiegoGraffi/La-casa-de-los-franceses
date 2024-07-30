@@ -11,6 +11,8 @@ import Image from "next/image";
 import ProductCard from "./ProductCard";
 import mouse from "@/assets/images/local/mouseSemiOscuro.svg";
 import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
+
 
 export default function RelatedCarousel({ relatedProducts }: any) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: true });
@@ -25,7 +27,7 @@ export default function RelatedCarousel({ relatedProducts }: any) {
   const handleAddToCartClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
   };
-
+  const t = useTranslations("Local")
   return (
     <section className="embla flex flex-col justify-center w-full max-w-[1600px] relative px-[15px] md:px-[100px]">
       <div className="embla__viewport z-20" ref={emblaRef}>
@@ -61,12 +63,12 @@ export default function RelatedCarousel({ relatedProducts }: any) {
           <div className="flex items-center w-[80px] mx-auto">
             <Image
               src={mouse}
-              alt="mouse icon"
+              alt={t("mouse")}
               className="animate-mouse-slider"
             />
           </div>
           <p className="font-bricolage text-primarioSemiOscuro text-[14px]/[20px] text-center">
-            deslizar
+            {t("deslizarText")}
           </p>
         </div>
       </div>

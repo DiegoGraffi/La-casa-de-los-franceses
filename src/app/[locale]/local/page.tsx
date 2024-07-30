@@ -88,7 +88,7 @@ export default function Local() {
             </p>
 
             <p className="text-[40px]/[39px] text-terciarioPrincipal lg:hidden font-vangeda text-center md:text-start">
-              Mirá nuestra tienda online
+              {t("textoBanner5")}
             </p>
           </div>
           <div className="w-full h-full hidden justify-center items-center absolute z-[100] xl:flex left-0 transition-all ease-in-out duration-200">

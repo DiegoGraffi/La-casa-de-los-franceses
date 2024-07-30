@@ -95,7 +95,7 @@ export default async function EventsSection() {
         <div className="flex items-center w-[80px] mx-auto">
           <Image
             src={mouse}
-            alt="mouse icon"
+            alt={t("mouse")}
             className="animate-mouse-slider"
           />
         </div>

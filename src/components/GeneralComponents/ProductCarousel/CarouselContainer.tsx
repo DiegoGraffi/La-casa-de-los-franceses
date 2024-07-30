@@ -11,6 +11,7 @@ import { Link } from "@/navigation";
 import ProductCard from "../../ProductCard";
 import Mouse from "@/assets/images/local/mouse.svg";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type ProductProps = {
   title: string;
@@ -54,7 +55,7 @@ const CarouselContainer: React.FC<PropType> = (props) => {
   const handleAddToCartClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
   };
-
+  const t = useTranslations("Local")
   return (
     <section className="embla flex flex-col justify-center w-full max-w-[1600px] relative px-[15px] md:px-[100px]">
       <div className="embla__viewport z-20" ref={emblaRef}>
@@ -89,12 +90,12 @@ const CarouselContainer: React.FC<PropType> = (props) => {
           <div className="flex items-center w-[80px] mx-auto">
             <Image
               src={Mouse}
-              alt="mouse icon"
+              alt={t("mouse")}
               className="animate-mouse-slider"
             />
           </div>
           <p className="font-bricolage text-primarioSemiOscuro text-[14px]/[20px] text-center">
-            deslizar
+            {t("deslizarText")}
           </p>
         </div>
       </div>

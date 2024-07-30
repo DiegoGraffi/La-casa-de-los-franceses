@@ -14,6 +14,7 @@ import { EditItemQuantityButton } from "./edit-item-quantity-button";
 import { Link } from "@/navigation";
 import { useAtom } from "jotai";
 import { cartAtom, cartItemsQuantityAtom, checkoutUrlAtom } from "@/lib/atoms";
+import { useTranslations } from "next-intl";
 
 type MerchandiseSearchParams = {
   [key: string]: string;
@@ -53,6 +54,7 @@ export default function CartModal({ cart }: CartModalProps) {
     }
   }, [cart?.totalQuantity]);
 
+  const t = useTranslations("Carro")
   return (
     <>
       <Transition show={isOpen}>
@@ -81,11 +83,11 @@ export default function CartModal({ cart }: CartModalProps) {
               <div className="flex items-center justify-between bg-terciarioClaro px-[25px] py-[15px]">
                 {cart?.totalQuantity && cart?.totalQuantity > 0 ? (
                   <p className="font-bricolage font-semibold text-[24px]/[28px] text-primarioMuyClaro">
-                    Carro de compras ({cart?.totalQuantity})
+                   {t("title")} ({cart?.totalQuantity})
                   </p>
                 ) : (
                   <p className="font-bricolage font-semibold text-[24px]/[28px] text-primarioMuyClaro">
-                    Carro de compras
+                    {t("title")}
                   </p>
                 )}
 
@@ -98,7 +100,7 @@ export default function CartModal({ cart }: CartModalProps) {
                 <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
                   <ShoppingCartIcon className="h-16 text-primarioMuyClaro" />
                   <p className="mt-6 text-center text-2xl font-normal font-bricolage text-primarioMuyClaro">
-                    El carro de compras está vacio.
+                    {t("vacio")}
                   </p>
                 </div>
               ) : (
@@ -189,7 +191,7 @@ export default function CartModal({ cart }: CartModalProps) {
                     <div className="py-4 text-sm text-neutral-500 dark:text-neutral-400 flex-1">
                       <div className="mb-3 flex flex-col items-center justify-center">
                         <p className="font-bricolage font-extralight text-white text-[24px]/[28px] text-center">
-                          Total
+                          {t("total")}
                         </p>
                         <Price
                           className="font-bricolage font-semibold text-white text-[24px]/[28px] text-center"
@@ -203,12 +205,12 @@ export default function CartModal({ cart }: CartModalProps) {
                         href={cart.checkoutUrl}
                         className="block rounded-full bg-terciarioClaro px-[28px] py-[10px] text-center text-[20px]/[25px] font-bricolage text-primarioMuyClaro font-semibold  hover:bg-primarioOscuro active:bg-primarioMuyOscuro disabled:bg-primarioClaro focus:border-2 focus:border-[#CB9A60]"
                       >
-                        Comprar
+                        {t("comprar")}
                       </a>
 
                       <Link href={"/tienda"} onClick={closeCart}>
                         <p className="font-bricolage font-light text-[20px]/[25px] text-primarioClaro hover:text-primarioOscuro hover:underline cursor-pointer">
-                          Seguir viendo
+                          {t("ver")}
                         </p>
                       </Link>
                     </div>

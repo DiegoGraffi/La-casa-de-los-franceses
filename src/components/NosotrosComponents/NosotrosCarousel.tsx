@@ -61,7 +61,6 @@ export default function NosotrosCarousel() {
 
   const currentTextColor = items[selectedItem].textColor;
   const currentBgColor = items[selectedItem].bgColor;
-
   return (
     <div className="w-full lg:max-w-[1600px] lg:mx-auto p-0 md:flex overflow-hidden md:h-[430px] rounded-bl-[30px] rounded-tr-[30px] mb-[50px] lg:mb-0">
       <div
@@ -70,7 +69,7 @@ export default function NosotrosCarousel() {
       >
         <Image
           src={items[selectedItem].foto}
-          alt="mapa san juan"
+          alt={t("altMapa")}
           fill
           className={`w-full object-cover h-full transition-opacity ease-in-out duration-200 ${
             transitioning ? "opacity-50" : "opacity-100"

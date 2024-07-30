@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import LenguajeIcon from "@/assets/images/navbar/lenguaje.svg";
 import { useRouter, usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function BotonIdioma() {
   const [menuVisible, setMenuVisible] = useState(false);
   const [newPathname, setNewPathname] = useState<string | null>(null);
   const router = useRouter();
   const pathname = usePathname();
+  const t = useTranslations("Varios")
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
@@ -21,7 +23,7 @@ export default function BotonIdioma() {
     console.log(`Current locale: ${currentLocale}, New locale: ${lang}`);
 
     if (currentLocale === lang) {
-      console.log("El idioma seleccionado ya está activo");
+      console.log(t("idiomaActivo"));
       return;
     }
 
@@ -48,7 +50,7 @@ export default function BotonIdioma() {
     <div className="relative">
       <Image
         src={LenguajeIcon}
-        alt="lenguaje icon"
+        alt={t("lenguajeIcon")}
         onClick={toggleMenu}
         className="cursor-pointer p-[2px]"
       />

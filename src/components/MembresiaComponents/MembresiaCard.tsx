@@ -9,6 +9,8 @@ import FastAddToCartButtonXS from "../GeneralComponents/BotonesAddToCart/FastAdd
 import { useAtom } from "jotai";
 import { checkoutUrlAtom } from "@/lib/atoms";
 import FastAddToCartButtonMembershipMD from "./BotonesAddToCartMembresia/FastAddToCartButtonMembershipMD";
+import { useTranslations } from "next-intl";
+
 
 type MembresiaCardProps = {
   image?: string;
@@ -40,14 +42,14 @@ function MembresiaCard({
       window.location.href = checkoutUrl;
     }
   };
-
+  const t = useTranslations("Membresia")
   return (
     <div className="flex flex-col items-center hover:bg-gris6 rounded-tl-3xl rounded-br-3xl flex-1 p-[15px] lg:p-[25px] w-full max-w-[350px] h-auto">
       <div className="flex justify-center items-center relative w-full h-[110px] lg:h-[150px] rounded-tl-[10px] rounded-br-[10px] lg:rounded-tl-[25px] lg:rounded-br-[25px] overflow-hidden mb-[21px]">
         {image && (
           <Image
             src={image}
-            alt="imagen producto"
+            alt={t("altImagen")}
             fill
             className="object-cover w-full h-full rounded-tl-2xl rounded-br-2xl"
           />
@@ -66,7 +68,7 @@ function MembresiaCard({
         <div className="flex flex-col gap-[25px] mt-[20px] items-center">
           <p className="font-bricolage font-semibold text-[48px] text-gris2 text-center leading-[28px]">
             ${precio}
-            <span className="font-light text-[24px] text-gris3">/mes</span>
+            <span className="font-light text-[24px] text-gris3">{t("mes")}</span>
           </p>
           <div className="hidden lg:block">
             <a href={checkoutUrl}>

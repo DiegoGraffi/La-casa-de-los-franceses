@@ -7,6 +7,7 @@ import nextArrow from "@/assets/images/tiendaPage/nextArrowCarousel.svg";
 import mouse from "@/assets/images/local/mouseSemiOscuro.svg";
 import { ReactNode } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type CarouselComponentProps = {
   slides: ReactNode[];
@@ -33,7 +34,7 @@ function CarouselComponent({
     renderMode: "precision",
     mode: "free-snap",
   });
-
+  const t = useTranslations("Local")
   return (
     <div className="relative w-full lg:flex px-[60px] lg:px-[80px]">
       <button
@@ -69,12 +70,12 @@ function CarouselComponent({
           <div className="flex items-center w-[80px] mx-auto">
             <Image
               src={mouse}
-              alt="mouse icon"
+              alt={t("mouse")}
               className="animate-mouse-slider"
             />
           </div>
           <p className="font-bricolage text-primarioSemiOscuro text-[14px]/[20px] text-center">
-            deslizar
+            {t("deslizarText")}
           </p>
         </div>
       </div>

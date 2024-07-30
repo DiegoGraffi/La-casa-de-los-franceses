@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ScrollContainer } from "../../components/ScrollContainerClient";
 import FsLightbox from "fslightbox-react";
+import { useTranslations } from "next-intl";
 
 type PhotoListProps = { photos: string[] };
 
@@ -20,6 +21,7 @@ export default function LightBox({ photos }: PhotoListProps) {
       slide: index + 1,
     });
   }
+  const t = useTranslations("Varios")
   return (
     <div className="w-screen h-auto">
       <div className="flex max-w-[1600px] mx-auto space-x-3 overflow-x-scroll scrollbar-hide cursor-grab relative h-auto">
@@ -38,7 +40,7 @@ export default function LightBox({ photos }: PhotoListProps) {
                   >
                     <Image
                       src={photo}
-                      alt="photo"
+                      alt={t("foto")}
                       fill
                       className="object-cover hover:scale-110 transition-all ease-in-out duration-200"
                     />
@@ -58,7 +60,7 @@ export default function LightBox({ photos }: PhotoListProps) {
                   >
                     <Image
                       src={photo}
-                      alt="photo"
+                      alt={t("foto")}
                       fill
                       className="object-cover hover:scale-110 transition-all ease-in-out duration-200"
                     />

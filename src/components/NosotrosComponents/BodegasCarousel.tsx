@@ -86,7 +86,7 @@ export default function BodegasCarousel({
           >
             <Image
               src={prevArrow}
-              alt="Flecha Anterior"
+              alt={t("flechaAnterior")}
               className="hidden lg:block"
             />
           </button>
@@ -111,7 +111,7 @@ export default function BodegasCarousel({
           >
             <Image
               src={nextArrow}
-              alt="Flecha Siguiente"
+              alt={t("flechaSiguiente")}
               className="hidden lg:block"
             />
           </button>
@@ -144,7 +144,7 @@ export default function BodegasCarousel({
           <div className="flex items-center w-[80px] mx-auto">
             <Image
               src={mouse}
-              alt="mouse icon"
+              alt={t("mouse")}
               className="animate-mouse-slider"
             />
           </div>

@@ -82,7 +82,9 @@
         "bannerTiendaDescription2": "que vous soyez seul ou accompagné. Venez vivre une expérience unique!",
         "bannerTiendaMobile1": "Je veux découvrir",
         "bannerTiendaMobile2": "la maison",
-        "bannerTiendaHover": "Voir le boutique en ligne"
+        "bannerTiendaHover": "Voir le boutique en ligne",
+        "mes": "/mois",
+        "altImagen": "Image du produit"
     },
     "Local": {
         "tituloLocal1": "Découvrez",
@@ -99,7 +101,11 @@
         "textoBanner4": "que vous souhaitez. nous l'emmenons chez vous.",
         "textoBanner5": "Voir le boutique en ligne",
         "deslizarText": "Scroler",
-        "galleryText": "Photos de la maison"
+        "galleryText": "Photos de la maison",
+        "mouse": "Icône de la souris",
+        "fechaInvalida": "Date invalide",
+        "flechaAnterior": "Flèche précédente",
+        "flechaSiguiente": "Flèche suivante"
     },
     "Preguntas Frecuentes": {
        "titulo": "Questions Fréquentes",
@@ -120,7 +126,16 @@
        "pregunta13": "Combien sont les frais de livraison?"
     },
     "Product Card": {
-        "boton": "Ajouter au panier"
+        "boton": "Ajouter au panier",
+        "stock": "Pas de stock",
+        "altImagenProd": "Image du produit"
+    },
+    "Carro": {
+        "title": "Panier",
+        "vacio": "Le panier est vide",
+        "total": "Total",
+        "comprar": "Acheter",
+        "ver": "Continuer de regarder"
     },
     "Nosotros": {
         "hero1": "À propos",
@@ -138,6 +153,52 @@
         "banner2": "Je veux devenir membre",
         "bannerMobile1": "Découvrez",
         "bannerMobile2": "notre",
-        "bannerMobile3": "adhésion"
+        "bannerMobile3": "adhésion",
+        "altMapa": "Carte de San Juan"
+    },
+    "Varios": {
+        "cargando": "Chargement...",
+        "cerrarCarro": "Fermer le panier",
+        "foto": "Photo",
+        "persona": "Photo de personne",
+        "lenguajeIcon": "Icône de langue",
+        "noProductos": "Il n'y a aucun produit existant",
+        "similares": "Produits similaires"
+    },
+    "Informacion Producto": {
+        "noInfo": "Aucun information disponible pour le produit",
+        "masInfo": "Informations supplémentaires",
+        "awards": "Awards",
+        "anada": "Année",
+        "denominacion": "Appellation d’origine",
+        "alcohol": "Degré de alcohol",
+        "productor": "Producteur",
+        "tipoVino": "Type de vin",
+        "variedad": "Cépage",
+        "link": "Lien",
+        "ficha": "Fiche technique",
+        "nadaInfo": "Il n'y a aucune information"
+    },
+    "NotFound": {
+        "notFound1": "Page",
+        "notFound2": "non trouvée",
+        "notFound3": "Nous n'avons pas trouvé la page que vous recherchiez",
+        "notFound4": "Retour à la page d'accueil"
+    },
+    "Modal Edad": {
+        "preguntaMayor": "Avez-vous plus de 18 ans?",
+        "noMayor": "Desolé. Vous devez être majeur pour accéder a cette page",
+        "confirmar": "Confirmer",
+        "aunNo": "Pas encore"
+    },
+    "Footer": {
+        "contacto": "Contact",
+        "varios": "Aides",
+        "preguntasFrecuentes": "FAQ",
+        "bases": "Termes et conditions",
+        "membresia": "Adhésion",
+        "arrepentimiento": "Bouton de repentance",
+        "horariosTienda": "Magasin phisique",
+        "atencion": "Soins en ligne"
     }
 }
