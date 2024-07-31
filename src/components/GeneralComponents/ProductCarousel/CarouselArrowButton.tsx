@@ -59,7 +59,7 @@ type PropType = ComponentPropsWithRef<"button">;
 
 export const PrevButton: React.FC<PropType> = (props) => {
   const { children, ...restProps } = props;
-  const t = useTranslations("Local")
+  const t = useTranslations("Local");
   return (
     <button
       className="embla__button embla__button--prev bg-white hover:bg-primarioMuyClaro aspect-square shrink-0"
@@ -78,7 +78,7 @@ export const PrevButton: React.FC<PropType> = (props) => {
 
 export const NextButton: React.FC<PropType> = (props) => {
   const { children, ...restProps } = props;
-  const t = useTranslations("Varios")
+  const t = useTranslations("Local");
   return (
     <button
       className="embla__button embla__button--next bg-white hover:bg-primarioMuyClaro aspect-square shrink-0"

@@ -10,14 +10,12 @@ import { useFormState, useFormStatus } from "react-dom";
 export default function FastAddToCartButtonMembershipMD({
   availableForSale,
   variants,
-  onAddToCartClick,
 }: any) {
   return (
     <Suspense fallback={null}>
       <FastAddToCartMembership
         availableForSale={availableForSale}
         variants={variants}
-        onAddToCartClick={onAddToCartClick}
       />
     </Suspense>
   );
@@ -26,11 +24,9 @@ export default function FastAddToCartButtonMembershipMD({
 export function FastAddToCartMembership({
   variants = [],
   availableForSale,
-  onAddToCartClick,
 }: {
   variants?: ProductVariant[];
   availableForSale: boolean | undefined;
-  onAddToCartClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   const [message, formAction] = useFormState(addItem, null);
   const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
@@ -45,7 +41,6 @@ export function FastAddToCartMembership({
       <FastSubmitButtonMD
         availableForSale={availableForSale}
         selectedVariantId={selectedVariantId}
-        onAddToCartClick={onAddToCartClick}
       />
       <p aria-live="polite" className="sr-only" role="status">
         {message}
@@ -57,11 +52,9 @@ export function FastAddToCartMembership({
 function FastSubmitButtonMD({
   availableForSale,
   selectedVariantId,
-  onAddToCartClick,
 }: {
   availableForSale: boolean | undefined;
   selectedVariantId?: string | undefined;
-  onAddToCartClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   const [hover, setHover] = useState(false);
   const [active, setActive] = useState(false);
@@ -74,7 +67,7 @@ function FastSubmitButtonMD({
   const disabledClasses = "cursor-not-allowed opacity-60 hover:opacity-60";
 
   if (!availableForSale) {
-    const t = useTranslations("Product Card")
+    const t = useTranslations("Product Card");
     return (
       <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
         <p className="text-primarioOscuro group-hover:text-primarioClaro group-disabled:text-primarioClaro group-active:text-primarioOscuro group-focus:text-primarioOscuro text-[14px] font-bricolage font-semibold leading-[22px] transition-all ease-out duration-300">
@@ -94,7 +87,6 @@ function FastSubmitButtonMD({
         aria-label="Please select an option"
         aria-disabled
         className={clsx(buttonClasses, disabledClasses)}
-        onClick={onAddToCartClick}
       >
         <p className="text-primarioClaro disabled:bg-primarioPrincipal text-[14px] font-semibold leading-[22px] font-bricolage">
           {t("boton")}
@@ -109,19 +101,16 @@ function FastSubmitButtonMD({
       onMouseLeave={() => setHover(false)}
       onMouseDown={() => setActive(true)}
       onMouseUp={() => setActive(false)}
-      onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-        if (pending) e.preventDefault();
-        onAddToCartClick(e);
-      }}
       aria-label="Add to cart"
       aria-disabled={pending}
       className={clsx(buttonClasses, {
-        "hover:opacity-100": true,
+        "hover:opacity-100 items-center justify-center py-[15px] transition-all ease-in-out duration-200":
+          true,
         [disabledClasses]: pending,
       })}
     >
       {pending ? (
-        <LoadingDots className="mb-3 bg-primarioClaro z-50" />
+        <LoadingDots className="bg-primarioClaro z-50 my-2" />
       ) : (
         <p className="text-primarioOscuro group-hover:text-primarioClaro group-disabled:text-primarioClaro group-active:text-primarioOscuro group-focus:text-primarioOscuro text-[14px] font-bricolage font-semibold leading-[22px] transition-all ease-out duration-300">
           {t("boton")}

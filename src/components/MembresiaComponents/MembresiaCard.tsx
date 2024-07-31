@@ -10,7 +10,7 @@ import { useAtom } from "jotai";
 import { checkoutUrlAtom } from "@/lib/atoms";
 import FastAddToCartButtonMembershipMD from "./BotonesAddToCartMembresia/FastAddToCartButtonMembershipMD";
 import { useTranslations } from "next-intl";
-
+import { handlePrice } from "@/lib/functions";
 
 type MembresiaCardProps = {
   image?: string;
@@ -35,14 +35,10 @@ function MembresiaCard({
   const isSpanish = locale === "es";
 
   const [checkoutUrl] = useAtom(checkoutUrlAtom);
-  const handleComprarAhora = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    e.preventDefault();
-    if (checkoutUrl) {
-      window.location.href = checkoutUrl;
-    }
-  };
-  const t = useTranslations("Membresia")
+
+  const t = useTranslations("Membresia");
+  const { integerPart, decimalPart } = handlePrice(precio ?? 0);
+
   return (
     <div className="flex flex-col items-center hover:bg-gris6 rounded-tl-3xl rounded-br-3xl flex-1 p-[15px] lg:p-[25px] w-full max-w-[350px] h-auto">
       <div className="flex justify-center items-center relative w-full h-[110px] lg:h-[150px] rounded-tl-[10px] rounded-br-[10px] lg:rounded-tl-[25px] lg:rounded-br-[25px] overflow-hidden mb-[21px]">
@@ -66,27 +62,28 @@ function MembresiaCard({
           </p>
         </div>
         <div className="flex flex-col gap-[25px] mt-[20px] items-center">
-          <p className="font-bricolage font-semibold text-[48px] text-gris2 text-center leading-[28px]">
-            ${precio}
-            <span className="font-light text-[24px] text-gris3">{t("mes")}</span>
+          <p className="font-bricolage text-gris2 text-center flex flex-row items-start">
+            <span className="text-[48px]/[28px] font-semibold ">
+              {integerPart}
+            </span>
+            <span className="text-[24px]/[20px] font-normal">
+              {decimalPart}€
+            </span>
+            <span className="font-light text-[24px] text-gris3">
+              {t("mes")}
+            </span>
           </p>
           <div className="hidden lg:block">
-            <a href={checkoutUrl}>
-              <FastAddToCartButtonMembershipMD
-                availableForSale={availableForSale}
-                variants={variants}
-                onAddToCartClick={handleComprarAhora}
-              />
-            </a>
+            <FastAddToCartButtonMembershipMD
+              availableForSale={availableForSale}
+              variants={variants}
+            />
           </div>
           <div className="block lg:hidden">
-            <a href={checkoutUrl}>
-              <FastAddToCartButtonMembershipMD
-                availableForSale={availableForSale}
-                variants={variants}
-                onAddToCartClick={handleComprarAhora}
-              />
-            </a>
+            <FastAddToCartButtonMembershipMD
+              availableForSale={availableForSale}
+              variants={variants}
+            />
           </div>
         </div>
       </div>

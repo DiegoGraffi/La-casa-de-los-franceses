@@ -76,7 +76,7 @@ function FastSubmitButtonMD({
   const disabledClasses = "cursor-not-allowed opacity-60 hover:opacity-60";
 
   if (!availableForSale) {
-    const t = useTranslations("Product Card")
+    const t = useTranslations("Product Card");
     return (
       <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
         <p className="text-primarioOscuro group-hover:text-primarioClaro group-disabled:text-primarioClaro group-active:text-primarioOscuro group-focus:text-primarioOscuro text-[14px] font-bricolage font-semibold leading-[22px] transition-all ease-out duration-300">

@@ -63,6 +63,7 @@ async function Membresia() {
   const translateMembership = translatedData.products.nodes;
 
   const t = await getTranslations("Membresia");
+
   return (
     <div>
       <div className="relative w-full h-[70vh] lg:h-[750px]">
