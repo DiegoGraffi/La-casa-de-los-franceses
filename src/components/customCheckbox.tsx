@@ -11,13 +11,12 @@ type CustomCheckboxProps = React.ComponentPropsWithoutRef<
 > & {
   name: string;
   value: string;
-  isChecked: boolean;
 };
 
 const CustomCheckbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CustomCheckboxProps
->(({ className, name, value, isChecked, ...props }, ref) => (
+>(({ className, name, value, ...props }, ref) => (
   <CheckboxPrimitive.Root
     ref={ref}
     className={cn(
@@ -27,7 +26,6 @@ const CustomCheckbox = React.forwardRef<
     {...props}
     name={name}
     value={value}
-    defaultChecked={isChecked}
   >
     <CheckboxPrimitive.Indicator
       className={cn("flex items-center justify-center text-current")}
