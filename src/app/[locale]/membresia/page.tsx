@@ -91,7 +91,7 @@ async function Membresia() {
           <h3 className="text-secundarioClaro font-bricolage text-[32px]/[38px] font-semibold lg:hidden">
             {t("heroMobile")}
           </h3>
-          <div className="flex justify-center items-center flex-col gap-[35px] lg:hidden px-[75px]">
+          <div className="flex justify-center items-center flex-col gap-[35px] lg:hidden px-[50px]">
             <PasosCard
               title={t("pasoTitle1")}
               description={t("pasoDescription1")}

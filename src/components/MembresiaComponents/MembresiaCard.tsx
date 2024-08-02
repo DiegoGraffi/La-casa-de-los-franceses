@@ -4,10 +4,6 @@ import React from "react";
 import Image from "next/image";
 import Separator from "@/assets/images/membresiaPage/separador.svg";
 import { usePathname } from "next/navigation";
-import FastAddToCartButtonMD from "../GeneralComponents/BotonesAddToCart/FastAddToCartButtonMD";
-import FastAddToCartButtonXS from "../GeneralComponents/BotonesAddToCart/FastAddToCartButtonXS";
-import { useAtom } from "jotai";
-import { checkoutUrlAtom } from "@/lib/atoms";
 import FastAddToCartButtonMembershipMD from "./BotonesAddToCartMembresia/FastAddToCartButtonMembershipMD";
 import { useTranslations } from "next-intl";
 import { handlePrice } from "@/lib/functions";
@@ -34,13 +30,11 @@ function MembresiaCard({
   const locale = usePathname()?.split("/")[1];
   const isSpanish = locale === "es";
 
-  const [checkoutUrl] = useAtom(checkoutUrlAtom);
-
   const t = useTranslations("Membresia");
   const { integerPart, decimalPart } = handlePrice(precio ?? 0);
 
   return (
-    <div className="flex flex-col items-center hover:bg-gris6 rounded-tl-3xl rounded-br-3xl flex-1 p-[15px] lg:p-[25px] w-full max-w-[350px] h-auto">
+    <div className="flex flex-col items-center hover:bg-gris6 rounded-tl-3xl rounded-br-3xl flex-1 p-[15px] lg:p-[25px] w-full max-w-[350px] h-auto transition-all ease-in-out duration-200">
       <div className="flex justify-center items-center relative w-full h-[110px] lg:h-[150px] rounded-tl-[10px] rounded-br-[10px] lg:rounded-tl-[25px] lg:rounded-br-[25px] overflow-hidden mb-[21px]">
         {image && (
           <Image

@@ -39,8 +39,8 @@ export default async function GallerySection() {
   }
   const t = await getTranslations("Local");
   return (
-    <section className="py-[70px] w-full flex flex-col gap-[60px] justify-center lg:justify-start items-center overflow-hidden px-[100px]">
-      <div className="max-w-[1600px] px-[15px] w-full flex justify-between items-center mx-auto">
+    <section className="py-[70px] w-full flex flex-col gap-[60px] justify-center lg:justify-start items-center overflow-hidden lg:px-[100px] px-[15px]">
+      <div className="max-w-[1600px]  w-full flex justify-center lg:justify-between items-center mx-auto">
         <p className="text-terciarioPrincipal font-vangeda text-[40px]/[39px] lg:text-[55px]/[62px] text-center lg:text-start">
           {t("galleryText")}
         </p>

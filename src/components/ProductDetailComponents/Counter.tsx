@@ -1,9 +1,5 @@
 "use client";
 
-import { useAtom } from "jotai";
-import { addItems } from "@/lib/atoms";
-import { useEffect } from "react";
-
 type CounterProps = {
   stock: number | undefined;
   quantity: number;

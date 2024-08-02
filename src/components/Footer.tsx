@@ -18,16 +18,19 @@ import Legislation from "@/assets/images/footer/legislation.png";
 import { useTranslations } from "next-intl";
 
 export default function Footer() {
-  const t = useTranslations("Footer")
+  const t = useTranslations("Footer");
   return (
-    <div id="footer" className="bg-terciarioClaro w-full py-[70px]">
-      <div className="container mx-auto flex flex-col lg:flex-row gap-[50px] lg:gap-[100px]">
-        <div className="flex items-center flex-col gap-[60px]">
+    <footer id="footer" className="bg-terciarioClaro w-full py-[70px]">
+      <div className="container mx-auto flex flex-col lg:flex-row lg:justify-between gap-[25px]">
+        <div className="flex items-center flex-col gap-[60px] shrink-0 grow">
           <Image src={logo} alt="logo" width={150} className="object-contain" />
           <div className="w-[90%] md:w-full">
             <ul>
-              <li>
-                <FooterItem icon={pinIcon} label="31 BVD DE COURSELLES - 75008 - PARIS" />
+              <li className="break-all">
+                <FooterItem
+                  icon={pinIcon}
+                  label="31 BVD DE COURSELLES -  75008 - PARIS"
+                />
               </li>
               <li>
                 <FooterItem icon={instagramIcon} label="@lcdfwinestore" />
@@ -44,8 +47,8 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-[50px] lg:gap-[100px]">
-          <div className="col-span-1 flex flex-col gap-[25px] justify-center lg:justify-start">
+        <div className="grid grid-cols-1 lg:grid-cols-6  lg:gap-[50px] grow">
+          <div className="col-span-2 flex flex-col gap-[25px] justify-center lg:justify-start">
             <div className="flex justify-center md:justify-between w-full">
               <p className="text-primarioMuyClaro font-bricolage font-semibold text-[28px]/[34px] text-center md:text-start">
                 {t("contacto")}
@@ -60,13 +63,16 @@ export default function Footer() {
               <li>
                 <FooterItem icon={phoneIcon} label="+33 07 44 78 73 54" />
               </li>
-              <li>
-                <FooterItem icon={mailIcon} label="contact@lacasadelosfranceses.com" />
+              <li className=" break-all">
+                <FooterItem
+                  icon={mailIcon}
+                  label="contact@lacasadelosfranceses.com"
+                />
               </li>
             </ul>
           </div>
 
-          <div className="col-span-2 flex flex-col gap-[25px]">
+          <div className="col-span-4 flex flex-col gap-[25px] max-w-full grow-0 ">
             <p className="text-primarioMuyClaro font-bricolage font-semibold text-[28px]/[34px] text-center md:text-start">
               {t("varios")}
             </p>
@@ -94,16 +100,10 @@ export default function Footer() {
 
               <ul className="w-[90%] md:w-full mx-auto">
                 <li>
-                  <FooterItem
-                    icon={shopIcon}
-                    label={t("horariosTienda")}
-                  />
+                  <FooterItem icon={shopIcon} label={t("horariosTienda")} />
                 </li>
                 <li>
-                  <FooterItem
-                    icon={headsetIcon}
-                    label={t("atencion")}
-                  />
+                  <FooterItem icon={headsetIcon} label={t("atencion")} />
                 </li>
               </ul>
             </div>
@@ -113,6 +113,6 @@ export default function Footer() {
       <div className="max-w-[800px] mx-auto mt-[50px] px-[15px] md:px-[50px]">
         <Image src={Legislation} alt="legislation" />
       </div>
-    </div>
+    </footer>
   );
 }

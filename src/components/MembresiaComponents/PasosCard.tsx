@@ -18,7 +18,7 @@ function PasosCard({ number, title, description }: PasosCardProps) {
           </div>
         </div>
       </div>
-      <p className="font-bricolage text-[14px]/[20px] text-secundarioClaro text-start lg:text-center lg:text-pretty">
+      <p className="font-bricolage text-[14px]/[20px] text-secundarioClaro text-start text-pretty lg:text-center">
         {description}
       </p>
     </div>
