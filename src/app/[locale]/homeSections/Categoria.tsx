@@ -6,8 +6,23 @@ import especiales from "@/assets/images/inicio/especiales.png";
 import SectionTitle from "@/components/SectionTitle";
 import { useTranslations } from "next-intl";
 
-export default function Categoria() {
+type LinkMapItem = {
+  handle: string;
+  fields: { value: string | null }[];
+};
+
+type CategoriaProps = {
+  links: LinkMapItem[];
+};
+
+export default function Categoria({ links }: CategoriaProps) {
   const t = useTranslations("Home");
+
+  const getFileLink = (handle: string) => {
+    const item = links.find((link) => link.handle === handle);
+    return item && item.fields[1].value ? item.fields[1].value : "";
+  };
+
   return (
     <div className="px-[15px] lg:px-[100px] mx-auto flex flex-col justify-center w-full max-w-[1600px] gap-[50px] mt-[50px] lg:mt-[110px]">
       <div className="hidden lg:flex justify-center">
@@ -33,9 +48,10 @@ export default function Categoria() {
             textButton={t("botonCarnes")}
             description={t("descripcionCarnes")}
             image={carnes}
-            link="Carnes"
+            link=""
             reverse={true}
             color="rojo"
+            file={getFileLink("carta-carnes")}
           />
           <CategoryCard
             title={t("nombreCategoria3")}
@@ -52,9 +68,10 @@ export default function Categoria() {
             textButton={t("botonEspeciales")}
             description={t("descripcionEspeciales")}
             image={especiales}
-            link="Especiales"
+            link=""
             reverse={true}
             color="rojo"
+            file={getFileLink("carta-especiales")}
           />
         </div>
       </div>

@@ -6,9 +6,10 @@ type Props = {
   icon?: StaticImageData;
   link: string;
   color?: string;
+  file?: string;
 };
 
-export default function BotonXL({ text, icon, link, color }: Props) {
+export default function BotonXL({ text, icon, link, color, file }: Props) {
   return (
     <Link
       href={link}

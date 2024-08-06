@@ -11,12 +11,26 @@ import BotonXL from "@/components/GeneralComponents/Botones/BotonXL";
 import BotonNoFillXL from "@/components/GeneralComponents/BotonesNoFill/BotonNoFillXL";
 import Lottie from "lottie-react";
 import FlechaIzq from "@/assets/animations/inicio/FlechaIzq.json";
-import BotonMD from "@/components/GeneralComponents/Botones/BotonMD";
 import BotonLG from "@/components/GeneralComponents/Botones/BotonLG";
 import { useTranslations } from "next-intl";
 
-export default function Nosotros() {
+type LinkMapItem = {
+  handle: string;
+  fields: { value: string | null }[];
+};
+
+type CategoriaProps = {
+  links: LinkMapItem[];
+};
+
+export default function Nosotros({ links }: CategoriaProps) {
   const t = useTranslations("Home");
+
+  const getFileLink = (handle: string) => {
+    const item = links.find((link) => link.handle === handle);
+    return item && item.fields[1].value ? item.fields[1].value : "";
+  };
+
   return (
     <div className="group w-full mt-[25px] md:mt-[50px] lg:mt-[110px] max-h-[580px] h-full relative flex flex-col lg:flex-row justify-center">
       <div className="w-full container mx-auto absolute z-[100] hidden lg:flex"></div>
@@ -39,11 +53,15 @@ export default function Nosotros() {
               {t("nosotrosDescription")}
             </p>
             <div className="flex gap-[30px]">
-              <BotonXL icon={wineIcon} text={t("botonMenu")} link="#" />
+              <BotonXL
+                icon={wineIcon}
+                text={t("botonMenu")}
+                link={getFileLink("ubicacion")}
+              />
               <BotonNoFillXL
                 icon={locationIcon}
                 text={t("botonUbicacion")}
-                link="#"
+                link={getFileLink("carta-carnes")}
               />
             </div>
           </div>
@@ -71,27 +89,37 @@ export default function Nosotros() {
           className="object-cover"
         />
       </div>
-      <div className="lg:hidden flex flex-col gap-[30px] py-[60px]">
+      <div className="lg:hidden flex flex-col gap-[30px] py-[60px] border border-red-500">
         <p className="text-[40px]/[39px] md:text-[55px]/[62px] font-vangeda text-terciarioPrincipal text-center">
           {t("nosotrosTitle1")}
           <br />
           {t("nosotrosTitle2")}
         </p>
         <div className="w-full flex gap-[30px] justify-center md:hidden">
-          <BotonLG link="#" color="verde" text="Ver carta" icon={bookIcon} />
           <BotonLG
-            link="#"
+            link={getFileLink("ubicacion")}
             color="verde"
-            text="Ubicación"
+            text={t("botonMenu")}
+            icon={bookIcon}
+          />
+          <BotonLG
+            link={getFileLink("carta-carnes")}
+            color="verde"
+            text={t("botonUbicacion")}
             icon={locationIcon}
           />
         </div>
         <div className="w-full md:flex gap-[30px] justify-center hidden">
-          <BotonXL link="#" color="verde" text="Ver carta" icon={bookIcon} />
           <BotonXL
-            link="#"
+            link={getFileLink("ubicacion")}
             color="verde"
-            text="Ubicación"
+            text={t("botonMenu")}
+            icon={bookIcon}
+          />
+          <BotonXL
+            link={getFileLink("carta-carnes")}
+            color="verde"
+            text={t("botonUbicacion")}
             icon={locationIcon}
           />
         </div>

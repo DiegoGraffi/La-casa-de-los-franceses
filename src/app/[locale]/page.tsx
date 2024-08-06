@@ -42,18 +42,34 @@ export default async function Home() {
     }
   `);
 
+  const linksQuery = graphql(`
+    query Links {
+      metaobjects(first: 100, type: "links") {
+        nodes {
+          handle
+          fields {
+            value
+          }
+        }
+      }
+    }
+  `);
+
   const data = await fetchGraphql(query, {});
   const products = data.collectionByHandle?.products.nodes;
 
   const t = await getTranslations("Home");
 
+  const linksData = await fetchGraphql(linksQuery, {});
+  const links = linksData.metaobjects?.nodes;
+
   return (
     <div className="min-h-screen flex justify-center items-center flex-col overflow-x-hidden">
       <Hero />
       <ProductCarousel products={products} title={t("carouselTitle")} />
-      <Categoria />
+      <Categoria links={links} />
       <Membresia />
-      <Nosotros />
+      <Nosotros links={links} />
       <Eventos />
       <Marca />
     </div>

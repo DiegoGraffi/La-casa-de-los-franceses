@@ -11,6 +11,7 @@ type CategoryCardProps = {
   link: string;
   color?: string;
   reverse: boolean;
+  file?: string;
 };
 
 export default function CategoryCard({
@@ -21,9 +22,11 @@ export default function CategoryCard({
   link,
   reverse,
   color,
+  file,
 }: CategoryCardProps) {
-  const productTypeQuery = `?productType=${encodeURIComponent(link)}`;
-  const updatedLink = `/tienda${productTypeQuery}`;
+  const href =
+    link === "" ? file : `/tienda?productType=${encodeURIComponent(link)}`;
+
   return (
     <div
       className={`group w-full flex md:px-0 flex-col gap-[25px] lg:flex-row lg:gap-0 lg:h-[425px] ${
@@ -64,7 +67,7 @@ export default function CategoryCard({
           <div className="flex lg:hidden">
             <BotonMD
               text={textButton}
-              link={updatedLink}
+              link={href || ""}
               icon={catalogoIcon}
               color={color}
             />
@@ -73,7 +76,7 @@ export default function CategoryCard({
           <div className="hidden lg:flex">
             <BotonXL
               text={textButton}
-              link={updatedLink}
+              link={href || ""}
               icon={catalogoIcon}
               color={color}
             />

@@ -1,17 +1,18 @@
 import Image from "next/image";
 import heroImg from "@/assets/images/local/heroImg.png";
 import estrella from "@/assets/images/local/estrella.svg";
-import menu from "@/assets/images/local/menu.png";
-import ubicacion from "@/assets/images/local/ubicacion.png";
+
 import wines from "@/assets/images/local/wines.png";
 import "react-indiana-drag-scroll/dist/style.css";
 import EventsSection from "@/components/LocalComponents/EventsSection";
 import GallerySection from "@/components/LocalComponents/GallerySection";
 import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
+import ButtonsSection from "@/components/LocalComponents/ButtonsSection";
 
 export default function Local() {
   const t = useTranslations("Local");
+
   return (
     <div className="flex flex-col items-center">
       <section className="w-full h-[70vh] lg:h-[750px] relative flex justify-center">
@@ -30,34 +31,7 @@ export default function Local() {
         </div>
       </section>
 
-      <section className="flex my-[80px] w-[100%] px-[15px] justify-center">
-        <div className="group relative flex justify-center items-center w-[50%] lg:w-[600px] h-[150px] lg:h-[250px] rounded-tl-[50px] rounded-br-[50px] overflow-hidden ">
-          <div className="bg-[#7D0A0A] w-full h-full absolute opacity-70 z-10  group-hover:opacity-100 transition-all ease-in-out duration-200"></div>
-          <Image src={menu} alt="Menu Image" fill className="object-cover" />
-          <p className="font-vangeda text-[32px]/[38px] lg:text-[55px]/[62px] text-[#D3DDA8] text-center absolute z-20 group-hover:hidden">
-            {t("cardIzq")}
-          </p>
-          <p className="hidden font-vangeda text-[32px]/[38px] lg:text-[55px]/[62px] text-[#D3DDA8] text-center absolute z-20 group-hover:flex">
-            {t("cardIzq2")}
-          </p>
-        </div>
-
-        <div className="group relative flex justify-center items-center w-[50%] lg:w-[600px] h-[150px] lg:h-[250px] rounded-tr-[50px] rounded-bl-[50px] overflow-hidden ">
-          <div className="bg-[#D3DDA8] w-full h-full absolute opacity-70 z-10 group-hover:opacity-100 transition-all ease-in-out duration-200"></div>
-          <Image
-            src={ubicacion}
-            alt="Ubicación Image"
-            fill
-            className="object-cover"
-          />
-          <p className="font-vangeda text-[32px]/[38px] lg:text-[55px]/[62px] text-[#7D0A0A] text-center absolute z-20 group-hover:hidden">
-            {t("cardDer")}
-          </p>
-          <p className="hidden font-vangeda text-[32px]/[38px] lg:text-[55px]/[62px] text-[#7D0A0A] text-center absolute z-20 group-hover:flex">
-            {t("cardDer2")}
-          </p>
-        </div>
-      </section>
+      <ButtonsSection />
 
       <section className="bg-terciarioClaro flex flex-col justify-center items-center py-[40px] w-full overflow-hidden">
         <div className="max-w-[1600px] px-[100px] flex flex-col items-center gap-[50px] lg:container">
