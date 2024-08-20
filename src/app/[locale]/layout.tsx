@@ -50,7 +50,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="scroll-smooth">
       <body className={`${vangeda.variable} ${bricolage.variable}`}>
-        <NextIntlClientProvider messages={messages}>
+        {/* <NextIntlClientProvider messages={messages}>
           <Navbar />
           <Cart />
           {children}
@@ -58,7 +58,16 @@ export default async function RootLayout({
           <ClientOnly>
             <AgeConfirmationModal />
           </ClientOnly>
-        </NextIntlClientProvider>
+        </NextIntlClientProvider> */}
+        <div className="w-screen h-screen bg-terciarioPrincipal flex flex-col justify-center items-center">
+          <p className="text-center font-vangeda text-primarioMuyClaro text-2xl">
+            Site internet en construction
+          </p>
+          <div className="w-[30%] border-b border-b-primarioMuyClaro py-5 mb-5"></div>
+          <p className="text-center font-vangeda text-primarioMuyClaro text-2xl pt-5">
+            Sitio en construcción
+          </p>
+        </div>
       </body>
     </html>
   );
