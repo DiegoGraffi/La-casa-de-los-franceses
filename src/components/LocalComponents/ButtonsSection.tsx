@@ -37,7 +37,12 @@ export default async function ButtonsSection() {
         className="group relative flex justify-center items-center w-[50%] lg:w-[600px] h-[150px] lg:h-[250px] rounded-tl-[50px] rounded-br-[50px] overflow-hidden"
       >
         <div className="bg-[#7D0A0A] w-full h-full absolute opacity-70 z-10  group-hover:opacity-100 transition-all ease-in-out duration-200"></div>
-        <Image src={menu} alt="Menu Image" fill className="object-cover" />
+        <Image
+          src={menu}
+          alt="Menu Image"
+          fill
+          className="object-cover group-hover:scale-110 transition-all ease-in-out duration-200"
+        />
         <p className="font-vangeda text-[32px]/[38px] lg:text-[55px]/[62px] text-[#D3DDA8] text-center absolute z-20 group-hover:hidden">
           {t("cardIzq")}
         </p>
@@ -56,7 +61,7 @@ export default async function ButtonsSection() {
           src={ubicacion}
           alt="Ubicación Image"
           fill
-          className="object-cover"
+          className="object-cover group-hover:scale-110 transition-all ease-in-out duration-200"
         />
         <p className="font-vangeda text-[32px]/[38px] lg:text-[55px]/[62px] text-[#7D0A0A] text-center absolute z-20 group-hover:hidden">
           {t("cardDer")}

@@ -56,12 +56,12 @@ export default function Nosotros({ links }: CategoriaProps) {
               <BotonXL
                 icon={wineIcon}
                 text={t("botonMenu")}
-                link={getFileLink("ubicacion")}
+                link={getFileLink("menu")}
               />
               <BotonNoFillXL
                 icon={locationIcon}
                 text={t("botonUbicacion")}
-                link={getFileLink("carta-carnes")}
+                link={getFileLink("ubicacion")}
               />
             </div>
           </div>
@@ -89,7 +89,7 @@ export default function Nosotros({ links }: CategoriaProps) {
           className="object-cover"
         />
       </div>
-      <div className="lg:hidden flex flex-col gap-[30px] py-[60px] border border-red-500">
+      <div className="lg:hidden flex flex-col gap-[30px] py-[60px]">
         <p className="text-[40px]/[39px] md:text-[55px]/[62px] font-vangeda text-terciarioPrincipal text-center">
           {t("nosotrosTitle1")}
           <br />

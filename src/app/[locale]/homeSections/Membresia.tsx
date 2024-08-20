@@ -32,7 +32,7 @@ export default function Membresia() {
           </p>
 
           <Link
-            href={"#"}
+            href={"/membresia"}
             className={`group border border-solid border-terciarioPrincipal px-[28px] py-[10px] rounded-full justify-center items-center flex w-max bg-transparent hover:bg-primarioOscuro hover:border-primarioMuyOscuro active:bg-primarioClaro disabled:border-primarioMuyClaro disabled:text-primarioClaro transition-all ease-out duration-300`}
           >
             <Image

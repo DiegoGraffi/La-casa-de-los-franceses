@@ -55,10 +55,20 @@ export default async function EventsSection() {
   const eventos = data.metaobjects.nodes;
   const translatedEventos = translatedData.metaobjects.nodes;
 
-  const mappedEventos = eventos.map((evento, index) => ({
-    ...evento,
-    translatedFields: translatedEventos[index].fields,
-  }));
+  const today = new Date();
+
+  const mappedEventos = eventos.map((evento, index) => {
+    const eventDate = evento.fields[0].value
+      ? new Date(evento.fields[0].value)
+      : null;
+    const isPast = eventDate !== null && eventDate < today;
+
+    return {
+      ...evento,
+      translatedFields: translatedEventos[index].fields,
+      isPast,
+    };
+  });
 
   const validEventos = mappedEventos.filter(
     (evento) => evento.fields[0].value !== null
@@ -78,15 +88,23 @@ export default async function EventsSection() {
         <div className="w-max relative flex space-x-5 md:space-x-10 items-center py-4 px-[40%]">
           {validEventos.map((evento, index) => {
             return (
-              <EventoCard
-                date={formatDate(evento.fields[0].value)}
-                description={evento.fields[1].value}
-                title={evento.fields[2].value}
-                translatedDate={formatDate(evento.translatedFields[0].value)}
-                translatedDescription={evento.translatedFields[1].value}
-                translatedTitle={evento.translatedFields[2].value}
+              <div
                 key={index}
-              />
+                className={
+                  evento.isPast
+                    ? "opacity-60 saturate-0 contrast-70"
+                    : "opacity-100"
+                }
+              >
+                <EventoCard
+                  date={formatDate(evento.fields[0].value)}
+                  description={evento.fields[1].value}
+                  title={evento.fields[2].value}
+                  translatedDate={formatDate(evento.translatedFields[0].value)}
+                  translatedDescription={evento.translatedFields[1].value}
+                  translatedTitle={evento.translatedFields[2].value}
+                />
+              </div>
             );
           })}
         </div>
