@@ -5,13 +5,13 @@ import { useTranslations } from "next-intl";
 function page() {
   const t = useTranslations("Preguntas Frecuentes");
   return (
-    <div className="min-h-screen mb-20 pt-[150px] flex flex-col gap-[10px] lg:gap-[40px]">
+    <div className="min-h-screen mb-20 pt-[150px] flex flex-col gap-[10px] lg:gap-[20px]">
       <div className="mx-[100px] lg:m-0">
         <SectionTitle title={t("titulo")} />
       </div>
 
       <div className="flex justify-center">
-        <h3 className="w-[315px] lg:w-full font-bricolage font-semibold text-center text-[40px]/[48px] lg:text-[48px]/[58px] text-terciarioPrincipal mt-[50px] lg:mt-[93px]">
+        <h3 className="w-[315px] lg:w-full font-bricolage font-semibold text-center text-[40px]/[48px] lg:text-[48px]/[58px] text-terciarioPrincipal mt-[50px]">
           {t("seccion1")}
         </h3>
       </div>

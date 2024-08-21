@@ -1,7 +1,7 @@
 import CategoryCard from "@/components/CategoryCard";
 import vinos from "@/assets/images/inicio/vinos.png";
-import carnes from "@/assets/images/inicio/carnes.png";
-import champagnes from "@/assets/images/inicio/champagnes.png";
+import carnes from "@/assets/images/inicio/carnes.jpg";
+import champagnes from "@/assets/images/inicio/champagnes.jpg";
 import especiales from "@/assets/images/inicio/especiales.png";
 import SectionTitle from "@/components/SectionTitle";
 import { useTranslations } from "next-intl";
@@ -68,10 +68,9 @@ export default function Categoria({ links }: CategoriaProps) {
             textButton={t("botonEspeciales")}
             description={t("descripcionEspeciales")}
             image={especiales}
-            link=""
+            link="Especiales"
             reverse={true}
             color="rojo"
-            file={getFileLink("carta-especiales")}
           />
         </div>
       </div>

@@ -97,13 +97,13 @@ export default function Nosotros({ links }: CategoriaProps) {
         </p>
         <div className="w-full flex gap-[30px] justify-center md:hidden">
           <BotonLG
-            link={getFileLink("ubicacion")}
+            link={getFileLink("menu")}
             color="verde"
             text={t("botonMenu")}
             icon={bookIcon}
           />
           <BotonLG
-            link={getFileLink("carta-carnes")}
+            link={getFileLink("ubicacion")}
             color="verde"
             text={t("botonUbicacion")}
             icon={locationIcon}
@@ -111,13 +111,13 @@ export default function Nosotros({ links }: CategoriaProps) {
         </div>
         <div className="w-full md:flex gap-[30px] justify-center hidden">
           <BotonXL
-            link={getFileLink("ubicacion")}
+            link={getFileLink("menu")}
             color="verde"
             text={t("botonMenu")}
             icon={bookIcon}
           />
           <BotonXL
-            link={getFileLink("carta-carnes")}
+            link={getFileLink("ubicacion")}
             color="verde"
             text={t("botonUbicacion")}
             icon={locationIcon}

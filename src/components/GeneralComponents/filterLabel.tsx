@@ -1,11 +1,24 @@
 import { useSearchParams } from "next/navigation";
 import { CustomCheckbox } from "../customCheckbox";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 type FilterLabelProps = {
   label: string;
   name: string;
 };
+
+const translations = {
+  Tinto: "Rouge",
+  Blanco: "Blanc",
+  Rosado: "Rosé",
+  Carnes: "Viandes",
+  Vinos: "Vins",
+  "Champagnes y espirituosos": "Champagnes et spiritueux",
+  Especiales: "Spéciales",
+};
+
+type TranslationKey = keyof typeof translations;
 
 export default function FilterLabel({ label, name }: FilterLabelProps) {
   const [checked, setChecked] = useState(false);
@@ -18,6 +31,13 @@ export default function FilterLabel({ label, name }: FilterLabelProps) {
     setChecked(isChecked);
   }, [searchParams]);
 
+  const locale = usePathname()?.split("/")[1];
+  const isSpanish = locale === "es";
+
+  const displayLabel = isSpanish
+    ? label
+    : translations[label as TranslationKey] || label;
+
   return (
     <div className="p-2 hover:bg-gris6 rounded-md w-full">
       <div className="relative flex gap-[10px] items-start">
@@ -29,7 +49,7 @@ export default function FilterLabel({ label, name }: FilterLabelProps) {
           onCheckedChange={setChecked}
         />
         <p className="text-[20px]/[24px] font-bricolage text-gris3 font-light">
-          {label}
+          {displayLabel}
         </p>
       </div>
     </div>

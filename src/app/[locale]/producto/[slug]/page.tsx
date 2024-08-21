@@ -114,8 +114,6 @@ export default async function Producto({
     product.productByHandle?.priceRange.maxVariantPrice.amount;
   const precio =
     product.productByHandle?.compareAtPriceRange.maxVariantPrice.amount;
-  const currencyCode =
-    product.productByHandle?.priceRange.maxVariantPrice.currencyCode;
 
   const { integerPart: discountInteger, decimalPart: discountDecimal } =
     handlePrice(precioDescuento ?? 0);

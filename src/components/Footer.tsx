@@ -82,13 +82,18 @@ export default function Footer() {
                   <FooterItem
                     icon={questionIcon}
                     label={t("preguntasFrecuentes")}
+                    link="preguntasFrecuentes"
                   />
                 </li>
                 <li>
                   <FooterItem icon={listIcon} label={t("bases")} />
                 </li>
                 <li>
-                  <FooterItem icon={creditCardIcon} label={t("membresia")} />
+                  <FooterItem
+                    icon={creditCardIcon}
+                    label={t("membresia")}
+                    link="membresia"
+                  />
                 </li>
                 <li>
                   <FooterItem

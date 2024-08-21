@@ -203,14 +203,6 @@ export default function CartModal({ cart }: CartModalProps) {
                           amount={cart.cost.totalAmount.amount}
                           currencyCode={cart.cost.totalAmount.currencyCode}
                         />
-                        {/* <p className="font-bricolage font-semibold text-white text-center flex flex-row items-start">
-                          <span className="text-[24px]/[28px]">
-                            {integerPart}
-                          </span>
-                          <span className="text-[16px]/[24px]">
-                            {decimalPart}€
-                          </span>
-                        </p> */}
                       </div>
                     </div>
                     <div className="flex flex-col justify-center items-center gap-3 flex-1">

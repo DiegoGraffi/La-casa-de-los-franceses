@@ -65,7 +65,6 @@ export default async function NosotrosPage() {
 
   const data = await fetchGraphql(query, {});
   const translatedData: TranslatedData = await fetchGraphql(translateQuery, {});
-  console.log(translatedData.metaobjects.nodes.map((node) => node.fields[0]));
 
   const t = await getTranslations("Nosotros");
 
@@ -116,8 +115,6 @@ export default async function NosotrosPage() {
     ...bodega,
     translatedDescription: translatedBodegaDescription[index],
   }));
-
-  console.log(combinedBodegaData);
 
   return (
     <div className="min-h-screen w-full flex flex-col justify-center items-center">

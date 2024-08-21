@@ -149,9 +149,9 @@ const wineTypeQuery = graphql(`
 
 async function fetchProductTypes() {
   const data = await fetchGraphql(productTypesQuery, {});
-  const productTypes = data.products.edges.map(
-    (edge: { node: { productType: string } }) => edge.node.productType
-  );
+  const productTypes = data.products.edges
+    .map((edge: { node: { productType: string } }) => edge.node.productType)
+    .filter((type) => type !== "Carnes");
   return Array.from(new Set(productTypes));
 }
 
@@ -316,7 +316,8 @@ export default async function Tienda({
   const products = data.products.edges.map((edge: { node: any }) => edge.node);
 
   const productos = products.filter(
-    (producto: any) => producto.productType != "Membresia"
+    (producto: any) =>
+      producto.productType != "Membresia" && producto.productType !== "Carnes"
   );
 
   return (

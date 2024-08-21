@@ -7,12 +7,16 @@ import Lottie from "lottie-react";
 import FlechaIzq from "@/assets/animations/inicio/FlechaIzq.json";
 import FlechaRed from "@/assets/animations/inicio/FlechaRed.json";
 import { useTranslations } from "next-intl";
+import { Link } from "@/navigation";
 
 export default function Eventos() {
   const t = useTranslations("Home");
   return (
     <div className="max-w-[1600px] w-full md:px-[15px] lg:px-[50px] xl:px-[100px] flex flex-col md:flex-row justify-center items-center gap-0 md:gap-[15px] lg:gap-[68px] mt-[25px] md:mt-[50px] lg:mt-[110px]">
-      <div className="group relative overflow-hidden h-[250px] md:h-[350px] lg:h-[600px] w-full lg:w-auto lg:aspect-[750/610] p-[40px]">
+      <Link
+        href={"/local"}
+        className="group relative overflow-hidden h-[250px] md:h-[350px] lg:h-[600px] w-full lg:w-auto lg:aspect-[750/610] p-[40px]"
+      >
         <Image
           src={eventosImg}
           alt="imagen eventos"
@@ -36,9 +40,12 @@ export default function Eventos() {
           </div>
         </div>
         <div className="hidden z-[200] lg:flex w-full h-full bg-terciarioClaro absolute top-[100%] left-0 group-hover:-top-[0] ease-[cubic-bezier(0,0.93,1,1)] duration-[800ms] transition-all"></div>
-      </div>
+      </Link>
 
-      <div className="group relative overflow-hidden h-[250px] md:h-[350px] lg:h-[600px] w-full lg:w-auto lg:aspect-[750/610] p-[40px]">
+      <Link
+        href={"#"}
+        className="group relative overflow-hidden h-[250px] md:h-[350px] lg:h-[600px] w-full lg:w-auto lg:aspect-[750/610] p-[40px]"
+      >
         <Image
           src={degustacionImg}
           alt="imagen eventos"
@@ -65,7 +72,7 @@ export default function Eventos() {
 
           <div className="hidden z-[200] lg:flex w-full h-full bg-secundarioClaro absolute top-[100%] left-0 group-hover:-top-[0] ease-[cubic-bezier(0,0.93,1,1)] duration-[800ms] transition-all"></div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }
