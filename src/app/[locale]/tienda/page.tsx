@@ -160,7 +160,9 @@ async function fetchVendors() {
   const vendors = data.products.edges.map(
     (edge: { node: { vendor: string } }) => edge.node.vendor
   );
-  return Array.from(new Set(vendors));
+
+  const filteredVendors = vendors.filter((vendor) => vendor !== "Mi Tienda");
+  return Array.from(new Set(filteredVendors));
 }
 
 async function fetchTags() {
@@ -168,7 +170,11 @@ async function fetchTags() {
   const tags = data.products.edges.flatMap(
     (edge: { node: { tags: string[] } }) => edge.node.tags
   );
-  return Array.from(new Set(tags));
+
+  const filteredTags = tags.filter(
+    (tag) => !["Tinto", "Blanco", "Rosado"].includes(tag)
+  );
+  return Array.from(new Set(filteredTags));
 }
 
 async function fetchWineType() {

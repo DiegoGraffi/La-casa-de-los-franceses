@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import portada from "@/assets/images/inicio/portadaNosotros.jpg";
+import portada from "@/assets/images/portadaNosotros.png";
 
 import nosotrosLine from "@/assets/images/nosotrosLine.svg";
 import wineIcon from "@/assets/images/wineIcon.svg";

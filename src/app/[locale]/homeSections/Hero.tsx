@@ -22,7 +22,7 @@ export default function Hero() {
               fill
               loading="eager"
               decoding="async"
-              className="object-contain"
+              className="object-contain "
             />
           </div>
         </div>
@@ -32,7 +32,7 @@ export default function Hero() {
           quality={100}
           loading="eager"
           decoding="async"
-          className="object-cover -z-10"
+          className="object-cover -z-10 object-top"
           fill
         />
       </div>

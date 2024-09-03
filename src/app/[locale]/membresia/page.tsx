@@ -158,7 +158,7 @@ async function Membresia() {
         <SectionTitle title={t("eleccionMembresia")} />
 
         <div className="grid grid-cols-2 mx-auto lg:flex lg:flex-row justify-center items-stretch mt-[37px] gap-[10px]">
-          <MembresiaCard
+          {/* <MembresiaCard
             image={products[3].featuredImage?.url}
             name={products[3].title}
             description={products[3].description}
@@ -166,8 +166,8 @@ async function Membresia() {
             availableForSale={products[3].availableForSale}
             variants={products[3].variants.edges.map((edge) => edge.node)}
             translatedDescription={translateMembership[0].description}
-          />
-          <MembresiaCard
+          /> */}
+          {/* <MembresiaCard
             image={products[2].featuredImage?.url}
             name={products[2].title}
             description={products[2].description}
@@ -175,7 +175,7 @@ async function Membresia() {
             availableForSale={products[2].availableForSale}
             variants={products[2].variants.edges.map((edge) => edge.node)}
             translatedDescription={translateMembership[1].description}
-          />
+          /> */}
           <MembresiaCard
             image={products[1].featuredImage?.url}
             name={products[1].title}
@@ -183,7 +183,7 @@ async function Membresia() {
             precio={products[1].priceRange.maxVariantPrice.amount}
             availableForSale={products[1].availableForSale}
             variants={products[1].variants.edges.map((edge) => edge.node)}
-            translatedDescription={translateMembership[2].description}
+            // translatedDescription={translateMembership[2].description}
           />
           <MembresiaCard
             image={products[0].featuredImage?.url}
@@ -192,7 +192,7 @@ async function Membresia() {
             precio={products[0].priceRange.maxVariantPrice.amount}
             availableForSale={products[0].availableForSale}
             variants={products[0].variants.edges.map((edge) => edge.node)}
-            translatedDescription={translateMembership[3].description}
+            // translatedDescription={translateMembership[3].description}
           />
         </div>
         <div className="flex flex-col gap-[15px] lg:gap-[30px] mt-[120px]">
