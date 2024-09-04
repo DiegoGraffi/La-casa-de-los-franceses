@@ -198,9 +198,9 @@ export default async function NosotrosPage() {
                   </div>
                 );
               })}
-            </div>
+            </div> 
           </div>
-        </div> */}
+        </div>*/}
       </section>
 
       <section className="lg:hidden w-full max-w-[1600px] px-[15px] md:px-[35px]">
@@ -212,7 +212,7 @@ export default async function NosotrosPage() {
             className="object-cover lg:object-top w-full"
           />
         </div>
-        <div className="h-full left-0 flex justify-center items-center group-hover:opacity-0 transition-all ease-in-out duration-300 lg:gap-0 gap-10 mt-[40px]">
+        {/* <div className="h-full left-0 flex justify-center items-center group-hover:opacity-0 transition-all ease-in-out duration-300 lg:gap-0 gap-10 mt-[40px]">
           <p className="text-[40px]/[39px] font-vangeda text-terciarioPrincipal">
             {t("carouselTitle")}
           </p>
@@ -246,7 +246,7 @@ export default async function NosotrosPage() {
               </div>
             );
           })}
-        </div>
+        </div> */}
       </section>
 
       <section className="w-full max-w-[1600px] flex flex-col gap-[50px] justify-center items-center mt-[80px] lg:mt-[100px] px-[15px] md:px-[35px] lg:px-[80px]">
