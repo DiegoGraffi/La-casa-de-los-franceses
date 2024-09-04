@@ -2,7 +2,7 @@ import Image from "next/image";
 import heroImg from "@/assets/images/local/heroImg.png";
 import estrella from "@/assets/images/local/estrella.svg";
 
-import wines from "@/assets/images/local/wines.png";
+import corchos from "@/assets/images/local/corchos.png";
 import "react-indiana-drag-scroll/dist/style.css";
 import EventsSection from "@/components/LocalComponents/EventsSection";
 import GallerySection from "@/components/LocalComponents/GallerySection";
@@ -71,7 +71,7 @@ export default function Local() {
             </p>
           </div>
           <div className="group-hover:bg-[#96AC60] absolute w-full h-full bg-gradient-to-t lg:bg-gradient-to-r from-[#96AC60] from-[27%] md:from-[57%] xl:from-[27%] to-transparent z-30 left-0 transition-all ease-in-out duration-200"></div>
-          <Image src={wines} alt="wines" fill className="object-cover" />
+          <Image src={corchos} alt="wines" fill className="object-cover" />
         </div>
       </Link>
     </div>

@@ -13,6 +13,7 @@ import OpenCart from "./cart/open-cart";
 export function NavbarMobile() {
   const t = useTranslations("Navbar");
   const [menuAbierto, setMenuAbierto] = useState(false);
+
   return (
     <>
       <div className="flex gap-[15px] lg:hidden items-center">
@@ -50,18 +51,27 @@ export function NavbarMobile() {
             </Link>
           </div>
           <ul className="flex flex-col items-center lg:hidden">
-            {["tienda", "nosotros", "membresia", "local"].map((item, index) => (
-              <li
-                key={index}
-                className="w-min px-[25px] py-[25px] border-b border-b-secundarioOscuro last:mb-[25px]"
-              >
-                <Link href={`/${item}`} onClick={() => setMenuAbierto(false)}>
-                  <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
-                    {t(`item${index + 1}`)}
-                  </p>
-                </Link>
-              </li>
-            ))}
+            <li className="w-min px-[25px] py-[25px] border-b border-b-secundarioOscuro last:mb-[25px]">
+              <Link href={`/tienda`} onClick={() => setMenuAbierto(false)}>
+                <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
+                  {t("item1")}
+                </p>
+              </Link>
+            </li>
+            <li className="w-min px-[25px] py-[25px] border-b border-b-secundarioOscuro last:mb-[25px]">
+              <Link href={`/nosotros`} onClick={() => setMenuAbierto(false)}>
+                <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
+                  {t("item2")}
+                </p>
+              </Link>
+            </li>
+            <li className="w-min px-[25px] py-[25px] border-b border-b-secundarioOscuro last:mb-[25px]">
+              <Link href={`/local`} onClick={() => setMenuAbierto(false)}>
+                <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
+                  {t("item4")}
+                </p>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

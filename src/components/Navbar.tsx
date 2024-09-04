@@ -46,12 +46,12 @@ export default function Navbar() {
             </p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
-          <Link href={`/membresia`} className="group px-[25px] py-[10px]">
+          {/* <Link href={`/membresia`} className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro text-center">
               {t("item3")}
             </p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
-          </Link>
+          </Link> */}
           <Link href={`/local`} className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro text-center">
               {t("item4")}
