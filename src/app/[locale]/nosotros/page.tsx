@@ -145,16 +145,16 @@ export default async function NosotrosPage() {
         <NosotrosCarousel />
       </section>
 
-      {/* <section className="hidden lg:block w-full max-w-[1600px] lg:mx-auto lg:mt-[75px] px-[15px] md:px-[35px] lg:px-[100px]">
+      <section className="hidden lg:block w-full max-w-[1600px] lg:mx-auto lg:mt-[75px] px-[15px] md:px-[35px] lg:px-[100px]">
         <div className="w-full h-[450px] relative">
           <Image
             src={personas}
             alt="nosotros"
             fill
-            className="object-contain lg:object-cover lg:object-top"
+            className="object-contain lg:object-cover"
           />
         </div>
-        <div className="group h-[300px] w-full max-w-[1600px] flex flex-col lg:flex-row items-center lg:py-[75px] relative origin-center">
+        {/* <div className="group h-[300px] w-full max-w-[1600px] flex flex-col lg:flex-row items-center lg:py-[75px] relative origin-center">
           <div className="h-full w-full absolute flex flex-col lg:flex-row justify-center items-center">
             <div className="w-[75px] lg:scale-75 xl:scale-100 lg:transform lg:rotate-0 transform rotate-90 group-hover:opacity-0 transition-all ease-in-out duration-300">
               <NosotrosArrowComponent />
@@ -200,7 +200,7 @@ export default async function NosotrosPage() {
               })}
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
       <section className="lg:hidden w-full max-w-[1600px] px-[15px] md:px-[35px]">
@@ -247,7 +247,7 @@ export default async function NosotrosPage() {
             );
           })}
         </div>
-      </section> */}
+      </section>
 
       <section className="w-full max-w-[1600px] flex flex-col gap-[50px] justify-center items-center mt-[80px] lg:mt-[100px] px-[15px] md:px-[35px] lg:px-[80px]">
         <SectionTitle title={t("bodegasTitle")} />
@@ -287,7 +287,7 @@ export default async function NosotrosPage() {
             src={fondoNosotros}
             alt="wines"
             fill
-            className="object-cover object-bottom"
+            className="object-cover"
           />
         </div>
       </section>
