@@ -137,7 +137,7 @@ const tagsQuery = graphql(`
 
 const wineTypeQuery = graphql(`
   query WineType {
-    products(first: 250, query: "tag:'Blanco' OR tag:'Rosado' OR tag:'Tinto'") {
+    products(first: 250, query: "tag:'Blanco' OR tag:'Rosado' OR tag:'Rojo'") {
       edges {
         node {
           tags
@@ -172,7 +172,7 @@ async function fetchTags() {
   );
 
   const filteredTags = tags.filter(
-    (tag) => !["Tinto", "Blanco", "Rosado"].includes(tag)
+    (tag) => !["Rojo", "Blanco", "Rosado", "Rose"].includes(tag)
   );
   return Array.from(new Set(filteredTags));
 }
@@ -183,7 +183,7 @@ async function fetchWineType() {
     (edge: { node: { tags: string[] } }) => edge.node.tags
   );
   const filteredTypes = types.filter((tag) =>
-    ["Blanco", "Rosado", "Tinto"].includes(tag)
+    ["Blanco", "Rosado", "Rojo"].includes(tag)
   );
   return Array.from(new Set(filteredTypes));
 }
@@ -316,6 +316,17 @@ export default async function Tienda({
     ...paginationParams,
   });
 
+  const cantidadProductos = await fetchGraphql(query, {
+    query: shopifyQuery,
+    ...getSortVariables(typeof sort === "string" ? sort : ""),
+    first: 250,
+  });
+
+  const totalProductos = cantidadProductos.products.edges.map(
+    (edge: { node: any }) => edge.node
+  );
+  const cantidadProd = totalProductos.length;
+
   endCursor = data.products.pageInfo.endCursor;
   startCursor = data.products.pageInfo.startCursor;
 
@@ -336,6 +347,7 @@ export default async function Tienda({
       pageInfo={data.products.pageInfo}
       endCursor={endCursor || ""}
       startCursor={startCursor || ""}
+      cantidadProd={cantidadProd}
     />
   );
 }

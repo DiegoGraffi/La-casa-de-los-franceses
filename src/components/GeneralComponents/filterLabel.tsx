@@ -9,7 +9,7 @@ type FilterLabelProps = {
 };
 
 const translations = {
-  Tinto: "Rouge",
+  Rojo: "Rouge",
   Blanco: "Blanc",
   Rosado: "Rosé",
   Carnes: "Viandes",
@@ -24,8 +24,6 @@ export default function FilterLabel({ label, name }: FilterLabelProps) {
   const [checked, setChecked] = useState(false);
   const searchParams = useSearchParams();
 
-  // si los search params cambia hay que sincronizarlos con el state de si esta
-  // marcado o no
   useEffect(() => {
     const isChecked = searchParams.getAll(name).includes(label);
     setChecked(isChecked);
