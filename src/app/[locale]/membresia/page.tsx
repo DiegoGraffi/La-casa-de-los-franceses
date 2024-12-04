@@ -183,7 +183,7 @@ async function Membresia() {
             precio={products[1].priceRange.maxVariantPrice.amount}
             availableForSale={products[1].availableForSale}
             variants={products[1].variants.edges.map((edge) => edge.node)}
-            translatedDescription={translateMembership[1].description}
+            translatedDescription={translateMembership[0].description}
           />
           <MembresiaCard
             image={products[0].featuredImage?.url}
@@ -192,7 +192,7 @@ async function Membresia() {
             precio={products[0].priceRange.maxVariantPrice.amount}
             availableForSale={products[0].availableForSale}
             variants={products[0].variants.edges.map((edge) => edge.node)}
-            translatedDescription={translateMembership[0].description}
+            translatedDescription={translateMembership[1].description}
           />
         </div>
         <div className="flex flex-col gap-[15px] lg:gap-[30px] mt-[120px]">
