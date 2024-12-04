@@ -8,6 +8,7 @@ import { getMessages } from "next-intl/server";
 import Cart from "@/components/cart";
 import AgeConfirmationModal from "@/components/AgeConfirmationModal";
 import ClientOnly from "@/components/ClientOnly";
+import CookieConsent from "@/components/GeneralComponents/CookieConsent";
 
 const vangeda = localFont({
   src: [
@@ -57,6 +58,7 @@ export default async function RootLayout({
           <Footer />
           <ClientOnly>
             <AgeConfirmationModal />
+            <CookieConsent />
           </ClientOnly>
         </NextIntlClientProvider>
       </body>

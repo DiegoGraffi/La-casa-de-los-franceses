@@ -22,10 +22,9 @@ export default function Footer() {
   return (
     <footer id="footer" className="bg-terciarioClaro w-full py-16">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Left Column - Logo and Social */}
-          <div className="flex flex-col">
-            <div className="h-[70px] flex items-center mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 text-center">
+          <div className="flex flex-col items-center">
+            <div className="h-[70px] flex items-center justify-center mb-8">
               <Image
                 src={logo}
                 alt="logo"
@@ -33,7 +32,7 @@ export default function Footer() {
                 className="object-contain"
               />
             </div>
-            <ul className="space-y-4 pt-2">
+            <ul className="space-y-4 pt-2 inline-block text-left">
               <li className="break-all">
                 <FooterItem
                   icon={pinIcon}
@@ -61,15 +60,14 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Middle Column - Contact */}
-          <div className="flex flex-col">
-            <div className="h-[70px] flex items-center mb-8">
+          <div className="flex flex-col items-center">
+            <div className="h-[70px] flex items-center justify-center mb-8 w-full">
               <p className="text-primarioMuyClaro font-bricolage font-semibold text-[28px]/[34px]">
                 {t("contacto")}
               </p>
               <Image src={arrow} alt="arrow" className="hidden lg:block ml-2" />
             </div>
-            <ul className="space-y-4 pt-2">
+            <ul className="space-y-4 pt-2 inline-block text-left">
               {/* <li>
                 <FooterItem icon={phoneIcon} label="+54 9 2645 13-9725" />
               </li> */}
@@ -85,16 +83,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Right Column - Various */}
-          <div className="flex flex-col">
-            <div className="h-[70px] flex items-center mb-8">
+          <div className="flex flex-col items-center">
+            <div className="h-[70px] flex items-center justify-center mb-8 w-full">
               <p className="text-primarioMuyClaro font-bricolage font-semibold text-[28px]/[34px]">
                 {t("varios")}
               </p>
               <Image src={arrow} alt="arrow" className="hidden lg:block ml-2" />
             </div>
             <div className="space-y-4 pt-2">
-              <ul className="space-y-4">
+              <ul className="space-y-4 inline-block text-left">
                 <li>
                   <FooterItem icon={shopIcon} label={t("horariosTienda")} />
                 </li>
@@ -121,7 +118,7 @@ export default function Footer() {
                   />
                 </li> */}
               </ul>
-              <ul className="space-y-4">
+              <ul className="space-y-4 inline-block text-left">
                 {/* <li>
                   <FooterItem icon={headsetIcon} label={t("atencion")} />
                 </li> */}
@@ -130,7 +127,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Legislation Image */}
         <div className="max-w-[800px] mx-auto mt-12 px-4 lg:px-12">
           <Image src={Legislation} alt="legislation" />
         </div>
