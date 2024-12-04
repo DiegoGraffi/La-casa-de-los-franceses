@@ -3,7 +3,7 @@ import logo from "@/assets/images/footer/logo.svg";
 import pinIcon from "@/assets/images/footer/pinIcon.svg";
 import instagramIcon from "@/assets/images/footer/instagramIcon.svg";
 import facebookIcon from "@/assets/images/footer/facebookIcon.svg";
-import youtubeIcon from "@/assets/images/footer/youtubeIcon.svg";
+import tiktokIcon from "@/assets/images/footer/tiktokIcon.svg";
 import phoneIcon from "@/assets/images/footer/phoneIcon.svg";
 import mailIcon from "@/assets/images/footer/mailIcon.svg";
 import questionIcon from "@/assets/images/footer/questionIcon.svg";
@@ -20,50 +20,63 @@ import { useTranslations } from "next-intl";
 export default function Footer() {
   const t = useTranslations("Footer");
   return (
-    <footer id="footer" className="bg-terciarioClaro w-full py-[70px]">
-      <div className="container mx-auto flex flex-col lg:flex-row lg:justify-between gap-[25px]">
-        <div className="flex items-center flex-col gap-[60px] shrink-0 grow">
-          <Image src={logo} alt="logo" width={150} className="object-contain" />
-          <div className="w-[90%] md:w-full">
-            <ul>
+    <footer id="footer" className="bg-terciarioClaro w-full py-16">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Left Column - Logo and Social */}
+          <div className="flex flex-col">
+            <div className="h-[70px] flex items-center mb-8">
+              <Image
+                src={logo}
+                alt="logo"
+                width={150}
+                className="object-contain"
+              />
+            </div>
+            <ul className="space-y-4 pt-2">
               <li className="break-all">
                 <FooterItem
                   icon={pinIcon}
                   label="31 BVD DE COURSELLES -  75008 - PARIS"
+                  link="https://www.google.com/maps/place/La+Casa+de+Los+Franceses/@48.8807734,2.3107157,17z/data=!3m1!4b1!4m6!3m5!1s0x47e66f5d3f4bea6b:0x664222acf3052e02!8m2!3d48.8807699!4d2.3132906!16s%2Fg%2F11w9ky03nk?entry=tts&g_ep=EgoyMDI0MTEyNC4xIPu8ASoASAFQAw%3D%3D"
                 />
               </li>
               <li>
-                <FooterItem icon={instagramIcon} label="@lcdfwinestore" />
+                <FooterItem
+                  icon={instagramIcon}
+                  label="@lacasadelosfranceses"
+                  link="https://www.instagram.com/lacasadelosfranceses/"
+                />
               </li>
-              <li>
+              {/* <li>
                 <FooterItem icon={facebookIcon} label="Lacasawinestore" />
-              </li>
+              </li> */}
               <li>
                 <FooterItem
-                  icon={youtubeIcon}
+                  icon={tiktokIcon}
                   label="La casa de los franceses"
+                  link=" https://www.tiktok.com/@lacasadelosfranceses.fr"
                 />
               </li>
             </ul>
           </div>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-6  lg:gap-[50px] grow">
-          <div className="col-span-2 flex flex-col gap-[25px] justify-center lg:justify-start">
-            <div className="flex justify-center md:justify-between w-full">
-              <p className="text-primarioMuyClaro font-bricolage font-semibold text-[28px]/[34px] text-center md:text-start">
+
+          {/* Middle Column - Contact */}
+          <div className="flex flex-col">
+            <div className="h-[70px] flex items-center mb-8">
+              <p className="text-primarioMuyClaro font-bricolage font-semibold text-[28px]/[34px]">
                 {t("contacto")}
               </p>
-              <Image src={arrow} alt="arrow" className="hidden lg:flex" />
+              <Image src={arrow} alt="arrow" className="hidden lg:block ml-2" />
             </div>
-
-            <ul className="w-[90%] md:w-full mx-auto">
+            <ul className="space-y-4 pt-2">
               {/* <li>
                 <FooterItem icon={phoneIcon} label="+54 9 2645 13-9725" />
               </li> */}
               <li>
                 <FooterItem icon={phoneIcon} label="+33 07 44 78 73 54" />
               </li>
-              <li className=" break-all">
+              <li className="break-all">
                 <FooterItem
                   icon={mailIcon}
                   label="contact@lacasadelosfranceses.com"
@@ -72,22 +85,28 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="col-span-4 flex flex-col gap-[25px] max-w-full grow-0 ">
-            <p className="text-primarioMuyClaro font-bricolage font-semibold text-[28px]/[34px] text-center md:text-start">
-              {t("varios")}
-            </p>
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              <ul className="w-[90%] md:w-full mx-auto">
+          {/* Right Column - Various */}
+          <div className="flex flex-col">
+            <div className="h-[70px] flex items-center mb-8">
+              <p className="text-primarioMuyClaro font-bricolage font-semibold text-[28px]/[34px]">
+                {t("varios")}
+              </p>
+              <Image src={arrow} alt="arrow" className="hidden lg:block ml-2" />
+            </div>
+            <div className="space-y-4 pt-2">
+              <ul className="space-y-4">
+                <li>
+                  <FooterItem icon={shopIcon} label={t("horariosTienda")} />
+                </li>
                 <li>
                   <FooterItem
                     icon={questionIcon}
                     label={t("preguntasFrecuentes")}
-                    link="preguntasFrecuentes"
                   />
                 </li>
-                <li>
+                {/* <li>
                   <FooterItem icon={listIcon} label={t("bases")} />
-                </li>
+                </li> */}
                 <li>
                   <FooterItem
                     icon={creditCardIcon}
@@ -95,28 +114,26 @@ export default function Footer() {
                     link="membresia"
                   />
                 </li>
-                <li>
+                {/* <li>
                   <FooterItem
                     icon={messageAlertIcon}
                     label={t("arrepentimiento")}
                   />
-                </li>
+                </li> */}
               </ul>
-
-              <ul className="w-[90%] md:w-full mx-auto">
-                <li>
-                  <FooterItem icon={shopIcon} label={t("horariosTienda")} />
-                </li>
-                <li>
+              <ul className="space-y-4">
+                {/* <li>
                   <FooterItem icon={headsetIcon} label={t("atencion")} />
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
         </div>
-      </div>
-      <div className="max-w-[800px] mx-auto mt-[50px] px-[15px] md:px-[50px]">
-        <Image src={Legislation} alt="legislation" />
+
+        {/* Legislation Image */}
+        <div className="max-w-[800px] mx-auto mt-12 px-4 lg:px-12">
+          <Image src={Legislation} alt="legislation" />
+        </div>
       </div>
     </footer>
   );

@@ -13,6 +13,7 @@ export default function FooterItem({ icon, label, link }: FooterItemProps) {
   return (
     <Etiqueta
       href={linkFooter}
+      target={link ? "_blank" : undefined}
       className="group p-[10px] gap-[10px] hover:gap-[15px] flex items-start transition-all ease-in-out duration-150 cursor-pointer max-w-full "
     >
       <Image src={icon} alt="icon" width={20} className="shrink-0" />

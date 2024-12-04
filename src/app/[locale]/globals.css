@@ -64,6 +64,8 @@
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+    overflow-y: auto; /* Muestra la barra de desplazamiento vertical */
   }
 }
 
@@ -74,9 +76,9 @@
   transform: rotate(-90deg);
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .cursor-grab {
   cursor: grab;

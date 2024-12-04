@@ -168,7 +168,7 @@ export default function AccordionComponent({
                 type="text"
                 name="minPrice"
                 className="border border-gris5 p-2 rounded-[10px] outline-none font-bricolage font-light text-[16px] text-gris3"
-                placeholder="$"
+                placeholder="€"
               />
             </div>
             <div className="flex flex-col gap-[7px] pb-2 px-[2px]">
@@ -179,7 +179,7 @@ export default function AccordionComponent({
                 type="text"
                 name="maxPrice"
                 className="border border-gris5 p-2 rounded-[10px] outline-none font-bricolage font-light text-[16px] text-gris3"
-                placeholder="$"
+                placeholder="€"
               />
             </div>
           </AccordionContent>
