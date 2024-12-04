@@ -46,12 +46,12 @@ export default function Navbar() {
             </p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
           </Link>
-          {/* <Link href={`/membresia`} className="group px-[25px] py-[10px]">
+          <Link href={`/membresia`} className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro text-center">
               {t("item3")}
             </p>
             <hr className="w-0 group-hover:w-10 border-secundarioOscuro transition-all ease-in-out duration-200" />
-          </Link> */}
+          </Link>
           <Link href={`/local`} className="group px-[25px] py-[10px]">
             <p className="uppercase text-secundarioOscuro text-center">
               {t("item4")}
@@ -70,13 +70,13 @@ export default function Navbar() {
             </Link>
 
             <OpenCart />
-
+            {/* 
             <Link
               href="#footer"
               className="h-[30px] w-[30px] relative border-transparent hover:border rounded-full hover:border-secundarioOscuro transition-all ease-in-out duration-150 cursor-pointer"
             >
               <Image src={UserIcon} alt="contacto icon" className="p-[2px]" />
-            </Link>
+            </Link> */}
           </div>
 
           <div className="hidden lg:flex">
