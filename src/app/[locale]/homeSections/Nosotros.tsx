@@ -56,7 +56,7 @@ export default function Nosotros({ links }: CategoriaProps) {
               <BotonXL
                 icon={wineIcon}
                 text={t("botonMenu")}
-                link={getFileLink("menu")}
+                link="https://paa.ge/lacasadelosfranceses"
               />
               <BotonNoFillXL
                 icon={locationIcon}

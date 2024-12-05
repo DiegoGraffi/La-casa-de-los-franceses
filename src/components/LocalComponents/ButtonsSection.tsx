@@ -32,7 +32,7 @@ export default async function ButtonsSection() {
   return (
     <section className="flex my-[80px] w-[100%] px-[15px] justify-center">
       <Link
-        href={getFileLink("menu")}
+        href="https://paa.ge/lacasadelosfranceses"
         target="_blank"
         className="group relative flex justify-center items-center w-[50%] lg:w-[600px] h-[150px] lg:h-[250px] rounded-tl-[50px] rounded-br-[50px] overflow-hidden"
       >

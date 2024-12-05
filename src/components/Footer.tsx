@@ -36,7 +36,7 @@ export default function Footer() {
               <li className="break-all">
                 <FooterItem
                   icon={pinIcon}
-                  label="31 BVD DE COURSELLES -  75008 - PARIS"
+                  label="31 BVD DE COURCELLES -  75008 - PARIS"
                   link="https://www.google.com/maps/place/La+Casa+de+Los+Franceses/@48.8807734,2.3107157,17z/data=!3m1!4b1!4m6!3m5!1s0x47e66f5d3f4bea6b:0x664222acf3052e02!8m2!3d48.8807699!4d2.3132906!16s%2Fg%2F11w9ky03nk?entry=tts&g_ep=EgoyMDI0MTEyNC4xIPu8ASoASAFQAw%3D%3D"
                 />
               </li>

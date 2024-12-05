@@ -66,6 +66,13 @@ export function NavbarMobile() {
               </Link>
             </li>
             <li className="w-min px-[25px] py-[25px] border-b border-b-secundarioOscuro last:mb-[25px]">
+              <Link href={`/nosotros`} onClick={() => setMenuAbierto(false)}>
+                <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
+                  {t("item3")}
+                </p>
+              </Link>
+            </li>
+            <li className="w-min px-[25px] py-[25px] border-b border-b-secundarioOscuro last:mb-[25px]">
               <Link href={`/local`} onClick={() => setMenuAbierto(false)}>
                 <p className="uppercase text-[24px]/[28px] font-bricolage text-secundarioOscuro text-center font-extralight">
                   {t("item4")}
