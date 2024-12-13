@@ -121,6 +121,10 @@ export default async function Producto({
 
   const productId = product.productByHandle?.id;
 
+  const hasAdditionalInfo = product.productByHandle?.metafields.some(
+    (metafield) => metafield?.value
+  );
+
   return (
     <div className="flex flex-col items-center justify-center overflow-x-hidden gap-[75px] md:gap-[100px] lg:gap-[150px] pt-[100px] lg:pt-[180px]">
       <section className="grid grid-cols-1 auto-rows-auto lg:grid-cols-2 lg:grid-rows-1 max-w-[1600px] px-[20px] lg:px-[100px] xl:px-[200px] gap-[40px] w-screen justify-center mx-auto">
@@ -208,25 +212,33 @@ export default async function Producto({
                 )}
               />
             </Suspense>
-            <div className="hidden lg:flex xl:hidden">
-              <BotonNoFillLG text="+" link={"#aditionalInfo"} />
-            </div>
-            <div className="hidden xl:flex ">
-              <BotonNoFillXL text="Ver mas" link={"#aditionalInfo"} />
-            </div>
-          </div>
+            {hasAdditionalInfo && (
+              <>
+                <div className="hidden lg:flex xl:hidden">
+                  <BotonNoFillLG text="+" link={"#aditionalInfo"} />
+                </div>
 
-          <div className="lg:hidden mx-auto md:mt-[20px]">
-            <BotonNoFillLG text="Ver mas" link={"#aditionalInfo"} />
+                <div className="hidden xl:flex ">
+                  <BotonNoFillXL text="Ver mas" link={"#aditionalInfo"} />
+                </div>
+
+                <div className="lg:hidden mx-auto md:mt-[20px]">
+                  <BotonNoFillLG text="Ver mas" link={"#aditionalInfo"} />
+                </div>
+              </>
+            )}
           </div>
         </div>
       </section>
-
-      <RelatedProducts id={productId ?? ""} />
-
-      <div className="mx-auto w-full max-w-[1600px] pb-[100px]">
-        <AditionalInfo product={product} awards={awards} />
+      <div className="mb-14">
+        <RelatedProducts id={productId ?? ""} />
       </div>
+
+      {hasAdditionalInfo && (
+        <div className="mx-auto w-full max-w-[1600px] pb-[100px]">
+          <AditionalInfo product={product} awards={awards} />
+        </div>
+      )}
     </div>
   );
 }

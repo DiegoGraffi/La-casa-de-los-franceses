@@ -11,6 +11,7 @@ type Props = {
 export default function BotonLG({ text, icon, link, color }: Props) {
   return (
     <Link
+    target={link ? "_blank" : undefined}
       href={link}
       className={`${
         color === "rojo"

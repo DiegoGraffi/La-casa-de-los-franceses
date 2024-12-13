@@ -61,7 +61,7 @@ export default function Nosotros({ links }: CategoriaProps) {
               <BotonNoFillXL
                 icon={locationIcon}
                 text={t("botonUbicacion")}
-                link={getFileLink("ubicacion")}
+                link="https://maps.app.goo.gl/jU3VPY5hkm1AJKVA7"
               />
             </div>
           </div>
@@ -103,7 +103,7 @@ export default function Nosotros({ links }: CategoriaProps) {
             icon={bookIcon}
           />
           <BotonLG
-            link={getFileLink("ubicacion")}
+            link="https://maps.app.goo.gl/jU3VPY5hkm1AJKVA7"
             color="verde"
             text={t("botonUbicacion")}
             icon={locationIcon}

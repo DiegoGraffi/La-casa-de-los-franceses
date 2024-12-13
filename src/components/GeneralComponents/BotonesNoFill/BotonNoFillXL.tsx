@@ -10,6 +10,7 @@ type Props = {
 export default function BotonNoFillXL({ text, icon, link }: Props) {
   return (
     <Link
+      target={link ? "_blank" : undefined}
       href={link}
       className={`group border border-solid border-primarioOscuro px-[28px] py-[10px] rounded-full justify-center items-center flex w-max bg-transparent md:hover:bg-primarioOscuro md:hover:border-primarioMuyOscuro active:bg-primarioClaro disabled:border-primarioMuyClaro disabled:text-primarioClaro transition-all ease-out duration-300`}
     >

@@ -12,6 +12,7 @@ type Props = {
 export default function BotonXL({ text, icon, link, color, file }: Props) {
   return (
     <Link
+      target={link ? "_blank" : undefined}
       href={link}
       className={`${
         color === "rojo"
