@@ -13,10 +13,12 @@ export default function ProductDetailDescription({
 }: Props) {
   const locale = usePathname()?.split("/")[1];
   const isSpanish = locale === "es";
+  const content = isSpanish ? description : translatedDescription;
 
   return (
-    <p className="font-bricolage text-balance text-[14px]/[22px] lg:text-[20px]/[25px] font-light text-gris1 max-w-[650px] mx-auto text-center lg:text-start w-full">
-      {isSpanish ? description : translatedDescription}
-    </p>
+    <div
+      className="font-bricolage text-balance text-[14px]/[22px] lg:text-[20px]/[25px] font-light  max-w-[650px] mx-auto text-center lg:text-start w-full"
+      dangerouslySetInnerHTML={{ __html: content ?? "" }}
+    />
   );
 }

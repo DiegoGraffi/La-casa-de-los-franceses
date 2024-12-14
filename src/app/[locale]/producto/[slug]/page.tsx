@@ -41,7 +41,7 @@ export default async function Producto({
           }
         }
         totalInventory
-        description
+        descriptionHtml
         priceRange {
           maxVariantPrice {
             amount
@@ -80,7 +80,7 @@ export default async function Producto({
       productByHandle(handle: $handle) {
         title
         id
-        description
+        descriptionHtml
       }
     }
   `);
@@ -156,9 +156,9 @@ export default async function Producto({
               {product.productByHandle?.title}
             </h2>
             <ProductDetailDescription
-              description={product.productByHandle?.description}
+              description={product.productByHandle?.descriptionHtml}
               translatedDescription={
-                translatedProduct.productByHandle?.description
+                translatedProduct.productByHandle?.descriptionHtml
               }
             />
           </div>
