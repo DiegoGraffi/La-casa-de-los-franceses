@@ -111,7 +111,7 @@ export default function Nosotros({ links }: CategoriaProps) {
         </div>
         <div className="w-full md:flex gap-[30px] justify-center hidden">
           <BotonXL
-            link={getFileLink("menu")}
+            link="https://paa.ge/lacasadelosfranceses"
             color="verde"
             text={t("botonMenu")}
             icon={bookIcon}
