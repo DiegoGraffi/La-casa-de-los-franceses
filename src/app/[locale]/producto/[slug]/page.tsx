@@ -199,7 +199,7 @@ export default async function Producto({
             </div>
           )}
 
-          <div className="flex items-center gap-[25px] justify-center lg:justify-start">
+          <div className="flex items-center lg:flex-row flex-col gap-[10px] lg:gap-[25px] justify-center lg:justify-start">
             <Suspense fallback={null}>
               <AddToCart
                 stock={stock}
