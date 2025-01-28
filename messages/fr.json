@@ -163,7 +163,8 @@
     "persona": "Photo de personne",
     "lenguajeIcon": "Icône de langue",
     "noProductos": "Il n'y a aucun produit existant",
-    "similares": "Produits similaires"
+    "similares": "Produits similaires",
+    "deslizarText": "Scroller"
   },
   "Informacion Producto": {
     "noInfo": "Aucun information disponible pour le produit",

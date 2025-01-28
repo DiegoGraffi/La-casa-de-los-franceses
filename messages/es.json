@@ -163,7 +163,8 @@
     "persona": "Foto de persona",
     "lenguajeIcon": "Ícono de lenguaje",
     "noProductos": "No hay productos existentes",
-    "similares": "Productos similares"
+    "similares": "Productos similares",
+    "deslizarText": "Deslizar"
   },
   "Informacion Producto": {
     "noInfo": "No hay información disponible sobre el producto",
