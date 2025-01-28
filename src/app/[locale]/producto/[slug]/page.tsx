@@ -76,7 +76,7 @@ export default async function Producto({
   `);
 
   const translateQuery = graphql(`
-    query translatedProduct($handle: String!) @inContext(language: FR) {
+    query translatedProduct($handle: String!) @inContext(language: ES) {
       productByHandle(handle: $handle) {
         title
         id
@@ -88,7 +88,6 @@ export default async function Producto({
   const variables = { handle: params.slug };
   const product = await fetchGraphql(query, variables);
   const translatedProduct = await fetchGraphql(translateQuery, variables);
-
   let awards: string[] = [];
 
   if (product.productByHandle?.metafields[0]?.value) {
