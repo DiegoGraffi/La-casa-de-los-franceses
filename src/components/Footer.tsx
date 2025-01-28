@@ -32,7 +32,7 @@ export default function Footer() {
                 className="object-contain"
               />
             </div>
-            <ul className="space-y-4 pt-2 inline-block text-left">
+            <ul className="space-y-4 pt-2 inline-block text-center  lg:text-left">
               <li className="break-all">
                 <FooterItem
                   icon={pinIcon}
@@ -91,7 +91,7 @@ export default function Footer() {
               <Image src={arrow} alt="arrow" className="hidden lg:block ml-2" />
             </div>
             <div className="space-y-4 pt-2">
-              <ul className="space-y-4 inline-block text-left">
+              <ul className="space-y-4 inline-block text-center md:text-left">
                 <li>
                   <FooterItem icon={shopIcon} label={t("horariosTienda")} />
                 </li>

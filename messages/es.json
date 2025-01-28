@@ -164,7 +164,8 @@
     "lenguajeIcon": "Ícono de lenguaje",
     "noProductos": "No hay productos existentes",
     "similares": "Productos similares",
-    "deslizarText": "Deslizar"
+    "deslizarText": "Deslizar",
+    "mouse": "mouse"
   },
   "Informacion Producto": {
     "noInfo": "No hay información disponible sobre el producto",

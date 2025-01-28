@@ -13,7 +13,7 @@ export default function ProductDetailDescription({
 }: Props) {
   const locale = usePathname()?.split("/")[1];
   const isSpanish = locale === "es";
-  const content = isSpanish ? description : translatedDescription;
+  const content = isSpanish ? translatedDescription : description;
 
   return (
     <div
